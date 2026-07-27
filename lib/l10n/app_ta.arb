@@ -1,0 +1,19 @@
+{
+  "@@locale": "ta",
+
+  "appName": "Nexmile",
+  "tagline": "விரைவான டெலிவரி. புத்துணர்ச்சியான புன்னகை.",
+  "chooseLanguageTitle": "உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்",
+  "chooseLanguageSubtitle": "உங்களுக்கு வசதியான மொழியைத் தேர்ந்தெடுக்கவும். அமைப்புகளில் எப்போது வேண்டுமானாலும் இதை மாற்றலாம்.",
+  "searchLanguageHint": "மொழியைத் தேடுங்கள்",
+  "noLanguageFound": "மொழி எதுவும் கிடைக்கவில்லை",
+  "languagesAvailable": "{count} மொழிகள் உள்ளன",
+  "continueLabel": "தொடரவும்",
+  "selectedLabel": "தேர்ந்தெடுக்கப்பட்டது",
+  "defaultLabel": "இயல்புநிலை",
+  "homeTitle": "Nexmile-க்கு வரவேற்கிறோம்",
+  "homeSubtitle": "புதிய மளிகைப் பொருட்கள், சூடான உணவு மற்றும் அன்றாடத் தேவைகள் உங்கள் அருகிலுள்ள கடைகளிலிருந்து.",
+  "changeLanguage": "மொழியை மாற்று",
+  "languageUpdated": "மொழி மாற்றப்பட்டது",
+  "appLanguageLabel": "செயலி மொழி"
+}

@@ -1,0 +1,19 @@
+{
+  "@@locale": "or",
+
+  "appName": "Nexmile",
+  "tagline": "ଦ୍ରୁତ ଡେଲିଭରି। ସତେଜ ହସ।",
+  "chooseLanguageTitle": "ଆପଣଙ୍କ ଭାଷା ବାଛନ୍ତୁ",
+  "chooseLanguageSubtitle": "ଆପଣ ସହଜ ଅନୁଭବ କରୁଥିବା ଭାଷା ବାଛନ୍ତୁ। ଆପଣ ଏହାକୁ ଯେକୌଣସି ସମୟରେ ସେଟିଂସରେ ବଦଳାଇ ପାରିବେ।",
+  "searchLanguageHint": "ଭାଷା ଖୋଜନ୍ତୁ",
+  "noLanguageFound": "କୌଣସି ଭାଷା ମିଳିଲା ନାହିଁ",
+  "languagesAvailable": "{count}ଟି ଭାଷା ଉପଲବ୍ଧ",
+  "continueLabel": "ଆଗକୁ ବଢ଼ନ୍ତୁ",
+  "selectedLabel": "ଚୟନିତ",
+  "defaultLabel": "ଡିଫଲ୍ଟ",
+  "homeTitle": "Nexmile କୁ ସ୍ୱାଗତ",
+  "homeSubtitle": "ସତେଜ ମୁଦି ସାମଗ୍ରୀ, ଗରମ ଖାଦ୍ୟ ଏବଂ ଦୈନନ୍ଦିନ ଆବଶ୍ୟକତା ଆପଣଙ୍କ ନିକଟସ୍ଥ ଦୋକାନରୁ।",
+  "changeLanguage": "ଭାଷା ବଦଳାନ୍ତୁ",
+  "languageUpdated": "ଭାଷା ବଦଳାଗଲା",
+  "appLanguageLabel": "ଆପ୍ ଭାଷା"
+}

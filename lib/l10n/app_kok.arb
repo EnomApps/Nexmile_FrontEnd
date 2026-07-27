@@ -1,0 +1,19 @@
+{
+  "@@locale": "kok",
+
+  "appName": "Nexmile",
+  "tagline": "वेगान डिलिव्हरी. ताजें हास्य.",
+  "chooseLanguageTitle": "तुमची भास वेंचात",
+  "chooseLanguageSubtitle": "तुमकां सोंपी दिसता ती भास वेंचात. तुमी ती केन्नाय सेटिंग्जांत बदलूं येता.",
+  "searchLanguageHint": "भास सोदात",
+  "noLanguageFound": "खंयचीच भास मेळूंक ना",
+  "languagesAvailable": "{count} भासो उपलब्ध आसात",
+  "continueLabel": "फुडें वचात",
+  "selectedLabel": "वेंचिल्ली",
+  "defaultLabel": "डिफॉल्ट",
+  "homeTitle": "Nexmile हांगा येवकार",
+  "homeSubtitle": "ताजो किराणो, गरम जेवण आनी दिसपट्ट्यो गरजेच्यो वस्तू तुमच्या लागसारच्या दुकानांतल्यान.",
+  "changeLanguage": "भास बदलात",
+  "languageUpdated": "भास बदल्ली",
+  "appLanguageLabel": "ॲपाची भास"
+}

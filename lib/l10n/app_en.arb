@@ -1,0 +1,84 @@
+{
+  "@@locale": "en",
+
+  "appName": "Nexmile",
+  "@appName": {
+    "description": "The application name. Kept as-is (Latin script) in every locale."
+  },
+
+  "tagline": "Fast Delivery. Fresh Smiles.",
+  "@tagline": {
+    "description": "Brand tagline shown under the logo on the splash screen."
+  },
+
+  "chooseLanguageTitle": "Choose your language",
+  "@chooseLanguageTitle": {
+    "description": "Headline of the language selection screen."
+  },
+
+  "chooseLanguageSubtitle": "Pick the language you are most comfortable with. You can change it anytime from Settings.",
+  "@chooseLanguageSubtitle": {
+    "description": "Supporting copy under the language screen headline."
+  },
+
+  "searchLanguageHint": "Search language",
+  "@searchLanguageHint": {
+    "description": "Placeholder text inside the language search field."
+  },
+
+  "noLanguageFound": "No language found",
+  "@noLanguageFound": {
+    "description": "Empty state shown when the search query matches no language."
+  },
+
+  "languagesAvailable": "{count} languages available",
+  "@languagesAvailable": {
+    "description": "Count of languages offered by the app.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "23"
+      }
+    }
+  },
+
+  "continueLabel": "Continue",
+  "@continueLabel": {
+    "description": "Primary button that confirms the selected language."
+  },
+
+  "selectedLabel": "Selected",
+  "@selectedLabel": {
+    "description": "Accessibility / badge label on the currently selected language tile."
+  },
+
+  "defaultLabel": "Default",
+  "@defaultLabel": {
+    "description": "Badge shown on English, the default language."
+  },
+
+  "homeTitle": "Welcome to Nexmile",
+  "@homeTitle": {
+    "description": "Greeting headline on the home screen."
+  },
+
+  "homeSubtitle": "Fresh groceries, hot food and daily essentials delivered from shops near you.",
+  "@homeSubtitle": {
+    "description": "Supporting copy on the home screen."
+  },
+
+  "changeLanguage": "Change language",
+  "@changeLanguage": {
+    "description": "Action that reopens the language selection screen."
+  },
+
+  "languageUpdated": "Language updated",
+  "@languageUpdated": {
+    "description": "Snackbar confirmation shown after the language changes."
+  },
+
+  "appLanguageLabel": "App language",
+  "@appLanguageLabel": {
+    "description": "Label preceding the name of the currently active language."
+  }
+}

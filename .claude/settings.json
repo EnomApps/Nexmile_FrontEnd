@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(flutter build apk --debug 2>&1)",
+      "PowerShell(flutter build apk --release 2>&1)",
+      "PowerShell(flutter install --release -d 10BE3T2CX7000CK 2>&1)"
+    ]
+  }
+}

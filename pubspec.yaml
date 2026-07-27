@@ -1,0 +1,74 @@
+name: nexmile
+description: "Nexmile - Fast Delivery. Fresh Smiles."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0-323.0.dev
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Localization / formatting
+  intl: any
+
+  # Persistence for the chosen language
+  shared_preferences: ^2.3.3
+
+  # Lightweight state propagation for locale changes
+  provider: ^6.1.2
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.1
+  flutter_native_splash: ^2.4.3
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/images/
+    - assets/icon/
+
+# ---------------------------------------------------------------------------
+# App launcher icons  ->  dart run flutter_launcher_icons
+# ---------------------------------------------------------------------------
+flutter_launcher_icons:
+  image_path: "assets/icon/nexmile_icon.png"
+  android: "ic_launcher"
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: "assets/icon/nexmile_icon_fg.png"
+  min_sdk_android: 23
+  ios: true
+  remove_alpha_ios: true
+  background_color_ios: "#000000"
+
+# ---------------------------------------------------------------------------
+# Native (OS-level) splash shown before the Flutter splash  ->
+#   dart run flutter_native_splash:create
+#
+# Intentionally a plain black field with no artwork: the in-app splash opens
+# from a single orange dot on black, so anything drawn here would have to
+# disappear before that first beat. Black hands straight over to it.
+# (Android 12+ always composites the launcher icon over the system splash —
+# that is an OS behaviour, not a setting; the icon is on black too, so it
+# still reads as one continuous screen.)
+# ---------------------------------------------------------------------------
+flutter_native_splash:
+  color: "#000000"
+  android_12:
+    color: "#000000"
+    icon_background_color: "#000000"
+  android: true
+  ios: true
+  web: false
+  fullscreen: false

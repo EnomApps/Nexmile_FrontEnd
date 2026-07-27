@@ -1,0 +1,19 @@
+{
+  "@@locale": "kn",
+
+  "appName": "Nexmile",
+  "tagline": "ವೇಗದ ಡೆಲಿವರಿ. ತಾಜಾ ನಗು.",
+  "chooseLanguageTitle": "ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+  "chooseLanguageSubtitle": "ನಿಮಗೆ ಅನುಕೂಲವಾದ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ. ಇದನ್ನು ಯಾವಾಗ ಬೇಕಾದರೂ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಬದಲಾಯಿಸಬಹುದು.",
+  "searchLanguageHint": "ಭಾಷೆಯನ್ನು ಹುಡುಕಿ",
+  "noLanguageFound": "ಯಾವುದೇ ಭಾಷೆ ಸಿಗಲಿಲ್ಲ",
+  "languagesAvailable": "{count} ಭಾಷೆಗಳು ಲಭ್ಯವಿದೆ",
+  "continueLabel": "ಮುಂದುವರಿಸಿ",
+  "selectedLabel": "ಆಯ್ಕೆಯಾಗಿದೆ",
+  "defaultLabel": "ಡೀಫಾಲ್ಟ್",
+  "homeTitle": "Nexmile ಗೆ ಸ್ವಾಗತ",
+  "homeSubtitle": "ತಾಜಾ ದಿನಸಿ, ಬಿಸಿ ಆಹಾರ ಮತ್ತು ದೈನಂದಿನ ಅಗತ್ಯ ವಸ್ತುಗಳು ನಿಮ್ಮ ಹತ್ತಿರದ ಅಂಗಡಿಗಳಿಂದ.",
+  "changeLanguage": "ಭಾಷೆ ಬದಲಾಯಿಸಿ",
+  "languageUpdated": "ಭಾಷೆ ಬದಲಾಗಿದೆ",
+  "appLanguageLabel": "ಆ್ಯಪ್ ಭಾಷೆ"
+}

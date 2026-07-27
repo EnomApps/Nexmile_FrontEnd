@@ -1,0 +1,19 @@
+{
+  "@@locale": "ks",
+
+  "appName": "Nexmile",
+  "tagline": "تیز ڈیلیوری۔ تازٕ مُسکراہٹ۔",
+  "chooseLanguageTitle": "پنُن زبان ژارٕو",
+  "chooseLanguageSubtitle": "یِم زبان چھِوٕ آسان محسوس کران سُہ ژارٕو۔ توہہِ ہیٚکِو یہ کُنہِ وقتہٕ سیٹِنگز منٛز بدلاوِتھ۔",
+  "searchLanguageHint": "زبان ژھانڈٕو",
+  "noLanguageFound": "کانہہ زبان نہ لبنہٕ آیہ",
+  "languagesAvailable": "{count} زباناہ چھِ دستیاب",
+  "continueLabel": "برونہہ گژھِو",
+  "selectedLabel": "ژارنہٕ آمُت",
+  "defaultLabel": "ڈیفالٹ",
+  "homeTitle": "Nexmile منٛز خوش آمدید",
+  "homeSubtitle": "تازٕ گروسری، گرٕم کھَنہٕ تہٕ روزمرٕ ضرورتہٕ توہنٛدِن نزدیٚکی دُکانن پؠٹھٕ۔",
+  "changeLanguage": "زبان بدلاوٕو",
+  "languageUpdated": "زبان آیہ بدلاونہٕ",
+  "appLanguageLabel": "ایپ زبان"
+}

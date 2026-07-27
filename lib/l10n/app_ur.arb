@@ -1,0 +1,19 @@
+{
+  "@@locale": "ur",
+
+  "appName": "Nexmile",
+  "tagline": "تیز ڈیلیوری۔ تازہ مسکراہٹیں۔",
+  "chooseLanguageTitle": "اپنی زبان منتخب کریں",
+  "chooseLanguageSubtitle": "وہ زبان منتخب کریں جس میں آپ آسانی محسوس کرتے ہیں۔ آپ اسے کسی بھی وقت ترتیبات میں تبدیل کر سکتے ہیں۔",
+  "searchLanguageHint": "زبان تلاش کریں",
+  "noLanguageFound": "کوئی زبان نہیں ملی",
+  "languagesAvailable": "{count} زبانیں دستیاب ہیں",
+  "continueLabel": "جاری رکھیں",
+  "selectedLabel": "منتخب شدہ",
+  "defaultLabel": "ڈیفالٹ",
+  "homeTitle": "Nexmile میں خوش آمدید",
+  "homeSubtitle": "تازہ گروسری، گرم کھانا اور روزمرہ کی ضروریات آپ کے قریبی دکانوں سے۔",
+  "changeLanguage": "زبان تبدیل کریں",
+  "languageUpdated": "زبان تبدیل ہو گئی",
+  "appLanguageLabel": "ایپ کی زبان"
+}

@@ -1,0 +1,19 @@
+{
+  "@@locale": "brx",
+
+  "appName": "Nexmile",
+  "tagline": "गोख्रों डेलिभारि। गोदान मिनिस्लु।",
+  "chooseLanguageTitle": "नोंथांनि राव सायख",
+  "chooseLanguageSubtitle": "नोंथांनो गोसो जायो एरै रावखौ सायख। नोंथाङो बेखौ जेब्लाबाबो सेटिंसआव सोलायनो हागोन।",
+  "searchLanguageHint": "राव नागिर",
+  "noLanguageFound": "जेबो राव मोनाखै",
+  "languagesAvailable": "{count} राव मोननो हायो",
+  "continueLabel": "लाबोबाय था",
+  "selectedLabel": "सायखनाय",
+  "defaultLabel": "डिफल्ट",
+  "homeTitle": "Nexmile आव आजादा",
+  "homeSubtitle": "गोदान किराना, गोदै आहार आरो सानफ्रोमबो नांगौ बेसादफोर नोंथांनि खात्रिनि दुखानिफ्राय।",
+  "changeLanguage": "राव सोलाय",
+  "languageUpdated": "राव सोलायबाय",
+  "appLanguageLabel": "एपनि राव"
+}

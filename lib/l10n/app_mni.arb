@@ -1,0 +1,19 @@
+{
+  "@@locale": "mni",
+
+  "appName": "Nexmile",
+  "tagline": "থুনা ডেলিভরি। অনৌবা নোকপা।",
+  "chooseLanguageTitle": "নহাক্কী লোল খল্লু",
+  "chooseLanguageSubtitle": "নহাক্না লাইনা খংবা লোল অদু খল্লু। মসিবু মতম খুদিংদা সেটিংস্তা হোংদোকপা য়াই।",
+  "searchLanguageHint": "লোল থিয়ু",
+  "noLanguageFound": "লোল অমত্তা ফংদে",
+  "languagesAvailable": "লোল {count} ফংই",
+  "continueLabel": "মখা চত্থৌ",
+  "selectedLabel": "খল্লবা",
+  "defaultLabel": "ডিফোল্ট",
+  "homeTitle": "Nexmile-দা তরাম্না ওকচরি",
+  "homeSubtitle": "অনৌবা কিরানা, অসাবা চাক অমসুং নুমিৎ খুদিংগী দরকার ওইবা পোৎলমশিং নহাক্কী নকপা দোকানশিংদগী।",
+  "changeLanguage": "লোল হোংদোকউ",
+  "languageUpdated": "লোল হোংদোক্লে",
+  "appLanguageLabel": "এপকী লোল"
+}

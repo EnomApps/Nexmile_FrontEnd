@@ -1,0 +1,19 @@
+{
+  "@@locale": "sd",
+
+  "appName": "Nexmile",
+  "tagline": "تيز ڊليوري. تازا مرڪون.",
+  "chooseLanguageTitle": "پنهنجي ٻولي چونڊيو",
+  "chooseLanguageSubtitle": "اها ٻولي چونڊيو جنهن ۾ توهان کي آساني ٿئي. توهان ان کي ڪنهن به وقت سيٽنگون ۾ تبديل ڪري سگهو ٿا.",
+  "searchLanguageHint": "ٻولي ڳوليو",
+  "noLanguageFound": "ڪا به ٻولي نه ملي",
+  "languagesAvailable": "{count} ٻوليون موجود آهن",
+  "continueLabel": "اڳتي وڌو",
+  "selectedLabel": "چونڊيل",
+  "defaultLabel": "ڊفالٽ",
+  "homeTitle": "Nexmile ۾ ڀلي ڪري آيا",
+  "homeSubtitle": "تازو راشن، گرم کاڌو ۽ روزمره جون ضرورتون توهان جي ويجهن دڪانن مان.",
+  "changeLanguage": "ٻولي تبديل ڪريو",
+  "languageUpdated": "ٻولي تبديل ٿي وئي",
+  "appLanguageLabel": "ايپ جي ٻولي"
+}

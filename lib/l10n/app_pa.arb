@@ -1,0 +1,19 @@
+{
+  "@@locale": "pa",
+
+  "appName": "Nexmile",
+  "tagline": "ਤੇਜ਼ ਡਿਲੀਵਰੀ। ਤਾਜ਼ੀ ਮੁਸਕਾਨ।",
+  "chooseLanguageTitle": "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ",
+  "chooseLanguageSubtitle": "ਉਹ ਭਾਸ਼ਾ ਚੁਣੋ ਜਿਸ ਵਿੱਚ ਤੁਸੀਂ ਸਹਿਜ ਹੋ। ਤੁਸੀਂ ਇਸਨੂੰ ਕਿਸੇ ਵੀ ਸਮੇਂ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਬਦਲ ਸਕਦੇ ਹੋ।",
+  "searchLanguageHint": "ਭਾਸ਼ਾ ਖੋਜੋ",
+  "noLanguageFound": "ਕੋਈ ਭਾਸ਼ਾ ਨਹੀਂ ਮਿਲੀ",
+  "languagesAvailable": "{count} ਭਾਸ਼ਾਵਾਂ ਉਪਲਬਧ ਹਨ",
+  "continueLabel": "ਅੱਗੇ ਵਧੋ",
+  "selectedLabel": "ਚੁਣੀ ਗਈ",
+  "defaultLabel": "ਡਿਫਾਲਟ",
+  "homeTitle": "Nexmile ਵਿੱਚ ਤੁਹਾਡਾ ਸੁਆਗਤ ਹੈ",
+  "homeSubtitle": "ਤਾਜ਼ਾ ਕਰਿਆਨਾ, ਗਰਮ ਖਾਣਾ ਅਤੇ ਰੋਜ਼ਾਨਾ ਲੋੜਾਂ ਤੁਹਾਡੇ ਨੇੜਲੀਆਂ ਦੁਕਾਨਾਂ ਤੋਂ।",
+  "changeLanguage": "ਭਾਸ਼ਾ ਬਦਲੋ",
+  "languageUpdated": "ਭਾਸ਼ਾ ਬਦਲ ਦਿੱਤੀ ਗਈ",
+  "appLanguageLabel": "ਐਪ ਦੀ ਭਾਸ਼ਾ"
+}

@@ -1,0 +1,19 @@
+{
+  "@@locale": "te",
+
+  "appName": "Nexmile",
+  "tagline": "వేగవంతమైన డెలివరీ. తాజా చిరునవ్వులు.",
+  "chooseLanguageTitle": "మీ భాషను ఎంచుకోండి",
+  "chooseLanguageSubtitle": "మీకు సౌకర్యంగా ఉండే భాషను ఎంచుకోండి. దీన్ని ఎప్పుడైనా సెట్టింగ్‌లలో మార్చుకోవచ్చు.",
+  "searchLanguageHint": "భాషను వెతకండి",
+  "noLanguageFound": "ఏ భాష కనబడలేదు",
+  "languagesAvailable": "{count} భాషలు అందుబాటులో ఉన్నాయి",
+  "continueLabel": "కొనసాగించు",
+  "selectedLabel": "ఎంపిక చేయబడింది",
+  "defaultLabel": "డిఫాల్ట్",
+  "homeTitle": "Nexmile కు స్వాగతం",
+  "homeSubtitle": "తాజా కిరాణా సరుకులు, వేడి ఆహారం మరియు నిత్యావసరాలు మీ దగ్గరి దుకాణాల నుండి.",
+  "changeLanguage": "భాషను మార్చండి",
+  "languageUpdated": "భాష మార్చబడింది",
+  "appLanguageLabel": "యాప్ భాష"
+}

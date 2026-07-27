@@ -1,0 +1,19 @@
+{
+  "@@locale": "bn",
+
+  "appName": "Nexmile",
+  "tagline": "দ্রুত ডেলিভারি। সতেজ হাসি।",
+  "chooseLanguageTitle": "আপনার ভাষা বেছে নিন",
+  "chooseLanguageSubtitle": "যে ভাষায় আপনি স্বচ্ছন্দ সেটি বেছে নিন। আপনি যেকোনো সময় সেটিংস থেকে এটি পরিবর্তন করতে পারেন।",
+  "searchLanguageHint": "ভাষা খুঁজুন",
+  "noLanguageFound": "কোনো ভাষা পাওয়া যায়নি",
+  "languagesAvailable": "{count}টি ভাষা রয়েছে",
+  "continueLabel": "চালিয়ে যান",
+  "selectedLabel": "নির্বাচিত",
+  "defaultLabel": "ডিফল্ট",
+  "homeTitle": "Nexmile-এ স্বাগতম",
+  "homeSubtitle": "তাজা মুদিখানার জিনিস, গরম খাবার এবং প্রতিদিনের প্রয়োজনীয় সামগ্রী আপনার কাছের দোকান থেকে।",
+  "changeLanguage": "ভাষা পরিবর্তন করুন",
+  "languageUpdated": "ভাষা পরিবর্তন করা হয়েছে",
+  "appLanguageLabel": "অ্যাপের ভাষা"
+}

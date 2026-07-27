@@ -1,0 +1,19 @@
+{
+  "@@locale": "doi",
+
+  "appName": "Nexmile",
+  "tagline": "तेज़ डिलीवरी। ताज़ी मुस्कान।",
+  "chooseLanguageTitle": "अपनी बोली चुनो",
+  "chooseLanguageSubtitle": "जिस बोली च तुसें सौखा लगदा ओह् चुनो। तुस इसनूं कदी बी सेटिंग्स च बदली सकदे ओ।",
+  "searchLanguageHint": "बोली तोपो",
+  "noLanguageFound": "कोई बी बोली नेईं लब्भी",
+  "languagesAvailable": "{count} बोलियां उपलब्ध न",
+  "continueLabel": "अग्गें बधो",
+  "selectedLabel": "चुनी गेई",
+  "defaultLabel": "डिफ़ॉल्ट",
+  "homeTitle": "Nexmile च तुंदा स्वागत ऐ",
+  "homeSubtitle": "ताज़ा किराना, गरम खाना ते रोज़ दियां लोड़ां तुंदे नेड़लियां दुकानां थमां।",
+  "changeLanguage": "बोली बदलो",
+  "languageUpdated": "बोली बदली गेई",
+  "appLanguageLabel": "ऐप दी बोली"
+}

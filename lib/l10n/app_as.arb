@@ -1,0 +1,19 @@
+{
+  "@@locale": "as",
+
+  "appName": "Nexmile",
+  "tagline": "দ্ৰুত ডেলিভাৰী। সতেজ হাঁহি।",
+  "chooseLanguageTitle": "আপোনাৰ ভাষা বাছনি কৰক",
+  "chooseLanguageSubtitle": "আপুনি সহজ অনুভৱ কৰা ভাষা বাছনি কৰক। আপুনি ইয়াক যিকোনো সময়তে ছেটিংছত সলনি কৰিব পাৰে।",
+  "searchLanguageHint": "ভাষা বিচাৰক",
+  "noLanguageFound": "কোনো ভাষা পোৱা নগ'ল",
+  "languagesAvailable": "{count}টা ভাষা উপলব্ধ",
+  "continueLabel": "আগবাঢ়ক",
+  "selectedLabel": "বাছনি কৰা হৈছে",
+  "defaultLabel": "ডিফল্ট",
+  "homeTitle": "Nexmile লৈ স্বাগতম",
+  "homeSubtitle": "সতেজ মুদিসামগ্ৰী, গৰম খাদ্য আৰু দৈনন্দিন প্ৰয়োজনীয় সামগ্ৰী আপোনাৰ ওচৰৰ দোকানৰ পৰা।",
+  "changeLanguage": "ভাষা সলনি কৰক",
+  "languageUpdated": "ভাষা সলনি কৰা হ'ল",
+  "appLanguageLabel": "এপৰ ভাষা"
+}

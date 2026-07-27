@@ -1,0 +1,19 @@
+{
+  "@@locale": "gu",
+
+  "appName": "Nexmile",
+  "tagline": "ઝડપી ડિલિવરી. તાજા સ્મિત.",
+  "chooseLanguageTitle": "તમારી ભાષા પસંદ કરો",
+  "chooseLanguageSubtitle": "તમને અનુકૂળ હોય તે ભાષા પસંદ કરો. તમે તેને કોઈપણ સમયે સેટિંગ્સમાં બદલી શકો છો.",
+  "searchLanguageHint": "ભાષા શોધો",
+  "noLanguageFound": "કોઈ ભાષા મળી નથી",
+  "languagesAvailable": "{count} ભાષાઓ ઉપલબ્ધ છે",
+  "continueLabel": "આગળ વધો",
+  "selectedLabel": "પસંદ કરેલ",
+  "defaultLabel": "ડિફૉલ્ટ",
+  "homeTitle": "Nexmile માં આપનું સ્વાગત છે",
+  "homeSubtitle": "તાજું કરિયાણું, ગરમ ખોરાક અને રોજિંદી જરૂરિયાતો તમારી નજીકની દુકાનોમાંથી.",
+  "changeLanguage": "ભાષા બદલો",
+  "languageUpdated": "ભાષા બદલાઈ ગઈ",
+  "appLanguageLabel": "એપની ભાષા"
+}

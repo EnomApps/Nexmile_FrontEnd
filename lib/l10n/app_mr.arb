@@ -1,0 +1,19 @@
+{
+  "@@locale": "mr",
+
+  "appName": "Nexmile",
+  "tagline": "जलद डिलिव्हरी. ताजे स्मित.",
+  "chooseLanguageTitle": "तुमची भाषा निवडा",
+  "chooseLanguageSubtitle": "तुम्हाला सोयीची वाटेल ती भाषा निवडा. तुम्ही ती कधीही सेटिंग्जमध्ये बदलू शकता.",
+  "searchLanguageHint": "भाषा शोधा",
+  "noLanguageFound": "कोणतीही भाषा सापडली नाही",
+  "languagesAvailable": "{count} भाषा उपलब्ध आहेत",
+  "continueLabel": "पुढे चला",
+  "selectedLabel": "निवडलेली",
+  "defaultLabel": "डीफॉल्ट",
+  "homeTitle": "Nexmile मध्ये आपले स्वागत आहे",
+  "homeSubtitle": "ताजा किराणा, गरम जेवण आणि दैनंदिन गरजा तुमच्या जवळच्या दुकानांमधून.",
+  "changeLanguage": "भाषा बदला",
+  "languageUpdated": "भाषा बदलली",
+  "appLanguageLabel": "ॲपची भाषा"
+}

@@ -1,0 +1,19 @@
+{
+  "@@locale": "ml",
+
+  "appName": "Nexmile",
+  "tagline": "വേഗത്തിലുള്ള ഡെലിവറി. പുതിയ പുഞ്ചിരികൾ.",
+  "chooseLanguageTitle": "നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക",
+  "chooseLanguageSubtitle": "നിങ്ങൾക്ക് സൗകര്യപ്രദമായ ഭാഷ തിരഞ്ഞെടുക്കുക. ഇത് എപ്പോൾ വേണമെങ്കിലും ക്രമീകരണങ്ങളിൽ മാറ്റാം.",
+  "searchLanguageHint": "ഭാഷ തിരയുക",
+  "noLanguageFound": "ഭാഷയൊന്നും കണ്ടെത്തിയില്ല",
+  "languagesAvailable": "{count} ഭാഷകൾ ലഭ്യമാണ്",
+  "continueLabel": "തുടരുക",
+  "selectedLabel": "തിരഞ്ഞെടുത്തു",
+  "defaultLabel": "ഡിഫോൾട്ട്",
+  "homeTitle": "Nexmile ലേക്ക് സ്വാഗതം",
+  "homeSubtitle": "പുതിയ പലവ്യഞ്ജനങ്ങൾ, ചൂടുള്ള ഭക്ഷണം, ദൈനംദിന ആവശ്യസാധനങ്ങൾ എന്നിവ അടുത്തുള്ള കടകളിൽ നിന്ന്.",
+  "changeLanguage": "ഭാഷ മാറ്റുക",
+  "languageUpdated": "ഭാഷ മാറ്റി",
+  "appLanguageLabel": "ആപ്പ് ഭാഷ"
+}

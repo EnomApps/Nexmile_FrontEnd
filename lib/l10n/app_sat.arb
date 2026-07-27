@@ -1,0 +1,19 @@
+{
+  "@@locale": "sat",
+
+  "appName": "Nexmile",
+  "tagline": "ᱞᱚᱜᱚᱱ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ᱾ ᱱᱟᱶᱟ ᱞᱟᱸᱰᱟ᱾",
+  "chooseLanguageTitle": "ᱟᱢᱟᱜ ᱯᱟᱹᱨᱥᱤ ᱵᱟᱪᱷᱟᱣ ᱢᱮ",
+  "chooseLanguageSubtitle": "ᱟᱢ ᱡᱟᱦᱟᱸ ᱯᱟᱹᱨᱥᱤ ᱨᱮ ᱥᱩᱦᱩᱞ ᱟᱢ ᱚᱱᱟ ᱵᱟᱪᱷᱟᱣ ᱢᱮ᱾ ᱟᱢ ᱱᱚᱶᱟ ᱡᱟᱦᱟᱸ ᱚᱠᱛᱚ ᱥᱮᱴᱤᱝᱥ ᱨᱮ ᱵᱚᱫᱚᱞ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾",
+  "searchLanguageHint": "ᱯᱟᱹᱨᱥᱤ ᱯᱟᱱᱛᱮ ᱢᱮ",
+  "noLanguageFound": "ᱡᱟᱦᱟᱸ ᱯᱟᱹᱨᱥᱤ ᱵᱟᱝ ᱧᱟᱢ ᱞᱮᱱᱟ",
+  "languagesAvailable": "{count} ᱯᱟᱹᱨᱥᱤ ᱢᱮᱱᱟᱜ-ᱟ",
+  "continueLabel": "ᱞᱟᱦᱟ ᱪᱟᱞᱟᱣ ᱢᱮ",
+  "selectedLabel": "ᱵᱟᱪᱷᱟᱣᱟᱠᱟᱱ",
+  "defaultLabel": "ᱰᱤᱯᱷᱚᱞᱴ",
+  "homeTitle": "Nexmile ᱨᱮ ᱡᱚᱦᱟᱨ",
+  "homeSubtitle": "ᱱᱟᱶᱟ ᱠᱤᱨᱟᱱᱟ, ᱨᱟᱹᱲᱟᱹ ᱡᱚᱢᱟᱜ ᱟᱨ ᱫᱤᱱ ᱫᱤᱱᱟᱜ ᱡᱤᱱᱤᱥ ᱟᱢᱟᱜ ᱡᱟᱹᱛᱤᱭᱟᱹᱨ ᱫᱳᱠᱟᱱ ᱠᱷᱚᱱ᱾",
+  "changeLanguage": "ᱯᱟᱹᱨᱥᱤ ᱵᱚᱫᱚᱞ ᱢᱮ",
+  "languageUpdated": "ᱯᱟᱹᱨᱥᱤ ᱵᱚᱫᱚᱞ ᱮᱱᱟ",
+  "appLanguageLabel": "ᱮᱯ ᱯᱟᱹᱨᱥᱤ"
+}

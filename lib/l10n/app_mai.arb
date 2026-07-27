@@ -1,0 +1,19 @@
+{
+  "@@locale": "mai",
+
+  "appName": "Nexmile",
+  "tagline": "तेज डिलीवरी। ताजा मुस्कान।",
+  "chooseLanguageTitle": "अपन भाषा चुनू",
+  "chooseLanguageSubtitle": "जाहि भाषा मे अहाँ सहज छी, ओ चुनू। अहाँ एकरा कहियो सेटिंग्स मे बदलि सकैत छी।",
+  "searchLanguageHint": "भाषा ताकू",
+  "noLanguageFound": "कोनो भाषा नहि भेटल",
+  "languagesAvailable": "{count} भाषा उपलब्ध अछि",
+  "continueLabel": "आगू बढ़ू",
+  "selectedLabel": "चुनल गेल",
+  "defaultLabel": "डिफ़ॉल्ट",
+  "homeTitle": "Nexmile मे अहाँक स्वागत अछि",
+  "homeSubtitle": "ताजा किराना, गरम भोजन आ रोजक जरूरतक सामान अहाँक लगक दोकान सँ।",
+  "changeLanguage": "भाषा बदलू",
+  "languageUpdated": "भाषा बदलि गेल",
+  "appLanguageLabel": "एप्पक भाषा"
+}

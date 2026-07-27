@@ -1,0 +1,19 @@
+{
+  "@@locale": "sa",
+
+  "appName": "Nexmile",
+  "tagline": "शीघ्रं वितरणम्। नवीनं स्मितम्।",
+  "chooseLanguageTitle": "स्वभाषां चिनोतु",
+  "chooseLanguageSubtitle": "यस्यां भाषायां भवान् सुखं अनुभवति तां चिनोतु। कदापि सेटिंग्स् इत्यत्र परिवर्तयितुं शक्नोति।",
+  "searchLanguageHint": "भाषाम् अन्विष्यतु",
+  "noLanguageFound": "काचिदपि भाषा न प्राप्ता",
+  "languagesAvailable": "{count} भाषाः उपलब्धाः",
+  "continueLabel": "अग्रे गच्छतु",
+  "selectedLabel": "चितम्",
+  "defaultLabel": "पूर्वनिर्धारितम्",
+  "homeTitle": "Nexmile इत्यत्र स्वागतम्",
+  "homeSubtitle": "नवीनं किराणं, उष्णम् अन्नं, दैनन्दिनानि आवश्यकवस्तूनि च समीपस्थेभ्यः आपणेभ्यः।",
+  "changeLanguage": "भाषां परिवर्तयतु",
+  "languageUpdated": "भाषा परिवर्तिता",
+  "appLanguageLabel": "अनुप्रयोगभाषा"
+}
