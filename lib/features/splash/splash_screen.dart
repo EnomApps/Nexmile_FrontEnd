@@ -6,6 +6,7 @@ import '../../core/constants/app_assets.dart';
 import '../../core/localization/locale_controller.dart';
 import '../../core/router/app_router.dart';
 import '../../core/theme/app_colors.dart';
+import '../auth/state/auth_controller.dart';
 import 'widgets/glow_burst.dart';
 import 'widgets/shine_sweep.dart';
 
@@ -127,12 +128,25 @@ class _SplashScreenState extends State<SplashScreen>
 
   void _onStatus(AnimationStatus status) {
     if (status != AnimationStatus.completed || !mounted) return;
-    // A returning user goes straight home; on a fresh install the language
-    // screen comes first, as designed.
-    final bool chosen = context.read<LocaleController>().hasChosenLanguage;
-    Navigator.of(context).pushReplacementNamed(
-      chosen ? AppRoutes.home : AppRoutes.language,
-    );
+
+    // Three-stage hand-off:
+    //   fresh install   -> language screen
+    //   language chosen -> login
+    //   session restored-> dashboard
+    final bool chosenLanguage =
+        context.read<LocaleController>().hasChosenLanguage;
+    final bool signedIn = context.read<AuthController>().isSignedIn;
+
+    final String next;
+    if (!chosenLanguage) {
+      next = AppRoutes.language;
+    } else if (!signedIn) {
+      next = AppRoutes.login;
+    } else {
+      next = AppRoutes.dashboard;
+    }
+
+    Navigator.of(context).pushReplacementNamed(next);
   }
 
   @override
@@ -190,11 +204,14 @@ class _SplashScreenState extends State<SplashScreen>
                             scale: _logoScale,
                             child: ShineSweep(
                               progress: _shine,
+                              // Default filter quality, not medium: on a large
+                              // downscale medium takes Impeller's mipmap path,
+                              // which renders black on some Android devices.
+                              // See BrandMark for where that actually bit.
                               child: Image.asset(
                                 AppAssets.symbol,
                                 width: symbolWidth,
                                 fit: BoxFit.contain,
-                                filterQuality: FilterQuality.medium,
                                 semanticLabel: 'Nexmile',
                               ),
                             ),
@@ -209,7 +226,6 @@ class _SplashScreenState extends State<SplashScreen>
                             AppAssets.wordmark,
                             width: wordmarkWidth,
                             fit: BoxFit.contain,
-                            filterQuality: FilterQuality.medium,
                           ),
                         ),
                         const SizedBox(height: 18),

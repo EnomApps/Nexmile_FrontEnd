@@ -179,13 +179,13 @@ abstract class AppLocalizations {
   /// **'{count} languages available'**
   String languagesAvailable(int count);
 
-  /// Primary button that confirms the selected language.
+  /// Generic confirm action.
   ///
   /// In en, this message translates to:
   /// **'Continue'**
   String get continueLabel;
 
-  /// Accessibility / badge label on the currently selected language tile.
+  /// Accessibility label on the currently selected language tile.
   ///
   /// In en, this message translates to:
   /// **'Selected'**
@@ -197,13 +197,13 @@ abstract class AppLocalizations {
   /// **'Default'**
   String get defaultLabel;
 
-  /// Greeting headline on the home screen.
+  /// Greeting headline on the dashboard.
   ///
   /// In en, this message translates to:
   /// **'Welcome to Nexmile'**
   String get homeTitle;
 
-  /// Supporting copy on the home screen.
+  /// Supporting copy on the dashboard.
   ///
   /// In en, this message translates to:
   /// **'Fresh groceries, hot food and daily essentials delivered from shops near you.'**
@@ -226,6 +226,222 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'App language'**
   String get appLanguageLabel;
+
+  /// Personalised greeting on the dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello, {name}'**
+  String greetingNamed(String name);
+
+  /// Headline of the sign-in screen. Serves new and returning customers alike: the API creates the account on first successful verification.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to Nexmile'**
+  String get loginTitle;
+
+  /// Supporting copy on the sign-in screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email or mobile number and we will send you a verification code.'**
+  String get loginSubtitle;
+
+  /// Label of the single sign-in field, which accepts either.
+  ///
+  /// In en, this message translates to:
+  /// **'Email or mobile number'**
+  String get emailOrPhoneLabel;
+
+  /// Placeholder showing both accepted formats. Keep the example values as-is; translate only the word 'or'.
+  ///
+  /// In en, this message translates to:
+  /// **'name@example.com or 9876543210'**
+  String get emailOrPhoneHint;
+
+  /// Validation error when the sign-in field is neither a valid email nor a valid Indian mobile number.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid email address or 10-digit mobile number'**
+  String get invalidEmailOrPhone;
+
+  /// Primary button on the sign-in screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Send code'**
+  String get sendCode;
+
+  /// Implicit-consent note under the sign-in button. There is no registration form, so this is the only place terms can be surfaced.
+  ///
+  /// In en, this message translates to:
+  /// **'By continuing you agree to our Terms of Service and Privacy Policy.'**
+  String get agreeToTermsOnContinue;
+
+  /// Headline of the code verification screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify it is you'**
+  String get otpTitle;
+
+  /// Supporting copy naming the email or mobile number the code went to.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the 6-digit code we sent to {target}'**
+  String otpSubtitle(String target);
+
+  /// Primary button on the code verification screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify'**
+  String get verifyCode;
+
+  /// Action that requests a fresh code.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend code'**
+  String get resendCode;
+
+  /// Cooldown label. The wait comes from the server's resend_after value.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend code in {seconds}s'**
+  String resendCodeIn(int seconds);
+
+  /// Snackbar confirming a fresh code.
+  ///
+  /// In en, this message translates to:
+  /// **'A new code has been sent'**
+  String get codeResent;
+
+  /// Error for a wrong or expired code. Five wrong attempts burn the code, so the copy points at requesting another.
+  ///
+  /// In en, this message translates to:
+  /// **'That code is not correct or has expired. Request a new one.'**
+  String get incorrectCode;
+
+  /// Error shown when Verify is pressed with an incomplete code.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter all 6 digits'**
+  String get enterFullCode;
+
+  /// Shown on HTTP 403 from the API.
+  ///
+  /// In en, this message translates to:
+  /// **'This account has been suspended. Please contact support.'**
+  String get accountSuspended;
+
+  /// Shown on HTTP 429. Codes are limited to 5 per hour per identifier, 60 seconds apart.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many attempts. Please wait a while and try again.'**
+  String get tooManyAttempts;
+
+  /// Shown when the refresh token is rejected and the session cannot be restored.
+  ///
+  /// In en, this message translates to:
+  /// **'Your session has expired. Please sign in again.'**
+  String get sessionExpired;
+
+  /// Shown when the request never reached the server.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection. Check your connection and try again.'**
+  String get networkError;
+
+  /// Label on the card showing the API's debug_code. Only present outside production, while there is no SMS gateway.
+  ///
+  /// In en, this message translates to:
+  /// **'Development code'**
+  String get developmentCode;
+
+  /// Action that ends the session on this device.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out'**
+  String get signOut;
+
+  /// Snackbar after signing out.
+  ///
+  /// In en, this message translates to:
+  /// **'You have been signed out'**
+  String get signedOut;
+
+  /// Generic fallback error.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get somethingWentWrong;
+
+  /// Title of the profile screen, and the label of the dashboard row that opens it.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profileTitle;
+
+  /// Dashboard action that opens the profile screen.
+  ///
+  /// In en, this message translates to:
+  /// **'View profile'**
+  String get viewProfile;
+
+  /// Profile field label.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get nameLabel;
+
+  /// Profile field label.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get emailLabel;
+
+  /// Profile field label.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile number'**
+  String get mobileLabel;
+
+  /// Profile field label.
+  ///
+  /// In en, this message translates to:
+  /// **'Account status'**
+  String get accountStatusLabel;
+
+  /// Account status. Customers are active immediately after verifying a code.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get statusActive;
+
+  /// Account status. Not expected for customers — riders await approval, customers do not.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get statusPending;
+
+  /// Account status.
+  ///
+  /// In en, this message translates to:
+  /// **'Suspended'**
+  String get statusSuspended;
+
+  /// Badge next to a mobile number the customer has verified by code.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified'**
+  String get verifiedLabel;
+
+  /// Placeholder for a profile field the customer has not filled in. Signing in with a phone leaves the email empty, and vice versa.
+  ///
+  /// In en, this message translates to:
+  /// **'Not added'**
+  String get notProvided;
+
+  /// Action on the profile screen when the refresh failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get retry;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

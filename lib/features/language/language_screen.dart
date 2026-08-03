@@ -84,8 +84,9 @@ class _LanguageScreenState extends State<LanguageScreen> {
     if (!mounted) return;
 
     if (widget.isInitialSetup) {
+      // First run continues into the auth flow rather than the dashboard.
       navigator.pushNamedAndRemoveUntil(
-        AppRoutes.home,
+        AppRoutes.login,
         (Route<void> route) => false,
       );
     } else {

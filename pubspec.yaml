@@ -16,8 +16,15 @@ dependencies:
   # Localization / formatting
   intl: any
 
+  # Nexmile REST API
+  http: ^1.2.2
+
   # Persistence for the chosen language
   shared_preferences: ^2.3.3
+
+  # Access and refresh tokens: Keychain on iOS, EncryptedSharedPreferences on
+  # Android. Never SharedPreferences — those are readable on a rooted device.
+  flutter_secure_storage: ^9.2.2
 
   # Lightweight state propagation for locale changes
   provider: ^6.1.2

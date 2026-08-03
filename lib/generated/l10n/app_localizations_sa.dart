@@ -54,4 +54,118 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get appLanguageLabel => 'अनुप्रयोगभाषा';
+
+  @override
+  String greetingNamed(String name) {
+    return 'नमस्ते, $name';
+  }
+
+  @override
+  String get loginTitle => 'Nexmile इत्यत्र प्रविशतु';
+
+  @override
+  String get loginSubtitle => 'स्वस्य विद्युत्पत्रं चलभाषसङ्ख्यां वा लिखतु, वयं सत्यापनसङ्केतं प्रेषयिष्यामः।';
+
+  @override
+  String get emailOrPhoneLabel => 'विद्युत्पत्रं चलभाषसङ्ख्या वा';
+
+  @override
+  String get emailOrPhoneHint => 'name@example.com अथवा 9876543210';
+
+  @override
+  String get invalidEmailOrPhone => 'सम्यक् विद्युत्पत्रसङ्केतं दशाङ्कीयां चलभाषसङ्ख्यां वा लिखतु';
+
+  @override
+  String get sendCode => 'सङ्केतं प्रेषयतु';
+
+  @override
+  String get agreeToTermsOnContinue => 'अग्रे गच्छन् भवान् अस्माकं सेवानियमान् गोपनीयतानीतिं च स्वीकरोति।';
+
+  @override
+  String get otpTitle => 'भवान् एव इति निश्चिनोतु';
+
+  @override
+  String otpSubtitle(String target) {
+    return '$target प्रति प्रेषितं षडङ्कीयं सङ्केतं लिखतु';
+  }
+
+  @override
+  String get verifyCode => 'सत्यापयतु';
+
+  @override
+  String get resendCode => 'सङ्केतं पुनः प्रेषयतु';
+
+  @override
+  String resendCodeIn(int seconds) {
+    return '$seconds क्षणेषु पुनः प्रेषयतु';
+  }
+
+  @override
+  String get codeResent => 'नवीनः सङ्केतः प्रेषितः';
+
+  @override
+  String get incorrectCode => 'अयं सङ्केतः अशुद्धः कालातीतो वा। नवीनं सङ्केतं याचतु।';
+
+  @override
+  String get enterFullCode => 'सर्वाणि षट् अङ्कानि लिखतु';
+
+  @override
+  String get accountSuspended => 'इयं लेखा स्थगिता। कृपया सहायकैः सह सम्पर्कं करोतु।';
+
+  @override
+  String get tooManyAttempts => 'अतीव प्रयत्नाः कृताः। कृपया किञ्चित्कालानन्तरं पुनः प्रयत्नं करोतु।';
+
+  @override
+  String get sessionExpired => 'भवतः सत्रं समाप्तम्। कृपया पुनः प्रविशतु।';
+
+  @override
+  String get networkError => 'अन्तर्जालसम्बन्धः नास्ति। सम्बन्धं परीक्ष्य पुनः प्रयत्नं करोतु।';
+
+  @override
+  String get developmentCode => 'विकाससङ्केतः';
+
+  @override
+  String get signOut => 'निर्गच्छतु';
+
+  @override
+  String get signedOut => 'भवान् निर्गतः';
+
+  @override
+  String get somethingWentWrong => 'किमपि दोषः अभवत्। कृपया पुनः प्रयत्नं करोतु।';
+
+  @override
+  String get profileTitle => 'परिचयपत्रम्';
+
+  @override
+  String get viewProfile => 'परिचयपत्रं पश्यतु';
+
+  @override
+  String get nameLabel => 'नाम';
+
+  @override
+  String get emailLabel => 'विद्युत्पत्रम्';
+
+  @override
+  String get mobileLabel => 'चलभाषसङ्ख्या';
+
+  @override
+  String get accountStatusLabel => 'लेखायाः स्थितिः';
+
+  @override
+  String get statusActive => 'सक्रियम्';
+
+  @override
+  String get statusPending => 'प्रतीक्षमाणम्';
+
+  @override
+  String get statusSuspended => 'स्थगितम्';
+
+  @override
+  String get verifiedLabel => 'सत्यापितम्';
+
+  @override
+  String get notProvided => 'न योजितम्';
+
+  @override
+  String get retry => 'पुनः प्रयत्नं करोतु';
 }

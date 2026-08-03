@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
 
 import 'core/localization/fallback_localizations.dart';
 import 'core/localization/locale_controller.dart';
@@ -8,17 +9,31 @@ import 'core/router/app_router.dart';
 import 'core/services/preferences_service.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/app_typography.dart';
+import 'features/auth/state/auth_controller.dart';
 import 'generated/l10n/app_localizations.dart';
 
 class NexmileApp extends StatelessWidget {
-  const NexmileApp({super.key, required this.preferences});
+  const NexmileApp({
+    super.key,
+    required this.preferences,
+    required this.authController,
+  });
 
   final PreferencesService preferences;
 
+  /// Built in `main.dart` (or by a test), because it has to exist before the
+  /// API client can be told where to get its bearer token from.
+  final AuthController authController;
+
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<LocaleController>(
-      create: (_) => LocaleController(preferences),
+    return MultiProvider(
+      providers: <SingleChildWidget>[
+        ChangeNotifierProvider<LocaleController>(
+          create: (_) => LocaleController(preferences),
+        ),
+        ChangeNotifierProvider<AuthController>.value(value: authController),
+      ],
       child: Consumer<LocaleController>(
         builder: (BuildContext context, LocaleController controller, _) {
           return MaterialApp(

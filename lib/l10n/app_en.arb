@@ -35,21 +35,18 @@
   "@languagesAvailable": {
     "description": "Count of languages offered by the app.",
     "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "23"
-      }
+      "count": { "type": "int", "example": "23" }
     }
   },
 
   "continueLabel": "Continue",
   "@continueLabel": {
-    "description": "Primary button that confirms the selected language."
+    "description": "Generic confirm action."
   },
 
   "selectedLabel": "Selected",
   "@selectedLabel": {
-    "description": "Accessibility / badge label on the currently selected language tile."
+    "description": "Accessibility label on the currently selected language tile."
   },
 
   "defaultLabel": "Default",
@@ -59,12 +56,12 @@
 
   "homeTitle": "Welcome to Nexmile",
   "@homeTitle": {
-    "description": "Greeting headline on the home screen."
+    "description": "Greeting headline on the dashboard."
   },
 
   "homeSubtitle": "Fresh groceries, hot food and daily essentials delivered from shops near you.",
   "@homeSubtitle": {
-    "description": "Supporting copy on the home screen."
+    "description": "Supporting copy on the dashboard."
   },
 
   "changeLanguage": "Change language",
@@ -80,5 +77,182 @@
   "appLanguageLabel": "App language",
   "@appLanguageLabel": {
     "description": "Label preceding the name of the currently active language."
-  }
+  },
+
+  "greetingNamed": "Hello, {name}",
+  "@greetingNamed": {
+    "description": "Personalised greeting on the dashboard.",
+    "placeholders": {
+      "name": { "type": "String", "example": "Priya" }
+    }
+  },
+
+  "loginTitle": "Sign in to Nexmile",
+  "@loginTitle": {
+    "description": "Headline of the sign-in screen. Serves new and returning customers alike: the API creates the account on first successful verification."
+  },
+
+  "loginSubtitle": "Enter your email or mobile number and we will send you a verification code.",
+  "@loginSubtitle": {
+    "description": "Supporting copy on the sign-in screen."
+  },
+
+  "emailOrPhoneLabel": "Email or mobile number",
+  "@emailOrPhoneLabel": {
+    "description": "Label of the single sign-in field, which accepts either."
+  },
+
+  "emailOrPhoneHint": "name@example.com or 9876543210",
+  "@emailOrPhoneHint": {
+    "description": "Placeholder showing both accepted formats. Keep the example values as-is; translate only the word 'or'."
+  },
+
+  "invalidEmailOrPhone": "Enter a valid email address or 10-digit mobile number",
+  "@invalidEmailOrPhone": {
+    "description": "Validation error when the sign-in field is neither a valid email nor a valid Indian mobile number."
+  },
+
+  "sendCode": "Send code",
+  "@sendCode": {
+    "description": "Primary button on the sign-in screen."
+  },
+
+  "agreeToTermsOnContinue": "By continuing you agree to our Terms of Service and Privacy Policy.",
+  "@agreeToTermsOnContinue": {
+    "description": "Implicit-consent note under the sign-in button. There is no registration form, so this is the only place terms can be surfaced."
+  },
+
+  "otpTitle": "Verify it is you",
+  "@otpTitle": {
+    "description": "Headline of the code verification screen."
+  },
+
+  "otpSubtitle": "Enter the 6-digit code we sent to {target}",
+  "@otpSubtitle": {
+    "description": "Supporting copy naming the email or mobile number the code went to.",
+    "placeholders": {
+      "target": { "type": "String", "example": "9876543210" }
+    }
+  },
+
+  "verifyCode": "Verify",
+  "@verifyCode": {
+    "description": "Primary button on the code verification screen."
+  },
+
+  "resendCode": "Resend code",
+  "@resendCode": {
+    "description": "Action that requests a fresh code."
+  },
+
+  "resendCodeIn": "Resend code in {seconds}s",
+  "@resendCodeIn": {
+    "description": "Cooldown label. The wait comes from the server's resend_after value.",
+    "placeholders": {
+      "seconds": { "type": "int", "example": "60" }
+    }
+  },
+
+  "codeResent": "A new code has been sent",
+  "@codeResent": {
+    "description": "Snackbar confirming a fresh code."
+  },
+
+  "incorrectCode": "That code is not correct or has expired. Request a new one.",
+  "@incorrectCode": {
+    "description": "Error for a wrong or expired code. Five wrong attempts burn the code, so the copy points at requesting another."
+  },
+
+  "enterFullCode": "Enter all 6 digits",
+  "@enterFullCode": {
+    "description": "Error shown when Verify is pressed with an incomplete code."
+  },
+
+  "accountSuspended": "This account has been suspended. Please contact support.",
+  "@accountSuspended": {
+    "description": "Shown on HTTP 403 from the API."
+  },
+
+  "tooManyAttempts": "Too many attempts. Please wait a while and try again.",
+  "@tooManyAttempts": {
+    "description": "Shown on HTTP 429. Codes are limited to 5 per hour per identifier, 60 seconds apart."
+  },
+
+  "sessionExpired": "Your session has expired. Please sign in again.",
+  "@sessionExpired": {
+    "description": "Shown when the refresh token is rejected and the session cannot be restored."
+  },
+
+  "networkError": "No internet connection. Check your connection and try again.",
+  "@networkError": {
+    "description": "Shown when the request never reached the server."
+  },
+
+  "developmentCode": "Development code",
+  "@developmentCode": {
+    "description": "Label on the card showing the API's debug_code. Only present outside production, while there is no SMS gateway."
+  },
+
+  "signOut": "Sign out",
+  "@signOut": {
+    "description": "Action that ends the session on this device."
+  },
+
+  "signedOut": "You have been signed out",
+  "@signedOut": {
+    "description": "Snackbar after signing out."
+  },
+
+  "somethingWentWrong": "Something went wrong. Please try again.",
+  "@somethingWentWrong": {
+    "description": "Generic fallback error."
+  },
+
+  "profileTitle": "Profile",
+  "@profileTitle": {
+    "description": "Title of the profile screen, and the label of the dashboard row that opens it."
+  },
+
+  "viewProfile": "View profile",
+  "@viewProfile": {
+    "description": "Dashboard action that opens the profile screen."
+  },
+
+  "nameLabel": "Name",
+  "@nameLabel": { "description": "Profile field label." },
+
+  "emailLabel": "Email",
+  "@emailLabel": { "description": "Profile field label." },
+
+  "mobileLabel": "Mobile number",
+  "@mobileLabel": { "description": "Profile field label." },
+
+  "accountStatusLabel": "Account status",
+  "@accountStatusLabel": { "description": "Profile field label." },
+
+  "statusActive": "Active",
+  "@statusActive": {
+    "description": "Account status. Customers are active immediately after verifying a code."
+  },
+
+  "statusPending": "Pending",
+  "@statusPending": {
+    "description": "Account status. Not expected for customers — riders await approval, customers do not."
+  },
+
+  "statusSuspended": "Suspended",
+  "@statusSuspended": { "description": "Account status." },
+
+  "verifiedLabel": "Verified",
+  "@verifiedLabel": {
+    "description": "Badge next to a mobile number the customer has verified by code."
+  },
+
+  "notProvided": "Not added",
+  "@notProvided": {
+    "description": "Placeholder for a profile field the customer has not filled in. Signing in with a phone leaves the email empty, and vice versa."
+  },
+
+  "retry": "Try again",
+  "@retry": { "description": "Action on the profile screen when the refresh failed." }
 }

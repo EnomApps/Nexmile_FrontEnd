@@ -15,5 +15,46 @@
   "homeSubtitle": "ताज़ा किराना, गरम खाना और रोज़मर्रा की ज़रूरतें आपके पास की दुकानों से.",
   "changeLanguage": "भाषा बदलें",
   "languageUpdated": "भाषा बदल दी गई",
-  "appLanguageLabel": "ऐप की भाषा"
+  "appLanguageLabel": "ऐप की भाषा",
+  "greetingNamed": "नमस्ते, {name}",
+
+  "loginTitle": "Nexmile में साइन इन करें",
+  "loginSubtitle": "अपना ईमेल या मोबाइल नंबर दर्ज करें, हम आपको सत्यापन कोड भेजेंगे.",
+  "emailOrPhoneLabel": "ईमेल या मोबाइल नंबर",
+  "emailOrPhoneHint": "name@example.com या 9876543210",
+  "invalidEmailOrPhone": "सही ईमेल पता या 10 अंकों का मोबाइल नंबर दर्ज करें",
+  "sendCode": "कोड भेजें",
+  "agreeToTermsOnContinue": "आगे बढ़ने पर आप हमारी सेवा की शर्तों और गोपनीयता नीति से सहमत होते हैं.",
+
+  "otpTitle": "पुष्टि करें कि यह आप हैं",
+  "otpSubtitle": "{target} पर भेजा गया 6 अंकों का कोड दर्ज करें",
+  "verifyCode": "सत्यापित करें",
+  "resendCode": "कोड दोबारा भेजें",
+  "resendCodeIn": "{seconds} सेकंड में दोबारा भेजें",
+  "codeResent": "नया कोड भेज दिया गया है",
+  "incorrectCode": "यह कोड ग़लत है या समाप्त हो चुका है. नया कोड मँगाएँ.",
+  "enterFullCode": "पूरे 6 अंक दर्ज करें",
+
+  "accountSuspended": "यह खाता निलंबित कर दिया गया है. कृपया सहायता से संपर्क करें.",
+  "tooManyAttempts": "बहुत अधिक प्रयास हो गए. कृपया कुछ देर बाद फिर कोशिश करें.",
+  "sessionExpired": "आपका सत्र समाप्त हो गया है. कृपया फिर से साइन इन करें.",
+  "networkError": "इंटरनेट कनेक्शन नहीं है. अपना कनेक्शन जाँचें और फिर कोशिश करें.",
+  "developmentCode": "डेवलपमेंट कोड",
+
+  "signOut": "साइन आउट",
+  "signedOut": "आप साइन आउट हो गए हैं",
+  "somethingWentWrong": "कुछ ग़लत हो गया. कृपया फिर कोशिश करें.",
+
+  "profileTitle": "प्रोफ़ाइल",
+  "viewProfile": "प्रोफ़ाइल देखें",
+  "nameLabel": "नाम",
+  "emailLabel": "ईमेल",
+  "mobileLabel": "मोबाइल नंबर",
+  "accountStatusLabel": "खाते की स्थिति",
+  "statusActive": "सक्रिय",
+  "statusPending": "लंबित",
+  "statusSuspended": "निलंबित",
+  "verifiedLabel": "सत्यापित",
+  "notProvided": "जोड़ा नहीं गया",
+  "retry": "फिर कोशिश करें"
 }

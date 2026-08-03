@@ -6,6 +6,7 @@ class PreferencesService {
 
   static const String _languageCodeKey = 'nexmile.language_code';
   static const String _languageChosenKey = 'nexmile.language_chosen';
+  static const String _sessionKey = 'nexmile.session';
 
   final SharedPreferences _prefs;
 
@@ -29,4 +30,17 @@ class PreferencesService {
     await _prefs.remove(_languageCodeKey);
     await _prefs.remove(_languageChosenKey);
   }
+
+  /// The encoded [AuthUser] of the signed-in customer, or null when signed out.
+  ///
+  /// Note for the API integration: this holds profile data only. Once real
+  /// access/refresh tokens exist they belong in the keychain / keystore via
+  /// `flutter_secure_storage`, not in SharedPreferences, which is readable on
+  /// a rooted or jailbroken device.
+  String? get session => _prefs.getString(_sessionKey);
+
+  Future<void> saveSession(String encodedUser) =>
+      _prefs.setString(_sessionKey, encodedUser);
+
+  Future<void> clearSession() => _prefs.remove(_sessionKey);
 }

@@ -54,4 +54,118 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get appLanguageLabel => 'ਐਪ ਦੀ ਭਾਸ਼ਾ';
+
+  @override
+  String greetingNamed(String name) {
+    return 'ਸਤ ਸ੍ਰੀ ਅਕਾਲ, $name';
+  }
+
+  @override
+  String get loginTitle => 'Nexmile ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ';
+
+  @override
+  String get loginSubtitle => 'ਆਪਣਾ ਈਮੇਲ ਜਾਂ ਮੋਬਾਈਲ ਨੰਬਰ ਦਰਜ ਕਰੋ, ਅਸੀਂ ਤਸਦੀਕ ਕੋਡ ਭੇਜਾਂਗੇ।';
+
+  @override
+  String get emailOrPhoneLabel => 'ਈਮੇਲ ਜਾਂ ਮੋਬਾਈਲ ਨੰਬਰ';
+
+  @override
+  String get emailOrPhoneHint => 'name@example.com ਜਾਂ 9876543210';
+
+  @override
+  String get invalidEmailOrPhone => 'ਸਹੀ ਈਮੇਲ ਪਤਾ ਜਾਂ 10 ਅੰਕਾਂ ਦਾ ਮੋਬਾਈਲ ਨੰਬਰ ਦਰਜ ਕਰੋ';
+
+  @override
+  String get sendCode => 'ਕੋਡ ਭੇਜੋ';
+
+  @override
+  String get agreeToTermsOnContinue => 'ਅੱਗੇ ਵਧ ਕੇ ਤੁਸੀਂ ਸਾਡੀਆਂ ਸੇਵਾ ਸ਼ਰਤਾਂ ਅਤੇ ਪਰਦੇਦਾਰੀ ਨੀਤੀ ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ।';
+
+  @override
+  String get otpTitle => 'ਪੁਸ਼ਟੀ ਕਰੋ ਕਿ ਇਹ ਤੁਸੀਂ ਹੋ';
+
+  @override
+  String otpSubtitle(String target) {
+    return '$target \'ਤੇ ਭੇਜਿਆ 6 ਅੰਕਾਂ ਦਾ ਕੋਡ ਦਰਜ ਕਰੋ';
+  }
+
+  @override
+  String get verifyCode => 'ਤਸਦੀਕ ਕਰੋ';
+
+  @override
+  String get resendCode => 'ਕੋਡ ਦੁਬਾਰਾ ਭੇਜੋ';
+
+  @override
+  String resendCodeIn(int seconds) {
+    return '$seconds ਸਕਿੰਟਾਂ ਵਿੱਚ ਦੁਬਾਰਾ ਭੇਜੋ';
+  }
+
+  @override
+  String get codeResent => 'ਨਵਾਂ ਕੋਡ ਭੇਜ ਦਿੱਤਾ ਗਿਆ ਹੈ';
+
+  @override
+  String get incorrectCode => 'ਇਹ ਕੋਡ ਗਲਤ ਹੈ ਜਾਂ ਮਿਆਦ ਪੁੱਗ ਗਈ ਹੈ। ਨਵਾਂ ਕੋਡ ਮੰਗਵਾਓ।';
+
+  @override
+  String get enterFullCode => 'ਪੂਰੇ 6 ਅੰਕ ਦਰਜ ਕਰੋ';
+
+  @override
+  String get accountSuspended => 'ਇਹ ਖਾਤਾ ਮੁਅੱਤਲ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਸਹਾਇਤਾ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।';
+
+  @override
+  String get tooManyAttempts => 'ਬਹੁਤ ਵਾਰ ਕੋਸ਼ਿਸ਼ ਹੋ ਗਈ। ਕਿਰਪਾ ਕਰਕੇ ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।';
+
+  @override
+  String get sessionExpired => 'ਤੁਹਾਡਾ ਸੈਸ਼ਨ ਖਤਮ ਹੋ ਗਿਆ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਸਾਈਨ ਇਨ ਕਰੋ।';
+
+  @override
+  String get networkError => 'ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਨਹੀਂ ਹੈ। ਆਪਣਾ ਕਨੈਕਸ਼ਨ ਜਾਂਚੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।';
+
+  @override
+  String get developmentCode => 'ਡਿਵੈਲਪਮੈਂਟ ਕੋਡ';
+
+  @override
+  String get signOut => 'ਸਾਈਨ ਆਊਟ';
+
+  @override
+  String get signedOut => 'ਤੁਸੀਂ ਸਾਈਨ ਆਊਟ ਹੋ ਗਏ ਹੋ';
+
+  @override
+  String get somethingWentWrong => 'ਕੁਝ ਗਲਤ ਹੋ ਗਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।';
+
+  @override
+  String get profileTitle => 'ਪ੍ਰੋਫਾਈਲ';
+
+  @override
+  String get viewProfile => 'ਪ੍ਰੋਫਾਈਲ ਦੇਖੋ';
+
+  @override
+  String get nameLabel => 'ਨਾਮ';
+
+  @override
+  String get emailLabel => 'ਈਮੇਲ';
+
+  @override
+  String get mobileLabel => 'ਮੋਬਾਈਲ ਨੰਬਰ';
+
+  @override
+  String get accountStatusLabel => 'ਖਾਤੇ ਦੀ ਸਥਿਤੀ';
+
+  @override
+  String get statusActive => 'ਸਰਗਰਮ';
+
+  @override
+  String get statusPending => 'ਬਕਾਇਆ';
+
+  @override
+  String get statusSuspended => 'ਮੁਅੱਤਲ';
+
+  @override
+  String get verifiedLabel => 'ਤਸਦੀਕਸ਼ੁਦਾ';
+
+  @override
+  String get notProvided => 'ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤਾ';
+
+  @override
+  String get retry => 'ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ';
 }
