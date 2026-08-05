@@ -254,5 +254,225 @@
   },
 
   "retry": "Try again",
-  "@retry": { "description": "Action on the profile screen when the refresh failed." }
+  "@retry": { "description": "Action on the profile screen when the refresh failed." },
+
+  "navHome": "Home",
+  "@navHome": { "description": "Bottom navigation tab." },
+
+  "navSearch": "Search",
+  "@navSearch": { "description": "Bottom navigation tab." },
+
+  "navOrders": "Orders",
+  "@navOrders": { "description": "Bottom navigation tab." },
+
+  "cancelLabel": "Cancel",
+  "@cancelLabel": { "description": "Dismisses a dialog without acting." },
+
+  "deliverTo": "DELIVER TO",
+  "@deliverTo": {
+    "description": "Caption above the delivery address in the home header. Shown in capitals in English; use whatever reads as a small caption in other scripts."
+  },
+
+  "searchDishesHint": "Search for dishes or restaurants",
+  "@searchDishesHint": { "description": "Placeholder in the storefront search field." },
+
+  "searchTitle": "Search",
+  "@searchTitle": { "description": "Title of the search tab." },
+
+  "searchNoResultsTitle": "Nothing matched",
+  "@searchNoResultsTitle": { "description": "Empty state when a search returns nothing." },
+
+  "searchNoResultsSubtitle": "Try a different dish, cuisine or restaurant name.",
+  "@searchNoResultsSubtitle": { "description": "Supporting copy for the empty search state." },
+
+  "cravingTitle": "What are you craving?",
+  "@cravingTitle": { "description": "Heading above the food category shortcuts." },
+
+  "offersTitle": "Offers for you",
+  "@offersTitle": { "description": "Heading above the promotional carousel." },
+
+  "restaurantsNearby": "Restaurants near you",
+  "@restaurantsNearby": { "description": "Heading above the unfiltered restaurant list." },
+
+  "restaurantsCount": "{count} restaurants",
+  "@restaurantsCount": {
+    "description": "Heading above the restaurant list once a category filter is applied.",
+    "placeholders": { "count": { "type": "int", "example": "4" } }
+  },
+
+  "noRestaurantsTitle": "Nothing here yet",
+  "@noRestaurantsTitle": { "description": "Empty state when a category has no restaurants." },
+
+  "noRestaurantsSubtitle": "Try another category, or clear the filter.",
+  "@noRestaurantsSubtitle": { "description": "Supporting copy for the empty restaurant list." },
+
+  "minutesAway": "{minutes} min",
+  "@minutesAway": {
+    "description": "Delivery time estimate. Keep it short — it sits in a tight row.",
+    "placeholders": { "minutes": { "type": "int", "example": "28" } }
+  },
+
+  "kilometresAway": "{distance} km",
+  "@kilometresAway": {
+    "description": "Distance to the restaurant.",
+    "placeholders": { "distance": { "type": "String", "example": "1.2" } }
+  },
+
+  "ratingsCount": "{count}+ ratings",
+  "@ratingsCount": {
+    "description": "Number of customer ratings a restaurant has.",
+    "placeholders": { "count": { "type": "int", "example": "2840" } }
+  },
+
+  "priceForTwo": "₹{amount} for two",
+  "@priceForTwo": {
+    "description": "Typical spend for two people. Keep the ₹ symbol.",
+    "placeholders": { "amount": { "type": "int", "example": "400" } }
+  },
+
+  "freeDelivery": "Free delivery",
+  "@freeDelivery": { "description": "Badge on restaurants that do not charge for delivery." },
+
+  "percentOff": "{percent}% OFF",
+  "@percentOff": {
+    "description": "Short discount badge on a restaurant card. Space is very tight.",
+    "placeholders": { "percent": { "type": "int", "example": "40" } }
+  },
+
+  "percentOffOnOrder": "{percent}% off on your order",
+  "@percentOffOnOrder": {
+    "description": "Offer strip on the restaurant screen.",
+    "placeholders": { "percent": { "type": "int", "example": "40" } }
+  },
+
+  "vegOnly": "Veg only",
+  "@vegOnly": { "description": "Toggle that hides non-vegetarian dishes." },
+
+  "bestseller": "BESTSELLER",
+  "@bestseller": { "description": "Badge on a popular dish." },
+
+  "addLabel": "ADD",
+  "@addLabel": { "description": "Button that puts one unit of a dish in the cart. Must stay very short." },
+
+  "noVegDishesTitle": "No veg dishes here",
+  "@noVegDishesTitle": { "description": "Empty state when the veg filter hides everything." },
+
+  "noVegDishesSubtitle": "Turn off the veg filter to see the full menu.",
+  "@noVegDishesSubtitle": { "description": "Supporting copy for the empty veg-filtered menu." },
+
+  "replaceCartTitle": "Start a new cart?",
+  "@replaceCartTitle": { "description": "Dialog shown when adding a dish from a different restaurant." },
+
+  "replaceCartMessage": "Your cart has items from {restaurant}. Adding this will clear it.",
+  "@replaceCartMessage": {
+    "description": "Explains that an order cannot span two restaurants.",
+    "placeholders": { "restaurant": { "type": "String", "example": "Anjappar Chettinad" } }
+  },
+
+  "replaceCartConfirm": "Clear and add",
+  "@replaceCartConfirm": { "description": "Confirms discarding the previous restaurant's cart." },
+
+  "cartTitle": "Your cart",
+  "@cartTitle": { "description": "Title of the cart screen." },
+
+  "cartEmptyTitle": "Your cart is empty",
+  "@cartEmptyTitle": { "description": "Empty state on the cart screen." },
+
+  "cartEmptySubtitle": "Add dishes from a restaurant to get started.",
+  "@cartEmptySubtitle": { "description": "Supporting copy for the empty cart." },
+
+  "browseRestaurants": "Browse restaurants",
+  "@browseRestaurants": { "description": "Action from an empty cart or empty order list." },
+
+  "itemsInCart": "{count} items",
+  "@itemsInCart": {
+    "description": "Item count on the floating cart bar and on an order card.",
+    "placeholders": { "count": { "type": "int", "example": "3" } }
+  },
+
+  "viewCart": "View cart",
+  "@viewCart": { "description": "Action on the floating cart bar." },
+
+  "itemTotal": "Item total",
+  "@itemTotal": { "description": "Bill line: the dishes before fees." },
+
+  "deliveryFeeLabel": "Delivery fee",
+  "@deliveryFeeLabel": { "description": "Bill line." },
+
+  "taxesAndCharges": "Taxes and charges",
+  "@taxesAndCharges": { "description": "Bill line." },
+
+  "freeLabel": "FREE",
+  "@freeLabel": { "description": "Replaces the amount on a waived delivery fee." },
+
+  "toPay": "To pay",
+  "@toPay": { "description": "Bill total." },
+
+  "placeOrderFor": "Place order · ₹{amount}",
+  "@placeOrderFor": {
+    "description": "Checkout button carrying the total. Keep the ₹ symbol.",
+    "placeholders": { "amount": { "type": "int", "example": "478" } }
+  },
+
+  "ordersTitle": "Your orders",
+  "@ordersTitle": { "description": "Title of the orders tab." },
+
+  "ordersEmptyTitle": "No orders yet",
+  "@ordersEmptyTitle": { "description": "Empty state on the orders tab." },
+
+  "ordersEmptySubtitle": "Your past orders will show up here.",
+  "@ordersEmptySubtitle": { "description": "Supporting copy for the empty order list." },
+
+  "reorder": "Reorder",
+  "@reorder": { "description": "Refills the cart from a past order." },
+
+  "orderTitle": "Order {id}",
+  "@orderTitle": {
+    "description": "Title of the order tracking screen.",
+    "placeholders": { "id": { "type": "String", "example": "NX1001" } }
+  },
+
+  "orderPlacedTitle": "Order placed",
+  "@orderPlacedTitle": { "description": "Headline on the tracking screen before delivery." },
+
+  "orderPlacedSubtitle": "Arriving in about {minutes} minutes.",
+  "@orderPlacedSubtitle": {
+    "description": "Estimated arrival on the tracking screen.",
+    "placeholders": { "minutes": { "type": "int", "example": "28" } }
+  },
+
+  "orderDeliveredTitle": "Delivered",
+  "@orderDeliveredTitle": { "description": "Headline once the order arrives." },
+
+  "orderDeliveredSubtitle": "Enjoy your food.",
+  "@orderDeliveredSubtitle": { "description": "Supporting copy once delivered." },
+
+  "statusOrderPlaced": "Order placed",
+  "@statusOrderPlaced": { "description": "Tracking step 1." },
+
+  "statusPreparing": "Preparing your food",
+  "@statusPreparing": { "description": "Tracking step 2." },
+
+  "statusOnTheWay": "On the way",
+  "@statusOnTheWay": { "description": "Tracking step 3." },
+
+  "statusDelivered": "Delivered",
+  "@statusDelivered": { "description": "Tracking step 4." },
+
+  "keepBrowsing": "Keep browsing",
+  "@keepBrowsing": { "description": "Leaves the tracking screen while the order is in progress." },
+
+  "backToHome": "Back to home",
+  "@backToHome": { "description": "Leaves the tracking screen once delivered." },
+
+  "prototypeNotice": "Sample storefront — real shops arrive with the catalogue API.",
+  "@prototypeNotice": {
+    "description": "Banner making clear the restaurant list is placeholder data."
+  },
+
+  "prototypeCheckoutNotice": "This is a prototype. No payment is taken and no order is really placed.",
+  "@prototypeCheckoutNotice": { "description": "Notice above the checkout button." },
+
+  "prototypeTrackingNotice": "Tracking is simulated for the prototype.",
+  "@prototypeTrackingNotice": { "description": "Notice on the order tracking screen." }
 }

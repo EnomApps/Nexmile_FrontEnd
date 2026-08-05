@@ -10,6 +10,7 @@ import 'core/services/preferences_service.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/app_typography.dart';
 import 'features/auth/state/auth_controller.dart';
+import 'features/catalogue/state/cart_controller.dart';
 import 'generated/l10n/app_localizations.dart';
 
 class NexmileApp extends StatelessWidget {
@@ -33,6 +34,11 @@ class NexmileApp extends StatelessWidget {
           create: (_) => LocaleController(preferences),
         ),
         ChangeNotifierProvider<AuthController>.value(value: authController),
+        // Prototype storefront state. In-memory today; the cart moves
+        // server-side when the catalogue API lands.
+        ChangeNotifierProvider<CartController>(
+          create: (_) => CartController(),
+        ),
       ],
       child: Consumer<LocaleController>(
         builder: (BuildContext context, LocaleController controller, _) {

@@ -168,4 +168,208 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get retry => 'Try again';
+
+  @override
+  String get navHome => 'Home';
+
+  @override
+  String get navSearch => 'Search';
+
+  @override
+  String get navOrders => 'Orders';
+
+  @override
+  String get cancelLabel => 'Cancel';
+
+  @override
+  String get deliverTo => 'DELIVER TO';
+
+  @override
+  String get searchDishesHint => 'Search for dishes or restaurants';
+
+  @override
+  String get searchTitle => 'Search';
+
+  @override
+  String get searchNoResultsTitle => 'Nothing matched';
+
+  @override
+  String get searchNoResultsSubtitle => 'Try a different dish, cuisine or restaurant name.';
+
+  @override
+  String get cravingTitle => 'What are you craving?';
+
+  @override
+  String get offersTitle => 'Offers for you';
+
+  @override
+  String get restaurantsNearby => 'Restaurants near you';
+
+  @override
+  String restaurantsCount(int count) {
+    return '$count restaurants';
+  }
+
+  @override
+  String get noRestaurantsTitle => 'Nothing here yet';
+
+  @override
+  String get noRestaurantsSubtitle => 'Try another category, or clear the filter.';
+
+  @override
+  String minutesAway(int minutes) {
+    return '$minutes min';
+  }
+
+  @override
+  String kilometresAway(String distance) {
+    return '$distance km';
+  }
+
+  @override
+  String ratingsCount(int count) {
+    return '$count+ ratings';
+  }
+
+  @override
+  String priceForTwo(int amount) {
+    return '₹$amount for two';
+  }
+
+  @override
+  String get freeDelivery => 'Free delivery';
+
+  @override
+  String percentOff(int percent) {
+    return '$percent% OFF';
+  }
+
+  @override
+  String percentOffOnOrder(int percent) {
+    return '$percent% off on your order';
+  }
+
+  @override
+  String get vegOnly => 'Veg only';
+
+  @override
+  String get bestseller => 'BESTSELLER';
+
+  @override
+  String get addLabel => 'ADD';
+
+  @override
+  String get noVegDishesTitle => 'No veg dishes here';
+
+  @override
+  String get noVegDishesSubtitle => 'Turn off the veg filter to see the full menu.';
+
+  @override
+  String get replaceCartTitle => 'Start a new cart?';
+
+  @override
+  String replaceCartMessage(String restaurant) {
+    return 'Your cart has items from $restaurant. Adding this will clear it.';
+  }
+
+  @override
+  String get replaceCartConfirm => 'Clear and add';
+
+  @override
+  String get cartTitle => 'Your cart';
+
+  @override
+  String get cartEmptyTitle => 'Your cart is empty';
+
+  @override
+  String get cartEmptySubtitle => 'Add dishes from a restaurant to get started.';
+
+  @override
+  String get browseRestaurants => 'Browse restaurants';
+
+  @override
+  String itemsInCart(int count) {
+    return '$count items';
+  }
+
+  @override
+  String get viewCart => 'View cart';
+
+  @override
+  String get itemTotal => 'Item total';
+
+  @override
+  String get deliveryFeeLabel => 'Delivery fee';
+
+  @override
+  String get taxesAndCharges => 'Taxes and charges';
+
+  @override
+  String get freeLabel => 'FREE';
+
+  @override
+  String get toPay => 'To pay';
+
+  @override
+  String placeOrderFor(int amount) {
+    return 'Place order · ₹$amount';
+  }
+
+  @override
+  String get ordersTitle => 'Your orders';
+
+  @override
+  String get ordersEmptyTitle => 'No orders yet';
+
+  @override
+  String get ordersEmptySubtitle => 'Your past orders will show up here.';
+
+  @override
+  String get reorder => 'Reorder';
+
+  @override
+  String orderTitle(String id) {
+    return 'Order $id';
+  }
+
+  @override
+  String get orderPlacedTitle => 'Order placed';
+
+  @override
+  String orderPlacedSubtitle(int minutes) {
+    return 'Arriving in about $minutes minutes.';
+  }
+
+  @override
+  String get orderDeliveredTitle => 'Delivered';
+
+  @override
+  String get orderDeliveredSubtitle => 'Enjoy your food.';
+
+  @override
+  String get statusOrderPlaced => 'Order placed';
+
+  @override
+  String get statusPreparing => 'Preparing your food';
+
+  @override
+  String get statusOnTheWay => 'On the way';
+
+  @override
+  String get statusDelivered => 'Delivered';
+
+  @override
+  String get keepBrowsing => 'Keep browsing';
+
+  @override
+  String get backToHome => 'Back to home';
+
+  @override
+  String get prototypeNotice => 'Sample storefront — real shops arrive with the catalogue API.';
+
+  @override
+  String get prototypeCheckoutNotice => 'This is a prototype. No payment is taken and no order is really placed.';
+
+  @override
+  String get prototypeTrackingNotice => 'Tracking is simulated for the prototype.';
 }

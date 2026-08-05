@@ -168,4 +168,208 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get retry => 'دوبارہ کوشش کریں';
+
+  @override
+  String get navHome => 'ہوم';
+
+  @override
+  String get navSearch => 'تلاش';
+
+  @override
+  String get navOrders => 'آرڈرز';
+
+  @override
+  String get cancelLabel => 'منسوخ کریں';
+
+  @override
+  String get deliverTo => 'ڈیلیوری کا پتہ';
+
+  @override
+  String get searchDishesHint => 'کھانا یا ریستوران تلاش کریں';
+
+  @override
+  String get searchTitle => 'تلاش';
+
+  @override
+  String get searchNoResultsTitle => 'کچھ نہیں ملا';
+
+  @override
+  String get searchNoResultsSubtitle => 'کوئی اور کھانا، کھانے کا انداز یا ریستوران کا نام آزمائیں۔';
+
+  @override
+  String get cravingTitle => 'آج کیا کھانے کا دل ہے؟';
+
+  @override
+  String get offersTitle => 'آپ کے لیے آفرز';
+
+  @override
+  String get restaurantsNearby => 'آپ کے قریبی ریستوران';
+
+  @override
+  String restaurantsCount(int count) {
+    return '$count ریستوران';
+  }
+
+  @override
+  String get noRestaurantsTitle => 'یہاں ابھی کچھ نہیں ہے';
+
+  @override
+  String get noRestaurantsSubtitle => 'کوئی اور قسم دیکھیں یا فلٹر ہٹا دیں۔';
+
+  @override
+  String minutesAway(int minutes) {
+    return '$minutes منٹ';
+  }
+
+  @override
+  String kilometresAway(String distance) {
+    return '$distance کلومیٹر';
+  }
+
+  @override
+  String ratingsCount(int count) {
+    return '$count+ ریٹنگز';
+  }
+
+  @override
+  String priceForTwo(int amount) {
+    return 'دو افراد کے لیے ₹$amount';
+  }
+
+  @override
+  String get freeDelivery => 'مفت ڈیلیوری';
+
+  @override
+  String percentOff(int percent) {
+    return '$percent% رعایت';
+  }
+
+  @override
+  String percentOffOnOrder(int percent) {
+    return 'آپ کے آرڈر پر $percent% رعایت';
+  }
+
+  @override
+  String get vegOnly => 'صرف سبزی';
+
+  @override
+  String get bestseller => 'سب سے زیادہ فروخت';
+
+  @override
+  String get addLabel => 'شامل';
+
+  @override
+  String get noVegDishesTitle => 'یہاں سبزی کھانے نہیں ہیں';
+
+  @override
+  String get noVegDishesSubtitle => 'پورا مینو دیکھنے کے لیے سبزی فلٹر بند کریں۔';
+
+  @override
+  String get replaceCartTitle => 'نئی کارٹ شروع کریں؟';
+
+  @override
+  String replaceCartMessage(String restaurant) {
+    return 'آپ کی کارٹ میں $restaurant کی چیزیں ہیں۔ یہ شامل کرنے پر وہ ہٹ جائیں گی۔';
+  }
+
+  @override
+  String get replaceCartConfirm => 'ہٹا کر شامل کریں';
+
+  @override
+  String get cartTitle => 'آپ کی کارٹ';
+
+  @override
+  String get cartEmptyTitle => 'آپ کی کارٹ خالی ہے';
+
+  @override
+  String get cartEmptySubtitle => 'شروع کرنے کے لیے کسی ریستوران سے کھانا شامل کریں۔';
+
+  @override
+  String get browseRestaurants => 'ریستوران دیکھیں';
+
+  @override
+  String itemsInCart(int count) {
+    return '$count چیزیں';
+  }
+
+  @override
+  String get viewCart => 'کارٹ دیکھیں';
+
+  @override
+  String get itemTotal => 'اشیاء کا کل';
+
+  @override
+  String get deliveryFeeLabel => 'ڈیلیوری فیس';
+
+  @override
+  String get taxesAndCharges => 'ٹیکس اور چارجز';
+
+  @override
+  String get freeLabel => 'مفت';
+
+  @override
+  String get toPay => 'قابل ادائیگی';
+
+  @override
+  String placeOrderFor(int amount) {
+    return 'آرڈر کریں · ₹$amount';
+  }
+
+  @override
+  String get ordersTitle => 'آپ کے آرڈرز';
+
+  @override
+  String get ordersEmptyTitle => 'ابھی کوئی آرڈر نہیں';
+
+  @override
+  String get ordersEmptySubtitle => 'آپ کے پچھلے آرڈرز یہاں دکھائی دیں گے۔';
+
+  @override
+  String get reorder => 'دوبارہ آرڈر';
+
+  @override
+  String orderTitle(String id) {
+    return 'آرڈر $id';
+  }
+
+  @override
+  String get orderPlacedTitle => 'آرڈر ہو گیا';
+
+  @override
+  String orderPlacedSubtitle(int minutes) {
+    return 'تقریباً $minutes منٹ میں پہنچ جائے گا۔';
+  }
+
+  @override
+  String get orderDeliveredTitle => 'ڈیلیور ہو گیا';
+
+  @override
+  String get orderDeliveredSubtitle => 'کھانے سے لطف اٹھائیں۔';
+
+  @override
+  String get statusOrderPlaced => 'آرڈر ہو گیا';
+
+  @override
+  String get statusPreparing => 'کھانا تیار ہو رہا ہے';
+
+  @override
+  String get statusOnTheWay => 'راستے میں ہے';
+
+  @override
+  String get statusDelivered => 'ڈیلیور ہو گیا';
+
+  @override
+  String get keepBrowsing => 'دیکھتے رہیں';
+
+  @override
+  String get backToHome => 'ہوم پر واپس';
+
+  @override
+  String get prototypeNotice => 'نمونہ اسٹور فرنٹ — اصلی دکانیں کیٹلاگ API کے ساتھ آئیں گی۔';
+
+  @override
+  String get prototypeCheckoutNotice => 'یہ ایک پروٹوٹائپ ہے۔ کوئی ادائیگی نہیں لی جاتی اور نہ ہی کوئی حقیقی آرڈر ہوتا ہے۔';
+
+  @override
+  String get prototypeTrackingNotice => 'پروٹوٹائپ کے لیے ٹریکنگ مصنوعی ہے۔';
 }

@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import '../../features/auth/data/login_identifier.dart';
 import '../../features/auth/presentation/login_screen.dart';
 import '../../features/auth/presentation/otp_verification_screen.dart';
-import '../../features/dashboard/dashboard_screen.dart';
+import '../../features/catalogue/presentation/cart_screen.dart';
+import '../../features/catalogue/presentation/order_status_screen.dart';
+import '../../features/catalogue/presentation/restaurant_screen.dart';
 import '../../features/language/language_screen.dart';
 import '../../features/profile/profile_screen.dart';
+import '../../features/shell/app_shell.dart';
 import '../../features/splash/splash_screen.dart';
 
 class AppRoutes {
@@ -20,8 +23,30 @@ class AppRoutes {
   static const String login = '/login';
   static const String otpVerification = '/otp';
 
+  /// Signed-in home. Hosts the storefront tabs.
   static const String dashboard = '/dashboard';
   static const String profile = '/profile';
+
+  // Storefront. Prototype data today, catalogue API later.
+  static const String restaurant = '/restaurant';
+  static const String cart = '/cart';
+  static const String orderStatus = '/order';
+}
+
+/// Argument bundle for [AppRoutes.restaurant].
+@immutable
+class RestaurantArgs {
+  const RestaurantArgs({required this.restaurantId});
+
+  final String restaurantId;
+}
+
+/// Argument bundle for [AppRoutes.orderStatus].
+@immutable
+class OrderArgs {
+  const OrderArgs({required this.orderId});
+
+  final String orderId;
 }
 
 /// Argument bundle for [AppRoutes.otpVerification].
@@ -61,10 +86,23 @@ class AppRouter {
         return _slideRoute(OtpVerificationScreen(args: args), settings);
 
       case AppRoutes.dashboard:
-        return _fadeRoute(const DashboardScreen(), settings);
+        return _fadeRoute(const AppShell(), settings);
 
       case AppRoutes.profile:
         return _slideRoute(const ProfileScreen(), settings);
+
+      case AppRoutes.restaurant:
+        final Object? args = settings.arguments;
+        if (args is! RestaurantArgs) return _misroute(settings);
+        return _slideRoute(RestaurantScreen(args: args), settings);
+
+      case AppRoutes.cart:
+        return _slideRoute(const CartScreen(), settings);
+
+      case AppRoutes.orderStatus:
+        final Object? args = settings.arguments;
+        if (args is! OrderArgs) return _misroute(settings);
+        return _slideRoute(OrderStatusScreen(args: args), settings);
 
       default:
         return _fadeRoute(const SplashScreen(), settings);

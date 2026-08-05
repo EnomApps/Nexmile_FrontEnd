@@ -168,4 +168,208 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get retry => 'पुनः प्रयत्नं करोतु';
+
+  @override
+  String get navHome => 'गृहम्';
+
+  @override
+  String get navSearch => 'अन्वेषणम्';
+
+  @override
+  String get navOrders => 'आदेशाः';
+
+  @override
+  String get cancelLabel => 'निरसयतु';
+
+  @override
+  String get deliverTo => 'वितरणस्थानम्';
+
+  @override
+  String get searchDishesHint => 'व्यञ्जनं भोजनालयं वा अन्विष्यतु';
+
+  @override
+  String get searchTitle => 'अन्वेषणम्';
+
+  @override
+  String get searchNoResultsTitle => 'किमपि न प्राप्तम्';
+
+  @override
+  String get searchNoResultsSubtitle => 'अन्यत् व्यञ्जनं, पाकशैलीं वा भोजनालयनाम प्रयत्नं करोतु।';
+
+  @override
+  String get cravingTitle => 'अद्य किं खादितुम् इच्छति?';
+
+  @override
+  String get offersTitle => 'भवदर्थं विशेषप्रस्तावाः';
+
+  @override
+  String get restaurantsNearby => 'समीपस्थानि भोजनालयानि';
+
+  @override
+  String restaurantsCount(int count) {
+    return '$count भोजनालयानि';
+  }
+
+  @override
+  String get noRestaurantsTitle => 'अत्र अद्यापि किमपि नास्ति';
+
+  @override
+  String get noRestaurantsSubtitle => 'अन्यं वर्गं पश्यतु अथवा छाननं निष्कासयतु।';
+
+  @override
+  String minutesAway(int minutes) {
+    return '$minutes निमेषाः';
+  }
+
+  @override
+  String kilometresAway(String distance) {
+    return '$distance किमी';
+  }
+
+  @override
+  String ratingsCount(int count) {
+    return '$count+ मूल्याङ्कनानि';
+  }
+
+  @override
+  String priceForTwo(int amount) {
+    return 'द्वयोः कृते ₹$amount';
+  }
+
+  @override
+  String get freeDelivery => 'निःशुल्कं वितरणम्';
+
+  @override
+  String percentOff(int percent) {
+    return '$percent% छूटः';
+  }
+
+  @override
+  String percentOffOnOrder(int percent) {
+    return 'भवतः आदेशे $percent% छूटः';
+  }
+
+  @override
+  String get vegOnly => 'केवलं शाकाहारम्';
+
+  @override
+  String get bestseller => 'सर्वाधिकविक्रीतम्';
+
+  @override
+  String get addLabel => 'योजयतु';
+
+  @override
+  String get noVegDishesTitle => 'अत्र शाकाहारव्यञ्जनानि न सन्ति';
+
+  @override
+  String get noVegDishesSubtitle => 'पूर्णं सूचीपत्रं द्रष्टुं शाकाहारछाननं निष्क्रियं करोतु।';
+
+  @override
+  String get replaceCartTitle => 'नवीनं शकटं आरभताम्?';
+
+  @override
+  String replaceCartMessage(String restaurant) {
+    return 'भवतः शकटे $restaurant तः वस्तूनि सन्ति। एतत् योजयित्वा तानि निष्कासितानि भविष्यन्ति।';
+  }
+
+  @override
+  String get replaceCartConfirm => 'निष्कास्य योजयतु';
+
+  @override
+  String get cartTitle => 'भवतः शकटम्';
+
+  @override
+  String get cartEmptyTitle => 'भवतः शकटं रिक्तम् अस्ति';
+
+  @override
+  String get cartEmptySubtitle => 'आरम्भार्थं कस्मादपि भोजनालयात् व्यञ्जनानि योजयतु।';
+
+  @override
+  String get browseRestaurants => 'भोजनालयानि पश्यतु';
+
+  @override
+  String itemsInCart(int count) {
+    return '$count वस्तूनि';
+  }
+
+  @override
+  String get viewCart => 'शकटं पश्यतु';
+
+  @override
+  String get itemTotal => 'वस्तूनां योगः';
+
+  @override
+  String get deliveryFeeLabel => 'वितरणशुल्कम्';
+
+  @override
+  String get taxesAndCharges => 'कराः शुल्कानि च';
+
+  @override
+  String get freeLabel => 'निःशुल्कम्';
+
+  @override
+  String get toPay => 'देयम्';
+
+  @override
+  String placeOrderFor(int amount) {
+    return 'आदेशं ददातु · ₹$amount';
+  }
+
+  @override
+  String get ordersTitle => 'भवतः आदेशाः';
+
+  @override
+  String get ordersEmptyTitle => 'अद्यापि आदेशाः न सन्ति';
+
+  @override
+  String get ordersEmptySubtitle => 'भवतः पूर्वादेशाः अत्र दृश्यन्ते।';
+
+  @override
+  String get reorder => 'पुनः आदेशः';
+
+  @override
+  String orderTitle(String id) {
+    return 'आदेशः $id';
+  }
+
+  @override
+  String get orderPlacedTitle => 'आदेशः दत्तः';
+
+  @override
+  String orderPlacedSubtitle(int minutes) {
+    return 'प्रायः $minutes निमेषेषु आगमिष्यति।';
+  }
+
+  @override
+  String get orderDeliveredTitle => 'वितरितम्';
+
+  @override
+  String get orderDeliveredSubtitle => 'भोजनम् आस्वादयतु।';
+
+  @override
+  String get statusOrderPlaced => 'आदेशः दत्तः';
+
+  @override
+  String get statusPreparing => 'भोजनं सज्जीक्रियते';
+
+  @override
+  String get statusOnTheWay => 'मार्गे अस्ति';
+
+  @override
+  String get statusDelivered => 'वितरितम्';
+
+  @override
+  String get keepBrowsing => 'पश्यन् तिष्ठतु';
+
+  @override
+  String get backToHome => 'गृहं प्रत्यागच्छतु';
+
+  @override
+  String get prototypeNotice => 'नमूनासङ्ग्रहः — वास्तविकापणाः सूचीपत्र-API सह आगमिष्यन्ति।';
+
+  @override
+  String get prototypeCheckoutNotice => 'इदं प्रतिरूपम् अस्ति। किमपि धनं न गृह्यते, वास्तविकः आदेशः अपि न भवति।';
+
+  @override
+  String get prototypeTrackingNotice => 'प्रतिरूपार्थं अनुसरणं कृत्रिमम् अस्ति।';
 }

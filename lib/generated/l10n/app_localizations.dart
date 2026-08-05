@@ -442,6 +442,366 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Try again'**
   String get retry;
+
+  /// Bottom navigation tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get navHome;
+
+  /// Bottom navigation tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get navSearch;
+
+  /// Bottom navigation tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Orders'**
+  String get navOrders;
+
+  /// Dismisses a dialog without acting.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancelLabel;
+
+  /// Caption above the delivery address in the home header. Shown in capitals in English; use whatever reads as a small caption in other scripts.
+  ///
+  /// In en, this message translates to:
+  /// **'DELIVER TO'**
+  String get deliverTo;
+
+  /// Placeholder in the storefront search field.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for dishes or restaurants'**
+  String get searchDishesHint;
+
+  /// Title of the search tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get searchTitle;
+
+  /// Empty state when a search returns nothing.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing matched'**
+  String get searchNoResultsTitle;
+
+  /// Supporting copy for the empty search state.
+  ///
+  /// In en, this message translates to:
+  /// **'Try a different dish, cuisine or restaurant name.'**
+  String get searchNoResultsSubtitle;
+
+  /// Heading above the food category shortcuts.
+  ///
+  /// In en, this message translates to:
+  /// **'What are you craving?'**
+  String get cravingTitle;
+
+  /// Heading above the promotional carousel.
+  ///
+  /// In en, this message translates to:
+  /// **'Offers for you'**
+  String get offersTitle;
+
+  /// Heading above the unfiltered restaurant list.
+  ///
+  /// In en, this message translates to:
+  /// **'Restaurants near you'**
+  String get restaurantsNearby;
+
+  /// Heading above the restaurant list once a category filter is applied.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} restaurants'**
+  String restaurantsCount(int count);
+
+  /// Empty state when a category has no restaurants.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing here yet'**
+  String get noRestaurantsTitle;
+
+  /// Supporting copy for the empty restaurant list.
+  ///
+  /// In en, this message translates to:
+  /// **'Try another category, or clear the filter.'**
+  String get noRestaurantsSubtitle;
+
+  /// Delivery time estimate. Keep it short — it sits in a tight row.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min'**
+  String minutesAway(int minutes);
+
+  /// Distance to the restaurant.
+  ///
+  /// In en, this message translates to:
+  /// **'{distance} km'**
+  String kilometresAway(String distance);
+
+  /// Number of customer ratings a restaurant has.
+  ///
+  /// In en, this message translates to:
+  /// **'{count}+ ratings'**
+  String ratingsCount(int count);
+
+  /// Typical spend for two people. Keep the ₹ symbol.
+  ///
+  /// In en, this message translates to:
+  /// **'₹{amount} for two'**
+  String priceForTwo(int amount);
+
+  /// Badge on restaurants that do not charge for delivery.
+  ///
+  /// In en, this message translates to:
+  /// **'Free delivery'**
+  String get freeDelivery;
+
+  /// Short discount badge on a restaurant card. Space is very tight.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% OFF'**
+  String percentOff(int percent);
+
+  /// Offer strip on the restaurant screen.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% off on your order'**
+  String percentOffOnOrder(int percent);
+
+  /// Toggle that hides non-vegetarian dishes.
+  ///
+  /// In en, this message translates to:
+  /// **'Veg only'**
+  String get vegOnly;
+
+  /// Badge on a popular dish.
+  ///
+  /// In en, this message translates to:
+  /// **'BESTSELLER'**
+  String get bestseller;
+
+  /// Button that puts one unit of a dish in the cart. Must stay very short.
+  ///
+  /// In en, this message translates to:
+  /// **'ADD'**
+  String get addLabel;
+
+  /// Empty state when the veg filter hides everything.
+  ///
+  /// In en, this message translates to:
+  /// **'No veg dishes here'**
+  String get noVegDishesTitle;
+
+  /// Supporting copy for the empty veg-filtered menu.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off the veg filter to see the full menu.'**
+  String get noVegDishesSubtitle;
+
+  /// Dialog shown when adding a dish from a different restaurant.
+  ///
+  /// In en, this message translates to:
+  /// **'Start a new cart?'**
+  String get replaceCartTitle;
+
+  /// Explains that an order cannot span two restaurants.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cart has items from {restaurant}. Adding this will clear it.'**
+  String replaceCartMessage(String restaurant);
+
+  /// Confirms discarding the previous restaurant's cart.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear and add'**
+  String get replaceCartConfirm;
+
+  /// Title of the cart screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cart'**
+  String get cartTitle;
+
+  /// Empty state on the cart screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cart is empty'**
+  String get cartEmptyTitle;
+
+  /// Supporting copy for the empty cart.
+  ///
+  /// In en, this message translates to:
+  /// **'Add dishes from a restaurant to get started.'**
+  String get cartEmptySubtitle;
+
+  /// Action from an empty cart or empty order list.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse restaurants'**
+  String get browseRestaurants;
+
+  /// Item count on the floating cart bar and on an order card.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} items'**
+  String itemsInCart(int count);
+
+  /// Action on the floating cart bar.
+  ///
+  /// In en, this message translates to:
+  /// **'View cart'**
+  String get viewCart;
+
+  /// Bill line: the dishes before fees.
+  ///
+  /// In en, this message translates to:
+  /// **'Item total'**
+  String get itemTotal;
+
+  /// Bill line.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery fee'**
+  String get deliveryFeeLabel;
+
+  /// Bill line.
+  ///
+  /// In en, this message translates to:
+  /// **'Taxes and charges'**
+  String get taxesAndCharges;
+
+  /// Replaces the amount on a waived delivery fee.
+  ///
+  /// In en, this message translates to:
+  /// **'FREE'**
+  String get freeLabel;
+
+  /// Bill total.
+  ///
+  /// In en, this message translates to:
+  /// **'To pay'**
+  String get toPay;
+
+  /// Checkout button carrying the total. Keep the ₹ symbol.
+  ///
+  /// In en, this message translates to:
+  /// **'Place order · ₹{amount}'**
+  String placeOrderFor(int amount);
+
+  /// Title of the orders tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Your orders'**
+  String get ordersTitle;
+
+  /// Empty state on the orders tab.
+  ///
+  /// In en, this message translates to:
+  /// **'No orders yet'**
+  String get ordersEmptyTitle;
+
+  /// Supporting copy for the empty order list.
+  ///
+  /// In en, this message translates to:
+  /// **'Your past orders will show up here.'**
+  String get ordersEmptySubtitle;
+
+  /// Refills the cart from a past order.
+  ///
+  /// In en, this message translates to:
+  /// **'Reorder'**
+  String get reorder;
+
+  /// Title of the order tracking screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Order {id}'**
+  String orderTitle(String id);
+
+  /// Headline on the tracking screen before delivery.
+  ///
+  /// In en, this message translates to:
+  /// **'Order placed'**
+  String get orderPlacedTitle;
+
+  /// Estimated arrival on the tracking screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Arriving in about {minutes} minutes.'**
+  String orderPlacedSubtitle(int minutes);
+
+  /// Headline once the order arrives.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivered'**
+  String get orderDeliveredTitle;
+
+  /// Supporting copy once delivered.
+  ///
+  /// In en, this message translates to:
+  /// **'Enjoy your food.'**
+  String get orderDeliveredSubtitle;
+
+  /// Tracking step 1.
+  ///
+  /// In en, this message translates to:
+  /// **'Order placed'**
+  String get statusOrderPlaced;
+
+  /// Tracking step 2.
+  ///
+  /// In en, this message translates to:
+  /// **'Preparing your food'**
+  String get statusPreparing;
+
+  /// Tracking step 3.
+  ///
+  /// In en, this message translates to:
+  /// **'On the way'**
+  String get statusOnTheWay;
+
+  /// Tracking step 4.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivered'**
+  String get statusDelivered;
+
+  /// Leaves the tracking screen while the order is in progress.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep browsing'**
+  String get keepBrowsing;
+
+  /// Leaves the tracking screen once delivered.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to home'**
+  String get backToHome;
+
+  /// Banner making clear the restaurant list is placeholder data.
+  ///
+  /// In en, this message translates to:
+  /// **'Sample storefront — real shops arrive with the catalogue API.'**
+  String get prototypeNotice;
+
+  /// Notice above the checkout button.
+  ///
+  /// In en, this message translates to:
+  /// **'This is a prototype. No payment is taken and no order is really placed.'**
+  String get prototypeCheckoutNotice;
+
+  /// Notice on the order tracking screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracking is simulated for the prototype.'**
+  String get prototypeTrackingNotice;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

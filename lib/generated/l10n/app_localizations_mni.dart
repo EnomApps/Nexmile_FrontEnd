@@ -168,4 +168,208 @@ class AppLocalizationsMni extends AppLocalizations {
 
   @override
   String get retry => 'অমুক হন্না হোৎনবিয়ু';
+
+  @override
+  String get navHome => 'হোম';
+
+  @override
+  String get navSearch => 'থিয়ু';
+
+  @override
+  String get navOrders => 'ওর্দর';
+
+  @override
+  String get cancelLabel => 'কেন্সেল তৌ';
+
+  @override
+  String get deliverTo => 'দেলিভরি এদ্রেস';
+
+  @override
+  String get searchDishesHint => 'চিঞ্জাক নত্ত্রগা রেস্তোরান্ত থিয়ু';
+
+  @override
+  String get searchTitle => 'থিয়ু';
+
+  @override
+  String get searchNoResultsTitle => 'করিসু ফংদে';
+
+  @override
+  String get searchNoResultsSubtitle => 'অতোপ্পা চিঞ্জাক, থোংবগী মওং নত্ত্রগা রেস্তোরান্তকী মিং হোৎনবিয়ু।';
+
+  @override
+  String get cravingTitle => 'ঙসি করি চাবা পাম্বগে?';
+
+  @override
+  String get offersTitle => 'নহাক্কীদমক ওফর';
+
+  @override
+  String get restaurantsNearby => 'নহাক্কী নকপা রেস্তোরান্তশিং';
+
+  @override
+  String restaurantsCount(int count) {
+    return 'রেস্তোরান্ত $count';
+  }
+
+  @override
+  String get noRestaurantsTitle => 'মফম অসিদা হৌজিক করিসু লৈতে';
+
+  @override
+  String get noRestaurantsSubtitle => 'অতোপ্পা কেতেগোরি য়েংউ নত্ত্রগা ফিল্তর লৌথোকউ।';
+
+  @override
+  String minutesAway(int minutes) {
+    return 'মিনিট $minutes';
+  }
+
+  @override
+  String kilometresAway(String distance) {
+    return 'কিমি $distance';
+  }
+
+  @override
+  String ratingsCount(int count) {
+    return 'রেটিং $count+';
+  }
+
+  @override
+  String priceForTwo(int amount) {
+    return 'অনিগীদমক ₹$amount';
+  }
+
+  @override
+  String get freeDelivery => 'ফ্রি দেলিভরি';
+
+  @override
+  String percentOff(int percent) {
+    return '$percent% হন্থবা';
+  }
+
+  @override
+  String percentOffOnOrder(int percent) {
+    return 'নহাক্কী ওর্দরদা $percent% হন্থবা';
+  }
+
+  @override
+  String get vegOnly => 'ভেজ খক্তা';
+
+  @override
+  String get bestseller => 'খ্বাইদগী য়াম্না য়োনবা';
+
+  @override
+  String get addLabel => 'হাপচিল্লু';
+
+  @override
+  String get noVegDishesTitle => 'মফম অসিদা ভেজ চিঞ্জাক লৈতে';
+
+  @override
+  String get noVegDishesSubtitle => 'মেনু অপুম্বা য়েংনবা ভেজ ফিল্তর থিংথোকউ।';
+
+  @override
+  String get replaceCartTitle => 'অনৌবা কার্ত হৌগদ্রা?';
+
+  @override
+  String replaceCartMessage(String restaurant) {
+    return 'নহাক্কী কার্ততা $restaurant-দগী পোৎলম লৈ। মসি হাপচিল্লবদি মখোয় লৌথোক্কনি।';
+  }
+
+  @override
+  String get replaceCartConfirm => 'লৌথোক্তুনা হাপচিল্লু';
+
+  @override
+  String get cartTitle => 'নহাক্কী কার্ত';
+
+  @override
+  String get cartEmptyTitle => 'নহাক্কী কার্ত অহাংবনি';
+
+  @override
+  String get cartEmptySubtitle => 'হৌনবা রেস্তোরান্ত অমদগী চিঞ্জাক হাপচিল্লু।';
+
+  @override
+  String get browseRestaurants => 'রেস্তোরান্ত য়েংউ';
+
+  @override
+  String itemsInCart(int count) {
+    return 'পোৎলম $count';
+  }
+
+  @override
+  String get viewCart => 'কার্ত য়েংউ';
+
+  @override
+  String get itemTotal => 'পোৎলমগী অপুনবা';
+
+  @override
+  String get deliveryFeeLabel => 'দেলিভরি ফী';
+
+  @override
+  String get taxesAndCharges => 'খাজনা অমসুং চার্জ';
+
+  @override
+  String get freeLabel => 'ফ্রি';
+
+  @override
+  String get toPay => 'পীগদবা';
+
+  @override
+  String placeOrderFor(int amount) {
+    return 'ওর্দর তৌ · ₹$amount';
+  }
+
+  @override
+  String get ordersTitle => 'নহাক্কী ওর্দরশিং';
+
+  @override
+  String get ordersEmptyTitle => 'হৌজিক ফাওবা ওর্দর লৈতে';
+
+  @override
+  String get ordersEmptySubtitle => 'নহাক্কী মমাংগী ওর্দরশিং মফম অসিদা উগনি।';
+
+  @override
+  String get reorder => 'অমুক ওর্দর';
+
+  @override
+  String orderTitle(String id) {
+    return 'ওর্দর $id';
+  }
+
+  @override
+  String get orderPlacedTitle => 'ওর্দর তৌরে';
+
+  @override
+  String orderPlacedSubtitle(int minutes) {
+    return 'মিনিট $minutes রোমদা য়ৌরক্কনি।';
+  }
+
+  @override
+  String get orderDeliveredTitle => 'দেলিভর তৌরে';
+
+  @override
+  String get orderDeliveredSubtitle => 'চিঞ্জাক নুংঙাইনা চাবিয়ু।';
+
+  @override
+  String get statusOrderPlaced => 'ওর্দর তৌরে';
+
+  @override
+  String get statusPreparing => 'চিঞ্জাক থোংলি';
+
+  @override
+  String get statusOnTheWay => 'লম্বীদা লাক্লি';
+
+  @override
+  String get statusDelivered => 'দেলিভর তৌরে';
+
+  @override
+  String get keepBrowsing => 'য়েংদুনা লৈয়ু';
+
+  @override
+  String get backToHome => 'হোমদা হল্লকউ';
+
+  @override
+  String get prototypeNotice => 'খুদম ওইবা স্তোরফ্রন্ত — অচুম্বা দোকানশিং কেতালোগ API-গা লোয়ননা লাক্কনি।';
+
+  @override
+  String get prototypeCheckoutNotice => 'মসি প্রোতোতাইপনি। সেন্ফম অমত্তা লৌদে অমসুং অচুম্বা ওর্দরসু তৌদে।';
+
+  @override
+  String get prototypeTrackingNotice => 'প্রোতোতাইপকীদমক ত্রেকিং অসি খুদম ওইনা শেম্বনি।';
 }

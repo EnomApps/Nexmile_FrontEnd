@@ -168,4 +168,208 @@ class AppLocalizationsKs extends AppLocalizations {
 
   @override
   String get retry => 'دوبارٕ کوشش کرِو';
+
+  @override
+  String get navHome => 'ہوم';
+
+  @override
+  String get navSearch => 'ژھانڈٕو';
+
+  @override
+  String get navOrders => 'آرڈر';
+
+  @override
+  String get cancelLabel => 'منسوخ کرِو';
+
+  @override
+  String get deliverTo => 'ڈیلیوری پتہٕ';
+
+  @override
+  String get searchDishesHint => 'کھَنہٕ یا ریسٹورنٹ ژھانڈٕو';
+
+  @override
+  String get searchTitle => 'ژھانڈٕو';
+
+  @override
+  String get searchNoResultsTitle => 'کینٛہہ نہ لبنہٕ آو';
+
+  @override
+  String get searchNoResultsSubtitle => 'بیٚاکھ کھَنہٕ، پکاونُک طریقہٕ یا ریسٹورنٹ ناو آزماوِو۔';
+
+  @override
+  String get cravingTitle => 'اَز کیٚاہ کھیٚنُک دِل چھُ؟';
+
+  @override
+  String get offersTitle => 'توہہِ خٲطرٕ آفر';
+
+  @override
+  String get restaurantsNearby => 'توہنٛدِن نزدیٚکی ریسٹورنٹ';
+
+  @override
+  String restaurantsCount(int count) {
+    return '$count ریسٹورنٹ';
+  }
+
+  @override
+  String get noRestaurantsTitle => 'یَتہِ چھُ ناوُ کینٛہہ نہ';
+
+  @override
+  String get noRestaurantsSubtitle => 'بیٚاکھ قِسم وُچھِو یا فلٹر ہٹاوِو۔';
+
+  @override
+  String minutesAway(int minutes) {
+    return '$minutes مِنٹ';
+  }
+
+  @override
+  String kilometresAway(String distance) {
+    return '$distance کِلومیٹر';
+  }
+
+  @override
+  String ratingsCount(int count) {
+    return '$count+ ریٹِنگ';
+  }
+
+  @override
+  String priceForTwo(int amount) {
+    return 'زٕن خٲطرٕ ₹$amount';
+  }
+
+  @override
+  String get freeDelivery => 'مُفت ڈیلیوری';
+
+  @override
+  String percentOff(int percent) {
+    return '$percent% رعایت';
+  }
+
+  @override
+  String percentOffOnOrder(int percent) {
+    return 'توہنٛدِس آرڈرس پؠٹھٕ $percent% رعایت';
+  }
+
+  @override
+  String get vegOnly => 'صرف سبزی';
+
+  @override
+  String get bestseller => 'سٲری خۄتہٕ زیادٕ ووٚنمُت';
+
+  @override
+  String get addLabel => 'شٲمِل';
+
+  @override
+  String get noVegDishesTitle => 'یَتہِ چھِ نہ سبزی کھَنہٕ';
+
+  @override
+  String get noVegDishesSubtitle => 'پورٕ مینو وُچھنہٕ خٲطرٕ سبزی فلٹر بند کرِو۔';
+
+  @override
+  String get replaceCartTitle => 'نوٚو کارٹ شُروع کرٕو؟';
+
+  @override
+  String replaceCartMessage(String restaurant) {
+    return 'توہنٛدِس کارٹس منٛز چھِ $restaurant ہٕنٛدؠ چیٖز۔ یہ شٲمِل کٔرِتھ گژھن تِم ہٹاونہٕ۔';
+  }
+
+  @override
+  String get replaceCartConfirm => 'ہٹٲوِتھ شٲمِل کرِو';
+
+  @override
+  String get cartTitle => 'توہنٛد کارٹ';
+
+  @override
+  String get cartEmptyTitle => 'توہنٛد کارٹ چھُ خٲلی';
+
+  @override
+  String get cartEmptySubtitle => 'شُروع کرنہٕ خٲطرٕ کُنہِ ریسٹورنٹ پؠٹھٕ کھَنہٕ شٲمِل کرِو۔';
+
+  @override
+  String get browseRestaurants => 'ریسٹورنٹ وُچھِو';
+
+  @override
+  String itemsInCart(int count) {
+    return '$count چیٖز';
+  }
+
+  @override
+  String get viewCart => 'کارٹ وُچھِو';
+
+  @override
+  String get itemTotal => 'چیٖزَن ہُند کُل';
+
+  @override
+  String get deliveryFeeLabel => 'ڈیلیوری فیٖس';
+
+  @override
+  String get taxesAndCharges => 'ٹیکس تہٕ چارجہٕ';
+
+  @override
+  String get freeLabel => 'مُفت';
+
+  @override
+  String get toPay => 'أدا کرُن';
+
+  @override
+  String placeOrderFor(int amount) {
+    return 'آرڈر کرِو · ₹$amount';
+  }
+
+  @override
+  String get ordersTitle => 'توہنٛدؠ آرڈر';
+
+  @override
+  String get ordersEmptyTitle => 'ناوُ کانہہ آرڈر نہ';
+
+  @override
+  String get ordersEmptySubtitle => 'توہنٛدؠ برونہہ کٕنؠ آرڈر ییٚنہٕ یَتہِ ہاونہٕ۔';
+
+  @override
+  String get reorder => 'دوبارٕ آرڈر';
+
+  @override
+  String orderTitle(String id) {
+    return 'آرڈر $id';
+  }
+
+  @override
+  String get orderPlacedTitle => 'آرڈر گو';
+
+  @override
+  String orderPlacedSubtitle(int minutes) {
+    return 'تخمیناً $minutes مِنٹن منٛز پکھِ۔';
+  }
+
+  @override
+  String get orderDeliveredTitle => 'ڈیلیور گو';
+
+  @override
+  String get orderDeliveredSubtitle => 'کھَنہٕ کھیٚو تہٕ مزٕ لِیو۔';
+
+  @override
+  String get statusOrderPlaced => 'آرڈر گو';
+
+  @override
+  String get statusPreparing => 'کھَنہٕ چھُ تیار گژھان';
+
+  @override
+  String get statusOnTheWay => 'وَتہِ پؠٹھٕ چھُ';
+
+  @override
+  String get statusDelivered => 'ڈیلیور گو';
+
+  @override
+  String get keepBrowsing => 'وُچھان رۄزِو';
+
+  @override
+  String get backToHome => 'ہوم کُن واپس';
+
+  @override
+  String get prototypeNotice => 'نمونہٕ سٹور فرنٹ — اصلی دُکان ییٚنہٕ کیٹلاگ API سٕتؠ۔';
+
+  @override
+  String get prototypeCheckoutNotice => 'یہ چھُ اکھ پروٹوٹائپ۔ کانہہ أدایگی چھِ نہ ییٚنہٕ ہیٚنہٕ تہٕ نہ کانہہ اصلی آرڈر چھُ گژھان۔';
+
+  @override
+  String get prototypeTrackingNotice => 'پروٹوٹائپ خٲطرٕ چھُ ٹریکِنگ مصنوعی۔';
 }

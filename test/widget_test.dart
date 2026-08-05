@@ -19,7 +19,14 @@ import 'package:nexmile/features/auth/data/token_store.dart';
 import 'package:nexmile/features/auth/presentation/login_screen.dart';
 import 'package:nexmile/features/auth/presentation/otp_verification_screen.dart';
 import 'package:nexmile/features/auth/state/auth_controller.dart';
-import 'package:nexmile/features/dashboard/dashboard_screen.dart';
+import 'package:nexmile/features/catalogue/data/catalogue_models.dart';
+import 'package:nexmile/features/catalogue/data/sample_catalogue.dart';
+import 'package:nexmile/features/catalogue/presentation/cart_screen.dart';
+import 'package:nexmile/features/catalogue/presentation/order_status_screen.dart';
+import 'package:nexmile/features/catalogue/presentation/restaurant_screen.dart';
+import 'package:nexmile/features/catalogue/presentation/widgets/catalogue_widgets.dart';
+import 'package:nexmile/features/catalogue/state/cart_controller.dart';
+import 'package:nexmile/features/shell/app_shell.dart';
 import 'package:nexmile/features/language/language_screen.dart';
 import 'package:nexmile/features/profile/profile_screen.dart';
 import 'package:nexmile/features/splash/splash_screen.dart';
@@ -534,7 +541,7 @@ void main() {
       );
       await _settleSplash(tester);
 
-      expect(find.byType(DashboardScreen), findsOneWidget);
+      expect(find.byType(AppShell), findsOneWidget);
       expect(find.text('Hello, Priya'), findsOneWidget);
     });
 
@@ -716,7 +723,7 @@ void main() {
       await tester.enterText(find.byType(TextField).first, '123456');
       await tester.pumpAndSettle();
 
-      expect(find.byType(DashboardScreen), findsOneWidget);
+      expect(find.byType(AppShell), findsOneWidget);
       expect(find.text('Hello, Priya'), findsOneWidget);
       expect(repo.verifyCount, 1);
       expect(repo.lastCode, '123456');
@@ -737,7 +744,7 @@ void main() {
         ),
         findsOneWidget,
       );
-      expect(find.byType(DashboardScreen), findsNothing);
+      expect(find.byType(AppShell), findsNothing);
       expect(_controller.isSignedIn, isFalse);
     });
 
@@ -949,14 +956,18 @@ void main() {
 
   // -------------------------------------------------------------------------
   group('dashboard', () {
-    testWidgets('the language can be changed after signing in',
+    testWidgets('the language can be changed from the profile tab',
         (WidgetTester tester) async {
+      _useTallPhone(tester);
       await _pumpApp(
         tester,
         seed: _languageChosen,
         session: _testSession(),
       );
       await _settleSplash(tester);
+
+      await tester.tap(find.text('Profile').first);
+      await tester.pumpAndSettle();
 
       await tester.tap(find.byIcon(Icons.translate_rounded).first);
       await tester.pumpAndSettle();
@@ -967,8 +978,369 @@ void main() {
       await tester.tap(find.text('தொடரவும்'));
       await tester.pumpAndSettle();
 
-      expect(find.byType(DashboardScreen), findsOneWidget);
-      expect(find.text('Nexmile-க்கு வரவேற்கிறோம்'), findsOneWidget);
+      // Back in the shell, with the whole chrome now in Tamil.
+      expect(find.byType(AppShell), findsOneWidget);
+      expect(find.text('முகப்பு'), findsWidgets);
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  // -------------------------------------------------------------------------
+  group('cart', () {
+    const SampleCatalogue catalogue = SampleCatalogue();
+    final Restaurant anjappar = catalogue.restaurantById('r1')!;
+    final Restaurant saravana = catalogue.restaurantById('r2')!;
+
+    test('adding the same dish twice raises the quantity, not the line count',
+        () {
+      final CartController cart = CartController();
+      final Dish dish = anjappar.allDishes.first;
+
+      cart.add(dish, anjappar);
+      cart.add(dish, anjappar);
+
+      expect(cart.lines.length, 1);
+      expect(cart.quantityOf(dish), 2);
+      expect(cart.itemCount, 2);
+    });
+
+    test('removing the last unit drops the line and clears the restaurant', () {
+      final CartController cart = CartController();
+      final Dish dish = anjappar.allDishes.first;
+
+      cart.add(dish, anjappar);
+      cart.remove(dish);
+
+      expect(cart.isEmpty, isTrue);
+      expect(cart.restaurant, isNull);
+    });
+
+    test('a second restaurant is refused unless replace is passed', () {
+      final CartController cart = CartController();
+      cart.add(anjappar.allDishes.first, anjappar);
+
+      expect(cart.wouldReplaceCart(saravana), isTrue);
+
+      // Without consent the cart is untouched.
+      cart.add(saravana.allDishes.first, saravana);
+      expect(cart.restaurant?.id, anjappar.id);
+      expect(cart.itemCount, 1);
+
+      cart.add(saravana.allDishes.first, saravana, replace: true);
+      expect(cart.restaurant?.id, saravana.id);
+      expect(cart.itemCount, 1);
+    });
+
+    test('delivery is charged under the threshold and waived over it', () {
+      // Idli at ₹89 — but Saravana ships free, so use a paying restaurant.
+      final CartController cart = CartController();
+      final Dish parotta = anjappar.allDishes
+          .firstWhere((Dish d) => d.name.startsWith('Parotta'));
+
+      cart.add(parotta, anjappar); // ₹60
+      expect(cart.bill.deliveryFee, BillSummary.baseDeliveryFee);
+
+      // Push the cart past ₹299.
+      final Dish biryani = anjappar.allDishes.first; // ₹249
+      cart.add(biryani, anjappar);
+      expect(cart.itemTotal, greaterThanOrEqualTo(BillSummary.freeDeliveryOver));
+      expect(cart.bill.deliveryFee, 0);
+    });
+
+    test('a free-delivery restaurant never charges, however small the cart', () {
+      final CartController cart = CartController();
+      cart.add(saravana.allDishes.first, saravana);
+
+      expect(saravana.freeDelivery, isTrue);
+      expect(cart.bill.deliveryFee, 0);
+    });
+
+    test('the bill adds up', () {
+      final CartController cart = CartController();
+      cart.add(anjappar.allDishes.first, anjappar); // ₹249
+
+      final BillSummary bill = cart.bill;
+      expect(bill.itemTotal, 249);
+      expect(bill.taxes, (249 * BillSummary.taxRate).round());
+      expect(bill.toPay, bill.itemTotal + bill.deliveryFee + bill.taxes);
+    });
+
+    test('placing an order empties the cart and snapshots the items', () {
+      final CartController cart = CartController();
+      final Dish dish = anjappar.allDishes.first;
+      cart.add(dish, anjappar);
+      cart.add(dish, anjappar);
+
+      final PlacedOrder? order = cart.placeOrder();
+
+      expect(order, isNotNull);
+      expect(cart.isEmpty, isTrue, reason: 'cart empties on checkout');
+      expect(cart.orders.single.id, order!.id);
+      expect(order.itemCount, 2);
+      expect(order.status, OrderStatus.placed);
+    });
+
+    test('a snapshot does not change when the cart is edited afterwards', () {
+      final CartController cart = CartController();
+      final Dish dish = anjappar.allDishes.first;
+      cart.add(dish, anjappar);
+      final PlacedOrder order = cart.placeOrder()!;
+
+      cart.add(dish, anjappar);
+      cart.add(dish, anjappar);
+
+      expect(order.itemCount, 1, reason: 'history is frozen');
+    });
+
+    test('placing an empty cart is a no-op', () {
+      expect(CartController().placeOrder(), isNull);
+    });
+
+    test('advance walks the stages and stops at delivered', () {
+      final CartController cart = CartController();
+      cart.add(anjappar.allDishes.first, anjappar);
+      final PlacedOrder order = cart.placeOrder()!;
+
+      cart.advance(order.id);
+      expect(cart.orderById(order.id)!.status, OrderStatus.preparing);
+      cart.advance(order.id);
+      cart.advance(order.id);
+      expect(cart.orderById(order.id)!.status, OrderStatus.delivered);
+
+      // Already at the end — must not run off the enum.
+      cart.advance(order.id);
+      expect(cart.orderById(order.id)!.status, OrderStatus.delivered);
+    });
+
+    test('reorder refills the cart from a past order', () {
+      final CartController cart = CartController();
+      final Dish dish = anjappar.allDishes.first;
+      cart.add(dish, anjappar);
+      cart.add(dish, anjappar);
+      final PlacedOrder order = cart.placeOrder()!;
+
+      cart.reorder(order);
+
+      expect(cart.restaurant?.id, anjappar.id);
+      expect(cart.quantityOf(dish), 2);
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  group('storefront', () {
+    Future<void> openStore(WidgetTester tester) async {
+      _useTallPhone(tester);
+      await _pumpApp(
+        tester,
+        seed: _languageChosen,
+        session: _testSession(),
+      );
+      await _settleSplash(tester);
+    }
+
+    testWidgets('the shell lands on the home tab with restaurants',
+        (WidgetTester tester) async {
+      await openStore(tester);
+
+      expect(find.byType(AppShell), findsOneWidget);
+      expect(find.text('Restaurants near you'), findsOneWidget);
+      expect(find.text('Anjappar Chettinad'), findsWidgets);
+    });
+
+    testWidgets('the prototype banner is visible on the storefront',
+        (WidgetTester tester) async {
+      await openStore(tester);
+      expect(find.byType(PrototypeNotice), findsOneWidget);
+    });
+
+    testWidgets('opening a restaurant shows its menu',
+        (WidgetTester tester) async {
+      await openStore(tester);
+
+      await tester.tap(find.text('Anjappar Chettinad').first);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(RestaurantScreen), findsOneWidget);
+      expect(find.text('Chicken Biryani'), findsOneWidget);
+      expect(find.text('Bestsellers'), findsOneWidget);
+    });
+
+    testWidgets('adding a dish reveals the cart bar', (WidgetTester tester) async {
+      await openStore(tester);
+      await tester.tap(find.text('Anjappar Chettinad').first);
+      await tester.pumpAndSettle();
+
+      expect(find.text('View cart'), findsNothing);
+
+      await tester.tap(find.text('ADD').first);
+      await tester.pumpAndSettle();
+
+      expect(find.text('View cart'), findsOneWidget);
+      expect(find.text('1 items'), findsWidgets);
+    });
+
+    testWidgets('the veg filter hides non-veg dishes',
+        (WidgetTester tester) async {
+      await openStore(tester);
+      await tester.tap(find.text('Anjappar Chettinad').first);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Chicken Biryani'), findsOneWidget);
+
+      await tester.tap(find.byType(Switch));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Chicken Biryani'), findsNothing);
+      expect(find.text('Veg Biryani'), findsOneWidget);
+    });
+
+    testWidgets('adding from a second restaurant asks before clearing',
+        (WidgetTester tester) async {
+      await openStore(tester);
+
+      await tester.tap(find.text('Anjappar Chettinad').first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('ADD').first);
+      await tester.pumpAndSettle();
+      _nav(tester).pop();
+      await tester.pumpAndSettle();
+
+      // Reach the second restaurant through search rather than scrolling the
+      // home list — the sliver only builds what is on screen, and the cart bar
+      // now takes up part of it.
+      await tester.tap(find.text('Search').first);
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField).first, 'Saravana');
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Saravana Bhavan').first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('ADD').first);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Start a new cart?'), findsOneWidget);
+
+      await tester.tap(find.text('Cancel'));
+      await tester.pumpAndSettle();
+      // Declining leaves the original kitchen's cart intact.
+      expect(find.text('1 items'), findsWidgets);
+    });
+
+    testWidgets('checkout places an order and opens tracking',
+        (WidgetTester tester) async {
+      await openStore(tester);
+      await tester.tap(find.text('Anjappar Chettinad').first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('ADD').first);
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('View cart'));
+      await tester.pumpAndSettle();
+      expect(find.byType(CartScreen), findsOneWidget);
+      expect(find.text('Item total'), findsOneWidget);
+      expect(find.text('To pay'), findsOneWidget);
+
+      await tester.tap(find.textContaining('Place order'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(OrderStatusScreen), findsOneWidget);
+      expect(find.text('Order placed'), findsWidgets);
+    });
+
+    testWidgets('tracking advances through the stages',
+        (WidgetTester tester) async {
+      await openStore(tester);
+      await tester.tap(find.text('Anjappar Chettinad').first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('ADD').first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('View cart'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.textContaining('Place order'));
+      await tester.pumpAndSettle();
+
+      // Three stage ticks reach delivered.
+      for (int i = 0; i < 3; i++) {
+        await tester.pump(const Duration(seconds: 6));
+        await tester.pump();
+      }
+      expect(find.text('Delivered'), findsWidgets);
+      expect(find.text('Back to home'), findsOneWidget);
+
+      // The periodic timer must have stopped, or the test would hang.
+      await tester.pumpAndSettle();
+    });
+
+    testWidgets('search matches a dish name', (WidgetTester tester) async {
+      await openStore(tester);
+
+      await tester.tap(find.text('Search').first);
+      await tester.pumpAndSettle();
+
+      await tester.enterText(find.byType(TextField).first, 'dosa');
+      await tester.pumpAndSettle();
+
+      expect(find.text('Saravana Bhavan'), findsWidgets);
+      expect(find.text('Anjappar Chettinad'), findsNothing);
+    });
+
+    testWidgets('search reports an empty result', (WidgetTester tester) async {
+      await openStore(tester);
+      await tester.tap(find.text('Search').first);
+      await tester.pumpAndSettle();
+
+      await tester.enterText(find.byType(TextField).first, 'zzzz');
+      await tester.pumpAndSettle();
+
+      expect(find.text('Nothing matched'), findsOneWidget);
+    });
+
+    testWidgets('the orders tab starts empty and lists a placed order',
+        (WidgetTester tester) async {
+      await openStore(tester);
+
+      await tester.tap(find.text('Orders').first);
+      await tester.pumpAndSettle();
+      expect(find.text('No orders yet'), findsOneWidget);
+
+      // Place one, then come back.
+      await tester.tap(find.text('Home').first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Anjappar Chettinad').first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('ADD').first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('View cart'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.textContaining('Place order'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Keep browsing'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Orders').first);
+      await tester.pumpAndSettle();
+      expect(find.text('No orders yet'), findsNothing);
+      expect(find.text('Reorder'), findsOneWidget);
+    });
+
+    testWidgets('an empty cart offers a way back to browsing',
+        (WidgetTester tester) async {
+      await openStore(tester);
+      _nav(tester).pushNamed(AppRoutes.cart);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Your cart is empty'), findsOneWidget);
+      expect(find.text('Browse restaurants'), findsOneWidget);
+    });
+
+    testWidgets('a restaurant route without arguments falls back to login',
+        (WidgetTester tester) async {
+      await openStore(tester);
+      _nav(tester).pushNamed(AppRoutes.restaurant);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(LoginScreen), findsWidgets);
+      expect(tester.takeException(), isNull);
     });
   });
 
@@ -1076,7 +1448,7 @@ void main() {
       );
       await _settleSplash(tester);
 
-      expect(find.byType(DashboardScreen), findsOneWidget);
+      expect(find.byType(AppShell), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
 

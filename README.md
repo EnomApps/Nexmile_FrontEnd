@@ -15,7 +15,7 @@ Built against the Nexmile REST API (`document.json`, OpenAPI 3.1).
 | Language selection | Done — English + all 22 Eighth Schedule languages |
 | Sign-in (OTP) | Done — wired to the live API |
 | Profile | Done — read-only, backed by `GET /v1/profile` |
-| Dashboard | Shell only — proves session + locale, links to profile |
+| Storefront | **Prototype** — full journey on sample data, no API yet |
 | Address onboarding | **Not built.** See [What's next](#whats-next) |
 
 ---
@@ -63,8 +63,47 @@ splash (3s)
    ├─ language chosen, no session ──► sign in
    └─ session restored from keystore ──► dashboard
 
-sign in  (email or mobile) ──► OTP ──► dashboard ──► profile
+sign in  (email or mobile) ──► OTP ──► app shell
+                                        ├── Home    ──► restaurant ──► cart ──► order tracking
+                                        ├── Search
+                                        ├── Orders  ──► reorder
+                                        └── Profile
 ```
+
+## Storefront prototype
+
+Everything after sign-in runs on invented data in
+`lib/features/catalogue/data/sample_catalogue.dart`: seven restaurants, full
+menus, categories and offers. The whole journey works — browse, filter by
+category, search, open a menu, add to cart, check out, watch the order move
+through four tracking stages, then reorder from history.
+
+**Swapping in the real API** is a one-file change: implement
+`CatalogueRepository` (six methods) against HTTP and hand it to the screens.
+Nothing in the UI touches `SampleCatalogue` directly.
+
+Three behaviours that are real logic rather than mock-ups, and should survive
+the API swap:
+
+- **One restaurant per cart.** Adding a dish from another kitchen prompts before
+  clearing — orders cannot span restaurants, so mixing them would only fail at
+  checkout.
+- **Bill arithmetic.** ₹29 delivery, waived over ₹299 or on free-delivery
+  restaurants, plus 5% GST. See `BillSummary`.
+- **Order snapshots.** Checkout copies the lines out of the cart, so editing the
+  cart afterwards cannot rewrite order history.
+
+Two things are deliberately fake and marked as such in the UI: **tracking**
+advances on a timer (delete the timer in `order_status_screen.dart` and drive
+`PlacedOrder.status` from the server), and **no payment is taken**.
+
+Sample content — restaurant names, dish names, cuisines — is English only. It
+stands in for API content, so translating it 23 ways would be work that gets
+deleted. All UI chrome around it *is* fully translated.
+
+There is no photography: each dish and restaurant renders its emoji on a
+brand-tinted gradient (`FoodImage`), keyed off its id so the same restaurant
+always looks the same. That keeps the prototype free of network image loads.
 
 The profile screen renders the cached user immediately and refreshes from
 `GET /v1/profile` in the background, so it is never blank on a slow connection.

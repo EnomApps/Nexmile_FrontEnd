@@ -168,4 +168,208 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get retry => 'আবার চেষ্টা করুন';
+
+  @override
+  String get navHome => 'হোম';
+
+  @override
+  String get navSearch => 'খুঁজুন';
+
+  @override
+  String get navOrders => 'অর্ডার';
+
+  @override
+  String get cancelLabel => 'বাতিল';
+
+  @override
+  String get deliverTo => 'ডেলিভারির ঠিকানা';
+
+  @override
+  String get searchDishesHint => 'খাবার বা রেস্তোরাঁ খুঁজুন';
+
+  @override
+  String get searchTitle => 'খুঁজুন';
+
+  @override
+  String get searchNoResultsTitle => 'কিছু মেলেনি';
+
+  @override
+  String get searchNoResultsSubtitle => 'অন্য কোনো খাবার, রান্নার ধরন বা রেস্তোরাঁর নাম চেষ্টা করুন।';
+
+  @override
+  String get cravingTitle => 'আজ কী খেতে ইচ্ছে করছে?';
+
+  @override
+  String get offersTitle => 'আপনার জন্য অফার';
+
+  @override
+  String get restaurantsNearby => 'আপনার কাছের রেস্তোরাঁ';
+
+  @override
+  String restaurantsCount(int count) {
+    return '$countটি রেস্তোরাঁ';
+  }
+
+  @override
+  String get noRestaurantsTitle => 'এখানে এখনো কিছু নেই';
+
+  @override
+  String get noRestaurantsSubtitle => 'অন্য বিভাগ দেখুন বা ফিল্টার সরান।';
+
+  @override
+  String minutesAway(int minutes) {
+    return '$minutes মিনিট';
+  }
+
+  @override
+  String kilometresAway(String distance) {
+    return '$distance কিমি';
+  }
+
+  @override
+  String ratingsCount(int count) {
+    return '$count+ রেটিং';
+  }
+
+  @override
+  String priceForTwo(int amount) {
+    return 'দুজনের জন্য ₹$amount';
+  }
+
+  @override
+  String get freeDelivery => 'ফ্রি ডেলিভারি';
+
+  @override
+  String percentOff(int percent) {
+    return '$percent% ছাড়';
+  }
+
+  @override
+  String percentOffOnOrder(int percent) {
+    return 'আপনার অর্ডারে $percent% ছাড়';
+  }
+
+  @override
+  String get vegOnly => 'শুধু নিরামিষ';
+
+  @override
+  String get bestseller => 'সবচেয়ে জনপ্রিয়';
+
+  @override
+  String get addLabel => 'যোগ';
+
+  @override
+  String get noVegDishesTitle => 'এখানে নিরামিষ খাবার নেই';
+
+  @override
+  String get noVegDishesSubtitle => 'পুরো মেনু দেখতে নিরামিষ ফিল্টার বন্ধ করুন।';
+
+  @override
+  String get replaceCartTitle => 'নতুন কার্ট শুরু করবেন?';
+
+  @override
+  String replaceCartMessage(String restaurant) {
+    return 'আপনার কার্টে $restaurant-এর জিনিস আছে। এটি যোগ করলে সেগুলি মুছে যাবে।';
+  }
+
+  @override
+  String get replaceCartConfirm => 'মুছে যোগ করুন';
+
+  @override
+  String get cartTitle => 'আপনার কার্ট';
+
+  @override
+  String get cartEmptyTitle => 'আপনার কার্ট খালি';
+
+  @override
+  String get cartEmptySubtitle => 'শুরু করতে কোনো রেস্তোরাঁ থেকে খাবার যোগ করুন।';
+
+  @override
+  String get browseRestaurants => 'রেস্তোরাঁ দেখুন';
+
+  @override
+  String itemsInCart(int count) {
+    return '$countটি জিনিস';
+  }
+
+  @override
+  String get viewCart => 'কার্ট দেখুন';
+
+  @override
+  String get itemTotal => 'জিনিসের মোট';
+
+  @override
+  String get deliveryFeeLabel => 'ডেলিভারি ফি';
+
+  @override
+  String get taxesAndCharges => 'কর ও চার্জ';
+
+  @override
+  String get freeLabel => 'ফ্রি';
+
+  @override
+  String get toPay => 'দিতে হবে';
+
+  @override
+  String placeOrderFor(int amount) {
+    return 'অর্ডার করুন · ₹$amount';
+  }
+
+  @override
+  String get ordersTitle => 'আপনার অর্ডার';
+
+  @override
+  String get ordersEmptyTitle => 'এখনো কোনো অর্ডার নেই';
+
+  @override
+  String get ordersEmptySubtitle => 'আপনার আগের অর্ডার এখানে দেখা যাবে।';
+
+  @override
+  String get reorder => 'আবার অর্ডার';
+
+  @override
+  String orderTitle(String id) {
+    return 'অর্ডার $id';
+  }
+
+  @override
+  String get orderPlacedTitle => 'অর্ডার হয়ে গেছে';
+
+  @override
+  String orderPlacedSubtitle(int minutes) {
+    return 'প্রায় $minutes মিনিটে পৌঁছাবে।';
+  }
+
+  @override
+  String get orderDeliveredTitle => 'ডেলিভার হয়েছে';
+
+  @override
+  String get orderDeliveredSubtitle => 'খাবার উপভোগ করুন।';
+
+  @override
+  String get statusOrderPlaced => 'অর্ডার হয়েছে';
+
+  @override
+  String get statusPreparing => 'খাবার তৈরি হচ্ছে';
+
+  @override
+  String get statusOnTheWay => 'পথে আছে';
+
+  @override
+  String get statusDelivered => 'ডেলিভার হয়েছে';
+
+  @override
+  String get keepBrowsing => 'দেখতে থাকুন';
+
+  @override
+  String get backToHome => 'হোমে ফিরুন';
+
+  @override
+  String get prototypeNotice => 'নমুনা স্টোরফ্রন্ট — আসল দোকান ক্যাটালগ API-এর সঙ্গে আসবে।';
+
+  @override
+  String get prototypeCheckoutNotice => 'এটি একটি প্রোটোটাইপ। কোনো টাকা নেওয়া হয় না এবং সত্যিকারের অর্ডারও হয় না।';
+
+  @override
+  String get prototypeTrackingNotice => 'প্রোটোটাইপের জন্য ট্র্যাকিং কৃত্রিম।';
 }
