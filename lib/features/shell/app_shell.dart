@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/router/app_router.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/theme/app_theme.dart';
 import '../../generated/l10n/app_localizations.dart';
+import '../catalogue/data/cart_models.dart';
 import '../catalogue/presentation/home_tab.dart';
 import '../catalogue/presentation/orders_tab.dart';
-import '../catalogue/presentation/restaurant_screen.dart';
 import '../catalogue/presentation/search_tab.dart';
+import '../catalogue/presentation/widgets/catalogue_widgets.dart';
 import '../catalogue/state/cart_controller.dart';
 import '../profile/profile_screen.dart';
 
@@ -34,6 +37,16 @@ class _AppShellState extends State<AppShell> {
   final Set<int> _visited = <int>{0};
 
   int _index = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    // Carts live on the server, one per restaurant, so an unfinished basket
+    // survives a reinstall. `GET /v1/carts` is what surfaces it.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) context.read<CartController>().loadOpenCarts();
+    });
+  }
 
   void _select(int index) {
     setState(() {
@@ -71,19 +84,18 @@ class _AppShellState extends State<AppShell> {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations l10n = AppLocalizations.of(context);
     final bool isDark = theme.brightness == Brightness.dark;
-    final int cartCount = context.watch<CartController>().itemCount;
 
     return Scaffold(
       body: IndexedStack(
         index: _index,
         children: <Widget>[for (int i = 0; i < 4; i++) _tab(i)],
       ),
-      // The cart bar rides above the navigation bar on the browsing tabs; the
-      // profile tab has its own actions and does not need it.
+      // The unfinished-basket bar rides above the navigation bar on the
+      // browsing tabs; the orders and profile tabs have their own actions.
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          if (_index != 3) const CartBar(),
+          if (_index < 2) const _OpenCartBar(),
           NavigationBar(
             selectedIndex: _index,
             onDestinationSelected: _select,
@@ -105,11 +117,7 @@ class _AppShellState extends State<AppShell> {
                 label: l10n.navSearch,
               ),
               NavigationDestination(
-                icon: Badge.count(
-                  count: cartCount,
-                  isLabelVisible: cartCount > 0,
-                  child: const Icon(Icons.receipt_long_outlined),
-                ),
+                icon: const Icon(Icons.receipt_long_outlined),
                 selectedIcon: Icon(
                   Icons.receipt_long_rounded,
                   color: isDark ? AppColors.greenLight : AppColors.greenDeep,
@@ -127,6 +135,82 @@ class _AppShellState extends State<AppShell> {
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// "You left something at ___" — an unfinished basket, from `GET /v1/carts`.
+///
+/// Only the first is offered. There can be several, one per restaurant, but a
+/// stack of bars would eat the screen and the rest are one tap away inside
+/// their own restaurants.
+class _OpenCartBar extends StatelessWidget {
+  const _OpenCartBar();
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final AppLocalizations l10n = AppLocalizations.of(context);
+    final List<OpenCart> carts = context.watch<CartController>().openCarts;
+
+    if (carts.isEmpty) return const SizedBox.shrink();
+    final OpenCart cart = carts.first;
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+      child: Material(
+        color: AppColors.greenDeep,
+        borderRadius: BorderRadius.circular(AppTheme.radius),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(AppTheme.radius),
+          onTap: () => Navigator.of(context).pushNamed(
+            AppRoutes.cart,
+            arguments: CartArgs(restaurantId: cart.restaurantId),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text(
+                        cart.restaurantName,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.titleSmall?.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      Text(
+                        l10n.itemsInCart(cart.itemCount),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.labelSmall
+                            ?.copyWith(color: Colors.white70),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Rupees(
+                  cart.grandTotal,
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                const Icon(Icons.arrow_forward_rounded,
+                    color: Colors.white, size: 20),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

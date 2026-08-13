@@ -2,6 +2,7 @@
   "@@locale": "ks",
 
   "appName": "Nexmile",
+  "fieldRequired": "یہ خانہٕ چھُ ضروری",
   "tagline": "تیز ڈیلیوری۔ تازٕ مُسکراہٹ۔",
   "chooseLanguageTitle": "پنُن زبان ژارٕو",
   "chooseLanguageSubtitle": "یِم زبان چھِوٕ آسان محسوس کران سُہ ژارٕو۔ توہہِ ہیٚکِو یہ کُنہِ وقتہٕ سیٹِنگز منٛز بدلاوِتھ۔",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "ٹیکس تہٕ چارجہٕ",
   "freeLabel": "مُفت",
   "toPay": "أدا کرُن",
-  "placeOrderFor": "آرڈر کرِو · ₹{amount}",
+  "placeOrderFor": "آرڈر کرِو · {amount}",
   "ordersTitle": "توہنٛدؠ آرڈر",
   "ordersEmptyTitle": "ناوُ کانہہ آرڈر نہ",
   "ordersEmptySubtitle": "توہنٛدؠ برونہہ کٕنؠ آرڈر ییٚنہٕ یَتہِ ہاونہٕ۔",
@@ -117,5 +118,173 @@
   "backToHome": "ہوم کُن واپس",
   "prototypeNotice": "نمونہٕ سٹور فرنٹ — اصلی دُکان ییٚنہٕ کیٹلاگ API سٕتؠ۔",
   "prototypeCheckoutNotice": "یہ چھُ اکھ پروٹوٹائپ۔ کانہہ أدایگی چھِ نہ ییٚنہٕ ہیٚنہٕ تہٕ نہ کانہہ اصلی آرڈر چھُ گژھان۔",
-  "prototypeTrackingNotice": "پروٹوٹائپ خٲطرٕ چھُ ٹریکِنگ مصنوعی۔"
+  "prototypeTrackingNotice": "پروٹوٹائپ خٲطرٕ چھُ ٹریکِنگ مصنوعی۔",
+
+  "locationTitle": "ڈیلیوری کۄتہٕ کرٕو؟",
+  "locationSubtitle": "Nexmile کران چھُ صرف 1 کِلومیٹر اندر ہٕنٛدین دُکانن پؠٹھٕ ڈیلیوری، تہٕ امہِ خٲطرٕ چھُ توہنٛد صحیح جاے ضروری۔",
+  "locationReasonRadiusTitle": "1 کِلومیٹر اندر ہٕنٛدؠ دُکان",
+  "locationReasonRadiusBody": "أسؠ چھِ صرف تِم باورچی خانہٕ ہاوان یَتہِ پؠٹھٕ کھَنہٕ گرٕم پکھِ۔",
+  "locationReasonAccuracyTitle": "بالکل صحیح دَروازس تام",
+  "locationReasonAccuracyBody": "صحیح پِن آسِتھ چھُ ڈیلیوری پارٹنر فون کٔرِتھ بغٲر توہہِ تام واتان۔",
+  "locationReasonPrivacyTitle": "صرف ایپ استعمال کران وقتہٕ",
+  "locationReasonPrivacyBody": "أسؠ چھِ نہ پس منظرس منٛز توہہِ ٹریک کران، تہٕ پتہٕ ہیٚکِو توہہِ پانہٕ تہِ لیٚکھِتھ۔",
+  "allowLocation": "جاے ہٕنٛز اجازت دِیِو",
+  "enterAddressManually": "بہٕ لیٚکھہٕ پتہٕ پانہٕ",
+  "locationDenied": "جاے ہٕنٛز اجازت نہ میٚلہ۔ توہہِ ہیٚکِو پِن پانہٕ ٹھٲوِتھ۔",
+  "locationDeniedForever": "Nexmile خٲطرٕ چھُ جاے بند۔ سیٹِنگز منٛز کھولٕو یا پِن پانہٕ ٹھٲوِو۔",
+  "locationServiceOff": "امہِ ڈیوائسس پؠٹھٕ چھُ جاے بند۔",
+  "locationUnavailable": "جاے نہ لبنہٕ آیہ۔ مہربٲنی کٔرِتھ پِن پانہٕ ٹھٲوِو۔",
+  "openSettings": "سیٹِنگز",
+
+  "pinLocationTitle": "پنُن ڈیلیوری پِن ٹھٲوِو",
+  "deliveryRadiusHint": "دٲیرٕ چھُ سُہ 1 کِلومیٹر ہاوان یَتہِ منٛز Nexmile ڈیلیوری کران چھُ۔",
+  "useMyLocation": "میٚون جاے استعمال کرِو",
+  "deliveringHere": "یَتہِ ڈیلیوری",
+  "dragToAdjust": "پِن بدلاونہٕ خٲطرٕ نقشہٕ ژَلٕو",
+  "confirmLocation": "جاے تصدیق کرِو",
+
+  "addressDetailsTitle": "پتہٕ تفصیل",
+  "addressDetailsSubtitle": "صحیح دَروازس تام واتنہٕ خٲطرٕ گَرٕ نمبر تہٕ نِشٲنی شٲمِل کرِو۔",
+  "pinnedLocation": "ژارنہٕ آمٕژ جاے",
+  "changePin": "بدلاوِو",
+  "saveAddressAs": "یہ پتہٕ ییٚتھ کٔرِتھ محفوظ کرِو",
+  "labelHome": "گَرٕ",
+  "labelWork": "دفتر",
+  "labelOther": "بیٚاکھ",
+  "addressLine1Label": "گَرٕ، فلیٹ یا عمارت",
+  "addressLine1Hint": "12A، گریٖن ریزیڈنسی",
+  "addressLine2Label": "گلی یا علاقہٕ",
+  "addressLine2Hint": "دۆیِم ایونیو، اَنا نگر",
+  "landmarkLabel": "نِشٲنی",
+  "landmarkHint": "بس اسٹاپُک برونٛہہ",
+  "cityLabel": "شہر",
+  "stateLabel": "ریاست",
+  "pincodeLabel": "پِن کوڈ",
+  "invalidPincode": "صحیح 6 ہندسن ہُند پِن کوڈ لیٚکھِو",
+  "contactNameLabel": "رٲبطہٕ ناو",
+  "contactPhoneLabel": "رٲبطہٕ نمبر",
+  "invalidMobileNumber": "صحیح 10 ہندسن ہُند موبائل نمبر لیٚکھِو",
+  "makeDefaultAddress": "ڈیفالٹ طور یَتہِ ای ڈیلیوری",
+  "saveAddress": "پتہٕ محفوظ کرِو",
+  "addressSaved": "پتہٕ آو محفوظ کرنہٕ",
+
+  "addressBookTitle": "ڈیلیوری پتہٕ",
+  "manageAddresses": "محفوظ پتہٕ سنبالٕو",
+  "noAddressesTitle": "ناوُ کانہہ پتہٕ نہ",
+  "noAddressesSubtitle": "اَکھ پتہٕ شٲمِل کرِو تہٕ أسؠ ہیٚکَو توہہِ تام ڈیلیوری کران وٲلؠ دُکان ہٲوِتھ۔",
+  "addAddress": "پتہٕ شٲمِل کرِو",
+  "setAsDefault": "ڈیفالٹ بناوِو",
+  "editLabel": "تبدیٖلی کرِو",
+  "addressUpdated": "پتہٕ آو اپ ڈیٹ کرنہٕ",
+  "deleteLabel": "مِٹاوِو",
+  "deleteAddressTitle": "یہ پتہٕ مِٹاوٕو؟",
+  "deleteAddressMessage": "توہہِ ہیٚکِو یہ پتہٕ دوبارٕ شٲمِل کٔرِتھ۔",
+
+  "rescueDealsTitle": "فوڈ ریسکیو",
+
+  "notTakingOrders": "آرڈر چھِ نہ ہیوان",
+
+  "closedRightNow": "وُنی چھُ بند",
+
+  "minimumOrder": "کم از کم {amount}",
+
+  "portionsLeft": "{count} باقی",
+
+  "soldOut": "ختم گو",
+
+  "menuEmptyTitle": "وُنی چھُ نہ کینہہ کھانہٕ",
+
+  "menuEmptySubtitle": "یَتھ ریستوران چھُنہ پنُن مینو رٹِمُت۔",
+
+  "moreDishesTitle": "زیادٕ کھانہٕ",
+
+  "customisable": "پننِس پسندٕ مطابق",
+
+  "requiredLabel": "ضروری",
+
+  "optionalLabel": "اختیاری",
+
+  "chooseOne": "اکھ ژارٕو",
+
+  "chooseUpTo": "زیادٕ کھۄتہ زیادٕ {count} ژارٕو",
+
+  "chooseAtLeast": "کم از کم {count} ژارٕو",
+
+  "chooseBetween": "{min} پؠٹھٕ {max} تام ژارٕو",
+
+  "specialInstructions": "خاص ہدایژ",
+
+  "specialInstructionsHint": "کم مرچ، گَندٕ نہٕ…",
+
+  "addForAmount": "شامل کریو · {amount}",
+
+  "deliveryLabel": "ڈیلیوری",
+
+  "pickupLabel": "پانہٕ ہیون",
+
+  "packagingLabel": "پیکنگ",
+
+  "discountLabel": "رعایژ",
+
+  "billDetailsTitle": "بلٕچ تفصیل",
+
+  "clearCart": "کارٹ خالی کریو",
+
+  "clearCartTitle": "یہ کارٹ خالی کریو؟",
+
+  "clearCartMessage": "یَتھ منٛز چھُ سٲری کینہہ ہٹاون یِوان۔",
+
+  "unavailableItemsNotice": "وُنی چھُنہ دستیاب: {items}",
+
+  "removeUnavailable": "تِم ہٹاویو",
+
+  "minimumNotMet": "کم از کم آرڈر چھُ {amount}",
+
+  "checkoutTitle": "چیک آؤٹ",
+
+  "deliveryAddressLabel": "ڈیلیوری ایڈریس",
+
+  "noAddressSelected": "کانہہ ایڈریس چھُنہ ژارمُت",
+
+  "paymentMethodLabel": "ادایگی",
+
+  "payOnDelivery": "ڈیلیوری وقتہٕ نقد",
+
+  "noteToRestaurant": "ریستورانس خٲطرٕ نوٹ",
+
+  "noteToRestaurantHint": "گھنٹی زٕ لٹہٕ بجٲویو…",
+
+  "activeOrdersTitle": "جاری آرڈر",
+
+  "pastOrdersTitle": "پرانہ آرڈر",
+
+  "orderItemsTitle": "کھانہٕ",
+
+  "orderProgressTitle": "پیش رفت",
+
+  "arrivingIn": "وۄتنس منٛز",
+
+  "pickupCodeLabel": "پک اپ کوڈ",
+
+  "cancellationReasonLabel": "منسوخ گژھنُک وجہ",
+
+  "riderLabel": "ڈیلیوری پارٹنر",
+
+  "callRider": "کال کریو",
+
+  "viewInvoice": "ٹیکس انوائس",
+
+  "cancelOrder": "آرڈر منسوخ کریو",
+
+  "cancelOrderTitle": "یہ آرڈر منسوخ کریو؟",
+
+  "cancelOrderMessage": "ریستوران قبول کرنہٕ برونٛہہ ہی ہیکو منسوخ کٕرِتھ۔",
+
+  "cancelReasonLabel": "وجہ",
+
+  "cancelReasonFallback": "گاہکن کور منسوخ",
+
+  "orderCancelled": "آرڈر گو منسوخ",
+
+  "currentLocationLabel": "موجودٕ جاے"
 }

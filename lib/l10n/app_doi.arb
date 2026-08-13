@@ -2,6 +2,7 @@
   "@@locale": "doi",
 
   "appName": "Nexmile",
+  "fieldRequired": "एह् खाना ज़रूरी ऐ",
   "tagline": "तेज़ डिलीवरी। ताज़ी मुस्कान।",
   "chooseLanguageTitle": "अपनी बोली चुनो",
   "chooseLanguageSubtitle": "जिस बोली च तुसें सौखा लगदा ओह् चुनो। तुस इसनूं कदी बी सेटिंग्स च बदली सकदे ओ।",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "कर ते खर्चे",
   "freeLabel": "मुफ्त",
   "toPay": "देने आह्ला",
-  "placeOrderFor": "ऑर्डर करो · ₹{amount}",
+  "placeOrderFor": "ऑर्डर करो · {amount}",
   "ordersTitle": "तुंदे ऑर्डर",
   "ordersEmptyTitle": "हाल्ली कोई ऑर्डर नेईं",
   "ordersEmptySubtitle": "तुंदे पैह्ले ऑर्डर इत्थै दिक्खने गी मिलङन।",
@@ -117,5 +118,173 @@
   "backToHome": "होम पर वापस",
   "prototypeNotice": "नमूना स्टोरफ्रंट — असली दुकानां कैटलॉग API कन्नै औङन।",
   "prototypeCheckoutNotice": "एह् इक प्रोटोटाइप ऐ। कोई भुगतान नेईं लैता जंदा ते कोई असली ऑर्डर बी नेईं होंदा।",
-  "prototypeTrackingNotice": "प्रोटोटाइप आस्तै ट्रैकिंग नकली ऐ।"
+  "prototypeTrackingNotice": "प्रोटोटाइप आस्तै ट्रैकिंग नकली ऐ।",
+
+  "locationTitle": "डिलीवरी कुत्थें करनी ऐ?",
+  "locationSubtitle": "Nexmile सिर्फ 1 किमी दे अंदरलियां दुकानां थमां डिलीवरी करदा ऐ, इस आस्तै साढ़ी तुंदी ठीक जगह लोड़ ऐ।",
+  "locationReasonRadiusTitle": "1 किमी दे अंदर दियां दुकानां",
+  "locationReasonRadiusBody": "अस सिर्फ ओह् रसोइयां दस्सने आं जित्थुं खाना गरम पुज्जै।",
+  "locationReasonAccuracyTitle": "ठीक दरवाजे तगर",
+  "locationReasonAccuracyBody": "सही पिन होवै तां डिलीवरी पार्टनर फोन कीते बगैर तुंदे तगर पुज्जी जंदा ऐ।",
+  "locationReasonPrivacyTitle": "सिर्फ ऐप बरतदे बेल्लै",
+  "locationReasonPrivacyBody": "अस पिच्छें तुंदा खोज-खबर नेईं रखदे, ते पता तुस अपने आप बी लिखी सकदे ओ।",
+  "allowLocation": "थाह्र दी इजाजत देओ",
+  "enterAddressManually": "मैं पता अपने आप लिखगा",
+  "locationDenied": "थाह्र दी इजाजत नेईं मिली। तुस पिन अपने आप लाई सकदे ओ।",
+  "locationDeniedForever": "Nexmile आस्तै थाह्र बंद ऐ। सेटिंग्स च चालू करो जां पिन अपने आप लाओ।",
+  "locationServiceOff": "इस डिवाइस उप्पर थाह्र बंद ऐ।",
+  "locationUnavailable": "थाह्र नेईं लब्भी। किरपा करियै पिन अपने आप लाओ।",
+  "openSettings": "सेटिंग्स",
+
+  "pinLocationTitle": "अपना डिलीवरी पिन लाओ",
+  "deliveryRadiusHint": "घेरा ओह् 1 किमी दस्सदा ऐ जिस च Nexmile डिलीवरी करदा ऐ।",
+  "useMyLocation": "मेरी थाह्र बरतो",
+  "deliveringHere": "इत्थै डिलीवरी",
+  "dragToAdjust": "पिन बदलने आस्तै नक्शा खिच्चो",
+  "confirmLocation": "थाह्र पक्की करो",
+
+  "addressDetailsTitle": "पते दा ब्यौरा",
+  "addressDetailsSubtitle": "ठीक दरवाजे तगर पुज्जने आस्तै घर नंबर ते निशानी जोड़ो।",
+  "pinnedLocation": "चुनी दी थाह्र",
+  "changePin": "बदलो",
+  "saveAddressAs": "एह् पता इंञ संभालो",
+  "labelHome": "घर",
+  "labelWork": "दफ्तर",
+  "labelOther": "होर",
+  "addressLine1Label": "घर, फ्लैट जां इमारत",
+  "addressLine1Hint": "12A, ग्रीन रेजिडेंसी",
+  "addressLine2Label": "गली जां इलाका",
+  "addressLine2Hint": "दूई एवेन्यू, अन्ना नगर",
+  "landmarkLabel": "निशानी",
+  "landmarkHint": "बस स्टॉप दे सामनै",
+  "cityLabel": "शैह्र",
+  "stateLabel": "राज",
+  "pincodeLabel": "पिन कोड",
+  "invalidPincode": "सही 6 अंकें दा पिन कोड पाओ",
+  "contactNameLabel": "संपर्क नां",
+  "contactPhoneLabel": "संपर्क नंबर",
+  "invalidMobileNumber": "सही 10 अंकें दा मोबाइल नंबर पाओ",
+  "makeDefaultAddress": "डिफ़ॉल्ट रूप च इत्थै गै डिलीवरी",
+  "saveAddress": "पता संभालो",
+  "addressSaved": "पता संभाली लेदा",
+
+  "addressBookTitle": "डिलीवरी पते",
+  "manageAddresses": "संभाले दे पते प्रबंधत करो",
+  "noAddressesTitle": "हाल्ली कोई पता नेईं",
+  "noAddressesSubtitle": "इक पता जोड़ो तां जे अस तुंदे तगर डिलीवरी करने आह्लियां दुकानां दस्सी सकचै।",
+  "addAddress": "पता जोड़ो",
+  "setAsDefault": "डिफ़ॉल्ट बनाओ",
+  "editLabel": "सोध्दो",
+  "addressUpdated": "पता अपडेट होई गेदा",
+  "deleteLabel": "मटाओ",
+  "deleteAddressTitle": "एह् पता मटाना ऐ?",
+  "deleteAddressMessage": "तुस इसनूं बाद च फ्ही जोड़ी सकदे ओ।",
+
+  "rescueDealsTitle": "फूड रेस्क्यू",
+
+  "notTakingOrders": "ऑर्डर नेईं लै करदे",
+
+  "closedRightNow": "हुन बंद ऐ",
+
+  "minimumOrder": "घट्टोघट्ट {amount}",
+
+  "portionsLeft": "{count} बचे दे",
+
+  "soldOut": "मुक्की गेआ",
+
+  "menuEmptyTitle": "हल्ले कोई पकवान नेईं",
+
+  "menuEmptySubtitle": "इस रेस्टोरेंट अपना मेनू नेईं जोड़ेआ।",
+
+  "moreDishesTitle": "होर पकवान",
+
+  "customisable": "अपनी पसंद मताबक",
+
+  "requiredLabel": "लोड़ींदा",
+
+  "optionalLabel": "मरजी दा",
+
+  "chooseOne": "इक चुनो",
+
+  "chooseUpTo": "मते तों मते {count} चुनो",
+
+  "chooseAtLeast": "घट्टोघट्ट {count} चुनो",
+
+  "chooseBetween": "{min} थमां {max} तकर चुनो",
+
+  "specialInstructions": "खास हदायतां",
+
+  "specialInstructionsHint": "घट्ट तिक्खा, गंडा नेईं…",
+
+  "addForAmount": "जोड़ो · {amount}",
+
+  "deliveryLabel": "डिलीवरी",
+
+  "pickupLabel": "अपूं लैना",
+
+  "packagingLabel": "पैकिंग",
+
+  "discountLabel": "छूट",
+
+  "billDetailsTitle": "बिल दा ब्यौरा",
+
+  "clearCart": "कार्ट खाली करो",
+
+  "clearCartTitle": "ऐ कार्ट खाली करनी ऐ?",
+
+  "clearCartMessage": "इस च रक्खी दा सब कुछ हटाई दित्ता जाग।",
+
+  "unavailableItemsNotice": "हुन नेईं मिलदा: {items}",
+
+  "removeUnavailable": "इन्हां गी हटाओ",
+
+  "minimumNotMet": "घट्टोघट्ट ऑर्डर {amount} ऐ",
+
+  "checkoutTitle": "चेकआउट",
+
+  "deliveryAddressLabel": "डिलीवरी दा पता",
+
+  "noAddressSelected": "कोई पता नेईं चुनेआ",
+
+  "paymentMethodLabel": "भुगतान",
+
+  "payOnDelivery": "डिलीवरी पर नकद",
+
+  "noteToRestaurant": "रेस्टोरेंट आस्तै नोट",
+
+  "noteToRestaurantHint": "घंटी दो बारी बजाओ…",
+
+  "activeOrdersTitle": "चली रौंदे ऑर्डर",
+
+  "pastOrdersTitle": "पुराने ऑर्डर",
+
+  "orderItemsTitle": "पकवान",
+
+  "orderProgressTitle": "प्रगति",
+
+  "arrivingIn": "पुज्जने च",
+
+  "pickupCodeLabel": "पिकअप कोड",
+
+  "cancellationReasonLabel": "रद्द होने दा कारण",
+
+  "riderLabel": "डिलीवरी पार्टनर",
+
+  "callRider": "कॉल करो",
+
+  "viewInvoice": "टैक्स रसीद",
+
+  "cancelOrder": "ऑर्डर रद्द करो",
+
+  "cancelOrderTitle": "ऐ ऑर्डर रद्द करना ऐ?",
+
+  "cancelOrderMessage": "रेस्टोरेंट दे मन्नने थमां पैहलैं गै रद्द कीता जाई सकदा ऐ।",
+
+  "cancelReasonLabel": "कारण",
+
+  "cancelReasonFallback": "ग्राहक रद्द कीता",
+
+  "orderCancelled": "ऑर्डर रद्द होई गेआ",
+
+  "currentLocationLabel": "हुनका थाहर"
 }

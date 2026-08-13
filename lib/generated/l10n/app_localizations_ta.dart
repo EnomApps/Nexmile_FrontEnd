@@ -12,6 +12,9 @@ class AppLocalizationsTa extends AppLocalizations {
   String get appName => 'Nexmile';
 
   @override
+  String get fieldRequired => 'இந்தப் புலம் அவசியம்';
+
+  @override
   String get tagline => 'விரைவான டெலிவரி. புத்துணர்ச்சியான புன்னகை.';
 
   @override
@@ -311,8 +314,8 @@ class AppLocalizationsTa extends AppLocalizations {
   String get toPay => 'செலுத்த வேண்டியது';
 
   @override
-  String placeOrderFor(int amount) {
-    return 'ஆர்டர் செய் · ₹$amount';
+  String placeOrderFor(String amount) {
+    return 'ஆர்டர் செய் · $amount';
   }
 
   @override
@@ -372,4 +375,350 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get prototypeTrackingNotice => 'இந்த மாதிரிக்காக டிராக்கிங் உருவகப்படுத்தப்பட்டுள்ளது.';
+
+  @override
+  String get locationTitle => 'எங்கு டெலிவரி செய்ய வேண்டும்?';
+
+  @override
+  String get locationSubtitle => '1 கி.மீ சுற்றளவில் உள்ள கடைகளிலிருந்து மட்டுமே Nexmile டெலிவரி செய்கிறது, எனவே உங்கள் சரியான இடம் தேவை.';
+
+  @override
+  String get locationReasonRadiusTitle => '1 கி.மீ-க்குள் உள்ள கடைகள்';
+
+  @override
+  String get locationReasonRadiusBody => 'சூடாக வந்து சேரக்கூடிய கடைகளை மட்டுமே காட்டுகிறோம்.';
+
+  @override
+  String get locationReasonAccuracyTitle => 'சரியான வீட்டு வாசல்';
+
+  @override
+  String get locationReasonAccuracyBody => 'துல்லியமான இடம் இருந்தால், டெலிவரி நபர் அழைக்காமலேயே உங்களைக் கண்டுபிடிப்பார்.';
+
+  @override
+  String get locationReasonPrivacyTitle => 'செயலியைப் பயன்படுத்தும்போது மட்டும்';
+
+  @override
+  String get locationReasonPrivacyBody => 'பின்னணியில் நாங்கள் உங்களைக் கண்காணிப்பதில்லை; முகவரியை நீங்களே தட்டச்சு செய்யலாம்.';
+
+  @override
+  String get allowLocation => 'இருப்பிடத்தை அனுமதி';
+
+  @override
+  String get enterAddressManually => 'நானே முகவரியை உள்ளிடுகிறேன்';
+
+  @override
+  String get locationDenied => 'இருப்பிட அனுமதி மறுக்கப்பட்டது. நீங்களே பின்னை வைக்கலாம்.';
+
+  @override
+  String get locationDeniedForever => 'Nexmile-க்கு இருப்பிடம் தடுக்கப்பட்டுள்ளது. அமைப்புகளில் இயக்கவும் அல்லது பின்னை கையால் வைக்கவும்.';
+
+  @override
+  String get locationServiceOff => 'இந்தச் சாதனத்தில் இருப்பிடம் அணைக்கப்பட்டுள்ளது.';
+
+  @override
+  String get locationUnavailable => 'இருப்பிடத்தைப் பெற முடியவில்லை. பின்னை நீங்களே வைக்கவும்.';
+
+  @override
+  String get openSettings => 'அமைப்புகள்';
+
+  @override
+  String get pinLocationTitle => 'உங்கள் டெலிவரி பின்னை அமைக்கவும்';
+
+  @override
+  String get deliveryRadiusHint => 'Nexmile டெலிவரி செய்யும் 1 கி.மீ சுற்றளவை வட்டம் காட்டுகிறது.';
+
+  @override
+  String get useMyLocation => 'என் இருப்பிடத்தைப் பயன்படுத்து';
+
+  @override
+  String get deliveringHere => 'இங்கே டெலிவரி';
+
+  @override
+  String get dragToAdjust => 'பின்னை மாற்ற வரைபடத்தை நகர்த்தவும்';
+
+  @override
+  String get confirmLocation => 'இருப்பிடத்தை உறுதிசெய்';
+
+  @override
+  String get addressDetailsTitle => 'முகவரி விவரங்கள்';
+
+  @override
+  String get addressDetailsSubtitle => 'சரியான வாசலை அடைய வீட்டு எண் மற்றும் அடையாளத்தைச் சேர்க்கவும்.';
+
+  @override
+  String get pinnedLocation => 'குறிக்கப்பட்ட இடம்';
+
+  @override
+  String get changePin => 'மாற்று';
+
+  @override
+  String get saveAddressAs => 'இந்த முகவரியை இப்படிச் சேமி';
+
+  @override
+  String get labelHome => 'வீடு';
+
+  @override
+  String get labelWork => 'அலுவலகம்';
+
+  @override
+  String get labelOther => 'மற்றவை';
+
+  @override
+  String get addressLine1Label => 'வீடு / கட்டிட எண்';
+
+  @override
+  String get addressLine1Hint => '12A, கிரீன் ரெசிடென்சி';
+
+  @override
+  String get addressLine2Label => 'தெரு அல்லது பகுதி';
+
+  @override
+  String get addressLine2Hint => '2வது அவென்யூ, அண்ணா நகர்';
+
+  @override
+  String get landmarkLabel => 'அடையாளம்';
+
+  @override
+  String get landmarkHint => 'பேருந்து நிறுத்தத்திற்கு எதிரில்';
+
+  @override
+  String get cityLabel => 'நகரம்';
+
+  @override
+  String get stateLabel => 'மாநிலம்';
+
+  @override
+  String get pincodeLabel => 'பின் கோடு';
+
+  @override
+  String get invalidPincode => 'சரியான 6 இலக்க பின் கோடை உள்ளிடவும்';
+
+  @override
+  String get contactNameLabel => 'தொடர்பு பெயர்';
+
+  @override
+  String get contactPhoneLabel => 'தொடர்பு எண்';
+
+  @override
+  String get invalidMobileNumber => 'சரியான 10 இலக்க கைபேசி எண்ணை உள்ளிடவும்';
+
+  @override
+  String get makeDefaultAddress => 'இயல்பாக இங்கே டெலிவரி';
+
+  @override
+  String get saveAddress => 'முகவரியைச் சேமி';
+
+  @override
+  String get addressSaved => 'முகவரி சேமிக்கப்பட்டது';
+
+  @override
+  String get addressBookTitle => 'டெலிவரி முகவரிகள்';
+
+  @override
+  String get manageAddresses => 'சேமித்த முகவரிகளை நிர்வகி';
+
+  @override
+  String get noAddressesTitle => 'இதுவரை முகவரிகள் இல்லை';
+
+  @override
+  String get noAddressesSubtitle => 'உங்களுக்கு டெலிவரி செய்யும் கடைகளைக் காட்ட ஒரு முகவரியைச் சேர்க்கவும்.';
+
+  @override
+  String get addAddress => 'முகவரியைச் சேர்';
+
+  @override
+  String get setAsDefault => 'இயல்பாக அமை';
+
+  @override
+  String get editLabel => 'திருத்து';
+
+  @override
+  String get addressUpdated => 'முகவரி புதுப்பிக்கப்பட்டது';
+
+  @override
+  String get deleteLabel => 'நீக்கு';
+
+  @override
+  String get deleteAddressTitle => 'இந்த முகவரியை நீக்கவா?';
+
+  @override
+  String get deleteAddressMessage => 'பிறகு எப்போது வேண்டுமானாலும் மீண்டும் சேர்க்கலாம்.';
+
+  @override
+  String get rescueDealsTitle => 'உணவு மீட்பு';
+
+  @override
+  String get notTakingOrders => 'ஆர்டர் ஏற்கவில்லை';
+
+  @override
+  String get closedRightNow => 'இப்போது மூடியுள்ளது';
+
+  @override
+  String minimumOrder(String amount) {
+    return 'குறைந்தது $amount';
+  }
+
+  @override
+  String portionsLeft(int count) {
+    return '$count மீதம்';
+  }
+
+  @override
+  String get soldOut => 'விற்றுத் தீர்ந்தது';
+
+  @override
+  String get menuEmptyTitle => 'இன்னும் உணவுகள் இல்லை';
+
+  @override
+  String get menuEmptySubtitle => 'இந்த உணவகம் மெனுவைச் சேர்க்கவில்லை.';
+
+  @override
+  String get moreDishesTitle => 'மேலும் உணவுகள்';
+
+  @override
+  String get customisable => 'விருப்பப்படி';
+
+  @override
+  String get requiredLabel => 'கட்டாயம்';
+
+  @override
+  String get optionalLabel => 'விருப்பம்';
+
+  @override
+  String get chooseOne => 'ஒன்றைத் தேர்வு செய்க';
+
+  @override
+  String chooseUpTo(int count) {
+    return 'அதிகபட்சம் $count தேர்வு செய்க';
+  }
+
+  @override
+  String chooseAtLeast(int count) {
+    return 'குறைந்தது $count தேர்வு செய்க';
+  }
+
+  @override
+  String chooseBetween(int min, int max) {
+    return '$min முதல் $max வரை தேர்வு செய்க';
+  }
+
+  @override
+  String get specialInstructions => 'சிறப்பு அறிவுறுத்தல்கள்';
+
+  @override
+  String get specialInstructionsHint => 'குறைவான காரம், வெங்காயம் வேண்டாம்…';
+
+  @override
+  String addForAmount(String amount) {
+    return 'சேர் · $amount';
+  }
+
+  @override
+  String get deliveryLabel => 'டெலிவரி';
+
+  @override
+  String get pickupLabel => 'நேரில் பெறுதல்';
+
+  @override
+  String get packagingLabel => 'பேக்கிங்';
+
+  @override
+  String get discountLabel => 'தள்ளுபடி';
+
+  @override
+  String get billDetailsTitle => 'கட்டண விவரம்';
+
+  @override
+  String get clearCart => 'கார்ட்டை காலி செய்';
+
+  @override
+  String get clearCartTitle => 'இந்த கார்ட்டை காலி செய்யவா?';
+
+  @override
+  String get clearCartMessage => 'இதில் உள்ள அனைத்தும் நீக்கப்படும்.';
+
+  @override
+  String unavailableItemsNotice(String items) {
+    return 'இப்போது கிடைக்கவில்லை: $items';
+  }
+
+  @override
+  String get removeUnavailable => 'அவற்றை நீக்கு';
+
+  @override
+  String minimumNotMet(String amount) {
+    return 'குறைந்தபட்ச ஆர்டர் $amount';
+  }
+
+  @override
+  String get checkoutTitle => 'செக்அவுட்';
+
+  @override
+  String get deliveryAddressLabel => 'டெலிவரி முகவரி';
+
+  @override
+  String get noAddressSelected => 'முகவரி தேர்வு செய்யவில்லை';
+
+  @override
+  String get paymentMethodLabel => 'கட்டணம்';
+
+  @override
+  String get payOnDelivery => 'டெலிவரியின் போது பணம்';
+
+  @override
+  String get noteToRestaurant => 'உணவகத்திற்கு குறிப்பு';
+
+  @override
+  String get noteToRestaurantHint => 'மணியை இருமுறை அடிக்கவும்…';
+
+  @override
+  String get activeOrdersTitle => 'நடப்பு ஆர்டர்கள்';
+
+  @override
+  String get pastOrdersTitle => 'முந்தைய ஆர்டர்கள்';
+
+  @override
+  String get orderItemsTitle => 'உணவுகள்';
+
+  @override
+  String get orderProgressTitle => 'நிலை';
+
+  @override
+  String get arrivingIn => 'வந்து சேரும் நேரம்';
+
+  @override
+  String get pickupCodeLabel => 'பிக்அப் குறியீடு';
+
+  @override
+  String get cancellationReasonLabel => 'ரத்து செய்யப்பட்ட காரணம்';
+
+  @override
+  String get riderLabel => 'டெலிவரி பார்ட்னர்';
+
+  @override
+  String get callRider => 'அழை';
+
+  @override
+  String get viewInvoice => 'வரி விலைப்பட்டியல்';
+
+  @override
+  String get cancelOrder => 'ஆர்டரை ரத்து செய்';
+
+  @override
+  String get cancelOrderTitle => 'இந்த ஆர்டரை ரத்து செய்யவா?';
+
+  @override
+  String get cancelOrderMessage => 'உணவகம் ஏற்றுக்கொள்வதற்கு முன்பே ரத்து செய்ய முடியும்.';
+
+  @override
+  String get cancelReasonLabel => 'காரணம்';
+
+  @override
+  String get cancelReasonFallback => 'வாடிக்கையாளர் ரத்து செய்தார்';
+
+  @override
+  String get orderCancelled => 'ஆர்டர் ரத்து செய்யப்பட்டது';
+
+  @override
+  String get currentLocationLabel => 'தற்போதைய இடம்';
 }

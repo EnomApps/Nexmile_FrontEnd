@@ -15,6 +15,7 @@ Built against the Nexmile REST API (`document.json`, OpenAPI 3.1).
 | Language selection | Done — English + all 22 Eighth Schedule languages |
 | Sign-in (OTP) | Done — wired to the live API |
 | Profile | Done — read-only, backed by `GET /v1/profile` |
+| Address book | Done — GPS, map pin, 1 km radius, `/v1/addresses` |
 | Storefront | **Prototype** — full journey on sample data, no API yet |
 | Address onboarding | **Not built.** See [What's next](#whats-next) |
 
@@ -133,6 +134,24 @@ Only the customer-facing endpoints:
 | POST | `/v1/auth/logout` | Revoke this device |
 | GET | `/v1/profile` | The profile screen |
 | GET | `/v1/auth/me` | Session check (implemented, no caller yet) |
+| GET | `/v1/addresses` | Address book, and the post-login branch |
+| GET | `/v1/addresses/{id}` | Re-read before editing |
+| POST | `/v1/addresses` | Save a new address |
+| PATCH | `/v1/addresses/{id}` | Correct an existing address |
+| DELETE | `/v1/addresses/{id}` | Delete an address |
+| POST | `/v1/addresses/{id}/default` | Change the default |
+
+All six address endpoints are wired. Two behaviours come straight from the
+spec and are easy to get wrong:
+
+- **Delete promotes a new default.** The API soft-deletes and promotes the next
+  most recent address, so `AddressController.delete` re-reads the list when the
+  deleted one was the default — dropping the row locally would leave the book
+  showing no default while the server has one.
+- **Edit re-reads first.** `GET /v1/addresses/{id}` runs before the edit screen
+  opens, so a copy changed on another device is not overwritten with whatever
+  this device last cached. If that read fails, editing falls back to the cached
+  copy rather than blocking.
 
 `/v1/profile` and `/v1/auth/me` return the same `UserResource` for a customer —
 the `merchant` block in the schema is only populated on merchant accounts. The

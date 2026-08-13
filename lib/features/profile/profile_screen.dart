@@ -8,6 +8,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/info_tile.dart';
 import '../../generated/l10n/app_localizations.dart';
+import '../address/state/address_controller.dart';
 import '../auth/data/auth_failure.dart';
 import '../auth/data/auth_user.dart';
 import '../auth/state/auth_controller.dart';
@@ -156,6 +157,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 12),
             InfoTile(
+              icon: Icons.location_on_outlined,
+              label: l10n.addressBookTitle,
+              value: l10n.manageAddresses,
+              onTap: () =>
+                  Navigator.of(context).pushNamed(AppRoutes.addressBook),
+            ),
+            const SizedBox(height: 12),
+            InfoTile(
               icon: Icons.translate_rounded,
               label: l10n.appLanguageLabel,
               value: language.nativeName,
@@ -192,6 +201,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
     final AppLocalizations l10n = AppLocalizations.of(context);
 
+    // Clear the address book too, or the next customer to sign in on this
+    // device inherits the previous one's saved addresses.
+    context.read<AddressController>().clear();
     await context.read<AuthController>().signOut();
     if (!mounted) return;
 

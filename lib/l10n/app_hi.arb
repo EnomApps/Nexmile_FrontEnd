@@ -2,6 +2,7 @@
   "@@locale": "hi",
 
   "appName": "Nexmile",
+  "fieldRequired": "यह फ़ील्ड आवश्यक है",
   "tagline": "तेज़ डिलीवरी. ताज़ी मुस्कान.",
   "chooseLanguageTitle": "अपनी भाषा चुनें",
   "chooseLanguageSubtitle": "वह भाषा चुनें जिसमें आप सहज हों. आप इसे कभी भी सेटिंग्स में बदल सकते हैं.",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "कर और शुल्क",
   "freeLabel": "मुफ़्त",
   "toPay": "देय राशि",
-  "placeOrderFor": "ऑर्डर करें · ₹{amount}",
+  "placeOrderFor": "ऑर्डर करें · {amount}",
   "ordersTitle": "आपके ऑर्डर",
   "ordersEmptyTitle": "अभी कोई ऑर्डर नहीं",
   "ordersEmptySubtitle": "आपके पिछले ऑर्डर यहाँ दिखेंगे.",
@@ -117,5 +118,173 @@
   "backToHome": "होम पर लौटें",
   "prototypeNotice": "नमूना स्टोरफ़्रंट — असली दुकानें कैटलॉग API के साथ आएँगी.",
   "prototypeCheckoutNotice": "यह एक प्रोटोटाइप है. कोई भुगतान नहीं लिया जाता और कोई असली ऑर्डर नहीं होता.",
-  "prototypeTrackingNotice": "प्रोटोटाइप के लिए ट्रैकिंग नकली है."
+  "prototypeTrackingNotice": "प्रोटोटाइप के लिए ट्रैकिंग नकली है.",
+
+  "locationTitle": "डिलीवरी कहाँ करनी है?",
+  "locationSubtitle": "Nexmile सिर्फ़ 1 किमी के भीतर की दुकानों से डिलीवरी करता है, इसलिए हमें आपकी सही जगह चाहिए.",
+  "locationReasonRadiusTitle": "1 किमी के भीतर की दुकानें",
+  "locationReasonRadiusBody": "हम सिर्फ़ वही रसोइयाँ दिखाते हैं जहाँ से खाना गरम पहुँचे.",
+  "locationReasonAccuracyTitle": "सही दरवाज़े तक",
+  "locationReasonAccuracyBody": "सटीक पिन से डिलीवरी पार्टनर बिना फ़ोन किए आप तक पहुँच जाता है.",
+  "locationReasonPrivacyTitle": "सिर्फ़ ऐप इस्तेमाल करते समय",
+  "locationReasonPrivacyBody": "हम बैकग्राउंड में आपको ट्रैक नहीं करते, और आप पता खुद भी लिख सकते हैं.",
+  "allowLocation": "लोकेशन की अनुमति दें",
+  "enterAddressManually": "मैं पता खुद लिखूँगा",
+  "locationDenied": "लोकेशन की अनुमति नहीं मिली. आप पिन खुद भी लगा सकते हैं.",
+  "locationDeniedForever": "Nexmile के लिए लोकेशन बंद है. सेटिंग्स में चालू करें या पिन खुद लगाएँ.",
+  "locationServiceOff": "इस डिवाइस पर लोकेशन बंद है.",
+  "locationUnavailable": "लोकेशन नहीं मिल सकी. कृपया पिन खुद लगाएँ.",
+  "openSettings": "सेटिंग्स",
+
+  "pinLocationTitle": "अपना डिलीवरी पिन लगाएँ",
+  "deliveryRadiusHint": "यह घेरा वह 1 किमी दिखाता है जिसमें Nexmile डिलीवरी करता है.",
+  "useMyLocation": "मेरी लोकेशन इस्तेमाल करें",
+  "deliveringHere": "यहाँ डिलीवरी",
+  "dragToAdjust": "पिन बदलने के लिए मैप खिसकाएँ",
+  "confirmLocation": "लोकेशन पक्की करें",
+
+  "addressDetailsTitle": "पते का विवरण",
+  "addressDetailsSubtitle": "सही दरवाज़े तक पहुँचने के लिए मकान नंबर और लैंडमार्क जोड़ें.",
+  "pinnedLocation": "चुनी गई जगह",
+  "changePin": "बदलें",
+  "saveAddressAs": "इस पते को ऐसे सहेजें",
+  "labelHome": "घर",
+  "labelWork": "ऑफ़िस",
+  "labelOther": "अन्य",
+  "addressLine1Label": "मकान, फ़्लैट या इमारत",
+  "addressLine1Hint": "12A, ग्रीन रेजिडेंसी",
+  "addressLine2Label": "गली या इलाक़ा",
+  "addressLine2Hint": "दूसरी एवेन्यू, अन्ना नगर",
+  "landmarkLabel": "लैंडमार्क",
+  "landmarkHint": "बस स्टॉप के सामने",
+  "cityLabel": "शहर",
+  "stateLabel": "राज्य",
+  "pincodeLabel": "पिन कोड",
+  "invalidPincode": "सही 6 अंकों का पिन कोड दर्ज करें",
+  "contactNameLabel": "संपर्क नाम",
+  "contactPhoneLabel": "संपर्क नंबर",
+  "invalidMobileNumber": "सही 10 अंकों का मोबाइल नंबर दर्ज करें",
+  "makeDefaultAddress": "डिफ़ॉल्ट रूप से यहीं डिलीवरी",
+  "saveAddress": "पता सहेजें",
+  "addressSaved": "पता सहेज लिया गया",
+
+  "addressBookTitle": "डिलीवरी पते",
+  "manageAddresses": "सहेजे गए पते प्रबंधित करें",
+  "noAddressesTitle": "अभी कोई पता नहीं",
+  "noAddressesSubtitle": "एक पता जोड़ें ताकि हम आप तक डिलीवरी करने वाली दुकानें दिखा सकें.",
+  "addAddress": "पता जोड़ें",
+  "setAsDefault": "डिफ़ॉल्ट बनाएँ",
+  "editLabel": "बदलें",
+  "addressUpdated": "पता अपडेट हो गया",
+  "deleteLabel": "मिटाएँ",
+  "deleteAddressTitle": "यह पता मिटाएँ?",
+  "deleteAddressMessage": "आप इसे बाद में फिर जोड़ सकते हैं.",
+
+  "rescueDealsTitle": "फ़ूड रेस्क्यू",
+
+  "notTakingOrders": "ऑर्डर नहीं ले रहे",
+
+  "closedRightNow": "अभी बंद है",
+
+  "minimumOrder": "कम से कम {amount}",
+
+  "portionsLeft": "{count} बचे",
+
+  "soldOut": "खत्म हो गया",
+
+  "menuEmptyTitle": "अभी कोई व्यंजन नहीं",
+
+  "menuEmptySubtitle": "इस रेस्टोरेंट ने अपना मेन्यू नहीं जोड़ा है।",
+
+  "moreDishesTitle": "और व्यंजन",
+
+  "customisable": "पसंद के अनुसार",
+
+  "requiredLabel": "ज़रूरी",
+
+  "optionalLabel": "वैकल्पिक",
+
+  "chooseOne": "एक चुनें",
+
+  "chooseUpTo": "ज़्यादा से ज़्यादा {count} चुनें",
+
+  "chooseAtLeast": "कम से कम {count} चुनें",
+
+  "chooseBetween": "{min} से {max} तक चुनें",
+
+  "specialInstructions": "खास निर्देश",
+
+  "specialInstructionsHint": "कम तीखा, प्याज़ नहीं…",
+
+  "addForAmount": "जोड़ें · {amount}",
+
+  "deliveryLabel": "डिलीवरी",
+
+  "pickupLabel": "खुद ले जाएँ",
+
+  "packagingLabel": "पैकिंग",
+
+  "discountLabel": "छूट",
+
+  "billDetailsTitle": "बिल का ब्योरा",
+
+  "clearCart": "कार्ट खाली करें",
+
+  "clearCartTitle": "यह कार्ट खाली करें?",
+
+  "clearCartMessage": "इसमें रखी हर चीज़ हट जाएगी।",
+
+  "unavailableItemsNotice": "अब उपलब्ध नहीं: {items}",
+
+  "removeUnavailable": "इन्हें हटाएँ",
+
+  "minimumNotMet": "कम से कम ऑर्डर {amount} है",
+
+  "checkoutTitle": "चेकआउट",
+
+  "deliveryAddressLabel": "डिलीवरी का पता",
+
+  "noAddressSelected": "कोई पता नहीं चुना",
+
+  "paymentMethodLabel": "भुगतान",
+
+  "payOnDelivery": "डिलीवरी पर नकद",
+
+  "noteToRestaurant": "रेस्टोरेंट के लिए नोट",
+
+  "noteToRestaurantHint": "घंटी दो बार बजाएँ…",
+
+  "activeOrdersTitle": "चल रहे ऑर्डर",
+
+  "pastOrdersTitle": "पुराने ऑर्डर",
+
+  "orderItemsTitle": "व्यंजन",
+
+  "orderProgressTitle": "प्रगति",
+
+  "arrivingIn": "पहुँचने में",
+
+  "pickupCodeLabel": "पिकअप कोड",
+
+  "cancellationReasonLabel": "रद्द होने की वजह",
+
+  "riderLabel": "डिलीवरी पार्टनर",
+
+  "callRider": "कॉल करें",
+
+  "viewInvoice": "टैक्स इनवॉइस",
+
+  "cancelOrder": "ऑर्डर रद्द करें",
+
+  "cancelOrderTitle": "यह ऑर्डर रद्द करें?",
+
+  "cancelOrderMessage": "रेस्टोरेंट के स्वीकार करने से पहले ही रद्द किया जा सकता है।",
+
+  "cancelReasonLabel": "वजह",
+
+  "cancelReasonFallback": "ग्राहक ने रद्द किया",
+
+  "orderCancelled": "ऑर्डर रद्द हो गया",
+
+  "currentLocationLabel": "वर्तमान स्थान"
 }

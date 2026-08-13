@@ -12,6 +12,9 @@ class AppLocalizationsMni extends AppLocalizations {
   String get appName => 'Nexmile';
 
   @override
+  String get fieldRequired => 'মসি হাপচিনবা তংাইফদে';
+
+  @override
   String get tagline => 'থুনা ডেলিভরি। অনৌবা নোকপা।';
 
   @override
@@ -311,8 +314,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get toPay => 'পীগদবা';
 
   @override
-  String placeOrderFor(int amount) {
-    return 'ওর্দর তৌ · ₹$amount';
+  String placeOrderFor(String amount) {
+    return 'ওর্দর তৌ · $amount';
   }
 
   @override
@@ -372,4 +375,350 @@ class AppLocalizationsMni extends AppLocalizations {
 
   @override
   String get prototypeTrackingNotice => 'প্রোতোতাইপকীদমক ত্রেকিং অসি খুদম ওইনা শেম্বনি।';
+
+  @override
+  String get locationTitle => 'কদাইদা দেলিভরি তৌগদগে?';
+
+  @override
+  String get locationSubtitle => 'Nexmile না কিমি ১ গী মনুংদা লৈবা দোকানশিংদগীখক্তা দেলিভরি তৌই, মরমদুনা নহাক্কী চুম্বা মফম চঙই।';
+
+  @override
+  String get locationReasonRadiusTitle => 'কিমি ১ গী মনুংগী দোকানশিং';
+
+  @override
+  String get locationReasonRadiusBody => 'চিঞ্জাক অসাবা ওইনা য়ৌরকপা ঙম্বা থোংফমশিংখক্তা উৎচরি।';
+
+  @override
+  String get locationReasonAccuracyTitle => 'চুম্বা থোংদা';
+
+  @override
+  String get locationReasonAccuracyBody => 'চুম্বা পিন লৈরবদি দেলিভরি পার্তনরনা ফোন তৌদনা নহাক্কী মনাক্তা য়ৌরক্কনি।';
+
+  @override
+  String get locationReasonPrivacyTitle => 'এপ শিজিন্নরিঙৈ খক্তা';
+
+  @override
+  String get locationReasonPrivacyBody => 'ঐখোয়না মতুংদা নহাক্কী মফম থিদে, অমসুং এদ্রেস নহাক্না নশাসু ইবা য়াই।';
+
+  @override
+  String get allowLocation => 'মফমগী অয়াবা পীয়ু';
+
+  @override
+  String get enterAddressManually => 'ঐনা এদ্রেস ইশাগী মখুৎনা ইগনি';
+
+  @override
+  String get locationDenied => 'মফমগী অয়াবা পীদে। নহাক্না পিন ইশানা থম্বা য়াই।';
+
+  @override
+  String get locationDeniedForever => 'Nexmile গীদমক মফম থিংলে। সেটিংস্তা হৌদোকউ নত্ত্রগা পিন ইশানা থম্মু।';
+
+  @override
+  String get locationServiceOff => 'দিভাইস অসিদা মফম থিংলি।';
+
+  @override
+  String get locationUnavailable => 'মফম ফংদে। চানবিদুনা পিন ইশানা থম্মু।';
+
+  @override
+  String get openSettings => 'সেটিংস';
+
+  @override
+  String get pinLocationTitle => 'নহাক্কী দেলিভরি পিন থম্মু';
+
+  @override
+  String get deliveryRadiusHint => 'কোইল অসিনা Nexmile না দেলিভরি তৌবা কিমি ১ অদু উৎলি।';
+
+  @override
+  String get useMyLocation => 'ঐগী মফম শিজিন্নৌ';
+
+  @override
+  String get deliveringHere => 'মফম অসিদা দেলিভরি';
+
+  @override
+  String get dragToAdjust => 'পিন শেমদোক্নবা মেপ চিংথৌ';
+
+  @override
+  String get confirmLocation => 'মফম শোয়দনা য়েংউ';
+
+  @override
+  String get addressDetailsTitle => 'এদ্রেসকী অকুপ্পা';
+
+  @override
+  String get addressDetailsSubtitle => 'চুম্বা থোংদা য়ৌনবা য়ুমগী মশিং অমসুং খুদম হাপচিল্লু।';
+
+  @override
+  String get pinnedLocation => 'খল্লবা মফম';
+
+  @override
+  String get changePin => 'হোংদোকউ';
+
+  @override
+  String get saveAddressAs => 'এদ্রেস অসি অসুম্না থম্মু';
+
+  @override
+  String get labelHome => 'য়ুম';
+
+  @override
+  String get labelWork => 'অফিস';
+
+  @override
+  String get labelOther => 'অতোপ্পা';
+
+  @override
+  String get addressLine1Label => 'য়ুম, ফ্লেট নত্ত্রগা বিল্দিং';
+
+  @override
+  String get addressLine1Hint => '12A, গ্রীন রেসিদেন্সি';
+
+  @override
+  String get addressLine2Label => 'লম্বী নত্ত্রগা মফম';
+
+  @override
+  String get addressLine2Hint => '২শুবা এভেন্যু, অন্না নগর';
+
+  @override
+  String get landmarkLabel => 'খুদম';
+
+  @override
+  String get landmarkHint => 'বস স্তোপকী মমাংদা';
+
+  @override
+  String get cityLabel => 'সহর';
+
+  @override
+  String get stateLabel => 'স্তেত';
+
+  @override
+  String get pincodeLabel => 'পিন কোদ';
+
+  @override
+  String get invalidPincode => 'অচুম্বা মশিং ৬ গী পিন কোদ হাপচিল্লু';
+
+  @override
+  String get contactNameLabel => 'কন্তেক্ত মিং';
+
+  @override
+  String get contactPhoneLabel => 'কন্তেক্ত নম্বর';
+
+  @override
+  String get invalidMobileNumber => 'অচুম্বা মশিং ১০ গী মোবাইল নম্বর হাপচিল্লু';
+
+  @override
+  String get makeDefaultAddress => 'ডিফোল্ট ওইনা মফম অসিদা দেলিভরি';
+
+  @override
+  String get saveAddress => 'এদ্রেস থম্মু';
+
+  @override
+  String get addressSaved => 'এদ্রেস থম্লে';
+
+  @override
+  String get addressBookTitle => 'দেলিভরি এদ্রেসশিং';
+
+  @override
+  String get manageAddresses => 'থম্লবা এদ্রেসশিং শেন্দোকউ';
+
+  @override
+  String get noAddressesTitle => 'হৌজিক ফাওবা এদ্রেস লৈতে';
+
+  @override
+  String get noAddressesSubtitle => 'নহাক্কী মনাক্তা দেলিভরি তৌবা দোকানশিং উৎনবা এদ্রেস অমা হাপচিল্লু।';
+
+  @override
+  String get addAddress => 'এদ্রেস হাপচিল্লু';
+
+  @override
+  String get setAsDefault => 'ডিফোল্ট ওইহল্লু';
+
+  @override
+  String get editLabel => 'সেমদোকউ';
+
+  @override
+  String get addressUpdated => 'এদ্রেস অনৌ শেমখ্রে';
+
+  @override
+  String get deleteLabel => 'মুত্থৎলু';
+
+  @override
+  String get deleteAddressTitle => 'এদ্রেস অসি মুত্থৎকদ্রা?';
+
+  @override
+  String get deleteAddressMessage => 'মতুংদা অমুক হন্না হাপচিনবা য়াই।';
+
+  @override
+  String get rescueDealsTitle => 'ꯐꯨꯗ ꯔꯦꯁꯀꯤꯌꯨ';
+
+  @override
+  String get notTakingOrders => 'ꯑꯣꯔꯗꯔ ꯂꯧꯗ꯭ꯔꯤ';
+
+  @override
+  String get closedRightNow => 'ꯍꯧꯖꯤꯛ ꯂꯣꯅꯈ꯭ꯔꯦ';
+
+  @override
+  String minimumOrder(String amount) {
+    return 'ꯈ꯭ꯋꯥꯏꯗꯒꯤ ꯍꯟꯊꯕ $amount';
+  }
+
+  @override
+  String portionsLeft(int count) {
+    return '$count ꯋꯥꯠꯂꯤ';
+  }
+
+  @override
+  String get soldOut => 'ꯂꯣꯏꯔꯦ';
+
+  @override
+  String get menuEmptyTitle => 'ꯍꯧꯖꯤꯛ ꯐꯛ ꯂꯩꯇꯦ';
+
+  @override
+  String get menuEmptySubtitle => 'ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ ꯑꯁꯤꯅ ꯃꯍꯥꯛꯀꯤ ꯃꯦꯅꯨ ꯍꯥꯞꯆꯤꯟꯗ꯭ꯔꯤ꯫';
+
+  @override
+  String get moreDishesTitle => 'ꯑꯍꯦꯟꯕ ꯆꯥꯅꯕ';
+
+  @override
+  String get customisable => 'ꯄꯥꯝꯕꯒꯨꯝꯅ';
+
+  @override
+  String get requiredLabel => 'ꯃꯊꯧ ꯇꯥꯏ';
+
+  @override
+  String get optionalLabel => 'ꯏꯆ꯭ꯆꯥ';
+
+  @override
+  String get chooseOne => 'ꯑꯃ ꯈꯅꯕꯤꯌꯨ';
+
+  @override
+  String chooseUpTo(int count) {
+    return 'ꯈ꯭ꯋꯥꯏꯗꯒꯤ ꯌꯥꯝꯅ $count ꯈꯅꯕꯤꯌꯨ';
+  }
+
+  @override
+  String chooseAtLeast(int count) {
+    return 'ꯈ꯭ꯋꯥꯏꯗꯒꯤ ꯍꯟꯊꯅ $count ꯈꯅꯕꯤꯌꯨ';
+  }
+
+  @override
+  String chooseBetween(int min, int max) {
+    return '$min ꯗꯒꯤ $max ꯐꯥꯑꯣꯕ ꯈꯅꯕꯤꯌꯨ';
+  }
+
+  @override
+  String get specialInstructions => 'ꯑꯈꯟꯅꯕ ꯋꯥꯐꯝ';
+
+  @override
+  String get specialInstructionsHint => 'ꯑꯀꯅꯕ ꯍꯟꯊꯅ, ꯇꯤꯜꯍꯧ ꯌꯥꯗꯦ…';
+
+  @override
+  String addForAmount(String amount) {
+    return 'ꯍꯥꯞꯆꯤꯜꯂꯨ · $amount';
+  }
+
+  @override
+  String get deliveryLabel => 'ꯗꯦꯂꯤꯚꯔꯤ';
+
+  @override
+  String get pickupLabel => 'ꯃꯁꯥꯅ ꯂꯧꯕ';
+
+  @override
+  String get packagingLabel => 'ꯄꯦꯛꯀꯤꯡ';
+
+  @override
+  String get discountLabel => 'ꯗꯤꯁꯀꯥꯎꯟꯠ';
+
+  @override
+  String get billDetailsTitle => 'ꯕꯤꯜ ꯑꯀꯨꯞꯄ';
+
+  @override
+  String get clearCart => 'ꯀꯥꯔꯠ ꯍꯥꯡꯗꯣꯛꯎ';
+
+  @override
+  String get clearCartTitle => 'ꯀꯥꯔꯠ ꯑꯁꯤ ꯍꯥꯡꯗꯣꯛꯀꯗ꯭ꯔꯥ?';
+
+  @override
+  String get clearCartMessage => 'ꯃꯗꯨꯗ ꯂꯩꯔꯤꯕ ꯄꯨꯝꯅꯃꯛ ꯂꯧꯊꯣꯛꯀꯅꯤ꯫';
+
+  @override
+  String unavailableItemsNotice(String items) {
+    return 'ꯍꯧꯖꯤꯛ ꯐꯪꯗ꯭ꯔꯦ: $items';
+  }
+
+  @override
+  String get removeUnavailable => 'ꯃꯈꯣꯏ ꯂꯧꯊꯣꯛꯎ';
+
+  @override
+  String minimumNotMet(String amount) {
+    return 'ꯈ꯭ꯋꯥꯏꯗꯒꯤ ꯍꯟꯊꯕ ꯑꯣꯔꯗꯔ $amount';
+  }
+
+  @override
+  String get checkoutTitle => 'ꯆꯦꯀꯥꯎꯠ';
+
+  @override
+  String get deliveryAddressLabel => 'ꯗꯦꯂꯤꯚꯔꯤ ꯑꯗ꯭ꯔꯦꯁ';
+
+  @override
+  String get noAddressSelected => 'ꯑꯗ꯭ꯔꯦꯁ ꯈꯟꯗ꯭ꯔꯤ';
+
+  @override
+  String get paymentMethodLabel => 'ꯄꯦꯃꯦꯟꯠ';
+
+  @override
+  String get payOnDelivery => 'ꯗꯦꯂꯤꯚꯔꯤꯗ ꯀꯦꯁ';
+
+  @override
+  String get noteToRestaurant => 'ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯇꯀꯤ ꯋꯥꯐꯝ';
+
+  @override
+  String get noteToRestaurantHint => 'ꯕꯦꯜ ꯑꯅꯤꯔꯛ ꯈꯣꯡꯕꯤꯌꯨ…';
+
+  @override
+  String get activeOrdersTitle => 'ꯆꯠꯂꯤꯕ ꯑꯣꯔꯗꯔ';
+
+  @override
+  String get pastOrdersTitle => 'ꯃꯃꯥꯡꯒꯤ ꯑꯣꯔꯗꯔ';
+
+  @override
+  String get orderItemsTitle => 'ꯆꯥꯅꯕ';
+
+  @override
+  String get orderProgressTitle => 'ꯄꯔꯤꯡ';
+
+  @override
+  String get arrivingIn => 'ꯌꯧꯔꯛꯀꯗꯕ';
+
+  @override
+  String get pickupCodeLabel => 'ꯄꯤꯀꯑꯞ ꯀꯣꯗ';
+
+  @override
+  String get cancellationReasonLabel => 'ꯀꯛꯊꯠꯄꯒꯤ ꯃꯔꯝ';
+
+  @override
+  String get riderLabel => 'ꯗꯦꯂꯤꯚꯔꯤ ꯄꯥꯔꯠꯅꯔ';
+
+  @override
+  String get callRider => 'ꯀꯣꯜ ꯇꯧ';
+
+  @override
+  String get viewInvoice => 'ꯇꯦꯛꯁ ꯏꯅꯚꯣꯏꯁ';
+
+  @override
+  String get cancelOrder => 'ꯑꯣꯔꯗꯔ ꯀꯛꯊꯠꯂꯨ';
+
+  @override
+  String get cancelOrderTitle => 'ꯑꯣꯔꯗꯔ ꯑꯁꯤ ꯀꯛꯊꯠꯀꯗ꯭ꯔꯥ?';
+
+  @override
+  String get cancelOrderMessage => 'ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠꯅ ꯌꯥꯅꯗ꯭ꯔꯤꯉꯩꯗ ꯈꯛꯇ ꯀꯛꯊꯠꯄ ꯌꯥꯏ꯫';
+
+  @override
+  String get cancelReasonLabel => 'ꯃꯔꯝ';
+
+  @override
+  String get cancelReasonFallback => 'ꯀꯁ꯭ꯇꯃꯔꯅ ꯀꯛꯊꯠꯂꯦ';
+
+  @override
+  String get orderCancelled => 'ꯑꯣꯔꯗꯔ ꯀꯛꯊꯠꯂꯦ';
+
+  @override
+  String get currentLocationLabel => 'ꯍꯧꯖꯤꯛꯀꯤ ꯃꯐꯝ';
 }

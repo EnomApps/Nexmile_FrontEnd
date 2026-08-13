@@ -26,6 +26,21 @@ dependencies:
   # Android. Never SharedPreferences — those are readable on a rooted device.
   flutter_secure_storage: ^9.2.2
 
+  # Address book. Delivery is limited to a 1 km radius and the API makes
+  # latitude/longitude mandatory, so GPS and a draggable map pin are not
+  # optional extras here — an address without coordinates cannot be matched to
+  # a zone or a merchant.
+  geolocator: ^13.0.2
+  geocoding: ^3.0.0
+  # OpenStreetMap tiles, so the map works without a billing account. Swapping to
+  # google_maps_flutter later is contained to lib/features/address/presentation.
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
+
+  # The tax invoice is a printable HTML page rather than JSON, and a rider's
+  # phone number is only useful if it can be dialled.
+  url_launcher: ^6.3.1
+
   # Lightweight state propagation for locale changes
   provider: ^6.1.2
 

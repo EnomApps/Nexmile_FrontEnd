@@ -12,6 +12,9 @@ class AppLocalizationsNe extends AppLocalizations {
   String get appName => 'Nexmile';
 
   @override
+  String get fieldRequired => 'यो फिल्ड आवश्यक छ';
+
+  @override
   String get tagline => 'छिटो डेलिभरी। ताजा मुस्कान।';
 
   @override
@@ -311,8 +314,8 @@ class AppLocalizationsNe extends AppLocalizations {
   String get toPay => 'तिर्नुपर्ने';
 
   @override
-  String placeOrderFor(int amount) {
-    return 'अर्डर गर्नुहोस् · ₹$amount';
+  String placeOrderFor(String amount) {
+    return 'अर्डर गर्नुहोस् · $amount';
   }
 
   @override
@@ -372,4 +375,350 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get prototypeTrackingNotice => 'प्रोटोटाइपका लागि ट्र्याकिङ कृत्रिम हो।';
+
+  @override
+  String get locationTitle => 'कहाँ डेलिभरी गर्ने?';
+
+  @override
+  String get locationSubtitle => 'Nexmile ले 1 किमी भित्रका पसलहरूबाट मात्र डेलिभरी गर्छ, त्यसैले तपाईंको ठ्याक्कै स्थान चाहिन्छ।';
+
+  @override
+  String get locationReasonRadiusTitle => '1 किमी भित्रका पसल';
+
+  @override
+  String get locationReasonRadiusBody => 'जहाँबाट खाना तातो पुग्छ, त्यही भान्साहरू मात्र देखाउँछौं।';
+
+  @override
+  String get locationReasonAccuracyTitle => 'ठीक ढोकासम्म';
+
+  @override
+  String get locationReasonAccuracyBody => 'सही पिन भए डेलिभरी पार्टनरले फोन नगरी तपाईंलाई भेट्टाउँछन्।';
+
+  @override
+  String get locationReasonPrivacyTitle => 'एप चलाउँदा मात्र';
+
+  @override
+  String get locationReasonPrivacyBody => 'हामी पृष्ठभूमिमा तपाईंलाई ट्र्याक गर्दैनौं, र ठेगाना तपाईं आफैँ लेख्न सक्नुहुन्छ।';
+
+  @override
+  String get allowLocation => 'स्थानको अनुमति दिनुहोस्';
+
+  @override
+  String get enterAddressManually => 'म आफैँ ठेगाना लेख्छु';
+
+  @override
+  String get locationDenied => 'स्थानको अनुमति अस्वीकार भयो। तपाईं पिन आफैँ राख्न सक्नुहुन्छ।';
+
+  @override
+  String get locationDeniedForever => 'Nexmile का लागि स्थान बन्द छ। सेटिङमा खोल्नुहोस् वा पिन आफैँ राख्नुहोस्।';
+
+  @override
+  String get locationServiceOff => 'यो यन्त्रमा स्थान बन्द छ।';
+
+  @override
+  String get locationUnavailable => 'स्थान पाउन सकिएन। कृपया पिन आफैँ राख्नुहोस्।';
+
+  @override
+  String get openSettings => 'सेटिङ';
+
+  @override
+  String get pinLocationTitle => 'आफ्नो डेलिभरी पिन राख्नुहोस्';
+
+  @override
+  String get deliveryRadiusHint => 'वृत्तले Nexmile ले डेलिभरी गर्ने 1 किमी देखाउँछ।';
+
+  @override
+  String get useMyLocation => 'मेरो स्थान प्रयोग गर्नुहोस्';
+
+  @override
+  String get deliveringHere => 'यहाँ डेलिभरी';
+
+  @override
+  String get dragToAdjust => 'पिन मिलाउन नक्सा तान्नुहोस्';
+
+  @override
+  String get confirmLocation => 'स्थान पुष्टि गर्नुहोस्';
+
+  @override
+  String get addressDetailsTitle => 'ठेगानाको विवरण';
+
+  @override
+  String get addressDetailsSubtitle => 'ठीक ढोकामा पुग्न घर नम्बर र चिनारी थप्नुहोस्।';
+
+  @override
+  String get pinnedLocation => 'छानिएको स्थान';
+
+  @override
+  String get changePin => 'बदल्नुहोस्';
+
+  @override
+  String get saveAddressAs => 'यो ठेगाना यसरी सुरक्षित गर्नुहोस्';
+
+  @override
+  String get labelHome => 'घर';
+
+  @override
+  String get labelWork => 'कार्यालय';
+
+  @override
+  String get labelOther => 'अन्य';
+
+  @override
+  String get addressLine1Label => 'घर, फ्ल्याट वा भवन';
+
+  @override
+  String get addressLine1Hint => '12A, ग्रीन रेजिडेन्सी';
+
+  @override
+  String get addressLine2Label => 'सडक वा क्षेत्र';
+
+  @override
+  String get addressLine2Hint => 'दोस्रो एभेन्यू, अन्ना नगर';
+
+  @override
+  String get landmarkLabel => 'चिनारी';
+
+  @override
+  String get landmarkHint => 'बस स्टपको सामुन्ने';
+
+  @override
+  String get cityLabel => 'सहर';
+
+  @override
+  String get stateLabel => 'राज्य';
+
+  @override
+  String get pincodeLabel => 'पिन कोड';
+
+  @override
+  String get invalidPincode => 'सही 6 अंकको पिन कोड लेख्नुहोस्';
+
+  @override
+  String get contactNameLabel => 'सम्पर्क नाम';
+
+  @override
+  String get contactPhoneLabel => 'सम्पर्क नम्बर';
+
+  @override
+  String get invalidMobileNumber => 'सही 10 अंकको मोबाइल नम्बर लेख्नुहोस्';
+
+  @override
+  String get makeDefaultAddress => 'पूर्वनिर्धारित रूपमा यहीँ डेलिभरी';
+
+  @override
+  String get saveAddress => 'ठेगाना सुरक्षित गर्नुहोस्';
+
+  @override
+  String get addressSaved => 'ठेगाना सुरक्षित भयो';
+
+  @override
+  String get addressBookTitle => 'डेलिभरी ठेगाना';
+
+  @override
+  String get manageAddresses => 'सुरक्षित ठेगानाहरू व्यवस्थापन गर्नुहोस्';
+
+  @override
+  String get noAddressesTitle => 'अझै कुनै ठेगाना छैन';
+
+  @override
+  String get noAddressesSubtitle => 'तपाईंकहाँ डेलिभरी गर्ने पसलहरू देखाउन एउटा ठेगाना थप्नुहोस्।';
+
+  @override
+  String get addAddress => 'ठेगाना थप्नुहोस्';
+
+  @override
+  String get setAsDefault => 'पूर्वनिर्धारित बनाउनुहोस्';
+
+  @override
+  String get editLabel => 'सम्पादन';
+
+  @override
+  String get addressUpdated => 'ठेगाना अद्यावधिक भयो';
+
+  @override
+  String get deleteLabel => 'मेटाउनुहोस्';
+
+  @override
+  String get deleteAddressTitle => 'यो ठेगाना मेटाउने?';
+
+  @override
+  String get deleteAddressMessage => 'तपाईं यसलाई पछि फेरि थप्न सक्नुहुन्छ।';
+
+  @override
+  String get rescueDealsTitle => 'फूड रेस्क्यू';
+
+  @override
+  String get notTakingOrders => 'अर्डर लिइरहेको छैन';
+
+  @override
+  String get closedRightNow => 'अहिले बन्द छ';
+
+  @override
+  String minimumOrder(String amount) {
+    return 'न्यूनतम $amount';
+  }
+
+  @override
+  String portionsLeft(int count) {
+    return '$count बाँकी';
+  }
+
+  @override
+  String get soldOut => 'सकियो';
+
+  @override
+  String get menuEmptyTitle => 'अझै कुनै परिकार छैन';
+
+  @override
+  String get menuEmptySubtitle => 'यो रेस्टुरेन्टले आफ्नो मेनु थपेको छैन।';
+
+  @override
+  String get moreDishesTitle => 'थप परिकार';
+
+  @override
+  String get customisable => 'रुचिअनुसार';
+
+  @override
+  String get requiredLabel => 'अनिवार्य';
+
+  @override
+  String get optionalLabel => 'वैकल्पिक';
+
+  @override
+  String get chooseOne => 'एउटा छान्नुहोस्';
+
+  @override
+  String chooseUpTo(int count) {
+    return 'बढीमा $count छान्नुहोस्';
+  }
+
+  @override
+  String chooseAtLeast(int count) {
+    return 'कम्तीमा $count छान्नुहोस्';
+  }
+
+  @override
+  String chooseBetween(int min, int max) {
+    return '$min देखि $max सम्म छान्नुहोस्';
+  }
+
+  @override
+  String get specialInstructions => 'विशेष निर्देशन';
+
+  @override
+  String get specialInstructionsHint => 'कम पिरो, प्याज नराख्नू…';
+
+  @override
+  String addForAmount(String amount) {
+    return 'थप्नुहोस् · $amount';
+  }
+
+  @override
+  String get deliveryLabel => 'डेलिभरी';
+
+  @override
+  String get pickupLabel => 'आफैँ लैजाने';
+
+  @override
+  String get packagingLabel => 'प्याकिङ';
+
+  @override
+  String get discountLabel => 'छुट';
+
+  @override
+  String get billDetailsTitle => 'बिल विवरण';
+
+  @override
+  String get clearCart => 'कार्ट खाली गर्नुहोस्';
+
+  @override
+  String get clearCartTitle => 'यो कार्ट खाली गर्ने?';
+
+  @override
+  String get clearCartMessage => 'यसभित्रका सबै कुरा हटाइनेछ।';
+
+  @override
+  String unavailableItemsNotice(String items) {
+    return 'अब उपलब्ध छैन: $items';
+  }
+
+  @override
+  String get removeUnavailable => 'ती हटाउनुहोस्';
+
+  @override
+  String minimumNotMet(String amount) {
+    return 'न्यूनतम अर्डर $amount हो';
+  }
+
+  @override
+  String get checkoutTitle => 'चेकआउट';
+
+  @override
+  String get deliveryAddressLabel => 'डेलिभरी ठेगाना';
+
+  @override
+  String get noAddressSelected => 'कुनै ठेगाना छानिएको छैन';
+
+  @override
+  String get paymentMethodLabel => 'भुक्तानी';
+
+  @override
+  String get payOnDelivery => 'डेलिभरीमा नगद';
+
+  @override
+  String get noteToRestaurant => 'रेस्टुरेन्टका लागि नोट';
+
+  @override
+  String get noteToRestaurantHint => 'घण्टी दुई पटक बजाउनुहोस्…';
+
+  @override
+  String get activeOrdersTitle => 'चलिरहेका अर्डर';
+
+  @override
+  String get pastOrdersTitle => 'पुराना अर्डर';
+
+  @override
+  String get orderItemsTitle => 'परिकार';
+
+  @override
+  String get orderProgressTitle => 'प्रगति';
+
+  @override
+  String get arrivingIn => 'पुग्न';
+
+  @override
+  String get pickupCodeLabel => 'पिकअप कोड';
+
+  @override
+  String get cancellationReasonLabel => 'रद्द भएको कारण';
+
+  @override
+  String get riderLabel => 'डेलिभरी पार्टनर';
+
+  @override
+  String get callRider => 'कल गर्नुहोस्';
+
+  @override
+  String get viewInvoice => 'कर बिजक';
+
+  @override
+  String get cancelOrder => 'अर्डर रद्द गर्नुहोस्';
+
+  @override
+  String get cancelOrderTitle => 'यो अर्डर रद्द गर्ने?';
+
+  @override
+  String get cancelOrderMessage => 'रेस्टुरेन्टले स्वीकार गर्नुअघि मात्र रद्द गर्न सकिन्छ।';
+
+  @override
+  String get cancelReasonLabel => 'कारण';
+
+  @override
+  String get cancelReasonFallback => 'ग्राहकले रद्द गरे';
+
+  @override
+  String get orderCancelled => 'अर्डर रद्द भयो';
+
+  @override
+  String get currentLocationLabel => 'हालको स्थान';
 }

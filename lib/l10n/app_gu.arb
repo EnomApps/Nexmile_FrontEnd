@@ -2,6 +2,7 @@
   "@@locale": "gu",
 
   "appName": "Nexmile",
+  "fieldRequired": "આ ક્ષેત્ર જરૂરી છે",
   "tagline": "ઝડપી ડિલિવરી. તાજા સ્મિત.",
   "chooseLanguageTitle": "તમારી ભાષા પસંદ કરો",
   "chooseLanguageSubtitle": "તમને અનુકૂળ હોય તે ભાષા પસંદ કરો. તમે તેને કોઈપણ સમયે સેટિંગ્સમાં બદલી શકો છો.",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "કર અને ચાર્જ",
   "freeLabel": "મફત",
   "toPay": "ચૂકવવાનું",
-  "placeOrderFor": "ઓર્ડર કરો · ₹{amount}",
+  "placeOrderFor": "ઓર્ડર કરો · {amount}",
   "ordersTitle": "તમારા ઓર્ડર",
   "ordersEmptyTitle": "હજી કોઈ ઓર્ડર નથી",
   "ordersEmptySubtitle": "તમારા અગાઉના ઓર્ડર અહીં દેખાશે.",
@@ -117,5 +118,173 @@
   "backToHome": "હોમ પર પાછા",
   "prototypeNotice": "નમૂનારૂપ સ્ટોરફ્રન્ટ — અસલી દુકાનો કેટલોગ API સાથે આવશે.",
   "prototypeCheckoutNotice": "આ એક પ્રોટોટાઇપ છે. કોઈ ચુકવણી લેવાતી નથી અને ખરો ઓર્ડર પણ થતો નથી.",
-  "prototypeTrackingNotice": "પ્રોટોટાઇપ માટે ટ્રેકિંગ કૃત્રિમ છે."
+  "prototypeTrackingNotice": "પ્રોટોટાઇપ માટે ટ્રેકિંગ કૃત્રિમ છે.",
+
+  "locationTitle": "ડિલિવરી ક્યાં કરવી?",
+  "locationSubtitle": "Nexmile માત્ર 1 કિમીની અંદરની દુકાનોમાંથી ડિલિવરી કરે છે, તેથી અમને તમારું ચોક્કસ સ્થાન જોઈએ.",
+  "locationReasonRadiusTitle": "1 કિમીની અંદરની દુકાનો",
+  "locationReasonRadiusBody": "જ્યાંથી ખોરાક ગરમ પહોંચે તે જ રસોડાં અમે બતાવીએ છીએ.",
+  "locationReasonAccuracyTitle": "સાચા દરવાજા સુધી",
+  "locationReasonAccuracyBody": "ચોક્કસ પિન હોય તો ડિલિવરી પાર્ટનર ફોન કર્યા વગર તમને શોધી લે છે.",
+  "locationReasonPrivacyTitle": "ફક્ત એપ વાપરતી વખતે",
+  "locationReasonPrivacyBody": "અમે પૃષ્ઠભૂમિમાં તમને ટ્રેક કરતા નથી, અને સરનામું તમે જાતે પણ લખી શકો છો.",
+  "allowLocation": "લોકેશનની મંજૂરી આપો",
+  "enterAddressManually": "હું સરનામું જાતે લખીશ",
+  "locationDenied": "લોકેશનની મંજૂરી નકારાઈ. તમે પિન જાતે મૂકી શકો છો.",
+  "locationDeniedForever": "Nexmile માટે લોકેશન બ્લોક છે. સેટિંગ્સમાં ચાલુ કરો અથવા પિન જાતે મૂકો.",
+  "locationServiceOff": "આ ડિવાઇસ પર લોકેશન બંધ છે.",
+  "locationUnavailable": "લોકેશન મળ્યું નહીં. કૃપા કરી પિન જાતે મૂકો.",
+  "openSettings": "સેટિંગ્સ",
+
+  "pinLocationTitle": "તમારો ડિલિવરી પિન મૂકો",
+  "deliveryRadiusHint": "વર્તુળ Nexmile જે 1 કિમીમાં ડિલિવરી કરે છે તે બતાવે છે.",
+  "useMyLocation": "મારું લોકેશન વાપરો",
+  "deliveringHere": "અહીં ડિલિવરી",
+  "dragToAdjust": "પિન બદલવા નકશો ખસેડો",
+  "confirmLocation": "લોકેશન નક્કી કરો",
+
+  "addressDetailsTitle": "સરનામાની વિગતો",
+  "addressDetailsSubtitle": "સાચા દરવાજે પહોંચવા મકાન નંબર અને લેન્ડમાર્ક ઉમેરો.",
+  "pinnedLocation": "પસંદ કરેલ સ્થાન",
+  "changePin": "બદલો",
+  "saveAddressAs": "આ સરનામું આ રીતે સાચવો",
+  "labelHome": "ઘર",
+  "labelWork": "ઓફિસ",
+  "labelOther": "અન્ય",
+  "addressLine1Label": "મકાન, ફ્લેટ કે બિલ્ડિંગ",
+  "addressLine1Hint": "12A, ગ્રીન રેસિડેન્સી",
+  "addressLine2Label": "શેરી કે વિસ્તાર",
+  "addressLine2Hint": "2જી એવન્યુ, અન્ના નગર",
+  "landmarkLabel": "લેન્ડમાર્ક",
+  "landmarkHint": "બસ સ્ટોપની સામે",
+  "cityLabel": "શહેર",
+  "stateLabel": "રાજ્ય",
+  "pincodeLabel": "પિન કોડ",
+  "invalidPincode": "માન્ય 6 અંકનો પિન કોડ દાખલ કરો",
+  "contactNameLabel": "સંપર્ક નામ",
+  "contactPhoneLabel": "સંપર્ક નંબર",
+  "invalidMobileNumber": "માન્ય 10 અંકનો મોબાઇલ નંબર દાખલ કરો",
+  "makeDefaultAddress": "ડિફૉલ્ટ રૂપે અહીં જ ડિલિવરી",
+  "saveAddress": "સરનામું સાચવો",
+  "addressSaved": "સરનામું સાચવાયું",
+
+  "addressBookTitle": "ડિલિવરી સરનામાં",
+  "manageAddresses": "સાચવેલા સરનામાં સંભાળો",
+  "noAddressesTitle": "હજી કોઈ સરનામું નથી",
+  "noAddressesSubtitle": "તમારા સુધી ડિલિવરી કરતી દુકાનો બતાવવા એક સરનામું ઉમેરો.",
+  "addAddress": "સરનામું ઉમેરો",
+  "setAsDefault": "ડિફૉલ્ટ બનાવો",
+  "editLabel": "સંપાદિત કરો",
+  "addressUpdated": "સરનામું અપડેટ થયું",
+  "deleteLabel": "કાઢી નાખો",
+  "deleteAddressTitle": "આ સરનામું કાઢી નાખવું?",
+  "deleteAddressMessage": "તમે તેને પછી ફરી ઉમેરી શકો છો.",
+
+  "rescueDealsTitle": "ફૂડ રેસ્ક્યૂ",
+
+  "notTakingOrders": "ઓર્ડર લેવાતા નથી",
+
+  "closedRightNow": "અત્યારે બંધ છે",
+
+  "minimumOrder": "ઓછામાં ઓછું {amount}",
+
+  "portionsLeft": "{count} બાકી",
+
+  "soldOut": "ખલાસ થઈ ગયું",
+
+  "menuEmptyTitle": "હજી કોઈ વાનગી નથી",
+
+  "menuEmptySubtitle": "આ રેસ્ટોરાંએ પોતાનું મેનુ ઉમેર્યું નથી.",
+
+  "moreDishesTitle": "વધુ વાનગીઓ",
+
+  "customisable": "મનપસંદ રીતે",
+
+  "requiredLabel": "જરૂરી",
+
+  "optionalLabel": "વૈકલ્પિક",
+
+  "chooseOne": "એક પસંદ કરો",
+
+  "chooseUpTo": "વધુમાં વધુ {count} પસંદ કરો",
+
+  "chooseAtLeast": "ઓછામાં ઓછા {count} પસંદ કરો",
+
+  "chooseBetween": "{min} થી {max} પસંદ કરો",
+
+  "specialInstructions": "ખાસ સૂચનાઓ",
+
+  "specialInstructionsHint": "ઓછું તીખું, ડુંગળી નહીં…",
+
+  "addForAmount": "ઉમેરો · {amount}",
+
+  "deliveryLabel": "ડિલિવરી",
+
+  "pickupLabel": "જાતે લેવું",
+
+  "packagingLabel": "પેકિંગ",
+
+  "discountLabel": "છૂટ",
+
+  "billDetailsTitle": "બિલની વિગત",
+
+  "clearCart": "કાર્ટ ખાલી કરો",
+
+  "clearCartTitle": "આ કાર્ટ ખાલી કરવી છે?",
+
+  "clearCartMessage": "તેમાંનું બધું જ કાઢી નાખવામાં આવશે.",
+
+  "unavailableItemsNotice": "હવે ઉપલબ્ધ નથી: {items}",
+
+  "removeUnavailable": "તે કાઢી નાખો",
+
+  "minimumNotMet": "ઓછામાં ઓછો ઓર્ડર {amount} છે",
+
+  "checkoutTitle": "ચેકઆઉટ",
+
+  "deliveryAddressLabel": "ડિલિવરીનું સરનામું",
+
+  "noAddressSelected": "કોઈ સરનામું પસંદ કર્યું નથી",
+
+  "paymentMethodLabel": "ચુકવણી",
+
+  "payOnDelivery": "ડિલિવરી વખતે રોકડ",
+
+  "noteToRestaurant": "રેસ્ટોરાં માટે નોંધ",
+
+  "noteToRestaurantHint": "ઘંટડી બે વાર વગાડો…",
+
+  "activeOrdersTitle": "ચાલુ ઓર્ડર",
+
+  "pastOrdersTitle": "જૂના ઓર્ડર",
+
+  "orderItemsTitle": "વાનગીઓ",
+
+  "orderProgressTitle": "પ્રગતિ",
+
+  "arrivingIn": "પહોંચવામાં",
+
+  "pickupCodeLabel": "પિકઅપ કોડ",
+
+  "cancellationReasonLabel": "રદ થવાનું કારણ",
+
+  "riderLabel": "ડિલિવરી પાર્ટનર",
+
+  "callRider": "કૉલ કરો",
+
+  "viewInvoice": "ટેક્સ ઇન્વોઇસ",
+
+  "cancelOrder": "ઓર્ડર રદ કરો",
+
+  "cancelOrderTitle": "આ ઓર્ડર રદ કરવો છે?",
+
+  "cancelOrderMessage": "રેસ્ટોરાં સ્વીકારે તે પહેલાં જ રદ કરી શકાય છે.",
+
+  "cancelReasonLabel": "કારણ",
+
+  "cancelReasonFallback": "ગ્રાહકે રદ કર્યો",
+
+  "orderCancelled": "ઓર્ડર રદ થયો",
+
+  "currentLocationLabel": "વર્તમાન સ્થાન"
 }

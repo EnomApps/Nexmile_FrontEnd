@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 
 import '../config/app_config.dart';
 import 'api_exception.dart';
+import 'api_log.dart';
 
 /// Supplies the current access token and refreshes the pair on demand.
 ///
@@ -46,6 +47,10 @@ class ApiClient {
 
   final http.Client _http;
   final String _baseUrl;
+
+  /// Exposed for the few things that are not JSON calls — the tax invoice is a
+  /// printable HTML page opened in a browser, so its URL has to be built.
+  String get baseUrl => _baseUrl;
 
   /// Null for endpoints that never authenticate (OTP request and verify).
   TokenProvider? tokenProvider;
@@ -113,24 +118,34 @@ class ApiClient {
       headers['Authorization'] = 'Bearer $token';
     }
 
+    final Map<String, dynamic>? payload =
+        body == null ? null : _pruneNulls(body);
+    ApiLog.request(method, uri, headers, payload);
+    final Stopwatch clock = Stopwatch()..start();
+
     late final http.Response response;
     try {
       final http.Request request = http.Request(method, uri)
         ..headers.addAll(headers);
-      if (body != null) {
-        request.body = jsonEncode(_pruneNulls(body));
+      if (payload != null) {
+        request.body = jsonEncode(payload);
       }
       final http.StreamedResponse streamed = await _http
           .send(request)
           .timeout(AppConfig.requestTimeout);
       response = await http.Response.fromStream(streamed);
-    } on TimeoutException {
+    } on TimeoutException catch (error) {
+      ApiLog.failure(method, uri, error);
       throw const ApiException(kind: ApiErrorKind.network);
-    } on SocketException {
+    } on SocketException catch (error) {
+      ApiLog.failure(method, uri, error);
       throw const ApiException(kind: ApiErrorKind.network);
-    } on http.ClientException {
+    } on http.ClientException catch (error) {
+      ApiLog.failure(method, uri, error);
       throw const ApiException(kind: ApiErrorKind.network);
     }
+
+    ApiLog.response(method, uri, response.statusCode, response.body, clock.elapsed);
 
     if (response.statusCode == 401 && authenticated && !isRetry) {
       final bool refreshed = await _refreshOnce();

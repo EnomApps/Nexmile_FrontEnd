@@ -12,6 +12,9 @@ class AppLocalizationsSat extends AppLocalizations {
   String get appName => 'Nexmile';
 
   @override
+  String get fieldRequired => 'ᱱᱚᱶᱟ ᱠᱷᱟᱱᱟ ᱫᱟᱨᱠᱟᱨᱟ';
+
+  @override
   String get tagline => 'ᱞᱚᱜᱚᱱ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ᱾ ᱱᱟᱶᱟ ᱞᱟᱸᱰᱟ᱾';
 
   @override
@@ -311,8 +314,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get toPay => 'ᱮᱢ ᱞᱟᱹᱠᱛᱤ';
 
   @override
-  String placeOrderFor(int amount) {
-    return 'ᱚᱰᱟᱨ ᱢᱮ · ₹$amount';
+  String placeOrderFor(String amount) {
+    return 'ᱚᱰᱟᱨ ᱢᱮ · $amount';
   }
 
   @override
@@ -372,4 +375,350 @@ class AppLocalizationsSat extends AppLocalizations {
 
   @override
   String get prototypeTrackingNotice => 'ᱯᱨᱚᱴᱚᱴᱟᱭᱤᱯ ᱞᱟᱹᱜᱤᱫ ᱴᱨᱮᱠᱤᱝ ᱵᱟᱱᱟᱣ ᱟᱠᱟᱱᱟ᱾';
+
+  @override
+  String get locationTitle => 'ᱚᱠᱟᱨᱮ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱦᱩᱭᱩᱜ-ᱟ?';
+
+  @override
+  String get locationSubtitle => 'Nexmile ᱫᱚ 1 ᱠᱤᱢᱤ ᱵᱷᱤᱛᱨᱤ ᱨᱮᱭᱟᱜ ᱫᱳᱠᱟᱱ ᱠᱷᱚᱱ ᱮᱰᱮ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱮᱢᱚᱜ-ᱟ, ᱚᱱᱟᱛᱮ ᱟᱢᱟᱜ ᱴᱷᱤᱠ ᱡᱟᱭᱜᱟ ᱞᱟᱹᱠᱛᱤᱭᱟ᱾';
+
+  @override
+  String get locationReasonRadiusTitle => '1 ᱠᱤᱢᱤ ᱵᱷᱤᱛᱨᱤ ᱫᱳᱠᱟᱱ';
+
+  @override
+  String get locationReasonRadiusBody => 'ᱚᱠᱟ ᱠᱷᱚᱱ ᱡᱚᱢᱟᱜ ᱨᱟᱹᱲᱟᱹ ᱛᱮ ᱥᱮᱴᱮᱨᱚᱜ-ᱟ, ᱚᱱᱟ ᱨᱚᱥᱚᱭᱜᱷᱚᱨ ᱮᱰᱮ ᱩᱫᱩᱜᱟᱜ-ᱟ᱾';
+
+  @override
+  String get locationReasonAccuracyTitle => 'ᱴᱷᱤᱠ ᱫᱩᱣᱟᱹᱨ ᱦᱟᱹᱵᱤᱡ';
+
+  @override
+  String get locationReasonAccuracyBody => 'ᱴᱷᱤᱠ ᱯᱤᱱ ᱛᱟᱦᱮᱸᱱ ᱠᱷᱟᱱ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱦᱚᱲ ᱯᱷᱳᱱ ᱵᱟᱝ ᱠᱟᱛᱮ ᱦᱚᱸ ᱟᱢ ᱛᱟᱞᱟ ᱥᱮᱴᱮᱨᱚᱜ-ᱟᱭ᱾';
+
+  @override
+  String get locationReasonPrivacyTitle => 'ᱮᱯ ᱵᱮᱵᱷᱟᱨ ᱡᱚᱠᱷᱚᱱ ᱮᱰᱮ';
+
+  @override
+  String get locationReasonPrivacyBody => 'ᱟᱞᱮ ᱫᱚ ᱛᱟᱭᱚᱢ ᱛᱮ ᱟᱢᱟᱜ ᱴᱨᱮᱠ ᱵᱟᱝ ᱮᱫᱟᱞᱮᱭᱟ, ᱟᱨ ᱴᱷᱤᱠᱱᱟ ᱟᱢ ᱟᱡ ᱛᱮ ᱦᱚᱸ ᱚᱞ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾';
+
+  @override
+  String get allowLocation => 'ᱡᱟᱭᱜᱟ ᱨᱮᱭᱟᱜ ᱦᱩᱠᱩᱢ ᱮᱢ ᱢᱮ';
+
+  @override
+  String get enterAddressManually => 'ᱤᱧ ᱴᱷᱤᱠᱱᱟ ᱟᱡ ᱛᱮ ᱚᱞᱟᱹ';
+
+  @override
+  String get locationDenied => 'ᱡᱟᱭᱜᱟ ᱨᱮᱭᱟᱜ ᱦᱩᱠᱩᱢ ᱵᱟᱝ ᱮᱢ ᱞᱮᱱᱟ᱾ ᱟᱢ ᱯᱤᱱ ᱟᱡ ᱛᱮ ᱫᱚᱦᱚ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾';
+
+  @override
+  String get locationDeniedForever => 'Nexmile ᱞᱟᱹᱜᱤᱫ ᱡᱟᱭᱜᱟ ᱵᱚᱸᱫ ᱟᱠᱟᱱᱟ᱾ ᱥᱮᱴᱤᱝᱥ ᱨᱮ ᱡᱟᱹᱨᱩᱭ ᱢᱮ ᱵᱟᱝᱠᱷᱟᱱ ᱯᱤᱱ ᱟᱡ ᱛᱮ ᱫᱚᱦᱚ ᱢᱮ᱾';
+
+  @override
+  String get locationServiceOff => 'ᱱᱚᱶᱟ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱨᱮ ᱡᱟᱭᱜᱟ ᱵᱚᱸᱫ ᱢᱮᱱᱟᱜ-ᱟ᱾';
+
+  @override
+  String get locationUnavailable => 'ᱡᱟᱭᱜᱟ ᱵᱟᱝ ᱧᱟᱢ ᱞᱮᱱᱟ᱾ ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱯᱤᱱ ᱟᱡ ᱛᱮ ᱫᱚᱦᱚ ᱢᱮ᱾';
+
+  @override
+  String get openSettings => 'ᱥᱮᱴᱤᱝᱥ';
+
+  @override
+  String get pinLocationTitle => 'ᱟᱢᱟᱜ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱯᱤᱱ ᱫᱚᱦᱚ ᱢᱮ';
+
+  @override
+  String get deliveryRadiusHint => 'ᱜᱟᱸᱴ ᱫᱚ Nexmile ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱮᱢᱚᱜ 1 ᱠᱤᱢᱤ ᱩᱫᱩᱜ ᱠᱟᱱᱟ᱾';
+
+  @override
+  String get useMyLocation => 'ᱤᱧᱟᱜ ᱡᱟᱭᱜᱟ ᱵᱮᱵᱷᱟᱨ ᱢᱮ';
+
+  @override
+  String get deliveringHere => 'ᱱᱚᱰᱮ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ';
+
+  @override
+  String get dragToAdjust => 'ᱯᱤᱱ ᱵᱚᱫᱚᱞ ᱞᱟᱹᱜᱤᱫ ᱢᱮᱯ ᱚᱲ ᱢᱮ';
+
+  @override
+  String get confirmLocation => 'ᱡᱟᱭᱜᱟ ᱡᱟᱸᱪ ᱢᱮ';
+
+  @override
+  String get addressDetailsTitle => 'ᱴᱷᱤᱠᱱᱟ ᱨᱮᱭᱟᱜ ᱠᱷᱚᱵᱚᱨ';
+
+  @override
+  String get addressDetailsSubtitle => 'ᱴᱷᱤᱠ ᱫᱩᱣᱟᱹᱨ ᱦᱟᱹᱵᱤᱡ ᱥᱮᱴᱮᱨ ᱞᱟᱹᱜᱤᱫ ᱚᱲᱟᱜ ᱱᱟᱢᱵᱟᱨ ᱟᱨ ᱪᱤᱱᱦᱟᱹ ᱥᱮᱞᱮᱫ ᱢᱮ᱾';
+
+  @override
+  String get pinnedLocation => 'ᱵᱟᱪᱷᱟᱣ ᱟᱠᱟᱱ ᱡᱟᱭᱜᱟ';
+
+  @override
+  String get changePin => 'ᱵᱚᱫᱚᱞ ᱢᱮ';
+
+  @override
+  String get saveAddressAs => 'ᱱᱚᱶᱟ ᱴᱷᱤᱠᱱᱟ ᱱᱚᱸᱠᱟ ᱥᱟᱺᱪᱟᱣ ᱢᱮ';
+
+  @override
+  String get labelHome => 'ᱚᱲᱟᱜ';
+
+  @override
+  String get labelWork => 'ᱫᱚᱯᱛᱚᱨ';
+
+  @override
+  String get labelOther => 'ᱮᱴᱟᱜ';
+
+  @override
+  String get addressLine1Label => 'ᱚᱲᱟᱜ, ᱯᱷᱞᱮᱴ ᱵᱟᱝᱠᱷᱟᱱ ᱤᱢᱟᱨᱚᱛ';
+
+  @override
+  String get addressLine1Hint => '12A, ᱜᱨᱤᱱ ᱨᱮᱡᱤᱰᱮᱱᱥᱤ';
+
+  @override
+  String get addressLine2Label => 'ᱦᱚᱨ ᱵᱟᱝᱠᱷᱟᱱ ᱡᱟᱭᱜᱟ';
+
+  @override
+  String get addressLine2Hint => '2 ᱮᱵᱷᱮᱱᱭᱩ, ᱟᱱᱱᱟ ᱱᱚᱜᱚᱨ';
+
+  @override
+  String get landmarkLabel => 'ᱪᱤᱱᱦᱟᱹ';
+
+  @override
+  String get landmarkHint => 'ᱵᱟᱥ ᱥᱴᱟᱯ ᱥᱟᱢᱟᱝ ᱨᱮ';
+
+  @override
+  String get cityLabel => 'ᱥᱚᱦᱚᱨ';
+
+  @override
+  String get stateLabel => 'ᱨᱟᱡᱽ';
+
+  @override
+  String get pincodeLabel => 'ᱯᱤᱱ ᱠᱳᱰ';
+
+  @override
+  String get invalidPincode => 'ᱴᱷᱤᱠ 6 ᱮᱞ ᱯᱤᱱ ᱠᱳᱰ ᱚᱞ ᱢᱮ';
+
+  @override
+  String get contactNameLabel => 'ᱡᱚᱲᱟᱣ ᱧᱩᱛᱩᱢ';
+
+  @override
+  String get contactPhoneLabel => 'ᱡᱚᱲᱟᱣ ᱱᱟᱢᱵᱟᱨ';
+
+  @override
+  String get invalidMobileNumber => 'ᱴᱷᱤᱠ 10 ᱮᱞ ᱢᱚᱵᱟᱭᱤᱞ ᱱᱟᱢᱵᱟᱨ ᱚᱞ ᱢᱮ';
+
+  @override
+  String get makeDefaultAddress => 'ᱰᱤᱯᱷᱚᱞᱴ ᱞᱮᱠᱟᱛᱮ ᱱᱚᱰᱮᱜᱮ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ';
+
+  @override
+  String get saveAddress => 'ᱴᱷᱤᱠᱱᱟ ᱥᱟᱺᱪᱟᱣ ᱢᱮ';
+
+  @override
+  String get addressSaved => 'ᱴᱷᱤᱠᱱᱟ ᱥᱟᱺᱪᱟᱣ ᱮᱱᱟ';
+
+  @override
+  String get addressBookTitle => 'ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱴᱷᱤᱠᱱᱟ';
+
+  @override
+  String get manageAddresses => 'ᱥᱟᱺᱪᱟᱣ ᱟᱠᱟᱱ ᱴᱷᱤᱠᱱᱟ ᱠᱚ ᱥᱟᱢᱵᱷᱟᱞ ᱢᱮ';
+
+  @override
+  String get noAddressesTitle => 'ᱦᱟᱲᱮ ᱡᱟᱦᱟᱸ ᱴᱷᱤᱠᱱᱟ ᱵᱟᱝᱟ';
+
+  @override
+  String get noAddressesSubtitle => 'ᱟᱢ ᱛᱟᱞᱟ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱮᱢᱚᱜ ᱫᱳᱠᱟᱱ ᱩᱫᱩᱜ ᱞᱟᱹᱜᱤᱫ ᱢᱤᱫ ᱴᱷᱤᱠᱱᱟ ᱥᱮᱞᱮᱫ ᱢᱮ᱾';
+
+  @override
+  String get addAddress => 'ᱴᱷᱤᱠᱱᱟ ᱥᱮᱞᱮᱫ ᱢᱮ';
+
+  @override
+  String get setAsDefault => 'ᱰᱤᱯᱷᱚᱞᱴ ᱵᱮᱱᱟᱣ ᱢᱮ';
+
+  @override
+  String get editLabel => 'ᱥᱚᱯᱷᱟ ᱢᱮ';
+
+  @override
+  String get addressUpdated => 'ᱴᱷᱤᱠᱱᱟ ᱟᱯᱰᱮᱴ ᱮᱱᱟ';
+
+  @override
+  String get deleteLabel => 'ᱢᱮᱴᱟᱣ ᱢᱮ';
+
+  @override
+  String get deleteAddressTitle => 'ᱱᱚᱶᱟ ᱴᱷᱤᱠᱱᱟ ᱢᱮᱴᱟᱣᱟ?';
+
+  @override
+  String get deleteAddressMessage => 'ᱟᱢ ᱱᱚᱶᱟ ᱛᱟᱭᱚᱢ ᱛᱮ ᱫᱩᱦᱲᱟᱹ ᱥᱮᱞᱮᱫ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾';
+
+  @override
+  String get rescueDealsTitle => 'ᱡᱚᱢ ᱨᱮᱥᱠᱭᱩ';
+
+  @override
+  String get notTakingOrders => 'ᱚᱰᱟᱨ ᱵᱟᱝ ᱦᱟᱛᱟᱣ ᱠᱟᱱᱟ';
+
+  @override
+  String get closedRightNow => 'ᱱᱤᱛᱚᱜ ᱵᱚᱸᱫᱚ ᱢᱮᱱᱟᱜᱼᱟ';
+
+  @override
+  String minimumOrder(String amount) {
+    return 'ᱠᱚᱢ ᱛᱮ ᱠᱚᱢ $amount';
+  }
+
+  @override
+  String portionsLeft(int count) {
+    return '$count ᱵᱟᱝᱠᱤ';
+  }
+
+  @override
+  String get soldOut => 'ᱪᱟᱵᱟ ᱮᱱᱟ';
+
+  @override
+  String get menuEmptyTitle => 'ᱛᱮᱦᱮᱧ ᱫᱷᱟᱹᱵᱤᱡ ᱡᱚᱢᱟᱜ ᱵᱟᱹᱱᱩᱜᱼᱟ';
+
+  @override
+  String get menuEmptySubtitle => 'ᱱᱚᱶᱟ ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱟᱡ ᱨᱮᱭᱟᱜ ᱢᱮᱱᱩ ᱵᱟᱝ ᱥᱮᱞᱮᱫ ᱟᱠᱟᱫᱟ ᱾';
+
+  @override
+  String get moreDishesTitle => 'ᱟᱨᱦᱚᱸ ᱡᱚᱢᱟᱜ';
+
+  @override
+  String get customisable => 'ᱠᱩᱥᱤ ᱞᱮᱠᱟᱛᱮ';
+
+  @override
+  String get requiredLabel => 'ᱞᱟᱹᱠᱛᱤ';
+
+  @override
+  String get optionalLabel => 'ᱤᱪ᱄ᱪᱷᱟ ᱞᱮᱠᱟᱛᱮ';
+
+  @override
+  String get chooseOne => 'ᱢᱤᱫᱴᱟᱝ ᱵᱟᱪᱷᱟᱣ ᱢᱮ';
+
+  @override
+  String chooseUpTo(int count) {
+    return 'ᱵᱟᱲᱛᱤ ᱛᱮ ᱵᱟᱲᱛᱤ $count ᱵᱟᱪᱷᱟᱣ ᱢᱮ';
+  }
+
+  @override
+  String chooseAtLeast(int count) {
+    return 'ᱠᱚᱢ ᱛᱮ ᱠᱚᱢ $count ᱵᱟᱪᱷᱟᱣ ᱢᱮ';
+  }
+
+  @override
+  String chooseBetween(int min, int max) {
+    return '$min ᱠᱷᱚᱱ $max ᱫᱷᱟᱹᱵᱤᱡ ᱵᱟᱪᱷᱟᱣ ᱢᱮ';
+  }
+
+  @override
+  String get specialInstructions => 'ᱵᱤᱥᱮᱥ ᱠᱟᱛᱷᱟ';
+
+  @override
+  String get specialInstructionsHint => 'ᱠᱚᱢ ᱢᱟᱨᱚᱪ, ᱯᱮᱭᱟᱡ ᱵᱟᱝ…';
+
+  @override
+  String addForAmount(String amount) {
+    return 'ᱥᱮᱞᱮᱫ ᱢᱮ · $amount';
+  }
+
+  @override
+  String get deliveryLabel => 'ᱰᱮᱞᱤᱵᱷᱟᱨᱤ';
+
+  @override
+  String get pickupLabel => 'ᱟᱡ ᱛᱮ ᱤᱫᱤ';
+
+  @override
+  String get packagingLabel => 'ᱯᱮᱠᱤᱝ';
+
+  @override
+  String get discountLabel => 'ᱪᱷᱩᱴ';
+
+  @override
+  String get billDetailsTitle => 'ᱵᱤᱞ ᱨᱮᱭᱟᱜ ᱵᱤᱵᱨᱚᱬ';
+
+  @override
+  String get clearCart => 'ᱠᱟᱨᱴ ᱠᱷᱟᱹᱞᱤ ᱢᱮ';
+
+  @override
+  String get clearCartTitle => 'ᱱᱚᱶᱟ ᱠᱟᱨᱴ ᱠᱷᱟᱹᱞᱤᱭᱟ?';
+
+  @override
+  String get clearCartMessage => 'ᱱᱚᱶᱟ ᱨᱮ ᱢᱮᱱᱟᱜ ᱡᱚᱛᱚ ᱠᱟᱛᱷᱟ ᱚᱪᱚᱜ ᱦᱩᱭᱩᱜᱼᱟ ᱾';
+
+  @override
+  String unavailableItemsNotice(String items) {
+    return 'ᱱᱤᱛᱚᱜ ᱵᱟᱝ ᱧᱟᱢᱚᱜᱼᱟ: $items';
+  }
+
+  @override
+  String get removeUnavailable => 'ᱚᱱᱟ ᱠᱚ ᱚᱪᱚᱜ ᱢᱮ';
+
+  @override
+  String minimumNotMet(String amount) {
+    return 'ᱠᱚᱢ ᱛᱮ ᱠᱚᱢ ᱚᱰᱟᱨ $amount';
+  }
+
+  @override
+  String get checkoutTitle => 'ᱪᱮᱠᱟᱣᱴ';
+
+  @override
+  String get deliveryAddressLabel => 'ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱴᱷᱤᱠᱟᱬᱟ';
+
+  @override
+  String get noAddressSelected => 'ᱡᱟᱦᱟᱸ ᱴᱷᱤᱠᱟᱬᱟ ᱵᱟᱝ ᱵᱟᱪᱷᱟᱣ ᱟᱠᱟᱱᱟ';
+
+  @override
+  String get paymentMethodLabel => 'ᱠᱚᱲᱟ';
+
+  @override
+  String get payOnDelivery => 'ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱨᱮ ᱴᱟᱠᱟ';
+
+  @override
+  String get noteToRestaurant => 'ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱞᱟᱹᱜᱤᱫ ᱠᱟᱛᱷᱟ';
+
+  @override
+  String get noteToRestaurantHint => 'ᱜᱷᱟᱱᱴᱤ ᱵᱟᱨ ᱫᱷᱟᱣ ᱨᱩᱭ ᱢᱮ…';
+
+  @override
+  String get activeOrdersTitle => 'ᱪᱟᱹᱞᱩ ᱚᱰᱟᱨ';
+
+  @override
+  String get pastOrdersTitle => 'ᱢᱟᱲᱟᱝ ᱚᱰᱟᱨ';
+
+  @override
+  String get orderItemsTitle => 'ᱡᱚᱢᱟᱜ';
+
+  @override
+  String get orderProgressTitle => 'ᱛᱟᱞᱟ ᱫᱟᱲᱮ';
+
+  @override
+  String get arrivingIn => 'ᱥᱮᱴᱮᱨ ᱞᱟᱹᱜᱤᱫ';
+
+  @override
+  String get pickupCodeLabel => 'ᱯᱤᱠᱟᱯ ᱠᱳᱰ';
+
+  @override
+  String get cancellationReasonLabel => 'ᱵᱟᱹᱰᱨᱟᱹ ᱨᱮᱭᱟᱜ ᱠᱟᱨᱚᱱ';
+
+  @override
+  String get riderLabel => 'ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱥᱟᱣᱛᱟ';
+
+  @override
+  String get callRider => 'ᱠᱚᱞ ᱢᱮ';
+
+  @override
+  String get viewInvoice => 'ᱴᱮᱠᱥ ᱤᱱᱵᱷᱚᱭᱥ';
+
+  @override
+  String get cancelOrder => 'ᱚᱰᱟᱨ ᱵᱟᱹᱰᱨᱟᱹ ᱢᱮ';
+
+  @override
+  String get cancelOrderTitle => 'ᱱᱚᱶᱟ ᱚᱰᱟᱨ ᱵᱟᱹᱰᱨᱟᱹᱭᱟ?';
+
+  @override
+  String get cancelOrderMessage => 'ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱦᱟᱛᱟᱣ ᱞᱟᱦᱟ ᱜᱮ ᱵᱟᱹᱰᱨᱟᱹ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾';
+
+  @override
+  String get cancelReasonLabel => 'ᱠᱟᱨᱚᱱ';
+
+  @override
+  String get cancelReasonFallback => 'ᱜᱟᱦᱟᱠ ᱵᱟᱹᱰᱨᱟᱹ ᱠᱮᱫᱟ';
+
+  @override
+  String get orderCancelled => 'ᱚᱰᱟᱨ ᱵᱟᱹᱰᱨᱟᱹ ᱮᱱᱟ';
+
+  @override
+  String get currentLocationLabel => 'ᱱᱤᱛᱚᱜᱟᱜ ᱡᱟᱭᱜᱟ';
 }

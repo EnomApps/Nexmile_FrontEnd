@@ -2,6 +2,7 @@
   "@@locale": "ur",
 
   "appName": "Nexmile",
+  "fieldRequired": "یہ خانہ ضروری ہے",
   "tagline": "تیز ڈیلیوری۔ تازہ مسکراہٹیں۔",
   "chooseLanguageTitle": "اپنی زبان منتخب کریں",
   "chooseLanguageSubtitle": "وہ زبان منتخب کریں جس میں آپ آسانی محسوس کرتے ہیں۔ آپ اسے کسی بھی وقت ترتیبات میں تبدیل کر سکتے ہیں۔",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "ٹیکس اور چارجز",
   "freeLabel": "مفت",
   "toPay": "قابل ادائیگی",
-  "placeOrderFor": "آرڈر کریں · ₹{amount}",
+  "placeOrderFor": "آرڈر کریں · {amount}",
   "ordersTitle": "آپ کے آرڈرز",
   "ordersEmptyTitle": "ابھی کوئی آرڈر نہیں",
   "ordersEmptySubtitle": "آپ کے پچھلے آرڈرز یہاں دکھائی دیں گے۔",
@@ -117,5 +118,173 @@
   "backToHome": "ہوم پر واپس",
   "prototypeNotice": "نمونہ اسٹور فرنٹ — اصلی دکانیں کیٹلاگ API کے ساتھ آئیں گی۔",
   "prototypeCheckoutNotice": "یہ ایک پروٹوٹائپ ہے۔ کوئی ادائیگی نہیں لی جاتی اور نہ ہی کوئی حقیقی آرڈر ہوتا ہے۔",
-  "prototypeTrackingNotice": "پروٹوٹائپ کے لیے ٹریکنگ مصنوعی ہے۔"
+  "prototypeTrackingNotice": "پروٹوٹائپ کے لیے ٹریکنگ مصنوعی ہے۔",
+
+  "locationTitle": "ڈیلیوری کہاں کرنی ہے؟",
+  "locationSubtitle": "Nexmile صرف 1 کلومیٹر کے اندر کی دکانوں سے ڈیلیوری کرتا ہے، اس لیے ہمیں آپ کی درست جگہ چاہیے۔",
+  "locationReasonRadiusTitle": "1 کلومیٹر کے اندر کی دکانیں",
+  "locationReasonRadiusBody": "ہم صرف وہی باورچی خانے دکھاتے ہیں جہاں سے کھانا گرم پہنچے۔",
+  "locationReasonAccuracyTitle": "بالکل صحیح دروازے تک",
+  "locationReasonAccuracyBody": "درست پن ہو تو ڈیلیوری پارٹنر فون کیے بغیر آپ تک پہنچ جاتا ہے۔",
+  "locationReasonPrivacyTitle": "صرف ایپ استعمال کرتے وقت",
+  "locationReasonPrivacyBody": "ہم پس منظر میں آپ کو ٹریک نہیں کرتے، اور پتہ آپ خود بھی لکھ سکتے ہیں۔",
+  "allowLocation": "مقام کی اجازت دیں",
+  "enterAddressManually": "میں پتہ خود لکھوں گا",
+  "locationDenied": "مقام کی اجازت نہیں ملی۔ آپ پن خود بھی لگا سکتے ہیں۔",
+  "locationDeniedForever": "Nexmile کے لیے مقام بند ہے۔ ترتیبات میں آن کریں یا پن خود لگائیں۔",
+  "locationServiceOff": "اس ڈیوائس پر مقام بند ہے۔",
+  "locationUnavailable": "مقام حاصل نہیں ہو سکا۔ براہ کرم پن خود لگائیں۔",
+  "openSettings": "ترتیبات",
+
+  "pinLocationTitle": "اپنا ڈیلیوری پن لگائیں",
+  "deliveryRadiusHint": "دائرہ وہ 1 کلومیٹر دکھاتا ہے جس میں Nexmile ڈیلیوری کرتا ہے۔",
+  "useMyLocation": "میرا مقام استعمال کریں",
+  "deliveringHere": "یہاں ڈیلیوری",
+  "dragToAdjust": "پن بدلنے کے لیے نقشہ کھسکائیں",
+  "confirmLocation": "مقام کی تصدیق کریں",
+
+  "addressDetailsTitle": "پتے کی تفصیلات",
+  "addressDetailsSubtitle": "صحیح دروازے تک پہنچنے کے لیے مکان نمبر اور نشانی شامل کریں۔",
+  "pinnedLocation": "منتخب مقام",
+  "changePin": "تبدیل کریں",
+  "saveAddressAs": "یہ پتہ ایسے محفوظ کریں",
+  "labelHome": "گھر",
+  "labelWork": "دفتر",
+  "labelOther": "دیگر",
+  "addressLine1Label": "مکان، فلیٹ یا عمارت",
+  "addressLine1Hint": "12A، گرین ریزیڈنسی",
+  "addressLine2Label": "گلی یا علاقہ",
+  "addressLine2Hint": "دوسری ایونیو، انا نگر",
+  "landmarkLabel": "نشانی",
+  "landmarkHint": "بس اسٹاپ کے سامنے",
+  "cityLabel": "شہر",
+  "stateLabel": "ریاست",
+  "pincodeLabel": "پن کوڈ",
+  "invalidPincode": "درست 6 ہندسوں کا پن کوڈ درج کریں",
+  "contactNameLabel": "رابطہ نام",
+  "contactPhoneLabel": "رابطہ نمبر",
+  "invalidMobileNumber": "درست 10 ہندسوں کا موبائل نمبر درج کریں",
+  "makeDefaultAddress": "بطور ڈیفالٹ یہیں ڈیلیوری",
+  "saveAddress": "پتہ محفوظ کریں",
+  "addressSaved": "پتہ محفوظ ہو گیا",
+
+  "addressBookTitle": "ڈیلیوری کے پتے",
+  "manageAddresses": "محفوظ پتے سنبھالیں",
+  "noAddressesTitle": "ابھی کوئی پتہ نہیں",
+  "noAddressesSubtitle": "ایک پتہ شامل کریں تاکہ ہم آپ تک ڈیلیوری کرنے والی دکانیں دکھا سکیں۔",
+  "addAddress": "پتہ شامل کریں",
+  "setAsDefault": "ڈیفالٹ بنائیں",
+  "editLabel": "ترمیم",
+  "addressUpdated": "پتہ اپ ڈیٹ ہو گیا",
+  "deleteLabel": "حذف کریں",
+  "deleteAddressTitle": "یہ پتہ حذف کریں؟",
+  "deleteAddressMessage": "آپ اسے بعد میں دوبارہ شامل کر سکتے ہیں۔",
+
+  "rescueDealsTitle": "فوڈ ریسکیو",
+
+  "notTakingOrders": "آرڈر نہیں لیے جا رہے",
+
+  "closedRightNow": "ابھی بند ہے",
+
+  "minimumOrder": "کم از کم {amount}",
+
+  "portionsLeft": "{count} باقی",
+
+  "soldOut": "ختم ہو گیا",
+
+  "menuEmptyTitle": "ابھی کوئی پکوان نہیں",
+
+  "menuEmptySubtitle": "اس ریستوران نے اپنا مینو شامل نہیں کیا۔",
+
+  "moreDishesTitle": "مزید پکوان",
+
+  "customisable": "اپنی پسند کے مطابق",
+
+  "requiredLabel": "لازمی",
+
+  "optionalLabel": "اختیاری",
+
+  "chooseOne": "ایک منتخب کریں",
+
+  "chooseUpTo": "زیادہ سے زیادہ {count} منتخب کریں",
+
+  "chooseAtLeast": "کم از کم {count} منتخب کریں",
+
+  "chooseBetween": "{min} سے {max} منتخب کریں",
+
+  "specialInstructions": "خاص ہدایات",
+
+  "specialInstructionsHint": "کم مرچ، پیاز نہیں…",
+
+  "addForAmount": "شامل کریں · {amount}",
+
+  "deliveryLabel": "ڈیلیوری",
+
+  "pickupLabel": "خود لے جانا",
+
+  "packagingLabel": "پیکنگ",
+
+  "discountLabel": "رعایت",
+
+  "billDetailsTitle": "بل کی تفصیل",
+
+  "clearCart": "کارٹ خالی کریں",
+
+  "clearCartTitle": "یہ کارٹ خالی کریں؟",
+
+  "clearCartMessage": "اس میں موجود ہر چیز ہٹا دی جائے گی۔",
+
+  "unavailableItemsNotice": "اب دستیاب نہیں: {items}",
+
+  "removeUnavailable": "انہیں ہٹا دیں",
+
+  "minimumNotMet": "کم از کم آرڈر {amount} ہے",
+
+  "checkoutTitle": "چیک آؤٹ",
+
+  "deliveryAddressLabel": "ڈیلیوری کا پتہ",
+
+  "noAddressSelected": "کوئی پتہ منتخب نہیں",
+
+  "paymentMethodLabel": "ادائیگی",
+
+  "payOnDelivery": "ڈیلیوری پر نقد",
+
+  "noteToRestaurant": "ریستوران کے لیے نوٹ",
+
+  "noteToRestaurantHint": "گھنٹی دو بار بجائیں…",
+
+  "activeOrdersTitle": "جاری آرڈر",
+
+  "pastOrdersTitle": "پرانے آرڈر",
+
+  "orderItemsTitle": "پکوان",
+
+  "orderProgressTitle": "پیش رفت",
+
+  "arrivingIn": "پہنچنے میں",
+
+  "pickupCodeLabel": "پک اپ کوڈ",
+
+  "cancellationReasonLabel": "منسوخی کی وجہ",
+
+  "riderLabel": "ڈیلیوری پارٹنر",
+
+  "callRider": "کال کریں",
+
+  "viewInvoice": "ٹیکس انوائس",
+
+  "cancelOrder": "آرڈر منسوخ کریں",
+
+  "cancelOrderTitle": "یہ آرڈر منسوخ کریں؟",
+
+  "cancelOrderMessage": "ریستوران کے قبول کرنے سے پہلے ہی منسوخ کیا جا سکتا ہے۔",
+
+  "cancelReasonLabel": "وجہ",
+
+  "cancelReasonFallback": "گاہک نے منسوخ کیا",
+
+  "orderCancelled": "آرڈر منسوخ ہو گیا",
+
+  "currentLocationLabel": "موجودہ مقام"
 }

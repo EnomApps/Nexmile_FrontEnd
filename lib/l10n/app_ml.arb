@@ -2,6 +2,7 @@
   "@@locale": "ml",
 
   "appName": "Nexmile",
+  "fieldRequired": "ഈ ഫീൽഡ് നിർബന്ധമാണ്",
   "tagline": "വേഗത്തിലുള്ള ഡെലിവറി. പുതിയ പുഞ്ചിരികൾ.",
   "chooseLanguageTitle": "നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക",
   "chooseLanguageSubtitle": "നിങ്ങൾക്ക് സൗകര്യപ്രദമായ ഭാഷ തിരഞ്ഞെടുക്കുക. ഇത് എപ്പോൾ വേണമെങ്കിലും ക്രമീകരണങ്ങളിൽ മാറ്റാം.",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "നികുതികളും ചാർജുകളും",
   "freeLabel": "സൗജന്യം",
   "toPay": "അടയ്ക്കേണ്ടത്",
-  "placeOrderFor": "ഓർഡർ ചെയ്യുക · ₹{amount}",
+  "placeOrderFor": "ഓർഡർ ചെയ്യുക · {amount}",
   "ordersTitle": "നിങ്ങളുടെ ഓർഡറുകൾ",
   "ordersEmptyTitle": "ഇതുവരെ ഓർഡറുകളില്ല",
   "ordersEmptySubtitle": "നിങ്ങളുടെ പഴയ ഓർഡറുകൾ ഇവിടെ കാണാം.",
@@ -117,5 +118,173 @@
   "backToHome": "ഹോമിലേക്ക് മടങ്ങുക",
   "prototypeNotice": "മാതൃകാ സ്റ്റോർഫ്രണ്ട് — യഥാർത്ഥ കടകൾ കാറ്റലോഗ് API യോടൊപ്പം വരും.",
   "prototypeCheckoutNotice": "ഇതൊരു പ്രോട്ടോടൈപ്പാണ്. പണം ഈടാക്കുന്നില്ല, യഥാർത്ഥ ഓർഡറും നടക്കുന്നില്ല.",
-  "prototypeTrackingNotice": "പ്രോട്ടോടൈപ്പിനായി ട്രാക്കിംഗ് കൃത്രിമമാണ്."
+  "prototypeTrackingNotice": "പ്രോട്ടോടൈപ്പിനായി ട്രാക്കിംഗ് കൃത്രിമമാണ്.",
+
+  "locationTitle": "എവിടെ ഡെലിവർ ചെയ്യണം?",
+  "locationSubtitle": "Nexmile 1 കിമീ പരിധിയിലുള്ള കടകളിൽ നിന്ന് മാത്രമേ ഡെലിവർ ചെയ്യൂ, അതിനാൽ നിങ്ങളുടെ കൃത്യമായ സ്ഥലം വേണം.",
+  "locationReasonRadiusTitle": "1 കിമീയ്ക്കുള്ളിലെ കടകൾ",
+  "locationReasonRadiusBody": "ചൂടോടെ എത്താൻ കഴിയുന്ന അടുക്കളകൾ മാത്രമേ കാണിക്കൂ.",
+  "locationReasonAccuracyTitle": "ശരിയായ വാതിൽക്കൽ",
+  "locationReasonAccuracyBody": "കൃത്യമായ പിൻ ഉണ്ടെങ്കിൽ ഡെലിവറി പങ്കാളി വിളിക്കാതെ തന്നെ നിങ്ങളെ കണ്ടെത്തും.",
+  "locationReasonPrivacyTitle": "ആപ്പ് ഉപയോഗിക്കുമ്പോൾ മാത്രം",
+  "locationReasonPrivacyBody": "പശ്ചാത്തലത്തിൽ ഞങ്ങൾ നിങ്ങളെ ട്രാക്ക് ചെയ്യില്ല, വിലാസം സ്വയം ടൈപ്പ് ചെയ്യാം.",
+  "allowLocation": "ലൊക്കേഷൻ അനുവദിക്കുക",
+  "enterAddressManually": "ഞാൻ വിലാസം സ്വയം എഴുതാം",
+  "locationDenied": "ലൊക്കേഷൻ അനുമതി നിരസിച്ചു. നിങ്ങൾക്ക് പിൻ സ്വയം വയ്ക്കാം.",
+  "locationDeniedForever": "Nexmile നായി ലൊക്കേഷൻ തടഞ്ഞിരിക്കുന്നു. ക്രമീകരണങ്ങളിൽ ഓണാക്കുക അല്ലെങ്കിൽ പിൻ സ്വയം വയ്ക്കുക.",
+  "locationServiceOff": "ഈ ഉപകരണത്തിൽ ലൊക്കേഷൻ ഓഫാണ്.",
+  "locationUnavailable": "ലൊക്കേഷൻ ലഭിച്ചില്ല. ദയവായി പിൻ സ്വയം വയ്ക്കുക.",
+  "openSettings": "ക്രമീകരണങ്ങൾ",
+
+  "pinLocationTitle": "നിങ്ങളുടെ ഡെലിവറി പിൻ വയ്ക്കുക",
+  "deliveryRadiusHint": "Nexmile ഡെലിവർ ചെയ്യുന്ന 1 കിമീ വൃത്തം കാണിക്കുന്നു.",
+  "useMyLocation": "എന്റെ ലൊക്കേഷൻ ഉപയോഗിക്കുക",
+  "deliveringHere": "ഇവിടെ ഡെലിവറി",
+  "dragToAdjust": "പിൻ ക്രമീകരിക്കാൻ മാപ്പ് നീക്കുക",
+  "confirmLocation": "ലൊക്കേഷൻ സ്ഥിരീകരിക്കുക",
+
+  "addressDetailsTitle": "വിലാസ വിവരങ്ങൾ",
+  "addressDetailsSubtitle": "ശരിയായ വാതിലിൽ എത്താൻ വീട്ടുനമ്പറും അടയാളവും ചേർക്കുക.",
+  "pinnedLocation": "അടയാളപ്പെടുത്തിയ സ്ഥലം",
+  "changePin": "മാറ്റുക",
+  "saveAddressAs": "ഈ വിലാസം ഇങ്ങനെ സൂക്ഷിക്കുക",
+  "labelHome": "വീട്",
+  "labelWork": "ഓഫീസ്",
+  "labelOther": "മറ്റുള്ളവ",
+  "addressLine1Label": "വീട്, ഫ്ലാറ്റ് അല്ലെങ്കിൽ കെട്ടിടം",
+  "addressLine1Hint": "12A, ഗ്രീൻ റെസിഡൻസി",
+  "addressLine2Label": "തെരുവ് അല്ലെങ്കിൽ പ്രദേശം",
+  "addressLine2Hint": "2-ാം അവന്യൂ, അണ്ണാ നഗർ",
+  "landmarkLabel": "അടയാളം",
+  "landmarkHint": "ബസ് സ്റ്റോപ്പിന് എതിർവശം",
+  "cityLabel": "നഗരം",
+  "stateLabel": "സംസ്ഥാനം",
+  "pincodeLabel": "പിൻ കോഡ്",
+  "invalidPincode": "സാധുവായ 6 അക്ക പിൻ കോഡ് നൽകുക",
+  "contactNameLabel": "ബന്ധപ്പെടേണ്ട പേര്",
+  "contactPhoneLabel": "ബന്ധപ്പെടേണ്ട നമ്പർ",
+  "invalidMobileNumber": "സാധുവായ 10 അക്ക മൊബൈൽ നമ്പർ നൽകുക",
+  "makeDefaultAddress": "ഡിഫോൾട്ടായി ഇവിടെ ഡെലിവറി",
+  "saveAddress": "വിലാസം സൂക്ഷിക്കുക",
+  "addressSaved": "വിലാസം സൂക്ഷിച്ചു",
+
+  "addressBookTitle": "ഡെലിവറി വിലാസങ്ങൾ",
+  "manageAddresses": "സൂക്ഷിച്ച വിലാസങ്ങൾ കൈകാര്യം ചെയ്യുക",
+  "noAddressesTitle": "ഇതുവരെ വിലാസങ്ങളില്ല",
+  "noAddressesSubtitle": "നിങ്ങൾക്ക് ഡെലിവർ ചെയ്യുന്ന കടകൾ കാണിക്കാൻ ഒരു വിലാസം ചേർക്കുക.",
+  "addAddress": "വിലാസം ചേർക്കുക",
+  "setAsDefault": "ഡിഫോൾട്ടാക്കുക",
+  "editLabel": "എഡിറ്റ് ചെയ്യുക",
+  "addressUpdated": "വിലാസം അപ്ഡേറ്റ് ചെയ്തു",
+  "deleteLabel": "ഇല്ലാതാക്കുക",
+  "deleteAddressTitle": "ഈ വിലാസം ഇല്ലാതാക്കണോ?",
+  "deleteAddressMessage": "പിന്നീട് എപ്പോൾ വേണമെങ്കിലും വീണ്ടും ചേർക്കാം.",
+
+  "rescueDealsTitle": "ഫുഡ് റെസ്ക്യൂ",
+
+  "notTakingOrders": "ഓർഡർ എടുക്കുന്നില്ല",
+
+  "closedRightNow": "ഇപ്പോൾ അടച്ചിരിക്കുന്നു",
+
+  "minimumOrder": "കുറഞ്ഞത് {amount}",
+
+  "portionsLeft": "{count} ബാക്കി",
+
+  "soldOut": "തീർന്നു",
+
+  "menuEmptyTitle": "ഇതുവരെ വിഭവങ്ങളില്ല",
+
+  "menuEmptySubtitle": "ഈ റെസ്റ്റോറന്റ് അതിന്റെ മെനു ചേർത്തിട്ടില്ല.",
+
+  "moreDishesTitle": "കൂടുതൽ വിഭവങ്ങൾ",
+
+  "customisable": "ഇഷ്ടാനുസരണം",
+
+  "requiredLabel": "നിർബന്ധം",
+
+  "optionalLabel": "ഐച്ഛികം",
+
+  "chooseOne": "ഒന്ന് തിരഞ്ഞെടുക്കുക",
+
+  "chooseUpTo": "പരമാവധി {count} തിരഞ്ഞെടുക്കുക",
+
+  "chooseAtLeast": "കുറഞ്ഞത് {count} തിരഞ്ഞെടുക്കുക",
+
+  "chooseBetween": "{min} മുതൽ {max} വരെ തിരഞ്ഞെടുക്കുക",
+
+  "specialInstructions": "പ്രത്യേക നിർദ്ദേശങ്ങൾ",
+
+  "specialInstructionsHint": "എരിവ് കുറച്ച്, സവാള വേണ്ട…",
+
+  "addForAmount": "ചേർക്കുക · {amount}",
+
+  "deliveryLabel": "ഡെലിവറി",
+
+  "pickupLabel": "നേരിട്ട് വാങ്ങൽ",
+
+  "packagingLabel": "പാക്കിംഗ്",
+
+  "discountLabel": "കിഴിവ്",
+
+  "billDetailsTitle": "ബിൽ വിവരങ്ങൾ",
+
+  "clearCart": "കാർട്ട് ശൂന്യമാക്കുക",
+
+  "clearCartTitle": "ഈ കാർട്ട് ശൂന്യമാക്കണോ?",
+
+  "clearCartMessage": "അതിലുള്ളതെല്ലാം നീക്കം ചെയ്യും.",
+
+  "unavailableItemsNotice": "ഇപ്പോൾ ലഭ്യമല്ല: {items}",
+
+  "removeUnavailable": "അവ നീക്കം ചെയ്യുക",
+
+  "minimumNotMet": "കുറഞ്ഞ ഓർഡർ {amount} ആണ്",
+
+  "checkoutTitle": "ചെക്ക്ഔട്ട്",
+
+  "deliveryAddressLabel": "ഡെലിവറി വിലാസം",
+
+  "noAddressSelected": "വിലാസം തിരഞ്ഞെടുത്തിട്ടില്ല",
+
+  "paymentMethodLabel": "പണമടയ്ക്കൽ",
+
+  "payOnDelivery": "ഡെലിവറി സമയത്ത് പണം",
+
+  "noteToRestaurant": "റെസ്റ്റോറന്റിനുള്ള കുറിപ്പ്",
+
+  "noteToRestaurantHint": "ബെൽ രണ്ടു തവണ അടിക്കുക…",
+
+  "activeOrdersTitle": "നടക്കുന്ന ഓർഡറുകൾ",
+
+  "pastOrdersTitle": "പഴയ ഓർഡറുകൾ",
+
+  "orderItemsTitle": "വിഭവങ്ങൾ",
+
+  "orderProgressTitle": "പുരോഗതി",
+
+  "arrivingIn": "എത്തിച്ചേരാൻ",
+
+  "pickupCodeLabel": "പിക്കപ്പ് കോഡ്",
+
+  "cancellationReasonLabel": "റദ്ദാക്കിയ കാരണം",
+
+  "riderLabel": "ഡെലിവറി പങ്കാളി",
+
+  "callRider": "വിളിക്കുക",
+
+  "viewInvoice": "ടാക്സ് ഇൻവോയ്സ്",
+
+  "cancelOrder": "ഓർഡർ റദ്ദാക്കുക",
+
+  "cancelOrderTitle": "ഈ ഓർഡർ റദ്ദാക്കണോ?",
+
+  "cancelOrderMessage": "റെസ്റ്റോറന്റ് സ്വീകരിക്കുന്നതിനു മുൻപ് മാത്രമേ റദ്ദാക്കാനാകൂ.",
+
+  "cancelReasonLabel": "കാരണം",
+
+  "cancelReasonFallback": "ഉപഭോക്താവ് റദ്ദാക്കി",
+
+  "orderCancelled": "ഓർഡർ റദ്ദാക്കി",
+
+  "currentLocationLabel": "നിലവിലെ സ്ഥലം"
 }

@@ -1,0 +1,44 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Start this one to watch API traffic. debugPrint output — including the
+      // [nexmile.api] request/response lines — lands in the Debug Console.
+      "name": "Nexmile (debug)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "flutterMode": "debug"
+    },
+    {
+      // Same, pointed at a server on the host machine. 10.0.2.2 is how the
+      // Android emulator reaches the host's localhost; on a physical device
+      // put the machine's LAN address here instead.
+      "name": "Nexmile (local API)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "flutterMode": "debug",
+      "toolArgs": [
+        "--dart-define=NEXMILE_API_BASE_URL=http://10.0.2.2:8000/api"
+      ]
+    },
+    {
+      // For measuring jank on a real device. Logging is still compiled in.
+      "name": "Nexmile (profile)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "flutterMode": "profile"
+    },
+    {
+      // What ships. kDebugMode is false, so the API log is tree-shaken out and
+      // the Debug Console stays empty — that is the point, not a fault.
+      "name": "Nexmile (release)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "flutterMode": "release"
+    }
+  ]
+}

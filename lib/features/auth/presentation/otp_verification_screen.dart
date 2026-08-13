@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../../../core/router/app_router.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../generated/l10n/app_localizations.dart';
+import '../../address/state/address_controller.dart';
 import '../data/auth_failure.dart';
 import '../data/auth_session.dart';
 import '../state/auth_controller.dart';
@@ -102,6 +103,23 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
         // makes that obvious rather than leaving stale digits on screen.
         _code.clear();
       });
+      return;
+    }
+
+    // A customer with no saved address cannot be delivered to, so onboarding
+    // continues into the address flow. Everyone else goes straight to the
+    // storefront. A failed lookup is not fatal — the address book is always
+    // reachable from the profile.
+    final AddressController addresses = context.read<AddressController>();
+    await addresses.load();
+    if (!mounted) return;
+
+    if (addresses.hasLoaded && !addresses.hasAddresses) {
+      navigator.pushNamedAndRemoveUntil(
+        AppRoutes.locationPermission,
+        (Route<void> route) => false,
+        arguments: const LocationPermissionArgs(),
+      );
       return;
     }
 

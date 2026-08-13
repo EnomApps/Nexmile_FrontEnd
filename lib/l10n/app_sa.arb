@@ -2,6 +2,7 @@
   "@@locale": "sa",
 
   "appName": "Nexmile",
+  "fieldRequired": "इदं क्षेत्रम् आवश्यकम्",
   "tagline": "शीघ्रं वितरणम्। नवीनं स्मितम्।",
   "chooseLanguageTitle": "स्वभाषां चिनोतु",
   "chooseLanguageSubtitle": "यस्यां भाषायां भवान् सुखं अनुभवति तां चिनोतु। कदापि सेटिंग्स् इत्यत्र परिवर्तयितुं शक्नोति।",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "कराः शुल्कानि च",
   "freeLabel": "निःशुल्कम्",
   "toPay": "देयम्",
-  "placeOrderFor": "आदेशं ददातु · ₹{amount}",
+  "placeOrderFor": "आदेशं ददातु · {amount}",
   "ordersTitle": "भवतः आदेशाः",
   "ordersEmptyTitle": "अद्यापि आदेशाः न सन्ति",
   "ordersEmptySubtitle": "भवतः पूर्वादेशाः अत्र दृश्यन्ते।",
@@ -117,5 +118,173 @@
   "backToHome": "गृहं प्रत्यागच्छतु",
   "prototypeNotice": "नमूनासङ्ग्रहः — वास्तविकापणाः सूचीपत्र-API सह आगमिष्यन्ति।",
   "prototypeCheckoutNotice": "इदं प्रतिरूपम् अस्ति। किमपि धनं न गृह्यते, वास्तविकः आदेशः अपि न भवति।",
-  "prototypeTrackingNotice": "प्रतिरूपार्थं अनुसरणं कृत्रिमम् अस्ति।"
+  "prototypeTrackingNotice": "प्रतिरूपार्थं अनुसरणं कृत्रिमम् अस्ति।",
+
+  "locationTitle": "कुत्र वितरणं करणीयम्?",
+  "locationSubtitle": "Nexmile एककिलोमीटर-अन्तः स्थितेभ्यः आपणेभ्यः एव वितरणं करोति, अतः भवतः सम्यक् स्थानम् आवश्यकम्।",
+  "locationReasonRadiusTitle": "एककिलोमीटर-अन्तः आपणाः",
+  "locationReasonRadiusBody": "यतः अन्नम् उष्णं प्राप्नोति, तानि एव पाकशालानि दर्शयामः।",
+  "locationReasonAccuracyTitle": "सम्यक् द्वारपर्यन्तम्",
+  "locationReasonAccuracyBody": "यथार्थस्थानेन वितरकः दूरवाणीं विना एव भवन्तं प्राप्नोति।",
+  "locationReasonPrivacyTitle": "अनुप्रयोगप्रयोगकाले एव",
+  "locationReasonPrivacyBody": "वयं पृष्ठभूमौ भवन्तं न अनुसरामः, सङ्केतं भवान् स्वयम् अपि लिखितुं शक्नोति।",
+  "allowLocation": "स्थानानुमतिं ददातु",
+  "enterAddressManually": "अहं स्वयं सङ्केतं लिखामि",
+  "locationDenied": "स्थानानुमतिः निराकृता। भवान् स्वयं चिह्नं स्थापयितुं शक्नोति।",
+  "locationDeniedForever": "Nexmile कृते स्थानं निषिद्धम्। सेटिंग्स् इत्यत्र सक्रियं करोतु अथवा चिह्नं स्वयं स्थापयतु।",
+  "locationServiceOff": "अस्मिन् यन्त्रे स्थानं निष्क्रियम् अस्ति।",
+  "locationUnavailable": "स्थानं न प्राप्तम्। कृपया चिह्नं स्वयं स्थापयतु।",
+  "openSettings": "सेटिंग्स्",
+
+  "pinLocationTitle": "स्ववितरणचिह्नं स्थापयतु",
+  "deliveryRadiusHint": "वृत्तं तत् एकं किलोमीटरं दर्शयति यस्मिन् Nexmile वितरणं करोति।",
+  "useMyLocation": "मम स्थानं प्रयुङ्क्ताम्",
+  "deliveringHere": "अत्र वितरणम्",
+  "dragToAdjust": "चिह्नं समायोजयितुं मानचित्रं चालयतु",
+  "confirmLocation": "स्थानं निश्चिनोतु",
+
+  "addressDetailsTitle": "सङ्केतविवरणम्",
+  "addressDetailsSubtitle": "सम्यक् द्वारं प्राप्तुं गृहसङ्ख्यां चिह्नं च योजयतु।",
+  "pinnedLocation": "चिह्नितं स्थानम्",
+  "changePin": "परिवर्तयतु",
+  "saveAddressAs": "एनं सङ्केतम् एवं रक्षतु",
+  "labelHome": "गृहम्",
+  "labelWork": "कार्यालयः",
+  "labelOther": "अन्यत्",
+  "addressLine1Label": "गृहं, सदनं वा भवनम्",
+  "addressLine1Hint": "12A, ग्रीन् रेसिडेन्सी",
+  "addressLine2Label": "मार्गः वा प्रदेशः",
+  "addressLine2Hint": "द्वितीयः मार्गः, अण्णानगरम्",
+  "landmarkLabel": "चिह्नस्थलम्",
+  "landmarkHint": "बस्-स्थानकस्य सम्मुखम्",
+  "cityLabel": "नगरम्",
+  "stateLabel": "राज्यम्",
+  "pincodeLabel": "पिन्-सङ्केतः",
+  "invalidPincode": "सम्यक् षडङ्कीयं पिन्-सङ्केतं लिखतु",
+  "contactNameLabel": "सम्पर्कनाम",
+  "contactPhoneLabel": "सम्पर्कसङ्ख्या",
+  "invalidMobileNumber": "सम्यक् दशाङ्कीयां चलभाषसङ्ख्यां लिखतु",
+  "makeDefaultAddress": "पूर्वनिर्धारितरूपेण अत्रैव वितरणम्",
+  "saveAddress": "सङ्केतं रक्षतु",
+  "addressSaved": "सङ्केतः रक्षितः",
+
+  "addressBookTitle": "वितरणसङ्केताः",
+  "manageAddresses": "रक्षितसङ्केतान् प्रबन्धयतु",
+  "noAddressesTitle": "अद्यापि सङ्केताः न सन्ति",
+  "noAddressesSubtitle": "भवतः समीपं वितरणं कुर्वतः आपणान् दर्शयितुम् एकं सङ्केतं योजयतु।",
+  "addAddress": "सङ्केतं योजयतु",
+  "setAsDefault": "पूर्वनिर्धारितं करोतु",
+  "editLabel": "सम्पादयतु",
+  "addressUpdated": "सङ्केतः नवीकृतः",
+  "deleteLabel": "अपाकरोतु",
+  "deleteAddressTitle": "एनं सङ्केतम् अपाकरोतु?",
+  "deleteAddressMessage": "भवान् पश्चात् पुनः योजयितुं शक्नोति।",
+
+  "rescueDealsTitle": "अन्नरक्षणम्",
+
+  "notTakingOrders": "आदेशाः न स्वीक्रियन्ते",
+
+  "closedRightNow": "सम्प्रति पिहितम्",
+
+  "minimumOrder": "न्यूनातिन्यूनं {amount}",
+
+  "portionsLeft": "{count} अवशिष्टम्",
+
+  "soldOut": "समाप्तम्",
+
+  "menuEmptyTitle": "अद्यापि व्यञ्जनानि न सन्ति",
+
+  "menuEmptySubtitle": "अस्य भोजनालयस्य सूची न योजिता।",
+
+  "moreDishesTitle": "अधिकानि व्यञ्जनानि",
+
+  "customisable": "रुच्यनुसारम्",
+
+  "requiredLabel": "आवश्यकम्",
+
+  "optionalLabel": "वैकल्पिकम्",
+
+  "chooseOne": "एकं चिनोतु",
+
+  "chooseUpTo": "अधिकतमं {count} चिनोतु",
+
+  "chooseAtLeast": "न्यूनातिन्यूनं {count} चिनोतु",
+
+  "chooseBetween": "{min} तः {max} पर्यन्तं चिनोतु",
+
+  "specialInstructions": "विशेषनिर्देशाः",
+
+  "specialInstructionsHint": "अल्पकटु, पलाण्डुः न…",
+
+  "addForAmount": "योजयतु · {amount}",
+
+  "deliveryLabel": "गृहप्रापणम्",
+
+  "pickupLabel": "स्वयं ग्रहणम्",
+
+  "packagingLabel": "वेष्टनम्",
+
+  "discountLabel": "छूटः",
+
+  "billDetailsTitle": "देयविवरणम्",
+
+  "clearCart": "शकटं रिक्तं करोतु",
+
+  "clearCartTitle": "इदं शकटं रिक्तं क्रियताम्?",
+
+  "clearCartMessage": "अस्मिन् स्थितं सर्वं निष्कासयिष्यते।",
+
+  "unavailableItemsNotice": "अधुना न उपलभ्यते: {items}",
+
+  "removeUnavailable": "तानि निष्कासयतु",
+
+  "minimumNotMet": "न्यूनतमः आदेशः {amount}",
+
+  "checkoutTitle": "निष्क्रमणम्",
+
+  "deliveryAddressLabel": "प्रापणस्थानम्",
+
+  "noAddressSelected": "स्थानं न चितम्",
+
+  "paymentMethodLabel": "शुल्कदानम्",
+
+  "payOnDelivery": "प्रापणसमये नगदम्",
+
+  "noteToRestaurant": "भोजनालयाय टिप्पणी",
+
+  "noteToRestaurantHint": "घण्टां द्विवारं वादयतु…",
+
+  "activeOrdersTitle": "प्रचलन्तः आदेशाः",
+
+  "pastOrdersTitle": "पूर्वादेशाः",
+
+  "orderItemsTitle": "व्यञ्जनानि",
+
+  "orderProgressTitle": "प्रगतिः",
+
+  "arrivingIn": "आगमनकालः",
+
+  "pickupCodeLabel": "ग्रहणसङ्केतः",
+
+  "cancellationReasonLabel": "निरसनकारणम्",
+
+  "riderLabel": "प्रापणसहभागी",
+
+  "callRider": "आह्वयतु",
+
+  "viewInvoice": "करपत्रम्",
+
+  "cancelOrder": "आदेशं निरस्यतु",
+
+  "cancelOrderTitle": "अयम् आदेशः निरस्यताम्?",
+
+  "cancelOrderMessage": "भोजनालयस्य स्वीकारात् पूर्वमेव निरसनं शक्यते।",
+
+  "cancelReasonLabel": "कारणम्",
+
+  "cancelReasonFallback": "ग्राहकेण निरस्तम्",
+
+  "orderCancelled": "आदेशः निरस्तः",
+
+  "currentLocationLabel": "वर्तमानस्थानम्"
 }

@@ -12,6 +12,9 @@ class AppLocalizationsAs extends AppLocalizations {
   String get appName => 'Nexmile';
 
   @override
+  String get fieldRequired => 'এই ঘৰটো পূৰণ কৰা আৱশ্যক';
+
+  @override
   String get tagline => 'দ্ৰুত ডেলিভাৰী। সতেজ হাঁহি।';
 
   @override
@@ -311,8 +314,8 @@ class AppLocalizationsAs extends AppLocalizations {
   String get toPay => 'দিব লগীয়া';
 
   @override
-  String placeOrderFor(int amount) {
-    return 'অৰ্ডাৰ কৰক · ₹$amount';
+  String placeOrderFor(String amount) {
+    return 'অৰ্ডাৰ কৰক · $amount';
   }
 
   @override
@@ -372,4 +375,350 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get prototypeTrackingNotice => 'প্ৰট\'টাইপৰ বাবে ট্ৰেকিং কৃত্ৰিম।';
+
+  @override
+  String get locationTitle => 'ক\'ত ডেলিভাৰী কৰিব লাগে?';
+
+  @override
+  String get locationSubtitle => 'Nexmile কেৱল 1 কিমিৰ ভিতৰৰ দোকানৰ পৰা ডেলিভাৰী কৰে, সেয়েহে আপোনাৰ সঠিক ঠাই লাগে।';
+
+  @override
+  String get locationReasonRadiusTitle => '1 কিমিৰ ভিতৰৰ দোকান';
+
+  @override
+  String get locationReasonRadiusBody => 'য\'ৰ পৰা খাদ্য গৰম হৈ পাব, কেৱল সেই ৰন্ধনশালাবোৰেই দেখুৱাওঁ।';
+
+  @override
+  String get locationReasonAccuracyTitle => 'শুদ্ধ দুৱাৰলৈ';
+
+  @override
+  String get locationReasonAccuracyBody => 'সঠিক পিন থাকিলে ডেলিভাৰী পাৰ্টনাৰে ফোন নকৰাকৈয়ে আপোনাক বিচাৰি পায়।';
+
+  @override
+  String get locationReasonPrivacyTitle => 'কেৱল এপ ব্যৱহাৰৰ সময়ত';
+
+  @override
+  String get locationReasonPrivacyBody => 'আমি পটভূমিত আপোনাক ট্ৰেক নকৰোঁ, আৰু ঠিকনা আপুনি নিজেও লিখিব পাৰে।';
+
+  @override
+  String get allowLocation => 'অৱস্থানৰ অনুমতি দিয়ক';
+
+  @override
+  String get enterAddressManually => 'মই নিজেই ঠিকনা লিখিম';
+
+  @override
+  String get locationDenied => 'অৱস্থানৰ অনুমতি পোৱা নগ\'ল। আপুনি নিজেই পিন বহুৱাব পাৰে।';
+
+  @override
+  String get locationDeniedForever => 'Nexmile ৰ বাবে অৱস্থান বন্ধ আছে। ছেটিংছত চালু কৰক বা পিন নিজে বহুৱাওক।';
+
+  @override
+  String get locationServiceOff => 'এই ডিভাইচত অৱস্থান বন্ধ আছে।';
+
+  @override
+  String get locationUnavailable => 'অৱস্থান পোৱা নগ\'ল। অনুগ্ৰহ কৰি পিন নিজে বহুৱাওক।';
+
+  @override
+  String get openSettings => 'ছেটিংছ';
+
+  @override
+  String get pinLocationTitle => 'আপোনাৰ ডেলিভাৰী পিন বহুৱাওক';
+
+  @override
+  String get deliveryRadiusHint => 'বৃত্তটোৱে Nexmile এ ডেলিভাৰী কৰা 1 কিমি দেখুৱাইছে।';
+
+  @override
+  String get useMyLocation => 'মোৰ অৱস্থান ব্যৱহাৰ কৰক';
+
+  @override
+  String get deliveringHere => 'ইয়াত ডেলিভাৰী';
+
+  @override
+  String get dragToAdjust => 'পিন সলনি কৰিবলৈ মানচিত্ৰ টানক';
+
+  @override
+  String get confirmLocation => 'অৱস্থান নিশ্চিত কৰক';
+
+  @override
+  String get addressDetailsTitle => 'ঠিকনাৰ বিৱৰণ';
+
+  @override
+  String get addressDetailsSubtitle => 'শুদ্ধ দুৱাৰত উপনীত হ\'বলৈ ঘৰৰ নম্বৰ আৰু চিন যোগ কৰক।';
+
+  @override
+  String get pinnedLocation => 'চিহ্নিত অৱস্থান';
+
+  @override
+  String get changePin => 'সলনি কৰক';
+
+  @override
+  String get saveAddressAs => 'এই ঠিকনা এনেদৰে সাঁচি থওক';
+
+  @override
+  String get labelHome => 'ঘৰ';
+
+  @override
+  String get labelWork => 'কাৰ্যালয়';
+
+  @override
+  String get labelOther => 'অন্যান্য';
+
+  @override
+  String get addressLine1Label => 'ঘৰ, ফ্লেট বা অট্টালিকা';
+
+  @override
+  String get addressLine1Hint => '12A, গ্ৰীন ৰেছিডেন্সি';
+
+  @override
+  String get addressLine2Label => 'পথ বা অঞ্চল';
+
+  @override
+  String get addressLine2Hint => '২য় এভিনিউ, আন্না নগৰ';
+
+  @override
+  String get landmarkLabel => 'চিন';
+
+  @override
+  String get landmarkHint => 'বাছ ষ্টপৰ বিপৰীতে';
+
+  @override
+  String get cityLabel => 'চহৰ';
+
+  @override
+  String get stateLabel => 'ৰাজ্য';
+
+  @override
+  String get pincodeLabel => 'পিন ক\'ড';
+
+  @override
+  String get invalidPincode => 'শুদ্ধ 6 সংখ্যাৰ পিন ক\'ড দিয়ক';
+
+  @override
+  String get contactNameLabel => 'যোগাযোগৰ নাম';
+
+  @override
+  String get contactPhoneLabel => 'যোগাযোগৰ নম্বৰ';
+
+  @override
+  String get invalidMobileNumber => 'শুদ্ধ 10 সংখ্যাৰ মোবাইল নম্বৰ দিয়ক';
+
+  @override
+  String get makeDefaultAddress => 'ডিফল্টভাৱে ইয়াতেই ডেলিভাৰী';
+
+  @override
+  String get saveAddress => 'ঠিকনা সাঁচি থওক';
+
+  @override
+  String get addressSaved => 'ঠিকনা সাঁচি থোৱা হ\'ল';
+
+  @override
+  String get addressBookTitle => 'ডেলিভাৰীৰ ঠিকনা';
+
+  @override
+  String get manageAddresses => 'সাঁচি থোৱা ঠিকনা পৰিচালনা কৰক';
+
+  @override
+  String get noAddressesTitle => 'এতিয়াও কোনো ঠিকনা নাই';
+
+  @override
+  String get noAddressesSubtitle => 'আপোনালৈ ডেলিভাৰী কৰা দোকান দেখুৱাবলৈ এটা ঠিকনা যোগ কৰক।';
+
+  @override
+  String get addAddress => 'ঠিকনা যোগ কৰক';
+
+  @override
+  String get setAsDefault => 'ডিফল্ট কৰক';
+
+  @override
+  String get editLabel => 'সম্পাদনা কৰক';
+
+  @override
+  String get addressUpdated => 'ঠিকনা আপডেট হ\'ল';
+
+  @override
+  String get deleteLabel => 'মচক';
+
+  @override
+  String get deleteAddressTitle => 'এই ঠিকনা মচিব?';
+
+  @override
+  String get deleteAddressMessage => 'আপুনি পিছত পুনৰ যোগ কৰিব পাৰিব।';
+
+  @override
+  String get rescueDealsTitle => 'ফুড ৰেছকিউ';
+
+  @override
+  String get notTakingOrders => 'অৰ্ডাৰ লোৱা হোৱা নাই';
+
+  @override
+  String get closedRightNow => 'এতিয়া বন্ধ';
+
+  @override
+  String minimumOrder(String amount) {
+    return 'নূন্যতম $amount';
+  }
+
+  @override
+  String portionsLeft(int count) {
+    return '$count বাকী';
+  }
+
+  @override
+  String get soldOut => 'শেষ হৈ গ’ল';
+
+  @override
+  String get menuEmptyTitle => 'এতিয়াও কোনো ব্যঞ্জন নাই';
+
+  @override
+  String get menuEmptySubtitle => 'এই ৰেষ্টুৰেণ্টে নিজৰ মেনু যোগ কৰা নাই।';
+
+  @override
+  String get moreDishesTitle => 'আৰু ব্যঞ্জন';
+
+  @override
+  String get customisable => 'নিজৰ পছন্দমতে';
+
+  @override
+  String get requiredLabel => 'আৱশ্যক';
+
+  @override
+  String get optionalLabel => 'ঐচ্ছিক';
+
+  @override
+  String get chooseOne => 'এটা বাছনি কৰক';
+
+  @override
+  String chooseUpTo(int count) {
+    return 'সৰ্বাধিক $count বাছনি কৰক';
+  }
+
+  @override
+  String chooseAtLeast(int count) {
+    return 'কমেও $count বাছনি কৰক';
+  }
+
+  @override
+  String chooseBetween(int min, int max) {
+    return '$min ৰ পৰা $max বাছনি কৰক';
+  }
+
+  @override
+  String get specialInstructions => 'বিশেষ নিৰ্দেশনা';
+
+  @override
+  String get specialInstructionsHint => 'কম জলকীয়া, পিয়াজ নালাগে…';
+
+  @override
+  String addForAmount(String amount) {
+    return 'যোগ কৰক · $amount';
+  }
+
+  @override
+  String get deliveryLabel => 'ডেলিভাৰী';
+
+  @override
+  String get pickupLabel => 'নিজে লোৱা';
+
+  @override
+  String get packagingLabel => 'পেকিং';
+
+  @override
+  String get discountLabel => 'ৰেহাই';
+
+  @override
+  String get billDetailsTitle => 'বিলৰ বিৱৰণ';
+
+  @override
+  String get clearCart => 'কাৰ্ট খালী কৰক';
+
+  @override
+  String get clearCartTitle => 'এই কাৰ্ট খালী কৰিব নেকি?';
+
+  @override
+  String get clearCartMessage => 'ইয়াত থকা সকলো আঁতৰোৱা হ’ব।';
+
+  @override
+  String unavailableItemsNotice(String items) {
+    return 'আৰু পোৱা নাযায়: $items';
+  }
+
+  @override
+  String get removeUnavailable => 'সেইবোৰ আঁতৰাওক';
+
+  @override
+  String minimumNotMet(String amount) {
+    return 'নূন্যতম অৰ্ডাৰ $amount';
+  }
+
+  @override
+  String get checkoutTitle => 'চেকআউট';
+
+  @override
+  String get deliveryAddressLabel => 'ডেলিভাৰীৰ ঠিকনা';
+
+  @override
+  String get noAddressSelected => 'কোনো ঠিকনা বছা হোৱা নাই';
+
+  @override
+  String get paymentMethodLabel => 'পৰিশোধ';
+
+  @override
+  String get payOnDelivery => 'ডেলিভাৰীৰ সময়ত নগদ';
+
+  @override
+  String get noteToRestaurant => 'ৰেষ্টুৰেণ্টৰ বাবে টোকা';
+
+  @override
+  String get noteToRestaurantHint => 'ঘণ্টা দুবাৰ বজাব…';
+
+  @override
+  String get activeOrdersTitle => 'চলি থকা অৰ্ডাৰ';
+
+  @override
+  String get pastOrdersTitle => 'পুৰণি অৰ্ডাৰ';
+
+  @override
+  String get orderItemsTitle => 'ব্যঞ্জন';
+
+  @override
+  String get orderProgressTitle => 'অগ্ৰগতি';
+
+  @override
+  String get arrivingIn => 'পাবলৈ';
+
+  @override
+  String get pickupCodeLabel => 'পিকআপ ক’ড';
+
+  @override
+  String get cancellationReasonLabel => 'বাতিল হোৱাৰ কাৰণ';
+
+  @override
+  String get riderLabel => 'ডেলিভাৰী পাৰ্টনাৰ';
+
+  @override
+  String get callRider => 'কল কৰক';
+
+  @override
+  String get viewInvoice => 'কৰ ইনভইচ';
+
+  @override
+  String get cancelOrder => 'অৰ্ডাৰ বাতিল কৰক';
+
+  @override
+  String get cancelOrderTitle => 'এই অৰ্ডাৰ বাতিল কৰিব নেকি?';
+
+  @override
+  String get cancelOrderMessage => 'ৰেষ্টুৰেণ্টে গ্ৰহণ কৰাৰ আগতেহে বাতিল কৰিব পাৰি।';
+
+  @override
+  String get cancelReasonLabel => 'কাৰণ';
+
+  @override
+  String get cancelReasonFallback => 'গ্ৰাহকে বাতিল কৰিছে';
+
+  @override
+  String get orderCancelled => 'অৰ্ডাৰ বাতিল হ’ল';
+
+  @override
+  String get currentLocationLabel => 'বৰ্তমান স্থান';
 }

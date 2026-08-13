@@ -3,46 +3,100 @@ import 'package:provider/provider.dart';
 
 import '../../../core/router/app_router.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/app_theme.dart';
 import '../../../generated/l10n/app_localizations.dart';
-import '../data/catalogue_models.dart';
-import '../state/cart_controller.dart';
+import '../../auth/data/auth_failure.dart';
+import '../data/order_models.dart';
+import '../state/orders_controller.dart';
 import 'widgets/catalogue_widgets.dart';
 
-/// Order history for the session.
-///
-/// In-memory only — the prototype has no orders API, so this empties when the
-/// app restarts.
-class OrdersTab extends StatelessWidget {
+/// Order history, newest first, with the in-flight ones lifted to the top.
+class OrdersTab extends StatefulWidget {
   const OrdersTab({super.key, required this.onBrowse});
 
-  /// Sends the customer back to the home tab from the empty state.
+  /// Switches the shell back to the home tab — the only useful thing to do
+  /// from an empty order list.
   final VoidCallback onBrowse;
+
+  @override
+  State<OrdersTab> createState() => _OrdersTabState();
+}
+
+class _OrdersTabState extends State<OrdersTab> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _load());
+  }
+
+  Future<void> _load() async {
+    if (!mounted) return;
+    final AppLocalizations l10n = AppLocalizations.of(context);
+    final AuthFailure? failure = await context.read<OrdersController>().load();
+    if (failure != null && mounted) {
+      ScaffoldMessenger.of(context)
+        ..clearSnackBars()
+        ..showSnackBar(SnackBar(content: Text(failure.message(l10n))));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations l10n = AppLocalizations.of(context);
-    final List<PlacedOrder> orders = context.watch<CartController>().orders;
+    final OrdersController controller = context.watch<OrdersController>();
+
+    final List<Order> active = controller.active;
+    final List<Order> past = controller.orders
+        .where((Order o) => !o.status.isActive)
+        .toList(growable: false);
 
     return Scaffold(
       appBar: AppBar(title: Text(l10n.ordersTitle)),
-      body: orders.isEmpty
-          ? EmptyState(
-              emoji: '📦',
-              title: l10n.ordersEmptyTitle,
-              subtitle: l10n.ordersEmptySubtitle,
-              action: OutlinedButton(
-                onPressed: onBrowse,
-                child: Text(l10n.browseRestaurants),
-              ),
-            )
-          : ListView.separated(
-              padding: const EdgeInsets.fromLTRB(20, 12, 20, 110),
-              itemCount: orders.length,
-              separatorBuilder: (_, __) => const SizedBox(height: 12),
-              itemBuilder: (BuildContext context, int index) =>
-                  _OrderCard(order: orders[index]),
-            ),
+      body: RefreshIndicator(
+        onRefresh: _load,
+        child: Builder(
+          builder: (BuildContext context) {
+            if (controller.isLoading && !controller.hasLoaded) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            if (controller.orders.isEmpty) {
+              return ListView(
+                children: <Widget>[
+                  EmptyState(
+                    emoji: '🧾',
+                    title: l10n.ordersEmptyTitle,
+                    subtitle: l10n.ordersEmptySubtitle,
+                    action: FilledButton(
+                      onPressed: widget.onBrowse,
+                      child: Text(l10n.browseRestaurants),
+                    ),
+                  ),
+                ],
+              );
+            }
+            return ListView(
+              padding: const EdgeInsets.only(bottom: 110),
+              children: <Widget>[
+                if (active.isNotEmpty) ...<Widget>[
+                  SectionHeader(title: l10n.activeOrdersTitle),
+                  for (final Order order in active)
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                      child: _OrderCard(order: order),
+                    ),
+                ],
+                if (past.isNotEmpty) ...<Widget>[
+                  SectionHeader(title: l10n.pastOrdersTitle),
+                  for (final Order order in past)
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                      child: _OrderCard(order: order),
+                    ),
+                ],
+              ],
+            );
+          },
+        ),
+      ),
     );
   }
 }
@@ -50,117 +104,79 @@ class OrdersTab extends StatelessWidget {
 class _OrderCard extends StatelessWidget {
   const _OrderCard({required this.order});
 
-  final PlacedOrder order;
+  final Order order;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations l10n = AppLocalizations.of(context);
-    final BorderRadius radius = BorderRadius.circular(AppTheme.radiusLarge);
+    final BorderRadius radius = BorderRadius.circular(16);
 
     return Material(
       color: theme.colorScheme.surfaceContainerLow,
       borderRadius: radius,
       child: InkWell(
+        borderRadius: radius,
         onTap: () => Navigator.of(context).pushNamed(
           AppRoutes.orderStatus,
           arguments: OrderArgs(orderId: order.id),
         ),
-        borderRadius: radius,
         child: Ink(
           decoration: BoxDecoration(
             borderRadius: radius,
             border: Border.all(color: theme.colorScheme.outline),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(14),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    FoodImage(
-                      emoji: order.restaurant.emoji,
-                      seed: order.restaurant.id,
-                      size: 48,
-                      radius: 12,
-                    ),
-                    const SizedBox(width: 12),
                     Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Text(
-                            order.restaurant.name,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            '${order.id} · ${order.placedAtLabel}',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            textDirection: TextDirection.ltr,
-                            style: theme.textTheme.bodySmall,
-                          ),
-                        ],
+                      child: Text(
+                        order.restaurantName ?? l10n.appName,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.titleSmall
+                            ?.copyWith(fontWeight: FontWeight.w800),
                       ),
                     ),
-                    const SizedBox(width: 8),
-                    _OrderStatusChip(status: order.status),
+                    const SizedBox(width: 10),
+                    OrderStatusChip(
+                      label: order.statusLabel,
+                      status: order.status,
+                    ),
                   ],
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 4),
+                Text(
+                  l10n.orderTitle(order.orderNumber),
+                  style: theme.textTheme.bodySmall,
+                ),
+                const SizedBox(height: 10),
                 Text(
                   order.items
-                      .map((({String name, int quantity, int price}) i) =>
-                          '${i.quantity}× ${i.name}')
+                      .map((OrderItem i) => '${i.quantity} × ${i.name}')
                       .join(', '),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: theme.textTheme.bodySmall,
                 ),
-                const Divider(height: 24),
+                const SizedBox(height: 10),
                 Row(
                   children: <Widget>[
                     Expanded(
-                      child: Row(
-                        children: <Widget>[
-                          Flexible(
-                            child: Text(
-                              l10n.itemsInCart(order.itemCount),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: theme.textTheme.bodySmall,
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Rupees(
-                            order.total,
-                            style: theme.textTheme.titleSmall?.copyWith(
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                        ],
+                      child: Text(
+                        l10n.itemsInCart(order.itemCount),
+                        style: theme.textTheme.bodySmall,
                       ),
                     ),
-                    TextButton.icon(
-                      onPressed: () {
-                        context.read<CartController>().reorder(order);
-                        Navigator.of(context).pushNamed(AppRoutes.cart);
-                      },
-                      icon: const Icon(Icons.refresh_rounded, size: 18),
-                      label: Text(l10n.reorder),
-                      style: TextButton.styleFrom(
-                        foregroundColor:
-                            theme.brightness == Brightness.dark
-                                ? AppColors.greenLight
-                                : AppColors.greenDeep,
-                      ),
+                    Rupees(
+                      order.grandTotal,
+                      style: theme.textTheme.titleSmall
+                          ?.copyWith(fontWeight: FontWeight.w800),
                     ),
                   ],
                 ),
@@ -173,43 +189,42 @@ class _OrderCard extends StatelessWidget {
   }
 }
 
-class _OrderStatusChip extends StatelessWidget {
-  const _OrderStatusChip({required this.status});
+/// Status pill. The label is the server's — it knows about statuses this build
+/// may not — but the colour is derived locally so an unknown one stays neutral.
+class OrderStatusChip extends StatelessWidget {
+  const OrderStatusChip({
+    super.key,
+    required this.label,
+    required this.status,
+  });
 
+  final String label;
   final OrderStatus status;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final AppLocalizations l10n = AppLocalizations.of(context);
-    final bool isDark = theme.brightness == Brightness.dark;
-
-    final (String label, Color color) = switch (status) {
-      OrderStatus.placed => (l10n.statusOrderPlaced, AppColors.orangeDeep),
-      OrderStatus.preparing => (l10n.statusPreparing, AppColors.orangeDeep),
-      OrderStatus.onTheWay => (l10n.statusOnTheWay, AppColors.orangeDeep),
-      OrderStatus.delivered => (
-          l10n.statusDelivered,
-          isDark ? AppColors.greenLight : AppColors.greenDeep
-        ),
+    final Color color = switch (status) {
+      OrderStatus.delivered => const Color(0xFF0F8A0F),
+      OrderStatus.cancelled ||
+      OrderStatus.rejected =>
+        theme.colorScheme.error,
+      OrderStatus.unknown => theme.colorScheme.onSurfaceVariant,
+      _ => AppColors.orangeDeep,
     };
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
-      constraints: const BoxConstraints(maxWidth: 110),
       decoration: BoxDecoration(
-        color: color.withValues(alpha: isDark ? 0.18 : 0.12),
-        borderRadius: BorderRadius.circular(999),
-        border: Border.all(color: color.withValues(alpha: 0.4)),
+        color: color.withValues(alpha: 0.14),
+        borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
         label,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: theme.textTheme.labelSmall?.copyWith(
-          color: color,
-          fontWeight: FontWeight.w700,
-        ),
+        style: theme.textTheme.labelSmall
+            ?.copyWith(color: color, fontWeight: FontWeight.w800),
       ),
     );
   }

@@ -51,6 +51,12 @@
 			<string>te</string>
 			<string>ur</string>
 		</array>
+		<!-- Shown verbatim in the iOS permission dialog, so it has to say why.
+		     Delivery is limited to a 1 km radius and an address without
+		     coordinates cannot be matched to a merchant. Foreground only —
+		     Nexmile never requests "always" location. -->
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>Nexmile uses your location to find shops within 1 km and to place your delivery pin accurately. You can also drag the pin or type the address yourself.</string>
 		<key>LSRequiresIPhoneOS</key>
 		<true/>
 		<key>UILaunchStoryboardName</key>

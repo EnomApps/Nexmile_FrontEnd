@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../features/address/data/address.dart';
+import '../../features/address/data/location_service.dart';
+import '../../features/address/presentation/address_book_screen.dart';
+import '../../features/address/presentation/address_form_screen.dart';
+import '../../features/address/presentation/address_map_screen.dart';
+import '../../features/address/presentation/location_permission_screen.dart';
 import '../../features/auth/data/login_identifier.dart';
 import '../../features/auth/presentation/login_screen.dart';
 import '../../features/auth/presentation/otp_verification_screen.dart';
@@ -27,10 +33,73 @@ class AppRoutes {
   static const String dashboard = '/dashboard';
   static const String profile = '/profile';
 
-  // Storefront. Prototype data today, catalogue API later.
+  // Storefront: nearby restaurants, the per-restaurant cart, and orders.
   static const String restaurant = '/restaurant';
   static const String cart = '/cart';
   static const String orderStatus = '/order';
+
+  // Address book. Delivery is limited to 1 km and the API makes coordinates
+  // mandatory, so the pin step is not skippable — only the GPS part is.
+  static const String locationPermission = '/location';
+  static const String addressMap = '/address/map';
+  static const String addressForm = '/address/form';
+  static const String addressBook = '/addresses';
+}
+
+/// Argument bundle for [AppRoutes.locationPermission].
+@immutable
+class LocationPermissionArgs {
+  const LocationPermissionArgs({this.isFirstAddress = true});
+
+  /// True during onboarding, when saving lands on the storefront instead of
+  /// returning to the address book.
+  final bool isFirstAddress;
+}
+
+/// Argument bundle for [AppRoutes.addressMap].
+@immutable
+class AddressMapArgs {
+  const AddressMapArgs({
+    this.latitude,
+    this.longitude,
+    this.isFirstAddress = true,
+    this.editing,
+  });
+
+  /// A GPS fix to open on. Null when the customer declined location — the map
+  /// falls back to a city-level centre and they drag from there.
+  final double? latitude;
+  final double? longitude;
+  final bool isFirstAddress;
+
+  /// Set when correcting a saved address, so the pin opens where it already is
+  /// and saving issues a PATCH rather than a POST.
+  final Address? editing;
+}
+
+/// Argument bundle for [AppRoutes.addressForm].
+@immutable
+class AddressFormArgs {
+  const AddressFormArgs({
+    required this.latitude,
+    required this.longitude,
+    this.prefill,
+    this.isFirstAddress = true,
+    this.editing,
+  });
+
+  /// The address being corrected, or null when adding a new one.
+  final Address? editing;
+
+  /// Set on the map and not editable in the form — the API computes the 1 km
+  /// radius from these.
+  final double latitude;
+  final double longitude;
+
+  /// Reverse-geocoded starting point for the text fields.
+  final ResolvedPlace? prefill;
+
+  final bool isFirstAddress;
 }
 
 /// Argument bundle for [AppRoutes.restaurant].
@@ -41,12 +110,22 @@ class RestaurantArgs {
   final String restaurantId;
 }
 
+/// Argument bundle for [AppRoutes.cart].
+@immutable
+class CartArgs {
+  const CartArgs({required this.restaurantId});
+
+  /// Carts are per-restaurant server-side, so the screen is always opened
+  /// against one shop rather than a global basket.
+  final String restaurantId;
+}
+
 /// Argument bundle for [AppRoutes.orderStatus].
 @immutable
 class OrderArgs {
   const OrderArgs({required this.orderId});
 
-  final String orderId;
+  final int orderId;
 }
 
 /// Argument bundle for [AppRoutes.otpVerification].
@@ -91,13 +170,35 @@ class AppRouter {
       case AppRoutes.profile:
         return _slideRoute(const ProfileScreen(), settings);
 
+      case AppRoutes.locationPermission:
+        return _slideRoute(const LocationPermissionScreen(), settings);
+
+      case AppRoutes.addressMap:
+        final Object? args = settings.arguments;
+        return _slideRoute(
+          AddressMapScreen(
+            args: args is AddressMapArgs ? args : const AddressMapArgs(),
+          ),
+          settings,
+        );
+
+      case AppRoutes.addressForm:
+        final Object? args = settings.arguments;
+        if (args is! AddressFormArgs) return _misroute(settings);
+        return _slideRoute(AddressFormScreen(args: args), settings);
+
+      case AppRoutes.addressBook:
+        return _slideRoute(const AddressBookScreen(), settings);
+
       case AppRoutes.restaurant:
         final Object? args = settings.arguments;
         if (args is! RestaurantArgs) return _misroute(settings);
         return _slideRoute(RestaurantScreen(args: args), settings);
 
       case AppRoutes.cart:
-        return _slideRoute(const CartScreen(), settings);
+        final Object? args = settings.arguments;
+        if (args is! CartArgs) return _misroute(settings);
+        return _slideRoute(CartScreen(args: args), settings);
 
       case AppRoutes.orderStatus:
         final Object? args = settings.arguments;

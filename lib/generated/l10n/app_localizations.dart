@@ -143,6 +143,12 @@ abstract class AppLocalizations {
   /// **'Nexmile'**
   String get appName;
 
+  /// Validation error shown under an empty required field.
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required'**
+  String get fieldRequired;
+
   /// Brand tagline shown under the logo on the splash screen.
   ///
   /// In en, this message translates to:
@@ -689,11 +695,11 @@ abstract class AppLocalizations {
   /// **'To pay'**
   String get toPay;
 
-  /// Checkout button carrying the total. Keep the ₹ symbol.
+  /// Checkout button carrying the total. The amount arrives already formatted, ₹ symbol included.
   ///
   /// In en, this message translates to:
-  /// **'Place order · ₹{amount}'**
-  String placeOrderFor(int amount);
+  /// **'Place order · {amount}'**
+  String placeOrderFor(String amount);
 
   /// Title of the orders tab.
   ///
@@ -802,6 +808,666 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tracking is simulated for the prototype.'**
   String get prototypeTrackingNotice;
+
+  /// Headline of the screen that explains the location permission before the OS dialog appears.
+  ///
+  /// In en, this message translates to:
+  /// **'Where should we deliver?'**
+  String get locationTitle;
+
+  /// Supporting copy on the location explainer.
+  ///
+  /// In en, this message translates to:
+  /// **'Nexmile delivers from shops within 1 km, so we need your exact spot to show what can reach you.'**
+  String get locationSubtitle;
+
+  /// First reason for the location permission.
+  ///
+  /// In en, this message translates to:
+  /// **'Shops within 1 km'**
+  String get locationReasonRadiusTitle;
+
+  /// Body of the first reason.
+  ///
+  /// In en, this message translates to:
+  /// **'We only list kitchens close enough to arrive hot.'**
+  String get locationReasonRadiusBody;
+
+  /// Second reason for the location permission.
+  ///
+  /// In en, this message translates to:
+  /// **'No missed doorsteps'**
+  String get locationReasonAccuracyTitle;
+
+  /// Body of the second reason.
+  ///
+  /// In en, this message translates to:
+  /// **'An exact pin means your rider finds you without calling.'**
+  String get locationReasonAccuracyBody;
+
+  /// Third reason — the privacy reassurance.
+  ///
+  /// In en, this message translates to:
+  /// **'Only while you use the app'**
+  String get locationReasonPrivacyTitle;
+
+  /// Body of the third reason.
+  ///
+  /// In en, this message translates to:
+  /// **'We never track you in the background, and you can type the address instead.'**
+  String get locationReasonPrivacyBody;
+
+  /// Primary button that triggers the OS permission dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow location'**
+  String get allowLocation;
+
+  /// Declines location and goes straight to the map.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'ll enter my address instead'**
+  String get enterAddressManually;
+
+  /// Shown after a recoverable refusal.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission was declined. You can still drop the pin yourself.'**
+  String get locationDenied;
+
+  /// Shown after a permanent refusal, which cannot be re-prompted from inside the app.
+  ///
+  /// In en, this message translates to:
+  /// **'Location is blocked for Nexmile. Turn it on in Settings, or place the pin by hand.'**
+  String get locationDeniedForever;
+
+  /// Shown when device location services are disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Location is switched off on this device.'**
+  String get locationServiceOff;
+
+  /// Shown when the fix timed out or failed.
+  ///
+  /// In en, this message translates to:
+  /// **'We could not get a location fix. Please place the pin yourself.'**
+  String get locationUnavailable;
+
+  /// Opens the OS settings page so the customer can grant location.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get openSettings;
+
+  /// Title of the map screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your delivery pin'**
+  String get pinLocationTitle;
+
+  /// Explains the radius drawn on the map.
+  ///
+  /// In en, this message translates to:
+  /// **'The circle shows the 1 km Nexmile delivers within.'**
+  String get deliveryRadiusHint;
+
+  /// Re-centres the map on the current GPS fix.
+  ///
+  /// In en, this message translates to:
+  /// **'Use my location'**
+  String get useMyLocation;
+
+  /// Caption above the resolved address on the map screen.
+  ///
+  /// In en, this message translates to:
+  /// **'DELIVERING HERE'**
+  String get deliveringHere;
+
+  /// Placeholder shown while no address has been resolved for the pin yet.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag the map to adjust the pin'**
+  String get dragToAdjust;
+
+  /// Accepts the pin and moves on to the address form.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm location'**
+  String get confirmLocation;
+
+  /// Title of the address form.
+  ///
+  /// In en, this message translates to:
+  /// **'Address details'**
+  String get addressDetailsTitle;
+
+  /// Supporting copy on the address form.
+  ///
+  /// In en, this message translates to:
+  /// **'Add the flat and landmark so your rider reaches the right door.'**
+  String get addressDetailsSubtitle;
+
+  /// Label on the read-only coordinates in the form.
+  ///
+  /// In en, this message translates to:
+  /// **'Pinned location'**
+  String get pinnedLocation;
+
+  /// Returns to the map to move the pin.
+  ///
+  /// In en, this message translates to:
+  /// **'Change'**
+  String get changePin;
+
+  /// Label above the home/work/other picker.
+  ///
+  /// In en, this message translates to:
+  /// **'Save this address as'**
+  String get saveAddressAs;
+
+  /// Address label.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get labelHome;
+
+  /// Address label.
+  ///
+  /// In en, this message translates to:
+  /// **'Work'**
+  String get labelWork;
+
+  /// Address label.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get labelOther;
+
+  /// Required address field.
+  ///
+  /// In en, this message translates to:
+  /// **'Flat, house or building'**
+  String get addressLine1Label;
+
+  /// Example for the first address line.
+  ///
+  /// In en, this message translates to:
+  /// **'12A, Green Residency'**
+  String get addressLine1Hint;
+
+  /// Optional address field.
+  ///
+  /// In en, this message translates to:
+  /// **'Street or area'**
+  String get addressLine2Label;
+
+  /// Example for the second address line.
+  ///
+  /// In en, this message translates to:
+  /// **'2nd Avenue, Anna Nagar'**
+  String get addressLine2Hint;
+
+  /// Optional address field — often what actually helps a rider in India.
+  ///
+  /// In en, this message translates to:
+  /// **'Landmark'**
+  String get landmarkLabel;
+
+  /// Example landmark.
+  ///
+  /// In en, this message translates to:
+  /// **'Opposite the bus stop'**
+  String get landmarkHint;
+
+  /// Required address field.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get cityLabel;
+
+  /// Required address field.
+  ///
+  /// In en, this message translates to:
+  /// **'State'**
+  String get stateLabel;
+
+  /// Required 6-digit Indian postal code.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN code'**
+  String get pincodeLabel;
+
+  /// Validation error for a malformed PIN code.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid 6-digit PIN code'**
+  String get invalidPincode;
+
+  /// Optional — who the rider should ask for.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact name'**
+  String get contactNameLabel;
+
+  /// Optional — an alternate number for this address.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact number'**
+  String get contactPhoneLabel;
+
+  /// Validation error for the contact number.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid 10-digit mobile number'**
+  String get invalidMobileNumber;
+
+  /// Toggle that marks the address as the default.
+  ///
+  /// In en, this message translates to:
+  /// **'Deliver here by default'**
+  String get makeDefaultAddress;
+
+  /// Primary button on the address form.
+  ///
+  /// In en, this message translates to:
+  /// **'Save address'**
+  String get saveAddress;
+
+  /// Snackbar after a successful save.
+  ///
+  /// In en, this message translates to:
+  /// **'Address saved'**
+  String get addressSaved;
+
+  /// Title of the address book, and its row on the profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery addresses'**
+  String get addressBookTitle;
+
+  /// Value on the profile row that opens the address book.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage saved addresses'**
+  String get manageAddresses;
+
+  /// Empty state in the address book.
+  ///
+  /// In en, this message translates to:
+  /// **'No addresses yet'**
+  String get noAddressesTitle;
+
+  /// Supporting copy for the empty address book.
+  ///
+  /// In en, this message translates to:
+  /// **'Add one so we can show the shops that deliver to you.'**
+  String get noAddressesSubtitle;
+
+  /// Starts the location flow for a new address.
+  ///
+  /// In en, this message translates to:
+  /// **'Add address'**
+  String get addAddress;
+
+  /// Makes a saved address the default.
+  ///
+  /// In en, this message translates to:
+  /// **'Set as default'**
+  String get setAsDefault;
+
+  /// Opens a saved address for correction.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get editLabel;
+
+  /// Snackbar after a successful PATCH of an address.
+  ///
+  /// In en, this message translates to:
+  /// **'Address updated'**
+  String get addressUpdated;
+
+  /// Deletes a saved address.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get deleteLabel;
+
+  /// Confirmation dialog title.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this address?'**
+  String get deleteAddressTitle;
+
+  /// Confirmation dialog body.
+  ///
+  /// In en, this message translates to:
+  /// **'You can always add it again later.'**
+  String get deleteAddressMessage;
+
+  /// Heading over the Food Rescue carousel — surplus food, discounted.
+  ///
+  /// In en, this message translates to:
+  /// **'Food Rescue'**
+  String get rescueDealsTitle;
+
+  /// Shown when a restaurant is inside its hours but has paused orders.
+  ///
+  /// In en, this message translates to:
+  /// **'Not taking orders'**
+  String get notTakingOrders;
+
+  /// Shown when a restaurant is outside its opening hours.
+  ///
+  /// In en, this message translates to:
+  /// **'Closed right now'**
+  String get closedRightNow;
+
+  /// Smallest order a restaurant accepts. The amount arrives already formatted with the ₹ symbol.
+  ///
+  /// In en, this message translates to:
+  /// **'Min {amount}'**
+  String minimumOrder(String amount);
+
+  /// How many portions of a Food Rescue deal remain. A rescue deal is a race, so this is prominent.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} left'**
+  String portionsLeft(int count);
+
+  /// Badge on a dish the kitchen has run out of.
+  ///
+  /// In en, this message translates to:
+  /// **'Sold out'**
+  String get soldOut;
+
+  /// Title when a restaurant has published no dishes.
+  ///
+  /// In en, this message translates to:
+  /// **'No dishes yet'**
+  String get menuEmptyTitle;
+
+  /// Supporting copy for the empty menu.
+  ///
+  /// In en, this message translates to:
+  /// **'This restaurant has not added its menu.'**
+  String get menuEmptySubtitle;
+
+  /// Section heading for dishes the restaurant filed under no category.
+  ///
+  /// In en, this message translates to:
+  /// **'More dishes'**
+  String get moreDishesTitle;
+
+  /// Tiny label under ADD on a dish with add-on choices. Space is very tight.
+  ///
+  /// In en, this message translates to:
+  /// **'Customisable'**
+  String get customisable;
+
+  /// Badge on an add-on group that must be answered.
+  ///
+  /// In en, this message translates to:
+  /// **'Required'**
+  String get requiredLabel;
+
+  /// Rule under an add-on group with no floor and no ceiling.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional'**
+  String get optionalLabel;
+
+  /// Rule under an add-on group that takes exactly one choice.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose one'**
+  String get chooseOne;
+
+  /// Rule under an optional add-on group with a ceiling.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose up to {count}'**
+  String chooseUpTo(int count);
+
+  /// Rule under a required add-on group.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose at least {count}'**
+  String chooseAtLeast(int count);
+
+  /// Rule under an add-on group with both a floor and a ceiling.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose {min} to {max}'**
+  String chooseBetween(int min, int max);
+
+  /// Heading over the per-dish note field.
+  ///
+  /// In en, this message translates to:
+  /// **'Special instructions'**
+  String get specialInstructions;
+
+  /// Placeholder in the per-dish note field.
+  ///
+  /// In en, this message translates to:
+  /// **'Less spicy, no onion…'**
+  String get specialInstructionsHint;
+
+  /// Confirm button in the customisation sheet. The amount arrives already formatted with the ₹ symbol.
+  ///
+  /// In en, this message translates to:
+  /// **'Add · {amount}'**
+  String addForAmount(String amount);
+
+  /// Fulfilment type: brought to the customer.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery'**
+  String get deliveryLabel;
+
+  /// Fulfilment type: collected at the counter.
+  ///
+  /// In en, this message translates to:
+  /// **'Pickup'**
+  String get pickupLabel;
+
+  /// Bill line: the packaging charge.
+  ///
+  /// In en, this message translates to:
+  /// **'Packaging'**
+  String get packagingLabel;
+
+  /// Bill line: money off.
+  ///
+  /// In en, this message translates to:
+  /// **'Discount'**
+  String get discountLabel;
+
+  /// Heading over the bill breakdown.
+  ///
+  /// In en, this message translates to:
+  /// **'Bill details'**
+  String get billDetailsTitle;
+
+  /// Button that empties the basket.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear cart'**
+  String get clearCart;
+
+  /// Title of the confirm-before-emptying dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear this cart?'**
+  String get clearCartTitle;
+
+  /// Body of the confirm-before-emptying dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything in it will be removed.'**
+  String get clearCartMessage;
+
+  /// Warning naming the dishes that sold out while the cart sat there.
+  ///
+  /// In en, this message translates to:
+  /// **'No longer available: {items}'**
+  String unavailableItemsNotice(String items);
+
+  /// Button that drops every sold-out line from the cart.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove them'**
+  String get removeUnavailable;
+
+  /// Warning when the cart is under the restaurant minimum. The amount arrives already formatted with the ₹ symbol.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum order is {amount}'**
+  String minimumNotMet(String amount);
+
+  /// Title of the checkout sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Checkout'**
+  String get checkoutTitle;
+
+  /// Label over the chosen delivery address.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery address'**
+  String get deliveryAddressLabel;
+
+  /// Shown in place of an address when none is chosen yet.
+  ///
+  /// In en, this message translates to:
+  /// **'No address chosen'**
+  String get noAddressSelected;
+
+  /// Label over the payment method.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment'**
+  String get paymentMethodLabel;
+
+  /// The only payment method today: cash handed over on delivery.
+  ///
+  /// In en, this message translates to:
+  /// **'Cash on delivery'**
+  String get payOnDelivery;
+
+  /// Heading over the per-order note field.
+  ///
+  /// In en, this message translates to:
+  /// **'Note for the restaurant'**
+  String get noteToRestaurant;
+
+  /// Placeholder in the per-order note field.
+  ///
+  /// In en, this message translates to:
+  /// **'Ring the bell twice…'**
+  String get noteToRestaurantHint;
+
+  /// Heading over orders still in flight.
+  ///
+  /// In en, this message translates to:
+  /// **'In progress'**
+  String get activeOrdersTitle;
+
+  /// Heading over finished orders.
+  ///
+  /// In en, this message translates to:
+  /// **'Earlier'**
+  String get pastOrdersTitle;
+
+  /// Heading over what was ordered.
+  ///
+  /// In en, this message translates to:
+  /// **'Items'**
+  String get orderItemsTitle;
+
+  /// Heading over the order timeline.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get orderProgressTitle;
+
+  /// Label over the delivery estimate.
+  ///
+  /// In en, this message translates to:
+  /// **'Arriving in'**
+  String get arrivingIn;
+
+  /// Label over the code the customer reads out at the counter.
+  ///
+  /// In en, this message translates to:
+  /// **'Pickup code'**
+  String get pickupCodeLabel;
+
+  /// Label over the merchant’s reason for cancelling.
+  ///
+  /// In en, this message translates to:
+  /// **'Why it was cancelled'**
+  String get cancellationReasonLabel;
+
+  /// Label over the delivery partner’s name.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery partner'**
+  String get riderLabel;
+
+  /// Tooltip on the button that dials the delivery partner.
+  ///
+  /// In en, this message translates to:
+  /// **'Call'**
+  String get callRider;
+
+  /// Opens the printable tax invoice in a browser.
+  ///
+  /// In en, this message translates to:
+  /// **'Tax invoice'**
+  String get viewInvoice;
+
+  /// Button that cancels an order the restaurant has not accepted yet.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel order'**
+  String get cancelOrder;
+
+  /// Title of the confirm-before-cancelling dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel this order?'**
+  String get cancelOrderTitle;
+
+  /// Body of the confirm-before-cancelling dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'You can only cancel before the restaurant accepts it.'**
+  String get cancelOrderMessage;
+
+  /// Field where the customer says why they are cancelling.
+  ///
+  /// In en, this message translates to:
+  /// **'Reason'**
+  String get cancelReasonLabel;
+
+  /// Sent as the reason when the customer types nothing. The merchant reads this.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancelled by the customer'**
+  String get cancelReasonFallback;
+
+  /// Confirmation after a successful cancellation.
+  ///
+  /// In en, this message translates to:
+  /// **'Order cancelled'**
+  String get orderCancelled;
+
+  /// Small caps label above the home header when the customer has no saved address and the list is anchored on the phone GPS instead.
+  ///
+  /// In en, this message translates to:
+  /// **'Current location'**
+  String get currentLocationLabel;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

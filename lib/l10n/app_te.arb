@@ -2,6 +2,7 @@
   "@@locale": "te",
 
   "appName": "Nexmile",
+  "fieldRequired": "ఈ ఫీల్డ్ తప్పనిసరి",
   "tagline": "వేగవంతమైన డెలివరీ. తాజా చిరునవ్వులు.",
   "chooseLanguageTitle": "మీ భాషను ఎంచుకోండి",
   "chooseLanguageSubtitle": "మీకు సౌకర్యంగా ఉండే భాషను ఎంచుకోండి. దీన్ని ఎప్పుడైనా సెట్టింగ్‌లలో మార్చుకోవచ్చు.",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "పన్నులు మరియు ఛార్జీలు",
   "freeLabel": "ఉచితం",
   "toPay": "చెల్లించవలసినది",
-  "placeOrderFor": "ఆర్డర్ చేయండి · ₹{amount}",
+  "placeOrderFor": "ఆర్డర్ చేయండి · {amount}",
   "ordersTitle": "మీ ఆర్డర్లు",
   "ordersEmptyTitle": "ఇంకా ఆర్డర్లు లేవు",
   "ordersEmptySubtitle": "మీ గత ఆర్డర్లు ఇక్కడ కనిపిస్తాయి.",
@@ -117,5 +118,173 @@
   "backToHome": "హోమ్‌కు తిరిగి",
   "prototypeNotice": "నమూనా స్టోర్‌ఫ్రంట్ — నిజమైన దుకాణాలు కేటలాగ్ APIతో వస్తాయి.",
   "prototypeCheckoutNotice": "ఇది ఒక ప్రోటోటైప్. ఎలాంటి చెల్లింపు తీసుకోబడదు, నిజమైన ఆర్డర్ కూడా ఉండదు.",
-  "prototypeTrackingNotice": "ప్రోటోటైప్ కోసం ట్రాకింగ్ కృత్రిమం."
+  "prototypeTrackingNotice": "ప్రోటోటైప్ కోసం ట్రాకింగ్ కృత్రిమం.",
+
+  "locationTitle": "ఎక్కడ డెలివరీ చేయాలి?",
+  "locationSubtitle": "Nexmile 1 కి.మీ లోపు ఉన్న దుకాణాల నుండి మాత్రమే డెలివరీ చేస్తుంది, అందుకే మీ ఖచ్చితమైన ప్రదేశం కావాలి.",
+  "locationReasonRadiusTitle": "1 కి.మీ లోపు దుకాణాలు",
+  "locationReasonRadiusBody": "వేడిగా చేరగలిగే వంటశాలలను మాత్రమే చూపిస్తాము.",
+  "locationReasonAccuracyTitle": "సరైన గుమ్మం వద్దకే",
+  "locationReasonAccuracyBody": "ఖచ్చితమైన పిన్ ఉంటే డెలివరీ భాగస్వామి ఫోన్ చేయకుండానే మిమ్మల్ని కనుగొంటారు.",
+  "locationReasonPrivacyTitle": "యాప్ వాడుతున్నప్పుడు మాత్రమే",
+  "locationReasonPrivacyBody": "నేపథ్యంలో మిమ్మల్ని ట్రాక్ చేయము, చిరునామాను మీరే టైప్ చేయవచ్చు.",
+  "allowLocation": "లొకేషన్ అనుమతించండి",
+  "enterAddressManually": "నేనే చిరునామా రాస్తాను",
+  "locationDenied": "లొకేషన్ అనుమతి నిరాకరించబడింది. మీరే పిన్ పెట్టుకోవచ్చు.",
+  "locationDeniedForever": "Nexmile కు లొకేషన్ నిరోధించబడింది. సెట్టింగ్‌లలో ఆన్ చేయండి లేదా పిన్ మీరే పెట్టండి.",
+  "locationServiceOff": "ఈ పరికరంలో లొకేషన్ ఆఫ్‌లో ఉంది.",
+  "locationUnavailable": "లొకేషన్ దొరకలేదు. దయచేసి పిన్ మీరే పెట్టండి.",
+  "openSettings": "సెట్టింగ్‌లు",
+
+  "pinLocationTitle": "మీ డెలివరీ పిన్ పెట్టండి",
+  "deliveryRadiusHint": "Nexmile డెలివరీ చేసే 1 కి.మీ పరిధిని వృత్తం చూపిస్తుంది.",
+  "useMyLocation": "నా లొకేషన్ వాడు",
+  "deliveringHere": "ఇక్కడ డెలివరీ",
+  "dragToAdjust": "పిన్ సర్దుబాటు చేయడానికి మ్యాప్ లాగండి",
+  "confirmLocation": "లొకేషన్ నిర్ధారించు",
+
+  "addressDetailsTitle": "చిరునామా వివరాలు",
+  "addressDetailsSubtitle": "సరైన తలుపు వద్దకు చేరడానికి ఇంటి నంబర్ మరియు ల్యాండ్‌మార్క్ ఇవ్వండి.",
+  "pinnedLocation": "గుర్తించిన ప్రదేశం",
+  "changePin": "మార్చు",
+  "saveAddressAs": "ఈ చిరునామాను ఇలా సేవ్ చేయి",
+  "labelHome": "ఇల్లు",
+  "labelWork": "ఆఫీసు",
+  "labelOther": "ఇతర",
+  "addressLine1Label": "ఇల్లు, ఫ్లాట్ లేదా భవనం",
+  "addressLine1Hint": "12A, గ్రీన్ రెసిడెన్సీ",
+  "addressLine2Label": "వీధి లేదా ప్రాంతం",
+  "addressLine2Hint": "2వ అవెన్యూ, అన్నా నగర్",
+  "landmarkLabel": "ల్యాండ్‌మార్క్",
+  "landmarkHint": "బస్ స్టాప్ ఎదురుగా",
+  "cityLabel": "నగరం",
+  "stateLabel": "రాష్ట్రం",
+  "pincodeLabel": "పిన్ కోడ్",
+  "invalidPincode": "సరైన 6 అంకెల పిన్ కోడ్ నమోదు చేయండి",
+  "contactNameLabel": "సంప్రదింపు పేరు",
+  "contactPhoneLabel": "సంప్రదింపు నంబర్",
+  "invalidMobileNumber": "సరైన 10 అంకెల మొబైల్ నంబర్ నమోదు చేయండి",
+  "makeDefaultAddress": "డిఫాల్ట్‌గా ఇక్కడే డెలివరీ",
+  "saveAddress": "చిరునామా సేవ్ చేయి",
+  "addressSaved": "చిరునామా సేవ్ చేయబడింది",
+
+  "addressBookTitle": "డెలివరీ చిరునామాలు",
+  "manageAddresses": "సేవ్ చేసిన చిరునామాలను నిర్వహించండి",
+  "noAddressesTitle": "ఇంకా చిరునామాలు లేవు",
+  "noAddressesSubtitle": "మీకు డెలివరీ చేసే దుకాణాలు చూపడానికి ఒక చిరునామా జోడించండి.",
+  "addAddress": "చిరునామా జోడించు",
+  "setAsDefault": "డిఫాల్ట్‌గా చేయి",
+  "editLabel": "సవరించు",
+  "addressUpdated": "చిరునామా నవీకరించబడింది",
+  "deleteLabel": "తొలగించు",
+  "deleteAddressTitle": "ఈ చిరునామాను తొలగించాలా?",
+  "deleteAddressMessage": "మీరు తర్వాత మళ్ళీ జోడించవచ్చు.",
+
+  "rescueDealsTitle": "ఫుడ్ రెస్క్యూ",
+
+  "notTakingOrders": "ఆర్డర్లు తీసుకోవడం లేదు",
+
+  "closedRightNow": "ఇప్పుడు మూసివేయబడింది",
+
+  "minimumOrder": "కనీసం {amount}",
+
+  "portionsLeft": "{count} మిగిలాయి",
+
+  "soldOut": "అయిపోయింది",
+
+  "menuEmptyTitle": "ఇంకా వంటకాలు లేవు",
+
+  "menuEmptySubtitle": "ఈ రెస్టారెంట్ తన మెనూను చేర్చలేదు.",
+
+  "moreDishesTitle": "మరిన్ని వంటకాలు",
+
+  "customisable": "మీ ఇష్టం ప్రకారం",
+
+  "requiredLabel": "తప్పనిసరి",
+
+  "optionalLabel": "ఐచ్ఛికం",
+
+  "chooseOne": "ఒకటి ఎంచుకోండి",
+
+  "chooseUpTo": "గరిష్ఠంగా {count} ఎంచుకోండి",
+
+  "chooseAtLeast": "కనీసం {count} ఎంచుకోండి",
+
+  "chooseBetween": "{min} నుండి {max} వరకు ఎంచుకోండి",
+
+  "specialInstructions": "ప్రత్యేక సూచనలు",
+
+  "specialInstructionsHint": "తక్కువ కారం, ఉల్లిపాయ వద్దు…",
+
+  "addForAmount": "జోడించు · {amount}",
+
+  "deliveryLabel": "డెలివరీ",
+
+  "pickupLabel": "స్వయంగా తీసుకోవడం",
+
+  "packagingLabel": "ప్యాకింగ్",
+
+  "discountLabel": "తగ్గింపు",
+
+  "billDetailsTitle": "బిల్లు వివరాలు",
+
+  "clearCart": "కార్ట్ ఖాళీ చేయి",
+
+  "clearCartTitle": "ఈ కార్ట్ ఖాళీ చేయాలా?",
+
+  "clearCartMessage": "ఇందులోని అన్నీ తొలగించబడతాయి.",
+
+  "unavailableItemsNotice": "ఇప్పుడు అందుబాటులో లేవు: {items}",
+
+  "removeUnavailable": "వాటిని తొలగించు",
+
+  "minimumNotMet": "కనీస ఆర్డర్ {amount}",
+
+  "checkoutTitle": "చెక్అవుట్",
+
+  "deliveryAddressLabel": "డెలివరీ చిరునామా",
+
+  "noAddressSelected": "చిరునామా ఎంచుకోలేదు",
+
+  "paymentMethodLabel": "చెల్లింపు",
+
+  "payOnDelivery": "డెలివరీ సమయంలో నగదు",
+
+  "noteToRestaurant": "రెస్టారెంట్‌కు గమనిక",
+
+  "noteToRestaurantHint": "గంట రెండుసార్లు కొట్టండి…",
+
+  "activeOrdersTitle": "జరుగుతున్న ఆర్డర్లు",
+
+  "pastOrdersTitle": "పాత ఆర్డర్లు",
+
+  "orderItemsTitle": "వంటకాలు",
+
+  "orderProgressTitle": "పురోగతి",
+
+  "arrivingIn": "చేరుకునే సమయం",
+
+  "pickupCodeLabel": "పికప్ కోడ్",
+
+  "cancellationReasonLabel": "రద్దు చేసిన కారణం",
+
+  "riderLabel": "డెలివరీ భాగస్వామి",
+
+  "callRider": "కాల్ చేయి",
+
+  "viewInvoice": "పన్ను ఇన్‌వాయిస్",
+
+  "cancelOrder": "ఆర్డర్ రద్దు చేయి",
+
+  "cancelOrderTitle": "ఈ ఆర్డర్ రద్దు చేయాలా?",
+
+  "cancelOrderMessage": "రెస్టారెంట్ అంగీకరించే ముందు మాత్రమే రద్దు చేయగలరు.",
+
+  "cancelReasonLabel": "కారణం",
+
+  "cancelReasonFallback": "కస్టమర్ రద్దు చేశారు",
+
+  "orderCancelled": "ఆర్డర్ రద్దు అయింది",
+
+  "currentLocationLabel": "ప్రస్తుత స్థానం"
 }

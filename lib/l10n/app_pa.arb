@@ -2,6 +2,7 @@
   "@@locale": "pa",
 
   "appName": "Nexmile",
+  "fieldRequired": "ਇਹ ਖਾਨਾ ਜ਼ਰੂਰੀ ਹੈ",
   "tagline": "ਤੇਜ਼ ਡਿਲੀਵਰੀ। ਤਾਜ਼ੀ ਮੁਸਕਾਨ।",
   "chooseLanguageTitle": "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ",
   "chooseLanguageSubtitle": "ਉਹ ਭਾਸ਼ਾ ਚੁਣੋ ਜਿਸ ਵਿੱਚ ਤੁਸੀਂ ਸਹਿਜ ਹੋ। ਤੁਸੀਂ ਇਸਨੂੰ ਕਿਸੇ ਵੀ ਸਮੇਂ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਬਦਲ ਸਕਦੇ ਹੋ।",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "ਟੈਕਸ ਅਤੇ ਖਰਚੇ",
   "freeLabel": "ਮੁਫ਼ਤ",
   "toPay": "ਦੇਣ ਯੋਗ",
-  "placeOrderFor": "ਆਰਡਰ ਕਰੋ · ₹{amount}",
+  "placeOrderFor": "ਆਰਡਰ ਕਰੋ · {amount}",
   "ordersTitle": "ਤੁਹਾਡੇ ਆਰਡਰ",
   "ordersEmptyTitle": "ਅਜੇ ਕੋਈ ਆਰਡਰ ਨਹੀਂ",
   "ordersEmptySubtitle": "ਤੁਹਾਡੇ ਪਿਛਲੇ ਆਰਡਰ ਇੱਥੇ ਦਿਖਣਗੇ।",
@@ -117,5 +118,173 @@
   "backToHome": "ਹੋਮ 'ਤੇ ਵਾਪਸ",
   "prototypeNotice": "ਨਮੂਨਾ ਸਟੋਰਫ੍ਰੰਟ — ਅਸਲੀ ਦੁਕਾਨਾਂ ਕੈਟਾਲਾਗ API ਨਾਲ ਆਉਣਗੀਆਂ।",
   "prototypeCheckoutNotice": "ਇਹ ਇੱਕ ਪ੍ਰੋਟੋਟਾਈਪ ਹੈ। ਕੋਈ ਭੁਗਤਾਨ ਨਹੀਂ ਲਿਆ ਜਾਂਦਾ ਅਤੇ ਕੋਈ ਅਸਲੀ ਆਰਡਰ ਨਹੀਂ ਹੁੰਦਾ।",
-  "prototypeTrackingNotice": "ਪ੍ਰੋਟੋਟਾਈਪ ਲਈ ਟ੍ਰੈਕਿੰਗ ਨਕਲੀ ਹੈ।"
+  "prototypeTrackingNotice": "ਪ੍ਰੋਟੋਟਾਈਪ ਲਈ ਟ੍ਰੈਕਿੰਗ ਨਕਲੀ ਹੈ।",
+
+  "locationTitle": "ਡਿਲੀਵਰੀ ਕਿੱਥੇ ਕਰਨੀ ਹੈ?",
+  "locationSubtitle": "Nexmile ਸਿਰਫ਼ 1 ਕਿਮੀ ਦੇ ਅੰਦਰਲੀਆਂ ਦੁਕਾਨਾਂ ਤੋਂ ਡਿਲੀਵਰੀ ਕਰਦਾ ਹੈ, ਇਸ ਲਈ ਸਾਨੂੰ ਤੁਹਾਡੀ ਸਹੀ ਥਾਂ ਚਾਹੀਦੀ ਹੈ।",
+  "locationReasonRadiusTitle": "1 ਕਿਮੀ ਦੇ ਅੰਦਰ ਦੀਆਂ ਦੁਕਾਨਾਂ",
+  "locationReasonRadiusBody": "ਅਸੀਂ ਸਿਰਫ਼ ਉਹੀ ਰਸੋਈਆਂ ਦਿਖਾਉਂਦੇ ਹਾਂ ਜਿੱਥੋਂ ਖਾਣਾ ਗਰਮ ਪਹੁੰਚੇ।",
+  "locationReasonAccuracyTitle": "ਸਹੀ ਦਰਵਾਜ਼ੇ ਤੱਕ",
+  "locationReasonAccuracyBody": "ਸਹੀ ਪਿੰਨ ਹੋਵੇ ਤਾਂ ਡਿਲੀਵਰੀ ਪਾਰਟਨਰ ਫ਼ੋਨ ਕੀਤੇ ਬਿਨਾਂ ਤੁਹਾਡੇ ਤੱਕ ਪਹੁੰਚ ਜਾਂਦਾ ਹੈ।",
+  "locationReasonPrivacyTitle": "ਸਿਰਫ਼ ਐਪ ਵਰਤਦੇ ਸਮੇਂ",
+  "locationReasonPrivacyBody": "ਅਸੀਂ ਪਿਛੋਕੜ ਵਿੱਚ ਤੁਹਾਨੂੰ ਟ੍ਰੈਕ ਨਹੀਂ ਕਰਦੇ, ਅਤੇ ਪਤਾ ਤੁਸੀਂ ਆਪ ਵੀ ਲਿਖ ਸਕਦੇ ਹੋ।",
+  "allowLocation": "ਟਿਕਾਣੇ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ",
+  "enterAddressManually": "ਮੈਂ ਪਤਾ ਆਪ ਲਿਖਾਂਗਾ",
+  "locationDenied": "ਟਿਕਾਣੇ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਮਿਲੀ। ਤੁਸੀਂ ਪਿੰਨ ਆਪ ਲਗਾ ਸਕਦੇ ਹੋ।",
+  "locationDeniedForever": "Nexmile ਲਈ ਟਿਕਾਣਾ ਬੰਦ ਹੈ। ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਚਾਲੂ ਕਰੋ ਜਾਂ ਪਿੰਨ ਆਪ ਲਗਾਓ।",
+  "locationServiceOff": "ਇਸ ਡਿਵਾਈਸ 'ਤੇ ਟਿਕਾਣਾ ਬੰਦ ਹੈ।",
+  "locationUnavailable": "ਟਿਕਾਣਾ ਨਹੀਂ ਮਿਲ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਪਿੰਨ ਆਪ ਲਗਾਓ।",
+  "openSettings": "ਸੈਟਿੰਗਾਂ",
+
+  "pinLocationTitle": "ਆਪਣਾ ਡਿਲੀਵਰੀ ਪਿੰਨ ਲਗਾਓ",
+  "deliveryRadiusHint": "ਘੇਰਾ ਉਹ 1 ਕਿਮੀ ਦਿਖਾਉਂਦਾ ਹੈ ਜਿਸ ਵਿੱਚ Nexmile ਡਿਲੀਵਰੀ ਕਰਦਾ ਹੈ।",
+  "useMyLocation": "ਮੇਰਾ ਟਿਕਾਣਾ ਵਰਤੋ",
+  "deliveringHere": "ਇੱਥੇ ਡਿਲੀਵਰੀ",
+  "dragToAdjust": "ਪਿੰਨ ਬਦਲਣ ਲਈ ਨਕਸ਼ਾ ਖਿੱਚੋ",
+  "confirmLocation": "ਟਿਕਾਣਾ ਪੱਕਾ ਕਰੋ",
+
+  "addressDetailsTitle": "ਪਤੇ ਦੇ ਵੇਰਵੇ",
+  "addressDetailsSubtitle": "ਸਹੀ ਦਰਵਾਜ਼ੇ ਤੱਕ ਪਹੁੰਚਣ ਲਈ ਘਰ ਨੰਬਰ ਅਤੇ ਨਿਸ਼ਾਨੀ ਜੋੜੋ।",
+  "pinnedLocation": "ਚੁਣਿਆ ਟਿਕਾਣਾ",
+  "changePin": "ਬਦਲੋ",
+  "saveAddressAs": "ਇਹ ਪਤਾ ਇੰਝ ਸੰਭਾਲੋ",
+  "labelHome": "ਘਰ",
+  "labelWork": "ਦਫ਼ਤਰ",
+  "labelOther": "ਹੋਰ",
+  "addressLine1Label": "ਘਰ, ਫਲੈਟ ਜਾਂ ਇਮਾਰਤ",
+  "addressLine1Hint": "12A, ਗ੍ਰੀਨ ਰੈਜ਼ੀਡੈਂਸੀ",
+  "addressLine2Label": "ਗਲੀ ਜਾਂ ਇਲਾਕਾ",
+  "addressLine2Hint": "ਦੂਜੀ ਐਵੇਨਿਊ, ਅੰਨਾ ਨਗਰ",
+  "landmarkLabel": "ਨਿਸ਼ਾਨੀ",
+  "landmarkHint": "ਬੱਸ ਸਟਾਪ ਦੇ ਸਾਹਮਣੇ",
+  "cityLabel": "ਸ਼ਹਿਰ",
+  "stateLabel": "ਰਾਜ",
+  "pincodeLabel": "ਪਿੰਨ ਕੋਡ",
+  "invalidPincode": "ਸਹੀ 6 ਅੰਕਾਂ ਦਾ ਪਿੰਨ ਕੋਡ ਦਰਜ ਕਰੋ",
+  "contactNameLabel": "ਸੰਪਰਕ ਨਾਮ",
+  "contactPhoneLabel": "ਸੰਪਰਕ ਨੰਬਰ",
+  "invalidMobileNumber": "ਸਹੀ 10 ਅੰਕਾਂ ਦਾ ਮੋਬਾਈਲ ਨੰਬਰ ਦਰਜ ਕਰੋ",
+  "makeDefaultAddress": "ਡਿਫਾਲਟ ਤੌਰ 'ਤੇ ਇੱਥੇ ਹੀ ਡਿਲੀਵਰੀ",
+  "saveAddress": "ਪਤਾ ਸੰਭਾਲੋ",
+  "addressSaved": "ਪਤਾ ਸੰਭਾਲ ਲਿਆ",
+
+  "addressBookTitle": "ਡਿਲੀਵਰੀ ਪਤੇ",
+  "manageAddresses": "ਸੰਭਾਲੇ ਪਤੇ ਸੰਭਾਲੋ",
+  "noAddressesTitle": "ਅਜੇ ਕੋਈ ਪਤਾ ਨਹੀਂ",
+  "noAddressesSubtitle": "ਇੱਕ ਪਤਾ ਜੋੜੋ ਤਾਂ ਜੋ ਅਸੀਂ ਤੁਹਾਡੇ ਤੱਕ ਡਿਲੀਵਰੀ ਕਰਨ ਵਾਲੀਆਂ ਦੁਕਾਨਾਂ ਦਿਖਾ ਸਕੀਏ।",
+  "addAddress": "ਪਤਾ ਜੋੜੋ",
+  "setAsDefault": "ਡਿਫਾਲਟ ਬਣਾਓ",
+  "editLabel": "ਸੋਧੋ",
+  "addressUpdated": "ਪਤਾ ਅੱਪਡੇਟ ਹੋ ਗਿਆ",
+  "deleteLabel": "ਮਿਟਾਓ",
+  "deleteAddressTitle": "ਇਹ ਪਤਾ ਮਿਟਾਉਣਾ ਹੈ?",
+  "deleteAddressMessage": "ਤੁਸੀਂ ਇਸਨੂੰ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਜੋੜ ਸਕਦੇ ਹੋ।",
+
+  "rescueDealsTitle": "ਫੂਡ ਰੈਸਕਿਊ",
+
+  "notTakingOrders": "ਆਰਡਰ ਨਹੀਂ ਲੈ ਰਹੇ",
+
+  "closedRightNow": "ਹੁਣ ਬੰਦ ਹੈ",
+
+  "minimumOrder": "ਘੱਟੋ-ਘੱਟ {amount}",
+
+  "portionsLeft": "{count} ਬਾਕੀ",
+
+  "soldOut": "ਮੁੱਕ ਗਿਆ",
+
+  "menuEmptyTitle": "ਹਾਲੇ ਕੋਈ ਪਕਵਾਨ ਨਹੀਂ",
+
+  "menuEmptySubtitle": "ਇਸ ਰੈਸਟੋਰੈਂਟ ਨੇ ਆਪਣਾ ਮੀਨੂ ਨਹੀਂ ਜੋੜਿਆ।",
+
+  "moreDishesTitle": "ਹੋਰ ਪਕਵਾਨ",
+
+  "customisable": "ਪਸੰਦ ਮੁਤਾਬਕ",
+
+  "requiredLabel": "ਲਾਜ਼ਮੀ",
+
+  "optionalLabel": "ਚੋਣਵਾਂ",
+
+  "chooseOne": "ਇੱਕ ਚੁਣੋ",
+
+  "chooseUpTo": "ਵੱਧ ਤੋਂ ਵੱਧ {count} ਚੁਣੋ",
+
+  "chooseAtLeast": "ਘੱਟੋ-ਘੱਟ {count} ਚੁਣੋ",
+
+  "chooseBetween": "{min} ਤੋਂ {max} ਚੁਣੋ",
+
+  "specialInstructions": "ਖਾਸ ਹਦਾਇਤਾਂ",
+
+  "specialInstructionsHint": "ਘੱਟ ਤਿੱਖਾ, ਪਿਆਜ਼ ਨਹੀਂ…",
+
+  "addForAmount": "ਜੋੜੋ · {amount}",
+
+  "deliveryLabel": "ਡਿਲੀਵਰੀ",
+
+  "pickupLabel": "ਆਪ ਲੈਣਾ",
+
+  "packagingLabel": "ਪੈਕਿੰਗ",
+
+  "discountLabel": "ਛੋਟ",
+
+  "billDetailsTitle": "ਬਿੱਲ ਵੇਰਵਾ",
+
+  "clearCart": "ਕਾਰਟ ਖਾਲੀ ਕਰੋ",
+
+  "clearCartTitle": "ਇਹ ਕਾਰਟ ਖਾਲੀ ਕਰਨੀ ਹੈ?",
+
+  "clearCartMessage": "ਇਸ ਵਿਚਲਾ ਸਭ ਕੁਝ ਹਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।",
+
+  "unavailableItemsNotice": "ਹੁਣ ਉਪਲਬਧ ਨਹੀਂ: {items}",
+
+  "removeUnavailable": "ਇਹ ਹਟਾਓ",
+
+  "minimumNotMet": "ਘੱਟੋ-ਘੱਟ ਆਰਡਰ {amount} ਹੈ",
+
+  "checkoutTitle": "ਚੈੱਕਆਊਟ",
+
+  "deliveryAddressLabel": "ਡਿਲੀਵਰੀ ਪਤਾ",
+
+  "noAddressSelected": "ਕੋਈ ਪਤਾ ਨਹੀਂ ਚੁਣਿਆ",
+
+  "paymentMethodLabel": "ਭੁਗਤਾਨ",
+
+  "payOnDelivery": "ਡਿਲੀਵਰੀ ਵੇਲੇ ਨਕਦ",
+
+  "noteToRestaurant": "ਰੈਸਟੋਰੈਂਟ ਲਈ ਨੋਟ",
+
+  "noteToRestaurantHint": "ਘੰਟੀ ਦੋ ਵਾਰ ਵਜਾਓ…",
+
+  "activeOrdersTitle": "ਚੱਲ ਰਹੇ ਆਰਡਰ",
+
+  "pastOrdersTitle": "ਪੁਰਾਣੇ ਆਰਡਰ",
+
+  "orderItemsTitle": "ਪਕਵਾਨ",
+
+  "orderProgressTitle": "ਪ੍ਰਗਤੀ",
+
+  "arrivingIn": "ਪਹੁੰਚਣ ਵਿੱਚ",
+
+  "pickupCodeLabel": "ਪਿਕਅੱਪ ਕੋਡ",
+
+  "cancellationReasonLabel": "ਰੱਦ ਹੋਣ ਦਾ ਕਾਰਨ",
+
+  "riderLabel": "ਡਿਲੀਵਰੀ ਪਾਰਟਨਰ",
+
+  "callRider": "ਕਾਲ ਕਰੋ",
+
+  "viewInvoice": "ਟੈਕਸ ਇਨਵੌਇਸ",
+
+  "cancelOrder": "ਆਰਡਰ ਰੱਦ ਕਰੋ",
+
+  "cancelOrderTitle": "ਇਹ ਆਰਡਰ ਰੱਦ ਕਰਨਾ ਹੈ?",
+
+  "cancelOrderMessage": "ਰੈਸਟੋਰੈਂਟ ਵੱਲੋਂ ਸਵੀਕਾਰ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਹੀ ਰੱਦ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।",
+
+  "cancelReasonLabel": "ਕਾਰਨ",
+
+  "cancelReasonFallback": "ਗਾਹਕ ਨੇ ਰੱਦ ਕੀਤਾ",
+
+  "orderCancelled": "ਆਰਡਰ ਰੱਦ ਹੋ ਗਿਆ",
+
+  "currentLocationLabel": "ਮੌਜੂਦਾ ਟਿਕਾਣਾ"
 }

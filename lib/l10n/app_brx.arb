@@ -2,6 +2,7 @@
   "@@locale": "brx",
 
   "appName": "Nexmile",
+  "fieldRequired": "बे खोन्दोआ नांगौ",
   "tagline": "गोख्रों डेलिभारि। गोदान मिनिस्लु।",
   "chooseLanguageTitle": "नोंथांनि राव सायख",
   "chooseLanguageSubtitle": "नोंथांनो गोसो जायो एरै रावखौ सायख। नोंथाङो बेखौ जेब्लाबाबो सेटिंसआव सोलायनो हागोन।",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "खाजाना आरो बिजाब",
   "freeLabel": "मुफ्ट",
   "toPay": "होनांगौ",
-  "placeOrderFor": "अर्डार खालाम · ₹{amount}",
+  "placeOrderFor": "अर्डार खालाम · {amount}",
   "ordersTitle": "नोंथांनि अर्डारफोर",
   "ordersEmptyTitle": "दासिम जेबो अर्डार गैया",
   "ordersEmptySubtitle": "नोंथांनि सिगांनि अर्डारफोर बेयाव नुजागोन।",
@@ -117,5 +118,173 @@
   "backToHome": "हों आव फैफिन",
   "prototypeNotice": "नमुना स्टरफ्रन्ट — थार दुखानिफोरा केटालग API जों फैगोन।",
   "prototypeCheckoutNotice": "बेयो मोनसे प्रटटाइप। जेबो रांखान्थि लानाय जाया आरो थार अर्डारबो जाया।",
-  "prototypeTrackingNotice": "प्रटटाइपनि थाखाय ट्रेकिं आ थार नङा।"
+  "prototypeTrackingNotice": "प्रटटाइपनि थाखाय ट्रेकिं आ थार नङा।",
+
+  "locationTitle": "बबेयाव डेलिभारि खालामनांगौ?",
+  "locationSubtitle": "Nexmile आ 1 किमि सिङाव थानाय दुखानिफ्रायल' डेलिभारि खालामो, बेनि थाखाय नोंथांनि थार जायगा नांगौ।",
+  "locationReasonRadiusTitle": "1 किमि सिङनि दुखान",
+  "locationReasonRadiusBody": "बबेनिफ्राय आहारा गोदै जानानै सोसनगोन, बेफोर रान्नाशालखौल' दिन्थियो।",
+  "locationReasonAccuracyTitle": "थार दरजायाव",
+  "locationReasonAccuracyBody": "थार पिन दङब्ला डेलिभारि पार्टनारा फन खालामै नोंथांखौ मोनो।",
+  "locationReasonPrivacyTitle": "एप बाहायनाय समावल'",
+  "locationReasonPrivacyBody": "जों उनथिं नोंथांखौ ट्रेक खालामा, आरो थंखौ नोंथाङो निजिनो लिरनो हागोन।",
+  "allowLocation": "जायगानि गनायथि हो",
+  "enterAddressManually": "आं निजिनो थं लिरगोन",
+  "locationDenied": "जायगानि गनायथि मोनाखै। नोंथाङो पिनखौ निजिनो दोननो हागोन।",
+  "locationDeniedForever": "Nexmile नि थाखाय जायगाया बन्द दङ। सेटिंसआव खेव एबा पिनखौ निजिनो दोन।",
+  "locationServiceOff": "बे डिभाइसआव जायगाया बन्द दङ।",
+  "locationUnavailable": "जायगा मोनाखै। अन्नानै पिनखौ निजिनो दोन।",
+  "openSettings": "सेटिंस",
+
+  "pinLocationTitle": "नोंथांनि डेलिभारि पिन दोन",
+  "deliveryRadiusHint": "गोलावथिया Nexmile डेलिभारि खालामनाय 1 किमिखौ दिन्थियो।",
+  "useMyLocation": "आंनि जायगा बाहाय",
+  "deliveringHere": "बेयाव डेलिभारि",
+  "dragToAdjust": "पिन सोलायनो मेपखौ बोर",
+  "confirmLocation": "जायगा थि खालाम",
+
+  "addressDetailsTitle": "थंनि फोरमायथिहोग्रा",
+  "addressDetailsSubtitle": "थार दरजायाव सोसननो नोनि नामबार आरो सिन दाजाबदेर।",
+  "pinnedLocation": "सायखनाय जायगा",
+  "changePin": "सोलाय",
+  "saveAddressAs": "बे थंखौ बेबादि थिना दोन",
+  "labelHome": "नो",
+  "labelWork": "दफ्तर",
+  "labelOther": "गुबुन",
+  "addressLine1Label": "नो, फ्लेट एबा बिल्डिं",
+  "addressLine1Hint": "12A, ग्रीन रेसिडेन्सि",
+  "addressLine2Label": "लामा एबा बिजिरि",
+  "addressLine2Hint": "मोननै एभिनिउ, आना नगर",
+  "landmarkLabel": "सिन",
+  "landmarkHint": "बास स्टपनि सिगाङाव",
+  "cityLabel": "नोगोर",
+  "stateLabel": "राइजो",
+  "pincodeLabel": "पिन कड",
+  "invalidPincode": "थार 6 अंकनि पिन कड दा",
+  "contactNameLabel": "सम्पर्कनि मुं",
+  "contactPhoneLabel": "सम्पर्कनि नामबार",
+  "invalidMobileNumber": "थार 10 अंकनि मबाइल नामबार दा",
+  "makeDefaultAddress": "डिफल्ट बादि बेयावनो डेलिभारि",
+  "saveAddress": "थं थिना दोन",
+  "addressSaved": "थं थिना दोनबाय",
+
+  "addressBookTitle": "डेलिभारि थंफोर",
+  "manageAddresses": "थिना दोननाय थंफोरखौ सामलाय",
+  "noAddressesTitle": "दासिम जेबो थं गैया",
+  "noAddressesSubtitle": "नोंथांसो डेलिभारि खालामनाय दुखानफोरखौ दिन्थिनो मोनसे थं दाजाबदेर।",
+  "addAddress": "थं दाजाबदेर",
+  "setAsDefault": "डिफल्ट खालाम",
+  "editLabel": "सुद्रायना",
+  "addressUpdated": "थं आपडेट जाबाय",
+  "deleteLabel": "खोमोर",
+  "deleteAddressTitle": "बे थंखौ खोमोरगोन?",
+  "deleteAddressMessage": "नोंथाङो बेखौ उनाव फिन दाजाबदेरनो हागोन।",
+
+  "rescueDealsTitle": "फुड रेस्किउ",
+
+  "notTakingOrders": "अर्डार लानाय नङा",
+
+  "closedRightNow": "दानो बन्द दङ",
+
+  "minimumOrder": "खमैबो {amount}",
+
+  "portionsLeft": "{count} बाजाय दङ",
+
+  "soldOut": "जोबबाय",
+
+  "menuEmptyTitle": "दानोबो जेबो जानाय गैया",
+
+  "menuEmptySubtitle": "बे रेस्टुरेन्टा बिनि मेनुखौ दाजाबदेराखै।",
+
+  "moreDishesTitle": "गोबां जानाय",
+
+  "customisable": "गोसो बादि",
+
+  "requiredLabel": "गोनांथि",
+
+  "optionalLabel": "गोसोखां",
+
+  "chooseOne": "मोनसे सायख",
+
+  "chooseUpTo": "बांसिन {count} सायख",
+
+  "chooseAtLeast": "खमैबो {count} सायख",
+
+  "chooseBetween": "{min} निफ्राय {max} सिम सायख",
+
+  "specialInstructions": "गोसो गोनां बिथिं",
+
+  "specialInstructionsHint": "खमसिन गोजों, सामोब नङा…",
+
+  "addForAmount": "दाजाबदेर · {amount}",
+
+  "deliveryLabel": "डेलिभारि",
+
+  "pickupLabel": "गावनो लाना",
+
+  "packagingLabel": "पेकिं",
+
+  "discountLabel": "खमानाय",
+
+  "billDetailsTitle": "बिल बिबुंथि",
+
+  "clearCart": "कार्टखौ लांदां खालाम",
+
+  "clearCartTitle": "बे कार्टखौ लांदां खालामनो नामा?",
+
+  "clearCartMessage": "बेयाव दङमोनखौ गासैबो गैया खालामगोन।",
+
+  "unavailableItemsNotice": "दानो मोनाकै: {items}",
+
+  "removeUnavailable": "बिसोरखौ गैया खालाम",
+
+  "minimumNotMet": "खमैबो अर्डार {amount}",
+
+  "checkoutTitle": "चेकआउट",
+
+  "deliveryAddressLabel": "डेलिभारि ठिकना",
+
+  "noAddressSelected": "जेबो ठिकना सायखाखै",
+
+  "paymentMethodLabel": "रांहोनाय",
+
+  "payOnDelivery": "डेलिभारियाव रां",
+
+  "noteToRestaurant": "रेस्टुरेन्टनि थाखाय नोट",
+
+  "noteToRestaurantHint": "घान्टिखौ मोननै खेब सुं…",
+
+  "activeOrdersTitle": "सोलिगासिनो अर्डार",
+
+  "pastOrdersTitle": "गागैनि अर्डार",
+
+  "orderItemsTitle": "जानाय",
+
+  "orderProgressTitle": "गोजौथिनाय",
+
+  "arrivingIn": "सोसैनो",
+
+  "pickupCodeLabel": "पिकआप कोड",
+
+  "cancellationReasonLabel": "बातिल जानायनि जाहोन",
+
+  "riderLabel": "डेलिभारि पार्टनार",
+
+  "callRider": "कल खालाम",
+
+  "viewInvoice": "ट्याक्स इनभइस",
+
+  "cancelOrder": "अर्डारखौ बातिल खालाम",
+
+  "cancelOrderTitle": "बे अर्डारखौ बातिल खालामनो नामा?",
+
+  "cancelOrderMessage": "रेस्टुरेन्टा आजावनि सिगां सिनोबो बातिल खालामनो हागौ।",
+
+  "cancelReasonLabel": "जाहोन",
+
+  "cancelReasonFallback": "गिराहागा बातिल खालामबाय",
+
+  "orderCancelled": "अर्डार बातिल जाबाय",
+
+  "currentLocationLabel": "दानिनि जायगा"
 }

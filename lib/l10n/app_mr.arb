@@ -2,6 +2,7 @@
   "@@locale": "mr",
 
   "appName": "Nexmile",
+  "fieldRequired": "हे क्षेत्र आवश्यक आहे",
   "tagline": "जलद डिलिव्हरी. ताजे स्मित.",
   "chooseLanguageTitle": "तुमची भाषा निवडा",
   "chooseLanguageSubtitle": "तुम्हाला सोयीची वाटेल ती भाषा निवडा. तुम्ही ती कधीही सेटिंग्जमध्ये बदलू शकता.",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "कर आणि शुल्क",
   "freeLabel": "मोफत",
   "toPay": "देय रक्कम",
-  "placeOrderFor": "ऑर्डर करा · ₹{amount}",
+  "placeOrderFor": "ऑर्डर करा · {amount}",
   "ordersTitle": "तुमच्या ऑर्डर",
   "ordersEmptyTitle": "अजून ऑर्डर नाहीत",
   "ordersEmptySubtitle": "तुमच्या मागील ऑर्डर इथे दिसतील.",
@@ -117,5 +118,173 @@
   "backToHome": "होमवर परत",
   "prototypeNotice": "नमुना स्टोअरफ्रंट — खरी दुकाने कॅटलॉग API सोबत येतील.",
   "prototypeCheckoutNotice": "हा एक प्रोटोटाइप आहे. कोणतेही पैसे घेतले जात नाहीत आणि खरी ऑर्डरही होत नाही.",
-  "prototypeTrackingNotice": "प्रोटोटाइपसाठी ट्रॅकिंग कृत्रिम आहे."
+  "prototypeTrackingNotice": "प्रोटोटाइपसाठी ट्रॅकिंग कृत्रिम आहे.",
+
+  "locationTitle": "डिलिव्हरी कुठे करायची?",
+  "locationSubtitle": "Nexmile फक्त 1 किमीच्या आतल्या दुकानांमधून डिलिव्हरी करते, म्हणून तुमचे नेमके ठिकाण हवे.",
+  "locationReasonRadiusTitle": "1 किमीच्या आतली दुकाने",
+  "locationReasonRadiusBody": "जिथून जेवण गरम पोहोचेल तीच स्वयंपाकघरे आम्ही दाखवतो.",
+  "locationReasonAccuracyTitle": "अगदी योग्य दारापर्यंत",
+  "locationReasonAccuracyBody": "अचूक पिन असल्यास डिलिव्हरी पार्टनर फोन न करता तुम्हाला शोधतो.",
+  "locationReasonPrivacyTitle": "फक्त ॲप वापरताना",
+  "locationReasonPrivacyBody": "आम्ही पार्श्वभूमीत तुमचा माग काढत नाही, आणि पत्ता तुम्ही स्वतःही लिहू शकता.",
+  "allowLocation": "लोकेशनला परवानगी द्या",
+  "enterAddressManually": "मी पत्ता स्वतः लिहीन",
+  "locationDenied": "लोकेशनची परवानगी नाकारली. तुम्ही पिन स्वतः ठेवू शकता.",
+  "locationDeniedForever": "Nexmile साठी लोकेशन बंद आहे. सेटिंग्जमध्ये चालू करा किंवा पिन स्वतः ठेवा.",
+  "locationServiceOff": "या डिव्हाइसवर लोकेशन बंद आहे.",
+  "locationUnavailable": "लोकेशन मिळाले नाही. कृपया पिन स्वतः ठेवा.",
+  "openSettings": "सेटिंग्ज",
+
+  "pinLocationTitle": "तुमचा डिलिव्हरी पिन ठेवा",
+  "deliveryRadiusHint": "वर्तुळ Nexmile डिलिव्हरी करत असलेली 1 किमी दाखवते.",
+  "useMyLocation": "माझे लोकेशन वापरा",
+  "deliveringHere": "इथे डिलिव्हरी",
+  "dragToAdjust": "पिन बदलण्यासाठी नकाशा हलवा",
+  "confirmLocation": "लोकेशन निश्चित करा",
+
+  "addressDetailsTitle": "पत्त्याचा तपशील",
+  "addressDetailsSubtitle": "योग्य दारापर्यंत पोहोचण्यासाठी घर क्रमांक आणि खूण द्या.",
+  "pinnedLocation": "निवडलेले ठिकाण",
+  "changePin": "बदला",
+  "saveAddressAs": "हा पत्ता असा जतन करा",
+  "labelHome": "घर",
+  "labelWork": "ऑफिस",
+  "labelOther": "इतर",
+  "addressLine1Label": "घर, फ्लॅट किंवा इमारत",
+  "addressLine1Hint": "12A, ग्रीन रेसिडेन्सी",
+  "addressLine2Label": "रस्ता किंवा परिसर",
+  "addressLine2Hint": "दुसरा अव्हेन्यू, अण्णा नगर",
+  "landmarkLabel": "खूण",
+  "landmarkHint": "बस स्टॉपसमोर",
+  "cityLabel": "शहर",
+  "stateLabel": "राज्य",
+  "pincodeLabel": "पिन कोड",
+  "invalidPincode": "वैध 6 अंकी पिन कोड टाका",
+  "contactNameLabel": "संपर्क नाव",
+  "contactPhoneLabel": "संपर्क क्रमांक",
+  "invalidMobileNumber": "वैध 10 अंकी मोबाइल क्रमांक टाका",
+  "makeDefaultAddress": "डीफॉल्टनुसार इथेच डिलिव्हरी",
+  "saveAddress": "पत्ता जतन करा",
+  "addressSaved": "पत्ता जतन झाला",
+
+  "addressBookTitle": "डिलिव्हरी पत्ते",
+  "manageAddresses": "जतन केलेले पत्ते व्यवस्थापित करा",
+  "noAddressesTitle": "अजून पत्ता नाही",
+  "noAddressesSubtitle": "तुमच्यापर्यंत डिलिव्हरी करणारी दुकाने दाखवण्यासाठी एक पत्ता जोडा.",
+  "addAddress": "पत्ता जोडा",
+  "setAsDefault": "डीफॉल्ट करा",
+  "editLabel": "संपादित करा",
+  "addressUpdated": "पत्ता अद्ययावत झाला",
+  "deleteLabel": "हटवा",
+  "deleteAddressTitle": "हा पत्ता हटवायचा?",
+  "deleteAddressMessage": "तुम्ही तो नंतर पुन्हा जोडू शकता.",
+
+  "rescueDealsTitle": "फूड रेस्क्यू",
+
+  "notTakingOrders": "ऑर्डर घेत नाही",
+
+  "closedRightNow": "सध्या बंद आहे",
+
+  "minimumOrder": "किमान {amount}",
+
+  "portionsLeft": "{count} शिल्लक",
+
+  "soldOut": "संपले",
+
+  "menuEmptyTitle": "अजून पदार्थ नाहीत",
+
+  "menuEmptySubtitle": "या रेस्टॉरंटने आपला मेनू जोडलेला नाही.",
+
+  "moreDishesTitle": "आणखी पदार्थ",
+
+  "customisable": "आवडीनुसार",
+
+  "requiredLabel": "आवश्यक",
+
+  "optionalLabel": "ऐच्छिक",
+
+  "chooseOne": "एक निवडा",
+
+  "chooseUpTo": "जास्तीत जास्त {count} निवडा",
+
+  "chooseAtLeast": "किमान {count} निवडा",
+
+  "chooseBetween": "{min} ते {max} निवडा",
+
+  "specialInstructions": "खास सूचना",
+
+  "specialInstructionsHint": "कमी तिखट, कांदा नको…",
+
+  "addForAmount": "जोडा · {amount}",
+
+  "deliveryLabel": "डिलिव्हरी",
+
+  "pickupLabel": "स्वतः न्या",
+
+  "packagingLabel": "पॅकिंग",
+
+  "discountLabel": "सवलत",
+
+  "billDetailsTitle": "बिलाचा तपशील",
+
+  "clearCart": "कार्ट रिकामी करा",
+
+  "clearCartTitle": "ही कार्ट रिकामी करायची?",
+
+  "clearCartMessage": "यातील सर्व काही काढून टाकले जाईल.",
+
+  "unavailableItemsNotice": "आता उपलब्ध नाही: {items}",
+
+  "removeUnavailable": "ते काढून टाका",
+
+  "minimumNotMet": "किमान ऑर्डर {amount} आहे",
+
+  "checkoutTitle": "चेकआउट",
+
+  "deliveryAddressLabel": "डिलिव्हरीचा पत्ता",
+
+  "noAddressSelected": "पत्ता निवडलेला नाही",
+
+  "paymentMethodLabel": "पेमेंट",
+
+  "payOnDelivery": "डिलिव्हरीवर रोख",
+
+  "noteToRestaurant": "रेस्टॉरंटसाठी सूचना",
+
+  "noteToRestaurantHint": "बेल दोनदा वाजवा…",
+
+  "activeOrdersTitle": "सुरू असलेल्या ऑर्डर",
+
+  "pastOrdersTitle": "जुन्या ऑर्डर",
+
+  "orderItemsTitle": "पदार्थ",
+
+  "orderProgressTitle": "प्रगती",
+
+  "arrivingIn": "पोहोचण्यास",
+
+  "pickupCodeLabel": "पिकअप कोड",
+
+  "cancellationReasonLabel": "रद्द होण्याचे कारण",
+
+  "riderLabel": "डिलिव्हरी पार्टनर",
+
+  "callRider": "कॉल करा",
+
+  "viewInvoice": "कर पावती",
+
+  "cancelOrder": "ऑर्डर रद्द करा",
+
+  "cancelOrderTitle": "ही ऑर्डर रद्द करायची?",
+
+  "cancelOrderMessage": "रेस्टॉरंटने स्वीकारण्यापूर्वीच रद्द करता येते.",
+
+  "cancelReasonLabel": "कारण",
+
+  "cancelReasonFallback": "ग्राहकाने रद्द केली",
+
+  "orderCancelled": "ऑर्डर रद्द झाली",
+
+  "currentLocationLabel": "सध्याचे ठिकाण"
 }

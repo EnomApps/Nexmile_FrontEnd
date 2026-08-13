@@ -12,6 +12,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appName => 'Nexmile';
 
   @override
+  String get fieldRequired => 'This field is required';
+
+  @override
   String get tagline => 'Fast Delivery. Fresh Smiles.';
 
   @override
@@ -311,8 +314,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toPay => 'To pay';
 
   @override
-  String placeOrderFor(int amount) {
-    return 'Place order · ₹$amount';
+  String placeOrderFor(String amount) {
+    return 'Place order · $amount';
   }
 
   @override
@@ -372,4 +375,350 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get prototypeTrackingNotice => 'Tracking is simulated for the prototype.';
+
+  @override
+  String get locationTitle => 'Where should we deliver?';
+
+  @override
+  String get locationSubtitle => 'Nexmile delivers from shops within 1 km, so we need your exact spot to show what can reach you.';
+
+  @override
+  String get locationReasonRadiusTitle => 'Shops within 1 km';
+
+  @override
+  String get locationReasonRadiusBody => 'We only list kitchens close enough to arrive hot.';
+
+  @override
+  String get locationReasonAccuracyTitle => 'No missed doorsteps';
+
+  @override
+  String get locationReasonAccuracyBody => 'An exact pin means your rider finds you without calling.';
+
+  @override
+  String get locationReasonPrivacyTitle => 'Only while you use the app';
+
+  @override
+  String get locationReasonPrivacyBody => 'We never track you in the background, and you can type the address instead.';
+
+  @override
+  String get allowLocation => 'Allow location';
+
+  @override
+  String get enterAddressManually => 'I\'ll enter my address instead';
+
+  @override
+  String get locationDenied => 'Location permission was declined. You can still drop the pin yourself.';
+
+  @override
+  String get locationDeniedForever => 'Location is blocked for Nexmile. Turn it on in Settings, or place the pin by hand.';
+
+  @override
+  String get locationServiceOff => 'Location is switched off on this device.';
+
+  @override
+  String get locationUnavailable => 'We could not get a location fix. Please place the pin yourself.';
+
+  @override
+  String get openSettings => 'Settings';
+
+  @override
+  String get pinLocationTitle => 'Set your delivery pin';
+
+  @override
+  String get deliveryRadiusHint => 'The circle shows the 1 km Nexmile delivers within.';
+
+  @override
+  String get useMyLocation => 'Use my location';
+
+  @override
+  String get deliveringHere => 'DELIVERING HERE';
+
+  @override
+  String get dragToAdjust => 'Drag the map to adjust the pin';
+
+  @override
+  String get confirmLocation => 'Confirm location';
+
+  @override
+  String get addressDetailsTitle => 'Address details';
+
+  @override
+  String get addressDetailsSubtitle => 'Add the flat and landmark so your rider reaches the right door.';
+
+  @override
+  String get pinnedLocation => 'Pinned location';
+
+  @override
+  String get changePin => 'Change';
+
+  @override
+  String get saveAddressAs => 'Save this address as';
+
+  @override
+  String get labelHome => 'Home';
+
+  @override
+  String get labelWork => 'Work';
+
+  @override
+  String get labelOther => 'Other';
+
+  @override
+  String get addressLine1Label => 'Flat, house or building';
+
+  @override
+  String get addressLine1Hint => '12A, Green Residency';
+
+  @override
+  String get addressLine2Label => 'Street or area';
+
+  @override
+  String get addressLine2Hint => '2nd Avenue, Anna Nagar';
+
+  @override
+  String get landmarkLabel => 'Landmark';
+
+  @override
+  String get landmarkHint => 'Opposite the bus stop';
+
+  @override
+  String get cityLabel => 'City';
+
+  @override
+  String get stateLabel => 'State';
+
+  @override
+  String get pincodeLabel => 'PIN code';
+
+  @override
+  String get invalidPincode => 'Enter a valid 6-digit PIN code';
+
+  @override
+  String get contactNameLabel => 'Contact name';
+
+  @override
+  String get contactPhoneLabel => 'Contact number';
+
+  @override
+  String get invalidMobileNumber => 'Enter a valid 10-digit mobile number';
+
+  @override
+  String get makeDefaultAddress => 'Deliver here by default';
+
+  @override
+  String get saveAddress => 'Save address';
+
+  @override
+  String get addressSaved => 'Address saved';
+
+  @override
+  String get addressBookTitle => 'Delivery addresses';
+
+  @override
+  String get manageAddresses => 'Manage saved addresses';
+
+  @override
+  String get noAddressesTitle => 'No addresses yet';
+
+  @override
+  String get noAddressesSubtitle => 'Add one so we can show the shops that deliver to you.';
+
+  @override
+  String get addAddress => 'Add address';
+
+  @override
+  String get setAsDefault => 'Set as default';
+
+  @override
+  String get editLabel => 'Edit';
+
+  @override
+  String get addressUpdated => 'Address updated';
+
+  @override
+  String get deleteLabel => 'Delete';
+
+  @override
+  String get deleteAddressTitle => 'Delete this address?';
+
+  @override
+  String get deleteAddressMessage => 'You can always add it again later.';
+
+  @override
+  String get rescueDealsTitle => 'Food Rescue';
+
+  @override
+  String get notTakingOrders => 'Not taking orders';
+
+  @override
+  String get closedRightNow => 'Closed right now';
+
+  @override
+  String minimumOrder(String amount) {
+    return 'Min $amount';
+  }
+
+  @override
+  String portionsLeft(int count) {
+    return '$count left';
+  }
+
+  @override
+  String get soldOut => 'Sold out';
+
+  @override
+  String get menuEmptyTitle => 'No dishes yet';
+
+  @override
+  String get menuEmptySubtitle => 'This restaurant has not added its menu.';
+
+  @override
+  String get moreDishesTitle => 'More dishes';
+
+  @override
+  String get customisable => 'Customisable';
+
+  @override
+  String get requiredLabel => 'Required';
+
+  @override
+  String get optionalLabel => 'Optional';
+
+  @override
+  String get chooseOne => 'Choose one';
+
+  @override
+  String chooseUpTo(int count) {
+    return 'Choose up to $count';
+  }
+
+  @override
+  String chooseAtLeast(int count) {
+    return 'Choose at least $count';
+  }
+
+  @override
+  String chooseBetween(int min, int max) {
+    return 'Choose $min to $max';
+  }
+
+  @override
+  String get specialInstructions => 'Special instructions';
+
+  @override
+  String get specialInstructionsHint => 'Less spicy, no onion…';
+
+  @override
+  String addForAmount(String amount) {
+    return 'Add · $amount';
+  }
+
+  @override
+  String get deliveryLabel => 'Delivery';
+
+  @override
+  String get pickupLabel => 'Pickup';
+
+  @override
+  String get packagingLabel => 'Packaging';
+
+  @override
+  String get discountLabel => 'Discount';
+
+  @override
+  String get billDetailsTitle => 'Bill details';
+
+  @override
+  String get clearCart => 'Clear cart';
+
+  @override
+  String get clearCartTitle => 'Clear this cart?';
+
+  @override
+  String get clearCartMessage => 'Everything in it will be removed.';
+
+  @override
+  String unavailableItemsNotice(String items) {
+    return 'No longer available: $items';
+  }
+
+  @override
+  String get removeUnavailable => 'Remove them';
+
+  @override
+  String minimumNotMet(String amount) {
+    return 'Minimum order is $amount';
+  }
+
+  @override
+  String get checkoutTitle => 'Checkout';
+
+  @override
+  String get deliveryAddressLabel => 'Delivery address';
+
+  @override
+  String get noAddressSelected => 'No address chosen';
+
+  @override
+  String get paymentMethodLabel => 'Payment';
+
+  @override
+  String get payOnDelivery => 'Cash on delivery';
+
+  @override
+  String get noteToRestaurant => 'Note for the restaurant';
+
+  @override
+  String get noteToRestaurantHint => 'Ring the bell twice…';
+
+  @override
+  String get activeOrdersTitle => 'In progress';
+
+  @override
+  String get pastOrdersTitle => 'Earlier';
+
+  @override
+  String get orderItemsTitle => 'Items';
+
+  @override
+  String get orderProgressTitle => 'Progress';
+
+  @override
+  String get arrivingIn => 'Arriving in';
+
+  @override
+  String get pickupCodeLabel => 'Pickup code';
+
+  @override
+  String get cancellationReasonLabel => 'Why it was cancelled';
+
+  @override
+  String get riderLabel => 'Delivery partner';
+
+  @override
+  String get callRider => 'Call';
+
+  @override
+  String get viewInvoice => 'Tax invoice';
+
+  @override
+  String get cancelOrder => 'Cancel order';
+
+  @override
+  String get cancelOrderTitle => 'Cancel this order?';
+
+  @override
+  String get cancelOrderMessage => 'You can only cancel before the restaurant accepts it.';
+
+  @override
+  String get cancelReasonLabel => 'Reason';
+
+  @override
+  String get cancelReasonFallback => 'Cancelled by the customer';
+
+  @override
+  String get orderCancelled => 'Order cancelled';
+
+  @override
+  String get currentLocationLabel => 'Current location';
 }

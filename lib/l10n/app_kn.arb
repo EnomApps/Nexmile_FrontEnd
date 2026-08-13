@@ -2,6 +2,7 @@
   "@@locale": "kn",
 
   "appName": "Nexmile",
+  "fieldRequired": "ಈ ಕ್ಷೇತ್ರ ಅಗತ್ಯವಿದೆ",
   "tagline": "ವೇಗದ ಡೆಲಿವರಿ. ತಾಜಾ ನಗು.",
   "chooseLanguageTitle": "ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
   "chooseLanguageSubtitle": "ನಿಮಗೆ ಅನುಕೂಲವಾದ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ. ಇದನ್ನು ಯಾವಾಗ ಬೇಕಾದರೂ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಬದಲಾಯಿಸಬಹುದು.",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "ತೆರಿಗೆ ಮತ್ತು ಶುಲ್ಕಗಳು",
   "freeLabel": "ಉಚಿತ",
   "toPay": "ಪಾವತಿಸಬೇಕಾದದ್ದು",
-  "placeOrderFor": "ಆರ್ಡರ್ ಮಾಡಿ · ₹{amount}",
+  "placeOrderFor": "ಆರ್ಡರ್ ಮಾಡಿ · {amount}",
   "ordersTitle": "ನಿಮ್ಮ ಆರ್ಡರ್‌ಗಳು",
   "ordersEmptyTitle": "ಇನ್ನೂ ಆರ್ಡರ್‌ಗಳಿಲ್ಲ",
   "ordersEmptySubtitle": "ನಿಮ್ಮ ಹಿಂದಿನ ಆರ್ಡರ್‌ಗಳು ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ.",
@@ -117,5 +118,173 @@
   "backToHome": "ಹೋಮ್‌ಗೆ ಹಿಂತಿರುಗಿ",
   "prototypeNotice": "ಮಾದರಿ ಸ್ಟೋರ್‌ಫ್ರಂಟ್ — ನಿಜವಾದ ಅಂಗಡಿಗಳು ಕ್ಯಾಟಲಾಗ್ API ಜೊತೆ ಬರುತ್ತವೆ.",
   "prototypeCheckoutNotice": "ಇದು ಪ್ರೊಟೊಟೈಪ್. ಯಾವುದೇ ಪಾವತಿ ಪಡೆಯುವುದಿಲ್ಲ ಮತ್ತು ನಿಜವಾದ ಆರ್ಡರ್ ಆಗುವುದಿಲ್ಲ.",
-  "prototypeTrackingNotice": "ಪ್ರೊಟೊಟೈಪ್‌ಗಾಗಿ ಟ್ರ್ಯಾಕಿಂಗ್ ಕೃತಕವಾಗಿದೆ."
+  "prototypeTrackingNotice": "ಪ್ರೊಟೊಟೈಪ್‌ಗಾಗಿ ಟ್ರ್ಯಾಕಿಂಗ್ ಕೃತಕವಾಗಿದೆ.",
+
+  "locationTitle": "ಎಲ್ಲಿಗೆ ಡೆಲಿವರಿ ಮಾಡಬೇಕು?",
+  "locationSubtitle": "Nexmile 1 ಕಿಮೀ ಒಳಗಿನ ಅಂಗಡಿಗಳಿಂದ ಮಾತ್ರ ಡೆಲಿವರಿ ಮಾಡುತ್ತದೆ, ಹಾಗಾಗಿ ನಿಮ್ಮ ನಿಖರ ಸ್ಥಳ ಬೇಕು.",
+  "locationReasonRadiusTitle": "1 ಕಿಮೀ ಒಳಗಿನ ಅಂಗಡಿಗಳು",
+  "locationReasonRadiusBody": "ಬಿಸಿಯಾಗಿ ತಲುಪಬಲ್ಲ ಅಡುಗೆಮನೆಗಳನ್ನು ಮಾತ್ರ ತೋರಿಸುತ್ತೇವೆ.",
+  "locationReasonAccuracyTitle": "ಸರಿಯಾದ ಬಾಗಿಲಿಗೆ",
+  "locationReasonAccuracyBody": "ನಿಖರ ಪಿನ್ ಇದ್ದರೆ ಡೆಲಿವರಿ ಪಾಲುದಾರರು ಕರೆ ಮಾಡದೆ ನಿಮ್ಮನ್ನು ತಲುಪುತ್ತಾರೆ.",
+  "locationReasonPrivacyTitle": "ಆ್ಯಪ್ ಬಳಸುವಾಗ ಮಾತ್ರ",
+  "locationReasonPrivacyBody": "ಹಿನ್ನೆಲೆಯಲ್ಲಿ ನಿಮ್ಮನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುವುದಿಲ್ಲ, ವಿಳಾಸವನ್ನು ನೀವೇ ಟೈಪ್ ಮಾಡಬಹುದು.",
+  "allowLocation": "ಸ್ಥಳಕ್ಕೆ ಅನುಮತಿ ನೀಡಿ",
+  "enterAddressManually": "ನಾನೇ ವಿಳಾಸ ಬರೆಯುತ್ತೇನೆ",
+  "locationDenied": "ಸ್ಥಳದ ಅನುಮತಿ ನಿರಾಕರಿಸಲಾಗಿದೆ. ನೀವೇ ಪಿನ್ ಇಡಬಹುದು.",
+  "locationDeniedForever": "Nexmile ಗೆ ಸ್ಥಳ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ. ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಆನ್ ಮಾಡಿ ಅಥವಾ ಪಿನ್ ನೀವೇ ಇಡಿ.",
+  "locationServiceOff": "ಈ ಸಾಧನದಲ್ಲಿ ಸ್ಥಳ ಆಫ್ ಆಗಿದೆ.",
+  "locationUnavailable": "ಸ್ಥಳ ಸಿಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಪಿನ್ ನೀವೇ ಇಡಿ.",
+  "openSettings": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+
+  "pinLocationTitle": "ನಿಮ್ಮ ಡೆಲಿವರಿ ಪಿನ್ ಇಡಿ",
+  "deliveryRadiusHint": "Nexmile ಡೆಲಿವರಿ ಮಾಡುವ 1 ಕಿಮೀ ವ್ಯಾಪ್ತಿಯನ್ನು ವೃತ್ತ ತೋರಿಸುತ್ತದೆ.",
+  "useMyLocation": "ನನ್ನ ಸ್ಥಳ ಬಳಸಿ",
+  "deliveringHere": "ಇಲ್ಲಿಗೆ ಡೆಲಿವರಿ",
+  "dragToAdjust": "ಪಿನ್ ಸರಿಪಡಿಸಲು ನಕ್ಷೆಯನ್ನು ಎಳೆಯಿರಿ",
+  "confirmLocation": "ಸ್ಥಳ ಖಚಿತಪಡಿಸಿ",
+
+  "addressDetailsTitle": "ವಿಳಾಸದ ವಿವರಗಳು",
+  "addressDetailsSubtitle": "ಸರಿಯಾದ ಬಾಗಿಲು ತಲುಪಲು ಮನೆ ಸಂಖ್ಯೆ ಮತ್ತು ಗುರುತು ಸೇರಿಸಿ.",
+  "pinnedLocation": "ಗುರುತಿಸಿದ ಸ್ಥಳ",
+  "changePin": "ಬದಲಾಯಿಸಿ",
+  "saveAddressAs": "ಈ ವಿಳಾಸವನ್ನು ಹೀಗೆ ಉಳಿಸಿ",
+  "labelHome": "ಮನೆ",
+  "labelWork": "ಕಚೇರಿ",
+  "labelOther": "ಇತರೆ",
+  "addressLine1Label": "ಮನೆ, ಫ್ಲ್ಯಾಟ್ ಅಥವಾ ಕಟ್ಟಡ",
+  "addressLine1Hint": "12A, ಗ್ರೀನ್ ರೆಸಿಡೆನ್ಸಿ",
+  "addressLine2Label": "ರಸ್ತೆ ಅಥವಾ ಪ್ರದೇಶ",
+  "addressLine2Hint": "2ನೇ ಅವೆನ್ಯೂ, ಅಣ್ಣಾ ನಗರ",
+  "landmarkLabel": "ಗುರುತು",
+  "landmarkHint": "ಬಸ್ ನಿಲ್ದಾಣದ ಎದುರು",
+  "cityLabel": "ನಗರ",
+  "stateLabel": "ರಾಜ್ಯ",
+  "pincodeLabel": "ಪಿನ್ ಕೋಡ್",
+  "invalidPincode": "ಸರಿಯಾದ 6 ಅಂಕಿಯ ಪಿನ್ ಕೋಡ್ ನಮೂದಿಸಿ",
+  "contactNameLabel": "ಸಂಪರ್ಕ ಹೆಸರು",
+  "contactPhoneLabel": "ಸಂಪರ್ಕ ಸಂಖ್ಯೆ",
+  "invalidMobileNumber": "ಸರಿಯಾದ 10 ಅಂಕಿಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ",
+  "makeDefaultAddress": "ಡೀಫಾಲ್ಟ್ ಆಗಿ ಇಲ್ಲಿಗೇ ಡೆಲಿವರಿ",
+  "saveAddress": "ವಿಳಾಸ ಉಳಿಸಿ",
+  "addressSaved": "ವಿಳಾಸ ಉಳಿಸಲಾಗಿದೆ",
+
+  "addressBookTitle": "ಡೆಲಿವರಿ ವಿಳಾಸಗಳು",
+  "manageAddresses": "ಉಳಿಸಿದ ವಿಳಾಸಗಳನ್ನು ನಿರ್ವಹಿಸಿ",
+  "noAddressesTitle": "ಇನ್ನೂ ವಿಳಾಸಗಳಿಲ್ಲ",
+  "noAddressesSubtitle": "ನಿಮಗೆ ಡೆಲಿವರಿ ಮಾಡುವ ಅಂಗಡಿಗಳನ್ನು ತೋರಿಸಲು ಒಂದು ವಿಳಾಸ ಸೇರಿಸಿ.",
+  "addAddress": "ವಿಳಾಸ ಸೇರಿಸಿ",
+  "setAsDefault": "ಡೀಫಾಲ್ಟ್ ಮಾಡಿ",
+  "editLabel": "ಸಂಪಾದಿಸಿ",
+  "addressUpdated": "ವಿಳಾಸ ನವೀಕರಿಸಲಾಗಿದೆ",
+  "deleteLabel": "ಅಳಿಸಿ",
+  "deleteAddressTitle": "ಈ ವಿಳಾಸ ಅಳಿಸಬೇಕೇ?",
+  "deleteAddressMessage": "ನೀವು ನಂತರ ಮತ್ತೆ ಸೇರಿಸಬಹುದು.",
+
+  "rescueDealsTitle": "ಫುಡ್ ರೆಸ್ಕ್ಯೂ",
+
+  "notTakingOrders": "ಆರ್ಡರ್ ಸ್ವೀಕರಿಸುತ್ತಿಲ್ಲ",
+
+  "closedRightNow": "ಈಗ ಮುಚ್ಚಿದೆ",
+
+  "minimumOrder": "ಕನಿಷ್ಠ {amount}",
+
+  "portionsLeft": "{count} ಉಳಿದಿವೆ",
+
+  "soldOut": "ಮುಗಿದಿದೆ",
+
+  "menuEmptyTitle": "ಇನ್ನೂ ಖಾದ್ಯಗಳಿಲ್ಲ",
+
+  "menuEmptySubtitle": "ಈ ರೆಸ್ಟೋರೆಂಟ್ ತನ್ನ ಮೆನು ಸೇರಿಸಿಲ್ಲ.",
+
+  "moreDishesTitle": "ಇನ್ನಷ್ಟು ಖಾದ್ಯಗಳು",
+
+  "customisable": "ಇಷ್ಟದಂತೆ",
+
+  "requiredLabel": "ಕಡ್ಡಾಯ",
+
+  "optionalLabel": "ಐಚ್ಛಿಕ",
+
+  "chooseOne": "ಒಂದನ್ನು ಆಯ್ಕೆ ಮಾಡಿ",
+
+  "chooseUpTo": "ಗರಿಷ್ಠ {count} ಆಯ್ಕೆ ಮಾಡಿ",
+
+  "chooseAtLeast": "ಕನಿಷ್ಠ {count} ಆಯ್ಕೆ ಮಾಡಿ",
+
+  "chooseBetween": "{min} ರಿಂದ {max} ಆಯ್ಕೆ ಮಾಡಿ",
+
+  "specialInstructions": "ವಿಶೇಷ ಸೂಚನೆಗಳು",
+
+  "specialInstructionsHint": "ಕಡಿಮೆ ಖಾರ, ಈರುಳ್ಳಿ ಬೇಡ…",
+
+  "addForAmount": "ಸೇರಿಸಿ · {amount}",
+
+  "deliveryLabel": "ಡೆಲಿವರಿ",
+
+  "pickupLabel": "ಸ್ವತಃ ತೆಗೆದುಕೊಳ್ಳುವುದು",
+
+  "packagingLabel": "ಪ್ಯಾಕಿಂಗ್",
+
+  "discountLabel": "ರಿಯಾಯಿತಿ",
+
+  "billDetailsTitle": "ಬಿಲ್ ವಿವರ",
+
+  "clearCart": "ಕಾರ್ಟ್ ಖಾಲಿ ಮಾಡಿ",
+
+  "clearCartTitle": "ಈ ಕಾರ್ಟ್ ಖಾಲಿ ಮಾಡಬೇಕೆ?",
+
+  "clearCartMessage": "ಅದರಲ್ಲಿರುವ ಎಲ್ಲವನ್ನೂ ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ.",
+
+  "unavailableItemsNotice": "ಈಗ ಲಭ್ಯವಿಲ್ಲ: {items}",
+
+  "removeUnavailable": "ಅವುಗಳನ್ನು ತೆಗೆದುಹಾಕಿ",
+
+  "minimumNotMet": "ಕನಿಷ್ಠ ಆರ್ಡರ್ {amount}",
+
+  "checkoutTitle": "ಚೆಕ್‌ಔಟ್",
+
+  "deliveryAddressLabel": "ಡೆಲಿವರಿ ವಿಳಾಸ",
+
+  "noAddressSelected": "ವಿಳಾಸ ಆಯ್ಕೆಯಾಗಿಲ್ಲ",
+
+  "paymentMethodLabel": "ಪಾವತಿ",
+
+  "payOnDelivery": "ಡೆಲಿವರಿ ಸಮಯದಲ್ಲಿ ನಗದು",
+
+  "noteToRestaurant": "ರೆಸ್ಟೋರೆಂಟ್‌ಗೆ ಟಿಪ್ಪಣಿ",
+
+  "noteToRestaurantHint": "ಬೆಲ್ ಎರಡು ಬಾರಿ ಬಾರಿಸಿ…",
+
+  "activeOrdersTitle": "ನಡೆಯುತ್ತಿರುವ ಆರ್ಡರ್",
+
+  "pastOrdersTitle": "ಹಿಂದಿನ ಆರ್ಡರ್",
+
+  "orderItemsTitle": "ಖಾದ್ಯಗಳು",
+
+  "orderProgressTitle": "ಪ್ರಗತಿ",
+
+  "arrivingIn": "ತಲುಪಲು",
+
+  "pickupCodeLabel": "ಪಿಕಪ್ ಕೋಡ್",
+
+  "cancellationReasonLabel": "ರದ್ದಾದ ಕಾರಣ",
+
+  "riderLabel": "ಡೆಲಿವರಿ ಪಾರ್ಟನರ್",
+
+  "callRider": "ಕರೆ ಮಾಡಿ",
+
+  "viewInvoice": "ತೆರಿಗೆ ಇನ್‌ವಾಯ್ಸ್",
+
+  "cancelOrder": "ಆರ್ಡರ್ ರದ್ದುಗೊಳಿಸಿ",
+
+  "cancelOrderTitle": "ಈ ಆರ್ಡರ್ ರದ್ದುಗೊಳಿಸಬೇಕೆ?",
+
+  "cancelOrderMessage": "ರೆಸ್ಟೋರೆಂಟ್ ಸ್ವೀಕರಿಸುವ ಮೊದಲು ಮಾತ್ರ ರದ್ದುಗೊಳಿಸಬಹುದು.",
+
+  "cancelReasonLabel": "ಕಾರಣ",
+
+  "cancelReasonFallback": "ಗ್ರಾಹಕರು ರದ್ದುಗೊಳಿಸಿದ್ದಾರೆ",
+
+  "orderCancelled": "ಆರ್ಡರ್ ರದ್ದಾಗಿದೆ",
+
+  "currentLocationLabel": "ಪ್ರಸ್ತುತ ಸ್ಥಳ"
 }

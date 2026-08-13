@@ -3,24 +3,37 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../generated/l10n/app_localizations.dart';
-import '../../data/catalogue_models.dart';
+import '../../data/storefront_models.dart';
 
-/// Rupee amounts. Always left-to-right — a price reads the same way in every
-/// language, and mirroring "₹249" would be wrong in Urdu.
+/// Formats rupees the way a bill does: no decimals when the amount is whole,
+/// two when it is not. `₹249` and `₹249.50` both read correctly; `₹249.00`
+/// looks like a spreadsheet.
+String formatRupees(double amount) {
+  final bool isWhole = amount == amount.roundToDouble();
+  return '₹${isWhole ? amount.round() : amount.toStringAsFixed(2)}';
+}
+
+/// Always left-to-right — a price reads the same way in every language, and
+/// mirroring "₹249" would be wrong in Urdu.
 class Rupees extends StatelessWidget {
-  const Rupees(this.amount, {super.key, this.style});
+  const Rupees(this.amount, {super.key, this.style, this.struck = false});
 
-  final int amount;
+  final double amount;
   final TextStyle? style;
+
+  /// Renders struck through, for a compare-at price.
+  final bool struck;
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      '₹$amount',
+      formatRupees(amount),
       textDirection: TextDirection.ltr,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
-      style: style,
+      style: (style ?? const TextStyle()).copyWith(
+        decoration: struck ? TextDecoration.lineThrough : null,
+      ),
     );
   }
 }
@@ -57,91 +70,47 @@ class VegMark extends StatelessWidget {
   }
 }
 
-/// Rating chip. Green above 4.0, amber below — the convention customers
-/// already read without thinking.
-class RatingPill extends StatelessWidget {
-  const RatingPill({super.key, required this.rating, this.compact = false});
-
-  final double rating;
-  final bool compact;
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    final Color base =
-        rating >= 4.0 ? const Color(0xFF0F8A0F) : AppColors.orangeDeep;
-
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: compact ? 6 : 8,
-        vertical: compact ? 2 : 3,
-      ),
-      decoration: BoxDecoration(
-        color: base,
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Icon(Icons.star_rounded, size: compact ? 12 : 14, color: Colors.white),
-          const SizedBox(width: 2),
-          Text(
-            rating.toStringAsFixed(1),
-            textDirection: TextDirection.ltr,
-            style: (compact
-                    ? theme.textTheme.labelSmall
-                    : theme.textTheme.labelMedium)
-                ?.copyWith(color: Colors.white, fontWeight: FontWeight.w700),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-/// Stands in for food photography.
+/// Remote image with a branded fallback.
 ///
-/// The prototype ships no images, so each dish or restaurant gets its emoji on
-/// a brand-tinted gradient. Deterministic per id, so the same restaurant always
-/// looks the same, and no network image loads are involved.
+/// Image URLs from the API are signed and expiring, so a broken link is a
+/// normal event rather than a bug — it falls back to an emoji on a brand
+/// gradient, keyed off the id so the same shop always looks the same.
 class FoodImage extends StatelessWidget {
   const FoodImage({
     super.key,
-    required this.emoji,
     required this.seed,
+    this.url,
+    this.emoji = '🍽️',
     this.size = 96,
     this.radius = 16,
   });
 
-  final String emoji;
   final String seed;
+  final String? url;
+  final String emoji;
   final double size;
   final double radius;
 
-  static const List<List<Color>> _palettes = <List<Color>>[
+  static const List<List<Color>> _light = <List<Color>>[
     <Color>[Color(0xFFE8F5D8), Color(0xFFCDE9A8)],
     <Color>[Color(0xFFFFE9D6), Color(0xFFFFD0A8)],
     <Color>[Color(0xFFE4F1E1), Color(0xFFBFE0C4)],
     <Color>[Color(0xFFFFF1D6), Color(0xFFFFE0A3)],
-    <Color>[Color(0xFFE7F0DA), Color(0xFFC7E3B0)],
   ];
-
-  static const List<List<Color>> _palettesDark = <List<Color>>[
+  static const List<List<Color>> _dark = <List<Color>>[
     <Color>[Color(0xFF1E2A14), Color(0xFF2C3D1B)],
     <Color>[Color(0xFF2E2013), Color(0xFF3E2A16)],
     <Color>[Color(0xFF17251A), Color(0xFF213525)],
     <Color>[Color(0xFF2C2413), Color(0xFF3A301A)],
-    <Color>[Color(0xFF1C2716), Color(0xFF29371F)],
   ];
 
   @override
   Widget build(BuildContext context) {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
-    final int index = seed.hashCode.abs() % _palettes.length;
     final List<Color> colors =
-        isDark ? _palettesDark[index] : _palettes[index];
+        (isDark ? _dark : _light)[seed.hashCode.abs() % _light.length];
 
-    return Container(
+    final Widget fallback = Container(
       width: size,
       height: size,
       alignment: Alignment.center,
@@ -153,16 +122,154 @@ class FoodImage extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(radius),
       ),
+      // The banner passes an infinite size to fill its slot, which would make
+      // the emoji's font size infinite too.
       child: Text(
         emoji,
-        style: TextStyle(fontSize: size * 0.42),
-        textAlign: TextAlign.center,
+        style: TextStyle(fontSize: size.isFinite ? size * 0.42 : 48),
+      ),
+    );
+
+    final String? src = url;
+    if (src == null || src.isEmpty) return fallback;
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(radius),
+      child: Image.network(
+        src,
+        width: size,
+        height: size,
+        fit: BoxFit.cover,
+        errorBuilder: (_, __, ___) => fallback,
+        loadingBuilder: (BuildContext context, Widget child,
+            ImageChunkEvent? progress) {
+          if (progress == null) return child;
+          return fallback;
+        },
       ),
     );
   }
 }
 
-/// Section heading used down the home tab and the menu.
+/// One line of a bill, on both the cart and the order screens.
+class BillRow extends StatelessWidget {
+  const BillRow({
+    super.key,
+    required this.label,
+    required this.amount,
+    this.freeLabel,
+    this.highlight = false,
+    this.emphasis = false,
+  });
+
+  final String label;
+  final double amount;
+
+  /// Shown instead of the amount when the charge was waived — "₹0" hides the
+  /// fact that free delivery was earned.
+  final String? freeLabel;
+
+  /// Green, for a discount.
+  final bool highlight;
+
+  /// The total row.
+  final bool emphasis;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final TextStyle? style = emphasis
+        ? theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800)
+        : theme.textTheme.bodyMedium?.copyWith(
+            color: highlight ? const Color(0xFF0F8A0F) : null,
+          );
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Row(
+        children: <Widget>[
+          Expanded(child: Text(label, style: style)),
+          const SizedBox(width: 12),
+          if (freeLabel != null)
+            Text(
+              freeLabel!,
+              style: style?.copyWith(
+                color: const Color(0xFF0F8A0F),
+                fontWeight: FontWeight.w700,
+              ),
+            )
+          else
+            Rupees(amount, style: style),
+        ],
+      ),
+    );
+  }
+}
+
+/// Says *why* a shop is shut. "Closed for the night" and "not taking orders"
+/// are different messages, and only one of them is worth waiting for.
+class ClosedNotice extends StatelessWidget {
+  const ClosedNotice({super.key, required this.restaurant, this.compact = false});
+
+  final Restaurant restaurant;
+  final bool compact;
+
+  @override
+  Widget build(BuildContext context) {
+    if (restaurant.isOpen) return const SizedBox.shrink();
+
+    final ThemeData theme = Theme.of(context);
+    final AppLocalizations l10n = AppLocalizations.of(context);
+    final String message = restaurant.withinOperatingHours
+        ? l10n.notTakingOrders
+        : l10n.closedRightNow;
+
+    if (compact) {
+      return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.error.withValues(alpha: 0.12),
+          borderRadius: BorderRadius.circular(6),
+        ),
+        child: Text(
+          message,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: theme.textTheme.labelSmall?.copyWith(
+            color: theme.colorScheme.error,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      );
+    }
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.error.withValues(alpha: 0.10),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: theme.colorScheme.error.withValues(alpha: 0.35),
+        ),
+      ),
+      child: Row(
+        children: <Widget>[
+          Icon(Icons.schedule_rounded,
+              size: 18, color: theme.colorScheme.error),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              message,
+              style: theme.textTheme.bodySmall
+                  ?.copyWith(color: theme.colorScheme.error),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class SectionHeader extends StatelessWidget {
   const SectionHeader({super.key, required this.title, this.trailing});
 
@@ -179,158 +286,11 @@ class SectionHeader extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: theme.textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w800,
-              ),
+              style: theme.textTheme.titleLarge
+                  ?.copyWith(fontWeight: FontWeight.w800),
             ),
           ),
           if (trailing != null) trailing!,
-        ],
-      ),
-    );
-  }
-}
-
-/// Circular category shortcut.
-class CategoryTile extends StatelessWidget {
-  const CategoryTile({
-    super.key,
-    required this.category,
-    required this.isSelected,
-    required this.onTap,
-  });
-
-  final FoodCategory category;
-  final bool isSelected;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    final bool isDark = theme.brightness == Brightness.dark;
-    final Color accent = isDark ? AppColors.greenLight : AppColors.greenDeep;
-
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(16),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-        child: SizedBox(
-          width: 76,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 160),
-                width: 62,
-                height: 62,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: isSelected
-                      ? accent.withValues(alpha: isDark ? 0.22 : 0.14)
-                      : theme.colorScheme.surfaceContainerLow,
-                  border: Border.all(
-                    color: isSelected ? accent : theme.colorScheme.outline,
-                    width: isSelected ? 2 : 1,
-                  ),
-                ),
-                child: Text(
-                  category.emoji,
-                  style: const TextStyle(fontSize: 26),
-                ),
-              ),
-              const SizedBox(height: 6),
-              // Category names are sample content, so they stay left-to-right
-              // and shrink rather than wrap.
-              SizedBox(
-                height: 30,
-                child: Center(
-                  child: Text(
-                    category.name,
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.labelSmall?.copyWith(
-                      color: isSelected ? accent : theme.colorScheme.onSurface,
-                      fontWeight:
-                          isSelected ? FontWeight.w700 : FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-/// Promo card in the offers carousel.
-class OfferCard extends StatelessWidget {
-  const OfferCard({super.key, required this.offer});
-
-  final Offer offer;
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-
-    return Container(
-      width: 250,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: <Color>[AppColors.greenDeep, Color(0xFF1E6B08)],
-        ),
-        borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            alignment: AlignmentDirectional.centerStart,
-            child: Text(
-              offer.title,
-              maxLines: 1,
-              style: theme.textTheme.headlineSmall?.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.w800,
-              ),
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            offer.subtitle,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: Colors.white.withValues(alpha: 0.9),
-            ),
-          ),
-          const SizedBox(height: 12),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.18),
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.35)),
-            ),
-            child: Text(
-              offer.code,
-              textDirection: TextDirection.ltr,
-              style: theme.textTheme.labelMedium?.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.w800,
-                letterSpacing: 1,
-              ),
-            ),
-          ),
         ],
       ),
     );
@@ -370,40 +330,15 @@ class RestaurantCard extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Stack(
-                  children: <Widget>[
-                    FoodImage(
-                      emoji: restaurant.emoji,
-                      seed: restaurant.id,
-                      size: 92,
-                    ),
-                    if (restaurant.offerPercent != null)
-                      Positioned(
-                        left: 0,
-                        bottom: 0,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 6,
-                            vertical: 3,
-                          ),
-                          decoration: const BoxDecoration(
-                            color: AppColors.orangeDeep,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(16),
-                              topRight: Radius.circular(8),
-                            ),
-                          ),
-                          child: Text(
-                            l10n.percentOff(restaurant.offerPercent!),
-                            maxLines: 1,
-                            style: theme.textTheme.labelSmall?.copyWith(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                        ),
-                      ),
-                  ],
+                // A shut shop is dimmed rather than hidden — customers look
+                // for a favourite by name even when it is closed.
+                Opacity(
+                  opacity: restaurant.isOpen ? 1 : 0.55,
+                  child: FoodImage(
+                    seed: restaurant.id,
+                    url: restaurant.logoUrl,
+                    size: 92,
+                  ),
                 ),
                 const SizedBox(width: 14),
                 Expanded(
@@ -411,73 +346,52 @@ class RestaurantCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Text(
-                              restaurant.name,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: theme.textTheme.titleMedium?.copyWith(
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ),
-                          if (restaurant.isPureVeg) ...<Widget>[
-                            const SizedBox(width: 6),
-                            const VegMark(isVeg: true, size: 15),
-                          ],
-                        ],
+                      Text(
+                        restaurant.name,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.titleMedium
+                            ?.copyWith(fontWeight: FontWeight.w700),
                       ),
                       const SizedBox(height: 4),
-                      Row(
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 4,
+                        crossAxisAlignment: WrapCrossAlignment.center,
                         children: <Widget>[
-                          RatingPill(rating: restaurant.rating, compact: true),
-                          const SizedBox(width: 8),
-                          Flexible(
-                            child: Text(
-                              l10n.minutesAway(restaurant.deliveryMinutes),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
+                          Text(
+                            l10n.minutesAway(restaurant.avgPrepTimeMinutes),
+                            style: theme.textTheme.bodySmall,
+                          ),
+                          if (restaurant.distanceKmLabel != null)
+                            Text(
+                              l10n.kilometresAway(restaurant.distanceKmLabel!),
                               style: theme.textTheme.bodySmall,
                             ),
-                          ),
+                          if (!restaurant.isOpen)
+                            ClosedNotice(restaurant: restaurant, compact: true),
                         ],
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        restaurant.cuisines.join(' · '),
+                        restaurant.area.isEmpty
+                            ? restaurant.serviceCategory
+                            : '${restaurant.serviceCategory} · ${restaurant.area}',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: theme.textTheme.bodySmall,
                       ),
-                      const SizedBox(height: 2),
-                      Row(
-                        children: <Widget>[
-                          Flexible(
-                            child: Text(
-                              l10n.priceForTwo(restaurant.priceForTwo),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: theme.textTheme.bodySmall,
-                            ),
+                      if (restaurant.minOrderValue > 0) ...<Widget>[
+                        const SizedBox(height: 2),
+                        Text(
+                          l10n.minimumOrder(
+                            formatRupees(restaurant.minOrderValue),
                           ),
-                          if (restaurant.freeDelivery) ...<Widget>[
-                            const SizedBox(width: 8),
-                            Flexible(
-                              child: Text(
-                                l10n.freeDelivery,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: theme.textTheme.labelSmall?.copyWith(
-                                  color: AppColors.greenDeep,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ],
-                      ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.bodySmall,
+                        ),
+                      ],
                     ],
                   ),
                 ),
@@ -490,18 +404,20 @@ class RestaurantCard extends StatelessWidget {
   }
 }
 
-/// ADD button / quantity stepper on a dish row.
+/// ADD button / quantity stepper.
 class QuantityControl extends StatelessWidget {
   const QuantityControl({
     super.key,
     required this.quantity,
     required this.onAdd,
     required this.onRemove,
+    this.enabled = true,
   });
 
   final int quantity;
   final VoidCallback onAdd;
   final VoidCallback onRemove;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
@@ -515,7 +431,7 @@ class QuantityControl extends StatelessWidget {
         width: 104,
         height: 38,
         child: OutlinedButton(
-          onPressed: onAdd,
+          onPressed: enabled ? onAdd : null,
           style: OutlinedButton.styleFrom(
             foregroundColor: accent,
             side: BorderSide(color: accent, width: 1.4),
@@ -540,35 +456,38 @@ class QuantityControl extends StatelessWidget {
       );
     }
 
-    return Container(
-      width: 104,
-      height: 38,
-      decoration: BoxDecoration(
-        color: accent,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          _StepperButton(
-            icon: Icons.remove_rounded,
-            onTap: onRemove,
-            foreground: isDark ? AppColors.black : Colors.white,
-          ),
-          Text(
-            '$quantity',
-            textDirection: TextDirection.ltr,
-            style: theme.textTheme.titleMedium?.copyWith(
-              color: isDark ? AppColors.black : Colors.white,
-              fontWeight: FontWeight.w800,
+    return Opacity(
+      opacity: enabled ? 1 : 0.5,
+      child: Container(
+        width: 104,
+        height: 38,
+        decoration: BoxDecoration(
+          color: accent,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            _StepperButton(
+              icon: Icons.remove_rounded,
+              onTap: enabled ? onRemove : null,
+              foreground: isDark ? AppColors.black : Colors.white,
             ),
-          ),
-          _StepperButton(
-            icon: Icons.add_rounded,
-            onTap: onAdd,
-            foreground: isDark ? AppColors.black : Colors.white,
-          ),
-        ],
+            Text(
+              '$quantity',
+              textDirection: TextDirection.ltr,
+              style: theme.textTheme.titleMedium?.copyWith(
+                color: isDark ? AppColors.black : Colors.white,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+            _StepperButton(
+              icon: Icons.add_rounded,
+              onTap: enabled ? onAdd : null,
+              foreground: isDark ? AppColors.black : Colors.white,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -582,7 +501,7 @@ class _StepperButton extends StatelessWidget {
   });
 
   final IconData icon;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final Color foreground;
 
   @override
@@ -599,7 +518,6 @@ class _StepperButton extends StatelessWidget {
   }
 }
 
-/// Empty-state block reused by the cart, search and orders.
 class EmptyState extends StatelessWidget {
   const EmptyState({
     super.key,
@@ -624,17 +542,11 @@ class EmptyState extends StatelessWidget {
         children: <Widget>[
           Text(emoji, style: const TextStyle(fontSize: 52)),
           const SizedBox(height: 16),
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: theme.textTheme.titleLarge,
-          ),
+          Text(title,
+              textAlign: TextAlign.center, style: theme.textTheme.titleLarge),
           const SizedBox(height: 8),
-          Text(
-            subtitle,
-            textAlign: TextAlign.center,
-            style: theme.textTheme.bodyMedium,
-          ),
+          Text(subtitle,
+              textAlign: TextAlign.center, style: theme.textTheme.bodyMedium),
           if (action != null) ...<Widget>[
             const SizedBox(height: 20),
             action!,
@@ -645,43 +557,101 @@ class EmptyState extends StatelessWidget {
   }
 }
 
-/// Banner making it unmistakable that the storefront is not real data yet.
-class PrototypeNotice extends StatelessWidget {
-  const PrototypeNotice({super.key});
+/// Food Rescue card: surplus food, discounted, and racing a clock.
+class RescueDealCard extends StatelessWidget {
+  const RescueDealCard({super.key, required this.deal, required this.onTap});
+
+  final RescueDeal deal;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations l10n = AppLocalizations.of(context);
 
-    return Container(
-      margin: const EdgeInsets.fromLTRB(20, 0, 20, 4),
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
-      decoration: BoxDecoration(
-        color: AppColors.orangeDeep.withValues(alpha: 0.10),
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: AppColors.orangeDeep.withValues(alpha: 0.30),
-        ),
-      ),
-      child: Row(
-        children: <Widget>[
-          const Icon(
-            Icons.construction_rounded,
-            size: 16,
-            color: AppColors.orangeDeep,
-          ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Text(
-              l10n.prototypeNotice,
-              style: theme.textTheme.labelSmall?.copyWith(
-                color: AppColors.orangeDeep,
-                fontWeight: FontWeight.w600,
+    return SizedBox(
+      width: 230,
+      child: Material(
+        color: theme.colorScheme.surfaceContainerLow,
+        borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
+          child: Ink(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
+              border: Border.all(color: theme.colorScheme.outline),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      FoodImage(
+                        seed: deal.id,
+                        url: deal.imageUrl,
+                        emoji: '♻️',
+                        size: 46,
+                        radius: 12,
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          deal.itemName,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.titleSmall
+                              ?.copyWith(fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    deal.restaurantName,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.bodySmall,
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: <Widget>[
+                      Rupees(
+                        deal.price,
+                        style: theme.textTheme.titleSmall
+                            ?.copyWith(fontWeight: FontWeight.w800),
+                      ),
+                      if (deal.compareAtPrice != null) ...<Widget>[
+                        const SizedBox(width: 6),
+                        Flexible(
+                          child: Rupees(
+                            deal.compareAtPrice!,
+                            struck: true,
+                            style: theme.textTheme.bodySmall,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  // A rescue deal is a race; the count is the whole point.
+                  Text(
+                    l10n.portionsLeft(deal.portionsLeft),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      color: AppColors.orangeDeep,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
-        ],
+        ),
       ),
     );
   }

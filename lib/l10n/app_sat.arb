@@ -2,6 +2,7 @@
   "@@locale": "sat",
 
   "appName": "Nexmile",
+  "fieldRequired": "ᱱᱚᱶᱟ ᱠᱷᱟᱱᱟ ᱫᱟᱨᱠᱟᱨᱟ",
   "tagline": "ᱞᱚᱜᱚᱱ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ᱾ ᱱᱟᱶᱟ ᱞᱟᱸᱰᱟ᱾",
   "chooseLanguageTitle": "ᱟᱢᱟᱜ ᱯᱟᱹᱨᱥᱤ ᱵᱟᱪᱷᱟᱣ ᱢᱮ",
   "chooseLanguageSubtitle": "ᱟᱢ ᱡᱟᱦᱟᱸ ᱯᱟᱹᱨᱥᱤ ᱨᱮ ᱥᱩᱦᱩᱞ ᱟᱢ ᱚᱱᱟ ᱵᱟᱪᱷᱟᱣ ᱢᱮ᱾ ᱟᱢ ᱱᱚᱶᱟ ᱡᱟᱦᱟᱸ ᱚᱠᱛᱚ ᱥᱮᱴᱤᱝᱥ ᱨᱮ ᱵᱚᱫᱚᱞ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "ᱠᱷᱟᱡᱱᱟ ᱟᱨ ᱠᱷᱚᱨᱚᱡ",
   "freeLabel": "ᱯᱷᱨᱤ",
   "toPay": "ᱮᱢ ᱞᱟᱹᱠᱛᱤ",
-  "placeOrderFor": "ᱚᱰᱟᱨ ᱢᱮ · ₹{amount}",
+  "placeOrderFor": "ᱚᱰᱟᱨ ᱢᱮ · {amount}",
   "ordersTitle": "ᱟᱢᱟᱜ ᱚᱰᱟᱨ",
   "ordersEmptyTitle": "ᱦᱟᱲᱮ ᱡᱟᱦᱟᱸ ᱚᱰᱟᱨ ᱵᱟᱝᱟ",
   "ordersEmptySubtitle": "ᱟᱢᱟᱜ ᱢᱟᱲᱟᱝ ᱚᱰᱟᱨ ᱠᱚ ᱱᱚᱰᱮ ᱩᱫᱩᱜᱚᱜ-ᱟ᱾",
@@ -117,5 +118,173 @@
   "backToHome": "ᱚᱲᱟᱜ ᱛᱮ ᱨᱩᱣᱟᱲ",
   "prototypeNotice": "ᱱᱟᱡᱩᱱᱟ ᱦᱚᱴᱮᱞ ᱞᱤᱥᱴᱤ — ᱴᱷᱤᱠ ᱫᱳᱠᱟᱱ ᱠᱚ ᱠᱮᱴᱟᱞᱚᱜ API ᱥᱟᱶ ᱦᱮᱡᱚᱜ-ᱟ᱾",
   "prototypeCheckoutNotice": "ᱱᱚᱶᱟ ᱢᱤᱫ ᱯᱨᱚᱴᱚᱴᱟᱭᱤᱯ ᱠᱟᱱᱟ᱾ ᱡᱟᱦᱟᱸ ᱴᱟᱠᱟ ᱵᱟᱝ ᱦᱟᱛᱟᱣᱚᱜ-ᱟ ᱟᱨ ᱴᱷᱤᱠ ᱚᱰᱟᱨ ᱦᱚᱸ ᱵᱟᱝ ᱦᱩᱭᱩᱜ-ᱟ᱾",
-  "prototypeTrackingNotice": "ᱯᱨᱚᱴᱚᱴᱟᱭᱤᱯ ᱞᱟᱹᱜᱤᱫ ᱴᱨᱮᱠᱤᱝ ᱵᱟᱱᱟᱣ ᱟᱠᱟᱱᱟ᱾"
+  "prototypeTrackingNotice": "ᱯᱨᱚᱴᱚᱴᱟᱭᱤᱯ ᱞᱟᱹᱜᱤᱫ ᱴᱨᱮᱠᱤᱝ ᱵᱟᱱᱟᱣ ᱟᱠᱟᱱᱟ᱾",
+
+  "locationTitle": "ᱚᱠᱟᱨᱮ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱦᱩᱭᱩᱜ-ᱟ?",
+  "locationSubtitle": "Nexmile ᱫᱚ 1 ᱠᱤᱢᱤ ᱵᱷᱤᱛᱨᱤ ᱨᱮᱭᱟᱜ ᱫᱳᱠᱟᱱ ᱠᱷᱚᱱ ᱮᱰᱮ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱮᱢᱚᱜ-ᱟ, ᱚᱱᱟᱛᱮ ᱟᱢᱟᱜ ᱴᱷᱤᱠ ᱡᱟᱭᱜᱟ ᱞᱟᱹᱠᱛᱤᱭᱟ᱾",
+  "locationReasonRadiusTitle": "1 ᱠᱤᱢᱤ ᱵᱷᱤᱛᱨᱤ ᱫᱳᱠᱟᱱ",
+  "locationReasonRadiusBody": "ᱚᱠᱟ ᱠᱷᱚᱱ ᱡᱚᱢᱟᱜ ᱨᱟᱹᱲᱟᱹ ᱛᱮ ᱥᱮᱴᱮᱨᱚᱜ-ᱟ, ᱚᱱᱟ ᱨᱚᱥᱚᱭᱜᱷᱚᱨ ᱮᱰᱮ ᱩᱫᱩᱜᱟᱜ-ᱟ᱾",
+  "locationReasonAccuracyTitle": "ᱴᱷᱤᱠ ᱫᱩᱣᱟᱹᱨ ᱦᱟᱹᱵᱤᱡ",
+  "locationReasonAccuracyBody": "ᱴᱷᱤᱠ ᱯᱤᱱ ᱛᱟᱦᱮᱸᱱ ᱠᱷᱟᱱ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱦᱚᱲ ᱯᱷᱳᱱ ᱵᱟᱝ ᱠᱟᱛᱮ ᱦᱚᱸ ᱟᱢ ᱛᱟᱞᱟ ᱥᱮᱴᱮᱨᱚᱜ-ᱟᱭ᱾",
+  "locationReasonPrivacyTitle": "ᱮᱯ ᱵᱮᱵᱷᱟᱨ ᱡᱚᱠᱷᱚᱱ ᱮᱰᱮ",
+  "locationReasonPrivacyBody": "ᱟᱞᱮ ᱫᱚ ᱛᱟᱭᱚᱢ ᱛᱮ ᱟᱢᱟᱜ ᱴᱨᱮᱠ ᱵᱟᱝ ᱮᱫᱟᱞᱮᱭᱟ, ᱟᱨ ᱴᱷᱤᱠᱱᱟ ᱟᱢ ᱟᱡ ᱛᱮ ᱦᱚᱸ ᱚᱞ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾",
+  "allowLocation": "ᱡᱟᱭᱜᱟ ᱨᱮᱭᱟᱜ ᱦᱩᱠᱩᱢ ᱮᱢ ᱢᱮ",
+  "enterAddressManually": "ᱤᱧ ᱴᱷᱤᱠᱱᱟ ᱟᱡ ᱛᱮ ᱚᱞᱟᱹ",
+  "locationDenied": "ᱡᱟᱭᱜᱟ ᱨᱮᱭᱟᱜ ᱦᱩᱠᱩᱢ ᱵᱟᱝ ᱮᱢ ᱞᱮᱱᱟ᱾ ᱟᱢ ᱯᱤᱱ ᱟᱡ ᱛᱮ ᱫᱚᱦᱚ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾",
+  "locationDeniedForever": "Nexmile ᱞᱟᱹᱜᱤᱫ ᱡᱟᱭᱜᱟ ᱵᱚᱸᱫ ᱟᱠᱟᱱᱟ᱾ ᱥᱮᱴᱤᱝᱥ ᱨᱮ ᱡᱟᱹᱨᱩᱭ ᱢᱮ ᱵᱟᱝᱠᱷᱟᱱ ᱯᱤᱱ ᱟᱡ ᱛᱮ ᱫᱚᱦᱚ ᱢᱮ᱾",
+  "locationServiceOff": "ᱱᱚᱶᱟ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱨᱮ ᱡᱟᱭᱜᱟ ᱵᱚᱸᱫ ᱢᱮᱱᱟᱜ-ᱟ᱾",
+  "locationUnavailable": "ᱡᱟᱭᱜᱟ ᱵᱟᱝ ᱧᱟᱢ ᱞᱮᱱᱟ᱾ ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱯᱤᱱ ᱟᱡ ᱛᱮ ᱫᱚᱦᱚ ᱢᱮ᱾",
+  "openSettings": "ᱥᱮᱴᱤᱝᱥ",
+
+  "pinLocationTitle": "ᱟᱢᱟᱜ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱯᱤᱱ ᱫᱚᱦᱚ ᱢᱮ",
+  "deliveryRadiusHint": "ᱜᱟᱸᱴ ᱫᱚ Nexmile ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱮᱢᱚᱜ 1 ᱠᱤᱢᱤ ᱩᱫᱩᱜ ᱠᱟᱱᱟ᱾",
+  "useMyLocation": "ᱤᱧᱟᱜ ᱡᱟᱭᱜᱟ ᱵᱮᱵᱷᱟᱨ ᱢᱮ",
+  "deliveringHere": "ᱱᱚᱰᱮ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ",
+  "dragToAdjust": "ᱯᱤᱱ ᱵᱚᱫᱚᱞ ᱞᱟᱹᱜᱤᱫ ᱢᱮᱯ ᱚᱲ ᱢᱮ",
+  "confirmLocation": "ᱡᱟᱭᱜᱟ ᱡᱟᱸᱪ ᱢᱮ",
+
+  "addressDetailsTitle": "ᱴᱷᱤᱠᱱᱟ ᱨᱮᱭᱟᱜ ᱠᱷᱚᱵᱚᱨ",
+  "addressDetailsSubtitle": "ᱴᱷᱤᱠ ᱫᱩᱣᱟᱹᱨ ᱦᱟᱹᱵᱤᱡ ᱥᱮᱴᱮᱨ ᱞᱟᱹᱜᱤᱫ ᱚᱲᱟᱜ ᱱᱟᱢᱵᱟᱨ ᱟᱨ ᱪᱤᱱᱦᱟᱹ ᱥᱮᱞᱮᱫ ᱢᱮ᱾",
+  "pinnedLocation": "ᱵᱟᱪᱷᱟᱣ ᱟᱠᱟᱱ ᱡᱟᱭᱜᱟ",
+  "changePin": "ᱵᱚᱫᱚᱞ ᱢᱮ",
+  "saveAddressAs": "ᱱᱚᱶᱟ ᱴᱷᱤᱠᱱᱟ ᱱᱚᱸᱠᱟ ᱥᱟᱺᱪᱟᱣ ᱢᱮ",
+  "labelHome": "ᱚᱲᱟᱜ",
+  "labelWork": "ᱫᱚᱯᱛᱚᱨ",
+  "labelOther": "ᱮᱴᱟᱜ",
+  "addressLine1Label": "ᱚᱲᱟᱜ, ᱯᱷᱞᱮᱴ ᱵᱟᱝᱠᱷᱟᱱ ᱤᱢᱟᱨᱚᱛ",
+  "addressLine1Hint": "12A, ᱜᱨᱤᱱ ᱨᱮᱡᱤᱰᱮᱱᱥᱤ",
+  "addressLine2Label": "ᱦᱚᱨ ᱵᱟᱝᱠᱷᱟᱱ ᱡᱟᱭᱜᱟ",
+  "addressLine2Hint": "2 ᱮᱵᱷᱮᱱᱭᱩ, ᱟᱱᱱᱟ ᱱᱚᱜᱚᱨ",
+  "landmarkLabel": "ᱪᱤᱱᱦᱟᱹ",
+  "landmarkHint": "ᱵᱟᱥ ᱥᱴᱟᱯ ᱥᱟᱢᱟᱝ ᱨᱮ",
+  "cityLabel": "ᱥᱚᱦᱚᱨ",
+  "stateLabel": "ᱨᱟᱡᱽ",
+  "pincodeLabel": "ᱯᱤᱱ ᱠᱳᱰ",
+  "invalidPincode": "ᱴᱷᱤᱠ 6 ᱮᱞ ᱯᱤᱱ ᱠᱳᱰ ᱚᱞ ᱢᱮ",
+  "contactNameLabel": "ᱡᱚᱲᱟᱣ ᱧᱩᱛᱩᱢ",
+  "contactPhoneLabel": "ᱡᱚᱲᱟᱣ ᱱᱟᱢᱵᱟᱨ",
+  "invalidMobileNumber": "ᱴᱷᱤᱠ 10 ᱮᱞ ᱢᱚᱵᱟᱭᱤᱞ ᱱᱟᱢᱵᱟᱨ ᱚᱞ ᱢᱮ",
+  "makeDefaultAddress": "ᱰᱤᱯᱷᱚᱞᱴ ᱞᱮᱠᱟᱛᱮ ᱱᱚᱰᱮᱜᱮ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ",
+  "saveAddress": "ᱴᱷᱤᱠᱱᱟ ᱥᱟᱺᱪᱟᱣ ᱢᱮ",
+  "addressSaved": "ᱴᱷᱤᱠᱱᱟ ᱥᱟᱺᱪᱟᱣ ᱮᱱᱟ",
+
+  "addressBookTitle": "ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱴᱷᱤᱠᱱᱟ",
+  "manageAddresses": "ᱥᱟᱺᱪᱟᱣ ᱟᱠᱟᱱ ᱴᱷᱤᱠᱱᱟ ᱠᱚ ᱥᱟᱢᱵᱷᱟᱞ ᱢᱮ",
+  "noAddressesTitle": "ᱦᱟᱲᱮ ᱡᱟᱦᱟᱸ ᱴᱷᱤᱠᱱᱟ ᱵᱟᱝᱟ",
+  "noAddressesSubtitle": "ᱟᱢ ᱛᱟᱞᱟ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱮᱢᱚᱜ ᱫᱳᱠᱟᱱ ᱩᱫᱩᱜ ᱞᱟᱹᱜᱤᱫ ᱢᱤᱫ ᱴᱷᱤᱠᱱᱟ ᱥᱮᱞᱮᱫ ᱢᱮ᱾",
+  "addAddress": "ᱴᱷᱤᱠᱱᱟ ᱥᱮᱞᱮᱫ ᱢᱮ",
+  "setAsDefault": "ᱰᱤᱯᱷᱚᱞᱴ ᱵᱮᱱᱟᱣ ᱢᱮ",
+  "editLabel": "ᱥᱚᱯᱷᱟ ᱢᱮ",
+  "addressUpdated": "ᱴᱷᱤᱠᱱᱟ ᱟᱯᱰᱮᱴ ᱮᱱᱟ",
+  "deleteLabel": "ᱢᱮᱴᱟᱣ ᱢᱮ",
+  "deleteAddressTitle": "ᱱᱚᱶᱟ ᱴᱷᱤᱠᱱᱟ ᱢᱮᱴᱟᱣᱟ?",
+  "deleteAddressMessage": "ᱟᱢ ᱱᱚᱶᱟ ᱛᱟᱭᱚᱢ ᱛᱮ ᱫᱩᱦᱲᱟᱹ ᱥᱮᱞᱮᱫ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾",
+
+  "rescueDealsTitle": "ᱡᱚᱢ ᱨᱮᱥᱠᱭᱩ",
+
+  "notTakingOrders": "ᱚᱰᱟᱨ ᱵᱟᱝ ᱦᱟᱛᱟᱣ ᱠᱟᱱᱟ",
+
+  "closedRightNow": "ᱱᱤᱛᱚᱜ ᱵᱚᱸᱫᱚ ᱢᱮᱱᱟᱜᱼᱟ",
+
+  "minimumOrder": "ᱠᱚᱢ ᱛᱮ ᱠᱚᱢ {amount}",
+
+  "portionsLeft": "{count} ᱵᱟᱝᱠᱤ",
+
+  "soldOut": "ᱪᱟᱵᱟ ᱮᱱᱟ",
+
+  "menuEmptyTitle": "ᱛᱮᱦᱮᱧ ᱫᱷᱟᱹᱵᱤᱡ ᱡᱚᱢᱟᱜ ᱵᱟᱹᱱᱩᱜᱼᱟ",
+
+  "menuEmptySubtitle": "ᱱᱚᱶᱟ ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱟᱡ ᱨᱮᱭᱟᱜ ᱢᱮᱱᱩ ᱵᱟᱝ ᱥᱮᱞᱮᱫ ᱟᱠᱟᱫᱟ ᱾",
+
+  "moreDishesTitle": "ᱟᱨᱦᱚᱸ ᱡᱚᱢᱟᱜ",
+
+  "customisable": "ᱠᱩᱥᱤ ᱞᱮᱠᱟᱛᱮ",
+
+  "requiredLabel": "ᱞᱟᱹᱠᱛᱤ",
+
+  "optionalLabel": "ᱤᱪ᱄ᱪᱷᱟ ᱞᱮᱠᱟᱛᱮ",
+
+  "chooseOne": "ᱢᱤᱫᱴᱟᱝ ᱵᱟᱪᱷᱟᱣ ᱢᱮ",
+
+  "chooseUpTo": "ᱵᱟᱲᱛᱤ ᱛᱮ ᱵᱟᱲᱛᱤ {count} ᱵᱟᱪᱷᱟᱣ ᱢᱮ",
+
+  "chooseAtLeast": "ᱠᱚᱢ ᱛᱮ ᱠᱚᱢ {count} ᱵᱟᱪᱷᱟᱣ ᱢᱮ",
+
+  "chooseBetween": "{min} ᱠᱷᱚᱱ {max} ᱫᱷᱟᱹᱵᱤᱡ ᱵᱟᱪᱷᱟᱣ ᱢᱮ",
+
+  "specialInstructions": "ᱵᱤᱥᱮᱥ ᱠᱟᱛᱷᱟ",
+
+  "specialInstructionsHint": "ᱠᱚᱢ ᱢᱟᱨᱚᱪ, ᱯᱮᱭᱟᱡ ᱵᱟᱝ…",
+
+  "addForAmount": "ᱥᱮᱞᱮᱫ ᱢᱮ · {amount}",
+
+  "deliveryLabel": "ᱰᱮᱞᱤᱵᱷᱟᱨᱤ",
+
+  "pickupLabel": "ᱟᱡ ᱛᱮ ᱤᱫᱤ",
+
+  "packagingLabel": "ᱯᱮᱠᱤᱝ",
+
+  "discountLabel": "ᱪᱷᱩᱴ",
+
+  "billDetailsTitle": "ᱵᱤᱞ ᱨᱮᱭᱟᱜ ᱵᱤᱵᱨᱚᱬ",
+
+  "clearCart": "ᱠᱟᱨᱴ ᱠᱷᱟᱹᱞᱤ ᱢᱮ",
+
+  "clearCartTitle": "ᱱᱚᱶᱟ ᱠᱟᱨᱴ ᱠᱷᱟᱹᱞᱤᱭᱟ?",
+
+  "clearCartMessage": "ᱱᱚᱶᱟ ᱨᱮ ᱢᱮᱱᱟᱜ ᱡᱚᱛᱚ ᱠᱟᱛᱷᱟ ᱚᱪᱚᱜ ᱦᱩᱭᱩᱜᱼᱟ ᱾",
+
+  "unavailableItemsNotice": "ᱱᱤᱛᱚᱜ ᱵᱟᱝ ᱧᱟᱢᱚᱜᱼᱟ: {items}",
+
+  "removeUnavailable": "ᱚᱱᱟ ᱠᱚ ᱚᱪᱚᱜ ᱢᱮ",
+
+  "minimumNotMet": "ᱠᱚᱢ ᱛᱮ ᱠᱚᱢ ᱚᱰᱟᱨ {amount}",
+
+  "checkoutTitle": "ᱪᱮᱠᱟᱣᱴ",
+
+  "deliveryAddressLabel": "ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱴᱷᱤᱠᱟᱬᱟ",
+
+  "noAddressSelected": "ᱡᱟᱦᱟᱸ ᱴᱷᱤᱠᱟᱬᱟ ᱵᱟᱝ ᱵᱟᱪᱷᱟᱣ ᱟᱠᱟᱱᱟ",
+
+  "paymentMethodLabel": "ᱠᱚᱲᱟ",
+
+  "payOnDelivery": "ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱨᱮ ᱴᱟᱠᱟ",
+
+  "noteToRestaurant": "ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱞᱟᱹᱜᱤᱫ ᱠᱟᱛᱷᱟ",
+
+  "noteToRestaurantHint": "ᱜᱷᱟᱱᱴᱤ ᱵᱟᱨ ᱫᱷᱟᱣ ᱨᱩᱭ ᱢᱮ…",
+
+  "activeOrdersTitle": "ᱪᱟᱹᱞᱩ ᱚᱰᱟᱨ",
+
+  "pastOrdersTitle": "ᱢᱟᱲᱟᱝ ᱚᱰᱟᱨ",
+
+  "orderItemsTitle": "ᱡᱚᱢᱟᱜ",
+
+  "orderProgressTitle": "ᱛᱟᱞᱟ ᱫᱟᱲᱮ",
+
+  "arrivingIn": "ᱥᱮᱴᱮᱨ ᱞᱟᱹᱜᱤᱫ",
+
+  "pickupCodeLabel": "ᱯᱤᱠᱟᱯ ᱠᱳᱰ",
+
+  "cancellationReasonLabel": "ᱵᱟᱹᱰᱨᱟᱹ ᱨᱮᱭᱟᱜ ᱠᱟᱨᱚᱱ",
+
+  "riderLabel": "ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱥᱟᱣᱛᱟ",
+
+  "callRider": "ᱠᱚᱞ ᱢᱮ",
+
+  "viewInvoice": "ᱴᱮᱠᱥ ᱤᱱᱵᱷᱚᱭᱥ",
+
+  "cancelOrder": "ᱚᱰᱟᱨ ᱵᱟᱹᱰᱨᱟᱹ ᱢᱮ",
+
+  "cancelOrderTitle": "ᱱᱚᱶᱟ ᱚᱰᱟᱨ ᱵᱟᱹᱰᱨᱟᱹᱭᱟ?",
+
+  "cancelOrderMessage": "ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱦᱟᱛᱟᱣ ᱞᱟᱦᱟ ᱜᱮ ᱵᱟᱹᱰᱨᱟᱹ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾",
+
+  "cancelReasonLabel": "ᱠᱟᱨᱚᱱ",
+
+  "cancelReasonFallback": "ᱜᱟᱦᱟᱠ ᱵᱟᱹᱰᱨᱟᱹ ᱠᱮᱫᱟ",
+
+  "orderCancelled": "ᱚᱰᱟᱨ ᱵᱟᱹᱰᱨᱟᱹ ᱮᱱᱟ",
+
+  "currentLocationLabel": "ᱱᱤᱛᱚᱜᱟᱜ ᱡᱟᱭᱜᱟ"
 }

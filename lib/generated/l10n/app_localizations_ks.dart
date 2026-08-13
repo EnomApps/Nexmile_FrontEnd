@@ -12,6 +12,9 @@ class AppLocalizationsKs extends AppLocalizations {
   String get appName => 'Nexmile';
 
   @override
+  String get fieldRequired => 'یہ خانہٕ چھُ ضروری';
+
+  @override
   String get tagline => 'تیز ڈیلیوری۔ تازٕ مُسکراہٹ۔';
 
   @override
@@ -311,8 +314,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get toPay => 'أدا کرُن';
 
   @override
-  String placeOrderFor(int amount) {
-    return 'آرڈر کرِو · ₹$amount';
+  String placeOrderFor(String amount) {
+    return 'آرڈر کرِو · $amount';
   }
 
   @override
@@ -372,4 +375,350 @@ class AppLocalizationsKs extends AppLocalizations {
 
   @override
   String get prototypeTrackingNotice => 'پروٹوٹائپ خٲطرٕ چھُ ٹریکِنگ مصنوعی۔';
+
+  @override
+  String get locationTitle => 'ڈیلیوری کۄتہٕ کرٕو؟';
+
+  @override
+  String get locationSubtitle => 'Nexmile کران چھُ صرف 1 کِلومیٹر اندر ہٕنٛدین دُکانن پؠٹھٕ ڈیلیوری، تہٕ امہِ خٲطرٕ چھُ توہنٛد صحیح جاے ضروری۔';
+
+  @override
+  String get locationReasonRadiusTitle => '1 کِلومیٹر اندر ہٕنٛدؠ دُکان';
+
+  @override
+  String get locationReasonRadiusBody => 'أسؠ چھِ صرف تِم باورچی خانہٕ ہاوان یَتہِ پؠٹھٕ کھَنہٕ گرٕم پکھِ۔';
+
+  @override
+  String get locationReasonAccuracyTitle => 'بالکل صحیح دَروازس تام';
+
+  @override
+  String get locationReasonAccuracyBody => 'صحیح پِن آسِتھ چھُ ڈیلیوری پارٹنر فون کٔرِتھ بغٲر توہہِ تام واتان۔';
+
+  @override
+  String get locationReasonPrivacyTitle => 'صرف ایپ استعمال کران وقتہٕ';
+
+  @override
+  String get locationReasonPrivacyBody => 'أسؠ چھِ نہ پس منظرس منٛز توہہِ ٹریک کران، تہٕ پتہٕ ہیٚکِو توہہِ پانہٕ تہِ لیٚکھِتھ۔';
+
+  @override
+  String get allowLocation => 'جاے ہٕنٛز اجازت دِیِو';
+
+  @override
+  String get enterAddressManually => 'بہٕ لیٚکھہٕ پتہٕ پانہٕ';
+
+  @override
+  String get locationDenied => 'جاے ہٕنٛز اجازت نہ میٚلہ۔ توہہِ ہیٚکِو پِن پانہٕ ٹھٲوِتھ۔';
+
+  @override
+  String get locationDeniedForever => 'Nexmile خٲطرٕ چھُ جاے بند۔ سیٹِنگز منٛز کھولٕو یا پِن پانہٕ ٹھٲوِو۔';
+
+  @override
+  String get locationServiceOff => 'امہِ ڈیوائسس پؠٹھٕ چھُ جاے بند۔';
+
+  @override
+  String get locationUnavailable => 'جاے نہ لبنہٕ آیہ۔ مہربٲنی کٔرِتھ پِن پانہٕ ٹھٲوِو۔';
+
+  @override
+  String get openSettings => 'سیٹِنگز';
+
+  @override
+  String get pinLocationTitle => 'پنُن ڈیلیوری پِن ٹھٲوِو';
+
+  @override
+  String get deliveryRadiusHint => 'دٲیرٕ چھُ سُہ 1 کِلومیٹر ہاوان یَتہِ منٛز Nexmile ڈیلیوری کران چھُ۔';
+
+  @override
+  String get useMyLocation => 'میٚون جاے استعمال کرِو';
+
+  @override
+  String get deliveringHere => 'یَتہِ ڈیلیوری';
+
+  @override
+  String get dragToAdjust => 'پِن بدلاونہٕ خٲطرٕ نقشہٕ ژَلٕو';
+
+  @override
+  String get confirmLocation => 'جاے تصدیق کرِو';
+
+  @override
+  String get addressDetailsTitle => 'پتہٕ تفصیل';
+
+  @override
+  String get addressDetailsSubtitle => 'صحیح دَروازس تام واتنہٕ خٲطرٕ گَرٕ نمبر تہٕ نِشٲنی شٲمِل کرِو۔';
+
+  @override
+  String get pinnedLocation => 'ژارنہٕ آمٕژ جاے';
+
+  @override
+  String get changePin => 'بدلاوِو';
+
+  @override
+  String get saveAddressAs => 'یہ پتہٕ ییٚتھ کٔرِتھ محفوظ کرِو';
+
+  @override
+  String get labelHome => 'گَرٕ';
+
+  @override
+  String get labelWork => 'دفتر';
+
+  @override
+  String get labelOther => 'بیٚاکھ';
+
+  @override
+  String get addressLine1Label => 'گَرٕ، فلیٹ یا عمارت';
+
+  @override
+  String get addressLine1Hint => '12A، گریٖن ریزیڈنسی';
+
+  @override
+  String get addressLine2Label => 'گلی یا علاقہٕ';
+
+  @override
+  String get addressLine2Hint => 'دۆیِم ایونیو، اَنا نگر';
+
+  @override
+  String get landmarkLabel => 'نِشٲنی';
+
+  @override
+  String get landmarkHint => 'بس اسٹاپُک برونٛہہ';
+
+  @override
+  String get cityLabel => 'شہر';
+
+  @override
+  String get stateLabel => 'ریاست';
+
+  @override
+  String get pincodeLabel => 'پِن کوڈ';
+
+  @override
+  String get invalidPincode => 'صحیح 6 ہندسن ہُند پِن کوڈ لیٚکھِو';
+
+  @override
+  String get contactNameLabel => 'رٲبطہٕ ناو';
+
+  @override
+  String get contactPhoneLabel => 'رٲبطہٕ نمبر';
+
+  @override
+  String get invalidMobileNumber => 'صحیح 10 ہندسن ہُند موبائل نمبر لیٚکھِو';
+
+  @override
+  String get makeDefaultAddress => 'ڈیفالٹ طور یَتہِ ای ڈیلیوری';
+
+  @override
+  String get saveAddress => 'پتہٕ محفوظ کرِو';
+
+  @override
+  String get addressSaved => 'پتہٕ آو محفوظ کرنہٕ';
+
+  @override
+  String get addressBookTitle => 'ڈیلیوری پتہٕ';
+
+  @override
+  String get manageAddresses => 'محفوظ پتہٕ سنبالٕو';
+
+  @override
+  String get noAddressesTitle => 'ناوُ کانہہ پتہٕ نہ';
+
+  @override
+  String get noAddressesSubtitle => 'اَکھ پتہٕ شٲمِل کرِو تہٕ أسؠ ہیٚکَو توہہِ تام ڈیلیوری کران وٲلؠ دُکان ہٲوِتھ۔';
+
+  @override
+  String get addAddress => 'پتہٕ شٲمِل کرِو';
+
+  @override
+  String get setAsDefault => 'ڈیفالٹ بناوِو';
+
+  @override
+  String get editLabel => 'تبدیٖلی کرِو';
+
+  @override
+  String get addressUpdated => 'پتہٕ آو اپ ڈیٹ کرنہٕ';
+
+  @override
+  String get deleteLabel => 'مِٹاوِو';
+
+  @override
+  String get deleteAddressTitle => 'یہ پتہٕ مِٹاوٕو؟';
+
+  @override
+  String get deleteAddressMessage => 'توہہِ ہیٚکِو یہ پتہٕ دوبارٕ شٲمِل کٔرِتھ۔';
+
+  @override
+  String get rescueDealsTitle => 'فوڈ ریسکیو';
+
+  @override
+  String get notTakingOrders => 'آرڈر چھِ نہ ہیوان';
+
+  @override
+  String get closedRightNow => 'وُنی چھُ بند';
+
+  @override
+  String minimumOrder(String amount) {
+    return 'کم از کم $amount';
+  }
+
+  @override
+  String portionsLeft(int count) {
+    return '$count باقی';
+  }
+
+  @override
+  String get soldOut => 'ختم گو';
+
+  @override
+  String get menuEmptyTitle => 'وُنی چھُ نہ کینہہ کھانہٕ';
+
+  @override
+  String get menuEmptySubtitle => 'یَتھ ریستوران چھُنہ پنُن مینو رٹِمُت۔';
+
+  @override
+  String get moreDishesTitle => 'زیادٕ کھانہٕ';
+
+  @override
+  String get customisable => 'پننِس پسندٕ مطابق';
+
+  @override
+  String get requiredLabel => 'ضروری';
+
+  @override
+  String get optionalLabel => 'اختیاری';
+
+  @override
+  String get chooseOne => 'اکھ ژارٕو';
+
+  @override
+  String chooseUpTo(int count) {
+    return 'زیادٕ کھۄتہ زیادٕ $count ژارٕو';
+  }
+
+  @override
+  String chooseAtLeast(int count) {
+    return 'کم از کم $count ژارٕو';
+  }
+
+  @override
+  String chooseBetween(int min, int max) {
+    return '$min پؠٹھٕ $max تام ژارٕو';
+  }
+
+  @override
+  String get specialInstructions => 'خاص ہدایژ';
+
+  @override
+  String get specialInstructionsHint => 'کم مرچ، گَندٕ نہٕ…';
+
+  @override
+  String addForAmount(String amount) {
+    return 'شامل کریو · $amount';
+  }
+
+  @override
+  String get deliveryLabel => 'ڈیلیوری';
+
+  @override
+  String get pickupLabel => 'پانہٕ ہیون';
+
+  @override
+  String get packagingLabel => 'پیکنگ';
+
+  @override
+  String get discountLabel => 'رعایژ';
+
+  @override
+  String get billDetailsTitle => 'بلٕچ تفصیل';
+
+  @override
+  String get clearCart => 'کارٹ خالی کریو';
+
+  @override
+  String get clearCartTitle => 'یہ کارٹ خالی کریو؟';
+
+  @override
+  String get clearCartMessage => 'یَتھ منٛز چھُ سٲری کینہہ ہٹاون یِوان۔';
+
+  @override
+  String unavailableItemsNotice(String items) {
+    return 'وُنی چھُنہ دستیاب: $items';
+  }
+
+  @override
+  String get removeUnavailable => 'تِم ہٹاویو';
+
+  @override
+  String minimumNotMet(String amount) {
+    return 'کم از کم آرڈر چھُ $amount';
+  }
+
+  @override
+  String get checkoutTitle => 'چیک آؤٹ';
+
+  @override
+  String get deliveryAddressLabel => 'ڈیلیوری ایڈریس';
+
+  @override
+  String get noAddressSelected => 'کانہہ ایڈریس چھُنہ ژارمُت';
+
+  @override
+  String get paymentMethodLabel => 'ادایگی';
+
+  @override
+  String get payOnDelivery => 'ڈیلیوری وقتہٕ نقد';
+
+  @override
+  String get noteToRestaurant => 'ریستورانس خٲطرٕ نوٹ';
+
+  @override
+  String get noteToRestaurantHint => 'گھنٹی زٕ لٹہٕ بجٲویو…';
+
+  @override
+  String get activeOrdersTitle => 'جاری آرڈر';
+
+  @override
+  String get pastOrdersTitle => 'پرانہ آرڈر';
+
+  @override
+  String get orderItemsTitle => 'کھانہٕ';
+
+  @override
+  String get orderProgressTitle => 'پیش رفت';
+
+  @override
+  String get arrivingIn => 'وۄتنس منٛز';
+
+  @override
+  String get pickupCodeLabel => 'پک اپ کوڈ';
+
+  @override
+  String get cancellationReasonLabel => 'منسوخ گژھنُک وجہ';
+
+  @override
+  String get riderLabel => 'ڈیلیوری پارٹنر';
+
+  @override
+  String get callRider => 'کال کریو';
+
+  @override
+  String get viewInvoice => 'ٹیکس انوائس';
+
+  @override
+  String get cancelOrder => 'آرڈر منسوخ کریو';
+
+  @override
+  String get cancelOrderTitle => 'یہ آرڈر منسوخ کریو؟';
+
+  @override
+  String get cancelOrderMessage => 'ریستوران قبول کرنہٕ برونٛہہ ہی ہیکو منسوخ کٕرِتھ۔';
+
+  @override
+  String get cancelReasonLabel => 'وجہ';
+
+  @override
+  String get cancelReasonFallback => 'گاہکن کور منسوخ';
+
+  @override
+  String get orderCancelled => 'آرڈر گو منسوخ';
+
+  @override
+  String get currentLocationLabel => 'موجودٕ جاے';
 }

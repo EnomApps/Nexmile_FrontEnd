@@ -2,6 +2,7 @@
   "@@locale": "mai",
 
   "appName": "Nexmile",
+  "fieldRequired": "ई खाना जरूरी अछि",
   "tagline": "तेज डिलीवरी। ताजा मुस्कान।",
   "chooseLanguageTitle": "अपन भाषा चुनू",
   "chooseLanguageSubtitle": "जाहि भाषा मे अहाँ सहज छी, ओ चुनू। अहाँ एकरा कहियो सेटिंग्स मे बदलि सकैत छी।",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "कर आ शुल्क",
   "freeLabel": "मुफ्त",
   "toPay": "देय राशि",
-  "placeOrderFor": "ऑर्डर करू · ₹{amount}",
+  "placeOrderFor": "ऑर्डर करू · {amount}",
   "ordersTitle": "अहाँक ऑर्डर",
   "ordersEmptyTitle": "अखन धरि कोनो ऑर्डर नहि",
   "ordersEmptySubtitle": "अहाँक पहिलुका ऑर्डर एतय देखाएत।",
@@ -117,5 +118,173 @@
   "backToHome": "होम पर घूरू",
   "prototypeNotice": "नमूना स्टोरफ्रंट — असली दोकान कैटलॉग API सँग आओत।",
   "prototypeCheckoutNotice": "ई एकटा प्रोटोटाइप अछि। कोनो भुगतान नहि लेल जाइत अछि आ असली ऑर्डर सेहो नहि होइत अछि।",
-  "prototypeTrackingNotice": "प्रोटोटाइपक लेल ट्रैकिंग नकली अछि।"
+  "prototypeTrackingNotice": "प्रोटोटाइपक लेल ट्रैकिंग नकली अछि।",
+
+  "locationTitle": "कतय डिलीवरी करी?",
+  "locationSubtitle": "Nexmile मात्र 1 किमी भीतरक दोकान सँ डिलीवरी करैत अछि, तेँ अहाँक सही ठाम चाही।",
+  "locationReasonRadiusTitle": "1 किमी भीतरक दोकान",
+  "locationReasonRadiusBody": "जतय सँ भोजन गरम पहुँचत, ओहि रसोइयेँ देखबैत छी।",
+  "locationReasonAccuracyTitle": "सही दरवाजा धरि",
+  "locationReasonAccuracyBody": "सही पिन रहला सँ डिलीवरी पार्टनर फोन कएने बिना अहाँ धरि पहुँचि जाइत छथि।",
+  "locationReasonPrivacyTitle": "मात्र एप्प चलबैत काल",
+  "locationReasonPrivacyBody": "हम पृष्ठभूमि मे अहाँक माग नहि करैत छी, आ पता अहाँ स्वयं सेहो लिखि सकैत छी।",
+  "allowLocation": "स्थानक अनुमति दिअ",
+  "enterAddressManually": "हम स्वयं पता लिखब",
+  "locationDenied": "स्थानक अनुमति नहि भेटल। अहाँ पिन स्वयं राखि सकैत छी।",
+  "locationDeniedForever": "Nexmile लेल स्थान बन्द अछि। सेटिंग्स मे चालू करू वा पिन स्वयं राखू।",
+  "locationServiceOff": "एहि डिवाइस पर स्थान बन्द अछि।",
+  "locationUnavailable": "स्थान नहि भेटल। कृपया पिन स्वयं राखू।",
+  "openSettings": "सेटिंग्स",
+
+  "pinLocationTitle": "अपन डिलीवरी पिन राखू",
+  "deliveryRadiusHint": "घेरा ओ 1 किमी देखबैत अछि जाहि मे Nexmile डिलीवरी करैत अछि।",
+  "useMyLocation": "हमर स्थान प्रयोग करू",
+  "deliveringHere": "एतय डिलीवरी",
+  "dragToAdjust": "पिन बदलबाक लेल नक्शा घीचू",
+  "confirmLocation": "स्थान पक्का करू",
+
+  "addressDetailsTitle": "पताक विवरण",
+  "addressDetailsSubtitle": "सही दरवाजा धरि पहुँचबाक लेल घर नंबर आ चिन्ह जोड़ू।",
+  "pinnedLocation": "चुनल ठाम",
+  "changePin": "बदलू",
+  "saveAddressAs": "ई पता एहि तरहेँ सहेजू",
+  "labelHome": "घर",
+  "labelWork": "कार्यालय",
+  "labelOther": "आन",
+  "addressLine1Label": "घर, फ्लैट वा भवन",
+  "addressLine1Hint": "12A, ग्रीन रेजिडेंसी",
+  "addressLine2Label": "गली वा इलाका",
+  "addressLine2Hint": "दोसर एवेन्यू, अन्ना नगर",
+  "landmarkLabel": "चिन्ह",
+  "landmarkHint": "बस स्टॉपक सामने",
+  "cityLabel": "शहर",
+  "stateLabel": "राज्य",
+  "pincodeLabel": "पिन कोड",
+  "invalidPincode": "सही 6 अंकक पिन कोड लिखू",
+  "contactNameLabel": "संपर्क नाम",
+  "contactPhoneLabel": "संपर्क नंबर",
+  "invalidMobileNumber": "सही 10 अंकक मोबाइल नंबर लिखू",
+  "makeDefaultAddress": "डिफ़ॉल्ट रूप सँ एतहि डिलीवरी",
+  "saveAddress": "पता सहेजू",
+  "addressSaved": "पता सहेजल गेल",
+
+  "addressBookTitle": "डिलीवरी पता",
+  "manageAddresses": "सहेजल पता प्रबंधित करू",
+  "noAddressesTitle": "अखन धरि कोनो पता नहि",
+  "noAddressesSubtitle": "एकटा पता जोड़ू जाहि सँ अहाँ धरि डिलीवरी करय बला दोकान देखा सकी।",
+  "addAddress": "पता जोड़ू",
+  "setAsDefault": "डिफ़ॉल्ट बनाबू",
+  "editLabel": "संपादित करू",
+  "addressUpdated": "पता अपडेट भ' गेल",
+  "deleteLabel": "मेटाबू",
+  "deleteAddressTitle": "ई पता मेटाएब?",
+  "deleteAddressMessage": "अहाँ एकरा बाद मे फेर जोड़ि सकैत छी।",
+
+  "rescueDealsTitle": "फूड रेस्क्यू",
+
+  "notTakingOrders": "ऑर्डर नहि लेल जा रहल",
+
+  "closedRightNow": "अखन बन्न अछि",
+
+  "minimumOrder": "कम सँ कम {amount}",
+
+  "portionsLeft": "{count} बाँकी",
+
+  "soldOut": "खतम भऽ गेल",
+
+  "menuEmptyTitle": "अखन धरि कोनो व्यंजन नहि",
+
+  "menuEmptySubtitle": "ई रेस्टोरेंट अपन मेनू नहि जोड़ने अछि।",
+
+  "moreDishesTitle": "आओर व्यंजन",
+
+  "customisable": "पसन्न अनुसार",
+
+  "requiredLabel": "अनिवार्य",
+
+  "optionalLabel": "वैकल्पिक",
+
+  "chooseOne": "एकटा चुनू",
+
+  "chooseUpTo": "बेसी सँ बेसी {count} चुनू",
+
+  "chooseAtLeast": "कम सँ कम {count} चुनू",
+
+  "chooseBetween": "{min} सँ {max} धरि चुनू",
+
+  "specialInstructions": "खास निर्देश",
+
+  "specialInstructionsHint": "कम तीत, प्याज नहि…",
+
+  "addForAmount": "जोड़ू · {amount}",
+
+  "deliveryLabel": "डिलीवरी",
+
+  "pickupLabel": "अपने लऽ जाउ",
+
+  "packagingLabel": "पैकिंग",
+
+  "discountLabel": "छूट",
+
+  "billDetailsTitle": "बिलक विवरण",
+
+  "clearCart": "कार्ट खाली करू",
+
+  "clearCartTitle": "ई कार्ट खाली करी?",
+
+  "clearCartMessage": "एहि मे राखल सब किछु हटा देल जाएत।",
+
+  "unavailableItemsNotice": "आब उपलब्ध नहि: {items}",
+
+  "removeUnavailable": "हिनका हटाउ",
+
+  "minimumNotMet": "कम सँ कम ऑर्डर {amount} अछि",
+
+  "checkoutTitle": "चेकआउट",
+
+  "deliveryAddressLabel": "डिलीवरीक पता",
+
+  "noAddressSelected": "कोनो पता नहि चुनल",
+
+  "paymentMethodLabel": "भुगतान",
+
+  "payOnDelivery": "डिलीवरी पर नगद",
+
+  "noteToRestaurant": "रेस्टोरेंट लेल नोट",
+
+  "noteToRestaurantHint": "घंटी दू बेर बजाउ…",
+
+  "activeOrdersTitle": "चलि रहल ऑर्डर",
+
+  "pastOrdersTitle": "पुरान ऑर्डर",
+
+  "orderItemsTitle": "व्यंजन",
+
+  "orderProgressTitle": "प्रगति",
+
+  "arrivingIn": "पहुँचय मे",
+
+  "pickupCodeLabel": "पिकअप कोड",
+
+  "cancellationReasonLabel": "रद्द होएबाक कारण",
+
+  "riderLabel": "डिलीवरी पार्टनर",
+
+  "callRider": "कॉल करू",
+
+  "viewInvoice": "कर रसीद",
+
+  "cancelOrder": "ऑर्डर रद्द करू",
+
+  "cancelOrderTitle": "ई ऑर्डर रद्द करी?",
+
+  "cancelOrderMessage": "रेस्टोरेंटक स्वीकार करबा सँ पहिनहि रद्द कएल जा सकैत अछि।",
+
+  "cancelReasonLabel": "कारण",
+
+  "cancelReasonFallback": "ग्राहक रद्द कयलनि",
+
+  "orderCancelled": "ऑर्डर रद्द भऽ गेल",
+
+  "currentLocationLabel": "वर्तमान ठाम"
 }

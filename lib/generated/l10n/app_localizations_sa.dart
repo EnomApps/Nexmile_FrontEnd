@@ -12,6 +12,9 @@ class AppLocalizationsSa extends AppLocalizations {
   String get appName => 'Nexmile';
 
   @override
+  String get fieldRequired => 'इदं क्षेत्रम् आवश्यकम्';
+
+  @override
   String get tagline => 'शीघ्रं वितरणम्। नवीनं स्मितम्।';
 
   @override
@@ -311,8 +314,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get toPay => 'देयम्';
 
   @override
-  String placeOrderFor(int amount) {
-    return 'आदेशं ददातु · ₹$amount';
+  String placeOrderFor(String amount) {
+    return 'आदेशं ददातु · $amount';
   }
 
   @override
@@ -372,4 +375,350 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get prototypeTrackingNotice => 'प्रतिरूपार्थं अनुसरणं कृत्रिमम् अस्ति।';
+
+  @override
+  String get locationTitle => 'कुत्र वितरणं करणीयम्?';
+
+  @override
+  String get locationSubtitle => 'Nexmile एककिलोमीटर-अन्तः स्थितेभ्यः आपणेभ्यः एव वितरणं करोति, अतः भवतः सम्यक् स्थानम् आवश्यकम्।';
+
+  @override
+  String get locationReasonRadiusTitle => 'एककिलोमीटर-अन्तः आपणाः';
+
+  @override
+  String get locationReasonRadiusBody => 'यतः अन्नम् उष्णं प्राप्नोति, तानि एव पाकशालानि दर्शयामः।';
+
+  @override
+  String get locationReasonAccuracyTitle => 'सम्यक् द्वारपर्यन्तम्';
+
+  @override
+  String get locationReasonAccuracyBody => 'यथार्थस्थानेन वितरकः दूरवाणीं विना एव भवन्तं प्राप्नोति।';
+
+  @override
+  String get locationReasonPrivacyTitle => 'अनुप्रयोगप्रयोगकाले एव';
+
+  @override
+  String get locationReasonPrivacyBody => 'वयं पृष्ठभूमौ भवन्तं न अनुसरामः, सङ्केतं भवान् स्वयम् अपि लिखितुं शक्नोति।';
+
+  @override
+  String get allowLocation => 'स्थानानुमतिं ददातु';
+
+  @override
+  String get enterAddressManually => 'अहं स्वयं सङ्केतं लिखामि';
+
+  @override
+  String get locationDenied => 'स्थानानुमतिः निराकृता। भवान् स्वयं चिह्नं स्थापयितुं शक्नोति।';
+
+  @override
+  String get locationDeniedForever => 'Nexmile कृते स्थानं निषिद्धम्। सेटिंग्स् इत्यत्र सक्रियं करोतु अथवा चिह्नं स्वयं स्थापयतु।';
+
+  @override
+  String get locationServiceOff => 'अस्मिन् यन्त्रे स्थानं निष्क्रियम् अस्ति।';
+
+  @override
+  String get locationUnavailable => 'स्थानं न प्राप्तम्। कृपया चिह्नं स्वयं स्थापयतु।';
+
+  @override
+  String get openSettings => 'सेटिंग्स्';
+
+  @override
+  String get pinLocationTitle => 'स्ववितरणचिह्नं स्थापयतु';
+
+  @override
+  String get deliveryRadiusHint => 'वृत्तं तत् एकं किलोमीटरं दर्शयति यस्मिन् Nexmile वितरणं करोति।';
+
+  @override
+  String get useMyLocation => 'मम स्थानं प्रयुङ्क्ताम्';
+
+  @override
+  String get deliveringHere => 'अत्र वितरणम्';
+
+  @override
+  String get dragToAdjust => 'चिह्नं समायोजयितुं मानचित्रं चालयतु';
+
+  @override
+  String get confirmLocation => 'स्थानं निश्चिनोतु';
+
+  @override
+  String get addressDetailsTitle => 'सङ्केतविवरणम्';
+
+  @override
+  String get addressDetailsSubtitle => 'सम्यक् द्वारं प्राप्तुं गृहसङ्ख्यां चिह्नं च योजयतु।';
+
+  @override
+  String get pinnedLocation => 'चिह्नितं स्थानम्';
+
+  @override
+  String get changePin => 'परिवर्तयतु';
+
+  @override
+  String get saveAddressAs => 'एनं सङ्केतम् एवं रक्षतु';
+
+  @override
+  String get labelHome => 'गृहम्';
+
+  @override
+  String get labelWork => 'कार्यालयः';
+
+  @override
+  String get labelOther => 'अन्यत्';
+
+  @override
+  String get addressLine1Label => 'गृहं, सदनं वा भवनम्';
+
+  @override
+  String get addressLine1Hint => '12A, ग्रीन् रेसिडेन्सी';
+
+  @override
+  String get addressLine2Label => 'मार्गः वा प्रदेशः';
+
+  @override
+  String get addressLine2Hint => 'द्वितीयः मार्गः, अण्णानगरम्';
+
+  @override
+  String get landmarkLabel => 'चिह्नस्थलम्';
+
+  @override
+  String get landmarkHint => 'बस्-स्थानकस्य सम्मुखम्';
+
+  @override
+  String get cityLabel => 'नगरम्';
+
+  @override
+  String get stateLabel => 'राज्यम्';
+
+  @override
+  String get pincodeLabel => 'पिन्-सङ्केतः';
+
+  @override
+  String get invalidPincode => 'सम्यक् षडङ्कीयं पिन्-सङ्केतं लिखतु';
+
+  @override
+  String get contactNameLabel => 'सम्पर्कनाम';
+
+  @override
+  String get contactPhoneLabel => 'सम्पर्कसङ्ख्या';
+
+  @override
+  String get invalidMobileNumber => 'सम्यक् दशाङ्कीयां चलभाषसङ्ख्यां लिखतु';
+
+  @override
+  String get makeDefaultAddress => 'पूर्वनिर्धारितरूपेण अत्रैव वितरणम्';
+
+  @override
+  String get saveAddress => 'सङ्केतं रक्षतु';
+
+  @override
+  String get addressSaved => 'सङ्केतः रक्षितः';
+
+  @override
+  String get addressBookTitle => 'वितरणसङ्केताः';
+
+  @override
+  String get manageAddresses => 'रक्षितसङ्केतान् प्रबन्धयतु';
+
+  @override
+  String get noAddressesTitle => 'अद्यापि सङ्केताः न सन्ति';
+
+  @override
+  String get noAddressesSubtitle => 'भवतः समीपं वितरणं कुर्वतः आपणान् दर्शयितुम् एकं सङ्केतं योजयतु।';
+
+  @override
+  String get addAddress => 'सङ्केतं योजयतु';
+
+  @override
+  String get setAsDefault => 'पूर्वनिर्धारितं करोतु';
+
+  @override
+  String get editLabel => 'सम्पादयतु';
+
+  @override
+  String get addressUpdated => 'सङ्केतः नवीकृतः';
+
+  @override
+  String get deleteLabel => 'अपाकरोतु';
+
+  @override
+  String get deleteAddressTitle => 'एनं सङ्केतम् अपाकरोतु?';
+
+  @override
+  String get deleteAddressMessage => 'भवान् पश्चात् पुनः योजयितुं शक्नोति।';
+
+  @override
+  String get rescueDealsTitle => 'अन्नरक्षणम्';
+
+  @override
+  String get notTakingOrders => 'आदेशाः न स्वीक्रियन्ते';
+
+  @override
+  String get closedRightNow => 'सम्प्रति पिहितम्';
+
+  @override
+  String minimumOrder(String amount) {
+    return 'न्यूनातिन्यूनं $amount';
+  }
+
+  @override
+  String portionsLeft(int count) {
+    return '$count अवशिष्टम्';
+  }
+
+  @override
+  String get soldOut => 'समाप्तम्';
+
+  @override
+  String get menuEmptyTitle => 'अद्यापि व्यञ्जनानि न सन्ति';
+
+  @override
+  String get menuEmptySubtitle => 'अस्य भोजनालयस्य सूची न योजिता।';
+
+  @override
+  String get moreDishesTitle => 'अधिकानि व्यञ्जनानि';
+
+  @override
+  String get customisable => 'रुच्यनुसारम्';
+
+  @override
+  String get requiredLabel => 'आवश्यकम्';
+
+  @override
+  String get optionalLabel => 'वैकल्पिकम्';
+
+  @override
+  String get chooseOne => 'एकं चिनोतु';
+
+  @override
+  String chooseUpTo(int count) {
+    return 'अधिकतमं $count चिनोतु';
+  }
+
+  @override
+  String chooseAtLeast(int count) {
+    return 'न्यूनातिन्यूनं $count चिनोतु';
+  }
+
+  @override
+  String chooseBetween(int min, int max) {
+    return '$min तः $max पर्यन्तं चिनोतु';
+  }
+
+  @override
+  String get specialInstructions => 'विशेषनिर्देशाः';
+
+  @override
+  String get specialInstructionsHint => 'अल्पकटु, पलाण्डुः न…';
+
+  @override
+  String addForAmount(String amount) {
+    return 'योजयतु · $amount';
+  }
+
+  @override
+  String get deliveryLabel => 'गृहप्रापणम्';
+
+  @override
+  String get pickupLabel => 'स्वयं ग्रहणम्';
+
+  @override
+  String get packagingLabel => 'वेष्टनम्';
+
+  @override
+  String get discountLabel => 'छूटः';
+
+  @override
+  String get billDetailsTitle => 'देयविवरणम्';
+
+  @override
+  String get clearCart => 'शकटं रिक्तं करोतु';
+
+  @override
+  String get clearCartTitle => 'इदं शकटं रिक्तं क्रियताम्?';
+
+  @override
+  String get clearCartMessage => 'अस्मिन् स्थितं सर्वं निष्कासयिष्यते।';
+
+  @override
+  String unavailableItemsNotice(String items) {
+    return 'अधुना न उपलभ्यते: $items';
+  }
+
+  @override
+  String get removeUnavailable => 'तानि निष्कासयतु';
+
+  @override
+  String minimumNotMet(String amount) {
+    return 'न्यूनतमः आदेशः $amount';
+  }
+
+  @override
+  String get checkoutTitle => 'निष्क्रमणम्';
+
+  @override
+  String get deliveryAddressLabel => 'प्रापणस्थानम्';
+
+  @override
+  String get noAddressSelected => 'स्थानं न चितम्';
+
+  @override
+  String get paymentMethodLabel => 'शुल्कदानम्';
+
+  @override
+  String get payOnDelivery => 'प्रापणसमये नगदम्';
+
+  @override
+  String get noteToRestaurant => 'भोजनालयाय टिप्पणी';
+
+  @override
+  String get noteToRestaurantHint => 'घण्टां द्विवारं वादयतु…';
+
+  @override
+  String get activeOrdersTitle => 'प्रचलन्तः आदेशाः';
+
+  @override
+  String get pastOrdersTitle => 'पूर्वादेशाः';
+
+  @override
+  String get orderItemsTitle => 'व्यञ्जनानि';
+
+  @override
+  String get orderProgressTitle => 'प्रगतिः';
+
+  @override
+  String get arrivingIn => 'आगमनकालः';
+
+  @override
+  String get pickupCodeLabel => 'ग्रहणसङ्केतः';
+
+  @override
+  String get cancellationReasonLabel => 'निरसनकारणम्';
+
+  @override
+  String get riderLabel => 'प्रापणसहभागी';
+
+  @override
+  String get callRider => 'आह्वयतु';
+
+  @override
+  String get viewInvoice => 'करपत्रम्';
+
+  @override
+  String get cancelOrder => 'आदेशं निरस्यतु';
+
+  @override
+  String get cancelOrderTitle => 'अयम् आदेशः निरस्यताम्?';
+
+  @override
+  String get cancelOrderMessage => 'भोजनालयस्य स्वीकारात् पूर्वमेव निरसनं शक्यते।';
+
+  @override
+  String get cancelReasonLabel => 'कारणम्';
+
+  @override
+  String get cancelReasonFallback => 'ग्राहकेण निरस्तम्';
+
+  @override
+  String get orderCancelled => 'आदेशः निरस्तः';
+
+  @override
+  String get currentLocationLabel => 'वर्तमानस्थानम्';
 }

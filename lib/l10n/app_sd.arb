@@ -2,6 +2,7 @@
   "@@locale": "sd",
 
   "appName": "Nexmile",
+  "fieldRequired": "هي خانو ضروري آهي",
   "tagline": "تيز ڊليوري. تازا مرڪون.",
   "chooseLanguageTitle": "پنهنجي ٻولي چونڊيو",
   "chooseLanguageSubtitle": "اها ٻولي چونڊيو جنهن ۾ توهان کي آساني ٿئي. توهان ان کي ڪنهن به وقت سيٽنگون ۾ تبديل ڪري سگهو ٿا.",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "ٽيڪس ۽ چارج",
   "freeLabel": "مفت",
   "toPay": "ادا ڪرڻو",
-  "placeOrderFor": "آرڊر ڪريو · ₹{amount}",
+  "placeOrderFor": "آرڊر ڪريو · {amount}",
   "ordersTitle": "توهان جا آرڊر",
   "ordersEmptyTitle": "اڃا ڪو آرڊر ناهي",
   "ordersEmptySubtitle": "توهان جا اڳيان آرڊر هتي نظر ايندا.",
@@ -117,5 +118,173 @@
   "backToHome": "هوم تي واپس",
   "prototypeNotice": "نمونو اسٽور فرنٽ — اصل دڪان ڪيٽلاگ API سان گڏ ايندا.",
   "prototypeCheckoutNotice": "هي هڪ پروٽوٽائپ آهي. ڪا ادائگي نه ورتي ويندي آهي ۽ نه ئي ڪو حقيقي آرڊر ٿيندو آهي.",
-  "prototypeTrackingNotice": "پروٽوٽائپ لاءِ ٽريڪنگ مصنوعي آهي."
+  "prototypeTrackingNotice": "پروٽوٽائپ لاءِ ٽريڪنگ مصنوعي آهي.",
+
+  "locationTitle": "ڊليوري ڪٿي ڪجي؟",
+  "locationSubtitle": "Nexmile رڳو 1 ڪلوميٽر اندر جي دڪانن مان ڊليوري ڪري ٿو، تنهنڪري اسان کي توهان جي صحيح جاءِ گهرجي.",
+  "locationReasonRadiusTitle": "1 ڪلوميٽر اندر جا دڪان",
+  "locationReasonRadiusBody": "اسان رڳو اهي باورچي خانا ڏيکاريون ٿا جتان کاڌو گرم پهچي.",
+  "locationReasonAccuracyTitle": "بلڪل صحيح دروازي تائين",
+  "locationReasonAccuracyBody": "صحيح پن هجي ته ڊليوري پارٽنر فون ڪرڻ کان سواءِ توهان تائين پهچي وڃي ٿو.",
+  "locationReasonPrivacyTitle": "رڳو ايپ استعمال ڪرڻ وقت",
+  "locationReasonPrivacyBody": "اسان پس منظر ۾ توهان کي ٽريڪ نه ڪندا آهيون، ۽ پتو توهان پاڻ به لکي سگهو ٿا.",
+  "allowLocation": "مقام جي اجازت ڏيو",
+  "enterAddressManually": "مان پتو پاڻ لکندس",
+  "locationDenied": "مقام جي اجازت نه ملي. توهان پن پاڻ رکي سگهو ٿا.",
+  "locationDeniedForever": "Nexmile لاءِ مقام بند آهي. سيٽنگن ۾ آن ڪريو يا پن پاڻ رکو.",
+  "locationServiceOff": "هن ڊوائيس تي مقام بند آهي.",
+  "locationUnavailable": "مقام حاصل نه ٿي سگهيو. مهرباني ڪري پن پاڻ رکو.",
+  "openSettings": "سيٽنگون",
+
+  "pinLocationTitle": "پنهنجو ڊليوري پن رکو",
+  "deliveryRadiusHint": "دائرو اهو 1 ڪلوميٽر ڏيکاري ٿو جنهن ۾ Nexmile ڊليوري ڪري ٿو.",
+  "useMyLocation": "منهنجو مقام استعمال ڪريو",
+  "deliveringHere": "هتي ڊليوري",
+  "dragToAdjust": "پن تبديل ڪرڻ لاءِ نقشو ڇڪيو",
+  "confirmLocation": "مقام جي تصديق ڪريو",
+
+  "addressDetailsTitle": "پتي جا تفصيل",
+  "addressDetailsSubtitle": "صحيح دروازي تائين پهچڻ لاءِ گهر نمبر ۽ نشاني شامل ڪريو.",
+  "pinnedLocation": "چونڊيل جاءِ",
+  "changePin": "تبديل ڪريو",
+  "saveAddressAs": "هي پتو هينئن محفوظ ڪريو",
+  "labelHome": "گهر",
+  "labelWork": "آفيس",
+  "labelOther": "ٻيو",
+  "addressLine1Label": "گهر، فليٽ يا عمارت",
+  "addressLine1Hint": "12A، گرين ريزيڊنسي",
+  "addressLine2Label": "گلي يا علائقو",
+  "addressLine2Hint": "ٻي ايونيو، انا نگر",
+  "landmarkLabel": "نشاني",
+  "landmarkHint": "بس اسٽاپ جي سامهون",
+  "cityLabel": "شهر",
+  "stateLabel": "رياست",
+  "pincodeLabel": "پن ڪوڊ",
+  "invalidPincode": "صحيح 6 عددن جو پن ڪوڊ داخل ڪريو",
+  "contactNameLabel": "رابطي جو نالو",
+  "contactPhoneLabel": "رابطي جو نمبر",
+  "invalidMobileNumber": "صحيح 10 عددن جو موبائل نمبر داخل ڪريو",
+  "makeDefaultAddress": "ڊفالٽ طور هتي ئي ڊليوري",
+  "saveAddress": "پتو محفوظ ڪريو",
+  "addressSaved": "پتو محفوظ ٿي ويو",
+
+  "addressBookTitle": "ڊليوري جا پتا",
+  "manageAddresses": "محفوظ ٿيل پتا سنڀاليو",
+  "noAddressesTitle": "اڃا ڪو پتو ناهي",
+  "noAddressesSubtitle": "هڪ پتو شامل ڪريو ته جيئن اسان توهان تائين ڊليوري ڪندڙ دڪان ڏيکاري سگهون.",
+  "addAddress": "پتو شامل ڪريو",
+  "setAsDefault": "ڊفالٽ بڻايو",
+  "editLabel": "تبديل ڪريو",
+  "addressUpdated": "پتو اپ ڊيٽ ٿي ويو",
+  "deleteLabel": "ڊاهيو",
+  "deleteAddressTitle": "هي پتو ڊاهجي؟",
+  "deleteAddressMessage": "توهان ان کي پوءِ ٻيهر شامل ڪري سگهو ٿا.",
+
+  "rescueDealsTitle": "فوڊ ريسڪيو",
+
+  "notTakingOrders": "آرڊر نه ورتا پيا وڃن",
+
+  "closedRightNow": "هاڻي بند آهي",
+
+  "minimumOrder": "گھٽ ۾ گھٽ {amount}",
+
+  "portionsLeft": "{count} باقي",
+
+  "soldOut": "ختم ٿي ويو",
+
+  "menuEmptyTitle": "اڃا ڪوبه کاڌو ناهي",
+
+  "menuEmptySubtitle": "هن ريسٽورنٽ پنهنجو مينيو شامل نه ڪيو آهي.",
+
+  "moreDishesTitle": "وڌيڪ کاڌا",
+
+  "customisable": "پنهنجي پسند مطابق",
+
+  "requiredLabel": "لازمي",
+
+  "optionalLabel": "اختياري",
+
+  "chooseOne": "هڪ چونڊيو",
+
+  "chooseUpTo": "وڌ ۾ وڌ {count} چونڊيو",
+
+  "chooseAtLeast": "گھٽ ۾ گھٽ {count} چونڊيو",
+
+  "chooseBetween": "{min} کان {max} تائين چونڊيو",
+
+  "specialInstructions": "خاص هدايتون",
+
+  "specialInstructionsHint": "گھٽ تکو، بصر نه…",
+
+  "addForAmount": "شامل ڪريو · {amount}",
+
+  "deliveryLabel": "ڊليوري",
+
+  "pickupLabel": "پاڻ کڻڻ",
+
+  "packagingLabel": "پيڪنگ",
+
+  "discountLabel": "رعايت",
+
+  "billDetailsTitle": "بل جي تفصيل",
+
+  "clearCart": "ڪارٽ خالي ڪريو",
+
+  "clearCartTitle": "هي ڪارٽ خالي ڪجي؟",
+
+  "clearCartMessage": "ان ۾ رکيل هر شيءِ هٽائي ويندي.",
+
+  "unavailableItemsNotice": "هاڻي دستياب ناهي: {items}",
+
+  "removeUnavailable": "اهي هٽايو",
+
+  "minimumNotMet": "گھٽ ۾ گھٽ آرڊر {amount} آهي",
+
+  "checkoutTitle": "چيڪ آئوٽ",
+
+  "deliveryAddressLabel": "ڊليوري جو پتو",
+
+  "noAddressSelected": "ڪوبه پتو نه چونڊيو ويو",
+
+  "paymentMethodLabel": "ادائيگي",
+
+  "payOnDelivery": "ڊليوري تي نقد",
+
+  "noteToRestaurant": "ريسٽورنٽ لاءِ نوٽ",
+
+  "noteToRestaurantHint": "گھنٽي ٻه ڀيرا وڄايو…",
+
+  "activeOrdersTitle": "هلندڙ آرڊر",
+
+  "pastOrdersTitle": "پراڻا آرڊر",
+
+  "orderItemsTitle": "کاڌا",
+
+  "orderProgressTitle": "پيش رفت",
+
+  "arrivingIn": "پهچڻ ۾",
+
+  "pickupCodeLabel": "پڪ اپ ڪوڊ",
+
+  "cancellationReasonLabel": "رد ٿيڻ جو سبب",
+
+  "riderLabel": "ڊليوري پارٽنر",
+
+  "callRider": "ڪال ڪريو",
+
+  "viewInvoice": "ٽيڪس انوائس",
+
+  "cancelOrder": "آرڊر رد ڪريو",
+
+  "cancelOrderTitle": "هي آرڊر رد ڪجي؟",
+
+  "cancelOrderMessage": "ريسٽورنٽ قبول ڪرڻ کان اڳ ئي رد ڪري سگهجي ٿو.",
+
+  "cancelReasonLabel": "سبب",
+
+  "cancelReasonFallback": "گراهڪ رد ڪيو",
+
+  "orderCancelled": "آرڊر رد ٿي ويو",
+
+  "currentLocationLabel": "موجوده هنڌ"
 }

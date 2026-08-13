@@ -2,6 +2,7 @@
   "@@locale": "bn",
 
   "appName": "Nexmile",
+  "fieldRequired": "এই ঘরটি পূরণ করা আবশ্যক",
   "tagline": "দ্রুত ডেলিভারি। সতেজ হাসি।",
   "chooseLanguageTitle": "আপনার ভাষা বেছে নিন",
   "chooseLanguageSubtitle": "যে ভাষায় আপনি স্বচ্ছন্দ সেটি বেছে নিন। আপনি যেকোনো সময় সেটিংস থেকে এটি পরিবর্তন করতে পারেন।",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "কর ও চার্জ",
   "freeLabel": "ফ্রি",
   "toPay": "দিতে হবে",
-  "placeOrderFor": "অর্ডার করুন · ₹{amount}",
+  "placeOrderFor": "অর্ডার করুন · {amount}",
   "ordersTitle": "আপনার অর্ডার",
   "ordersEmptyTitle": "এখনো কোনো অর্ডার নেই",
   "ordersEmptySubtitle": "আপনার আগের অর্ডার এখানে দেখা যাবে।",
@@ -117,5 +118,173 @@
   "backToHome": "হোমে ফিরুন",
   "prototypeNotice": "নমুনা স্টোরফ্রন্ট — আসল দোকান ক্যাটালগ API-এর সঙ্গে আসবে।",
   "prototypeCheckoutNotice": "এটি একটি প্রোটোটাইপ। কোনো টাকা নেওয়া হয় না এবং সত্যিকারের অর্ডারও হয় না।",
-  "prototypeTrackingNotice": "প্রোটোটাইপের জন্য ট্র্যাকিং কৃত্রিম।"
+  "prototypeTrackingNotice": "প্রোটোটাইপের জন্য ট্র্যাকিং কৃত্রিম।",
+
+  "locationTitle": "কোথায় ডেলিভারি করব?",
+  "locationSubtitle": "Nexmile কেবল ১ কিমির মধ্যেকার দোকান থেকে ডেলিভারি করে, তাই আপনার সঠিক অবস্থান দরকার।",
+  "locationReasonRadiusTitle": "১ কিমির মধ্যে দোকান",
+  "locationReasonRadiusBody": "যেখান থেকে খাবার গরম পৌঁছাবে, কেবল সেই রান্নাঘরগুলিই দেখাই।",
+  "locationReasonAccuracyTitle": "সঠিক দরজায়",
+  "locationReasonAccuracyBody": "নিখুঁত পিন থাকলে ডেলিভারি পার্টনার ফোন না করেই আপনাকে খুঁজে পান।",
+  "locationReasonPrivacyTitle": "শুধু অ্যাপ ব্যবহারের সময়",
+  "locationReasonPrivacyBody": "আমরা পটভূমিতে আপনাকে ট্র্যাক করি না, আর ঠিকানা আপনি নিজেও লিখতে পারেন।",
+  "allowLocation": "লোকেশন অনুমতি দিন",
+  "enterAddressManually": "আমি নিজেই ঠিকানা লিখব",
+  "locationDenied": "লোকেশন অনুমতি দেওয়া হয়নি। আপনি নিজেই পিন বসাতে পারেন।",
+  "locationDeniedForever": "Nexmile-এর জন্য লোকেশন বন্ধ আছে। সেটিংসে চালু করুন বা পিন নিজে বসান।",
+  "locationServiceOff": "এই ডিভাইসে লোকেশন বন্ধ আছে।",
+  "locationUnavailable": "লোকেশন পাওয়া যায়নি। অনুগ্রহ করে পিন নিজে বসান।",
+  "openSettings": "সেটিংস",
+
+  "pinLocationTitle": "আপনার ডেলিভারি পিন বসান",
+  "deliveryRadiusHint": "বৃত্তটি সেই ১ কিমি দেখাচ্ছে যার মধ্যে Nexmile ডেলিভারি করে।",
+  "useMyLocation": "আমার লোকেশন ব্যবহার করুন",
+  "deliveringHere": "এখানে ডেলিভারি",
+  "dragToAdjust": "পিন সরাতে ম্যাপ টানুন",
+  "confirmLocation": "লোকেশন নিশ্চিত করুন",
+
+  "addressDetailsTitle": "ঠিকানার বিবরণ",
+  "addressDetailsSubtitle": "সঠিক দরজায় পৌঁছাতে ফ্ল্যাট নম্বর ও ল্যান্ডমার্ক দিন।",
+  "pinnedLocation": "চিহ্নিত অবস্থান",
+  "changePin": "বদলান",
+  "saveAddressAs": "এই ঠিকানা সংরক্ষণ করুন",
+  "labelHome": "বাড়ি",
+  "labelWork": "অফিস",
+  "labelOther": "অন্যান্য",
+  "addressLine1Label": "ফ্ল্যাট, বাড়ি বা ভবন",
+  "addressLine1Hint": "12A, গ্রিন রেসিডেন্সি",
+  "addressLine2Label": "রাস্তা বা এলাকা",
+  "addressLine2Hint": "২য় অ্যাভিনিউ, আন্না নগর",
+  "landmarkLabel": "ল্যান্ডমার্ক",
+  "landmarkHint": "বাস স্টপের উল্টোদিকে",
+  "cityLabel": "শহর",
+  "stateLabel": "রাজ্য",
+  "pincodeLabel": "পিন কোড",
+  "invalidPincode": "সঠিক ৬ সংখ্যার পিন কোড লিখুন",
+  "contactNameLabel": "যোগাযোগের নাম",
+  "contactPhoneLabel": "যোগাযোগের নম্বর",
+  "invalidMobileNumber": "সঠিক ১০ সংখ্যার মোবাইল নম্বর লিখুন",
+  "makeDefaultAddress": "ডিফল্টভাবে এখানেই ডেলিভারি",
+  "saveAddress": "ঠিকানা সংরক্ষণ করুন",
+  "addressSaved": "ঠিকানা সংরক্ষিত হয়েছে",
+
+  "addressBookTitle": "ডেলিভারির ঠিকানা",
+  "manageAddresses": "সংরক্ষিত ঠিকানা পরিচালনা করুন",
+  "noAddressesTitle": "এখনো কোনো ঠিকানা নেই",
+  "noAddressesSubtitle": "একটি ঠিকানা যোগ করুন, যাতে আপনার কাছে ডেলিভারি করা দোকান দেখাতে পারি।",
+  "addAddress": "ঠিকানা যোগ করুন",
+  "setAsDefault": "ডিফল্ট করুন",
+  "editLabel": "সম্পাদনা",
+  "addressUpdated": "ঠিকানা আপডেট হয়েছে",
+  "deleteLabel": "মুছুন",
+  "deleteAddressTitle": "এই ঠিকানা মুছবেন?",
+  "deleteAddressMessage": "আপনি পরে আবার যোগ করতে পারবেন।",
+
+  "rescueDealsTitle": "ফুড রেসকিউ",
+
+  "notTakingOrders": "অর্ডার নেওয়া হচ্ছে না",
+
+  "closedRightNow": "এখন বন্ধ",
+
+  "minimumOrder": "সর্বনিম্ন {amount}",
+
+  "portionsLeft": "{count} বাকি",
+
+  "soldOut": "শেষ হয়ে গেছে",
+
+  "menuEmptyTitle": "এখনো কোনো পদ নেই",
+
+  "menuEmptySubtitle": "এই রেস্তোরাঁ তার মেনু যোগ করেনি।",
+
+  "moreDishesTitle": "আরও পদ",
+
+  "customisable": "পছন্দমতো",
+
+  "requiredLabel": "আবশ্যক",
+
+  "optionalLabel": "ঐচ্ছিক",
+
+  "chooseOne": "একটি বাছুন",
+
+  "chooseUpTo": "সর্বোচ্চ {count}টি বাছুন",
+
+  "chooseAtLeast": "অন্তত {count}টি বাছুন",
+
+  "chooseBetween": "{min} থেকে {max}টি বাছুন",
+
+  "specialInstructions": "বিশেষ নির্দেশ",
+
+  "specialInstructionsHint": "কম ঝাল, পেঁয়াজ নয়…",
+
+  "addForAmount": "যোগ করুন · {amount}",
+
+  "deliveryLabel": "ডেলিভারি",
+
+  "pickupLabel": "নিজে নেওয়া",
+
+  "packagingLabel": "প্যাকেজিং",
+
+  "discountLabel": "ছাড়",
+
+  "billDetailsTitle": "বিলের বিবরণ",
+
+  "clearCart": "কার্ট খালি করুন",
+
+  "clearCartTitle": "এই কার্ট খালি করবেন?",
+
+  "clearCartMessage": "এর সবকিছু সরিয়ে ফেলা হবে।",
+
+  "unavailableItemsNotice": "আর পাওয়া যাচ্ছে না: {items}",
+
+  "removeUnavailable": "সরিয়ে ফেলুন",
+
+  "minimumNotMet": "সর্বনিম্ন অর্ডার {amount}",
+
+  "checkoutTitle": "চেকআউট",
+
+  "deliveryAddressLabel": "ডেলিভারির ঠিকানা",
+
+  "noAddressSelected": "কোনো ঠিকানা বাছা হয়নি",
+
+  "paymentMethodLabel": "পেমেন্ট",
+
+  "payOnDelivery": "ডেলিভারিতে নগদ",
+
+  "noteToRestaurant": "রেস্তোরাঁর জন্য নোট",
+
+  "noteToRestaurantHint": "দুবার বেল বাজান…",
+
+  "activeOrdersTitle": "চলমান অর্ডার",
+
+  "pastOrdersTitle": "আগের অর্ডার",
+
+  "orderItemsTitle": "পদ",
+
+  "orderProgressTitle": "অগ্রগতি",
+
+  "arrivingIn": "পৌঁছাবে",
+
+  "pickupCodeLabel": "পিকআপ কোড",
+
+  "cancellationReasonLabel": "বাতিলের কারণ",
+
+  "riderLabel": "ডেলিভারি পার্টনার",
+
+  "callRider": "কল করুন",
+
+  "viewInvoice": "ট্যাক্স ইনভয়েস",
+
+  "cancelOrder": "অর্ডার বাতিল করুন",
+
+  "cancelOrderTitle": "এই অর্ডার বাতিল করবেন?",
+
+  "cancelOrderMessage": "রেস্তোরাঁ গ্রহণ করার আগেই কেবল বাতিল করা যায়।",
+
+  "cancelReasonLabel": "কারণ",
+
+  "cancelReasonFallback": "ক্রেতা বাতিল করেছেন",
+
+  "orderCancelled": "অর্ডার বাতিল হয়েছে",
+
+  "currentLocationLabel": "বর্তমান অবস্থান"
 }

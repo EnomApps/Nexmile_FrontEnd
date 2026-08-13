@@ -2,6 +2,7 @@
   "@@locale": "or",
 
   "appName": "Nexmile",
+  "fieldRequired": "ଏହି ଘର ଆବଶ୍ୟକ",
   "tagline": "ଦ୍ରୁତ ଡେଲିଭରି। ସତେଜ ହସ।",
   "chooseLanguageTitle": "ଆପଣଙ୍କ ଭାଷା ବାଛନ୍ତୁ",
   "chooseLanguageSubtitle": "ଆପଣ ସହଜ ଅନୁଭବ କରୁଥିବା ଭାଷା ବାଛନ୍ତୁ। ଆପଣ ଏହାକୁ ଯେକୌଣସି ସମୟରେ ସେଟିଂସରେ ବଦଳାଇ ପାରିବେ।",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "କର ଓ ଶୁଳ୍କ",
   "freeLabel": "ମାଗଣା",
   "toPay": "ଦେୟ",
-  "placeOrderFor": "ଅର୍ଡର କରନ୍ତୁ · ₹{amount}",
+  "placeOrderFor": "ଅର୍ଡର କରନ୍ତୁ · {amount}",
   "ordersTitle": "ଆପଣଙ୍କ ଅର୍ଡର",
   "ordersEmptyTitle": "ଏପର୍ଯ୍ୟନ୍ତ ଅର୍ଡର ନାହିଁ",
   "ordersEmptySubtitle": "ଆପଣଙ୍କ ପୂର୍ବ ଅର୍ଡର ଏଠାରେ ଦେଖାଯିବ।",
@@ -117,5 +118,173 @@
   "backToHome": "ହୋମକୁ ଫେରନ୍ତୁ",
   "prototypeNotice": "ନମୁନା ଷ୍ଟୋରଫ୍ରଣ୍ଟ — ପ୍ରକୃତ ଦୋକାନ କାଟାଲଗ APIସହ ଆସିବ।",
   "prototypeCheckoutNotice": "ଏହା ଏକ ପ୍ରୋଟୋଟାଇପ। କୌଣସି ଦେୟ ନିଆଯାଏ ନାହିଁ ଏବଂ ପ୍ରକୃତ ଅର୍ଡର ମଧ୍ୟ ହୁଏ ନାହିଁ।",
-  "prototypeTrackingNotice": "ପ୍ରୋଟୋଟାଇପ ପାଇଁ ଟ୍ରାକିଂ କୃତ୍ରିମ।"
+  "prototypeTrackingNotice": "ପ୍ରୋଟୋଟାଇପ ପାଇଁ ଟ୍ରାକିଂ କୃତ୍ରିମ।",
+
+  "locationTitle": "କେଉଁଠାରେ ଡେଲିଭରି କରିବୁ?",
+  "locationSubtitle": "Nexmile କେବଳ 1 କିମି ଭିତରର ଦୋକାନରୁ ଡେଲିଭରି କରେ, ତେଣୁ ଆପଣଙ୍କ ସଠିକ ସ୍ଥାନ ଦରକାର।",
+  "locationReasonRadiusTitle": "1 କିମି ଭିତରର ଦୋକାନ",
+  "locationReasonRadiusBody": "ଯେଉଁଠାରୁ ଖାଦ୍ୟ ଗରମ ପହଞ୍ଚିବ, କେବଳ ସେହି ରୋଷେଇଘର ଦେଖାଉ।",
+  "locationReasonAccuracyTitle": "ଠିକ୍ ଦୁଆର ପର୍ଯ୍ୟନ୍ତ",
+  "locationReasonAccuracyBody": "ସଠିକ ପିନ ଥିଲେ ଡେଲିଭରି ପାର୍ଟନର ଫୋନ ନକରି ଆପଣଙ୍କୁ ଖୋଜି ପାଆନ୍ତି।",
+  "locationReasonPrivacyTitle": "କେବଳ ଆପ୍ ବ୍ୟବହାର ସମୟରେ",
+  "locationReasonPrivacyBody": "ଆମେ ପୃଷ୍ଠଭୂମିରେ ଆପଣଙ୍କୁ ଟ୍ରାକ କରୁନାହୁଁ, ଠିକଣା ଆପଣ ନିଜେ ମଧ୍ୟ ଲେଖିପାରିବେ।",
+  "allowLocation": "ଲୋକେସନ ଅନୁମତି ଦିଅନ୍ତୁ",
+  "enterAddressManually": "ମୁଁ ନିଜେ ଠିକଣା ଲେଖିବି",
+  "locationDenied": "ଲୋକେସନ ଅନୁମତି ମିଳିଲା ନାହିଁ। ଆପଣ ନିଜେ ପିନ ରଖିପାରିବେ।",
+  "locationDeniedForever": "Nexmile ପାଇଁ ଲୋକେସନ ବନ୍ଦ ଅଛି। ସେଟିଂସରେ ଚାଲୁ କରନ୍ତୁ କିମ୍ବା ପିନ ନିଜେ ରଖନ୍ତୁ।",
+  "locationServiceOff": "ଏହି ଡିଭାଇସରେ ଲୋକେସନ ବନ୍ଦ ଅଛି।",
+  "locationUnavailable": "ଲୋକେସନ ମିଳିଲା ନାହିଁ। ଦୟାକରି ପିନ ନିଜେ ରଖନ୍ତୁ।",
+  "openSettings": "ସେଟିଂସ",
+
+  "pinLocationTitle": "ଆପଣଙ୍କ ଡେଲିଭରି ପିନ ରଖନ୍ତୁ",
+  "deliveryRadiusHint": "Nexmile ଡେଲିଭରି କରୁଥିବା 1 କିମି ପରିସର ବୃତ୍ତ ଦେଖାଉଛି।",
+  "useMyLocation": "ମୋ ଲୋକେସନ ବ୍ୟବହାର କରନ୍ତୁ",
+  "deliveringHere": "ଏଠାରେ ଡେଲିଭରି",
+  "dragToAdjust": "ପିନ ବଦଳାଇବାକୁ ମାନଚିତ୍ର ଟାଣନ୍ତୁ",
+  "confirmLocation": "ଲୋକେସନ ନିଶ୍ଚିତ କରନ୍ତୁ",
+
+  "addressDetailsTitle": "ଠିକଣା ବିବରଣୀ",
+  "addressDetailsSubtitle": "ଠିକ୍ ଦୁଆରରେ ପହଞ୍ଚିବାକୁ ଘର ନମ୍ବର ଓ ଚିହ୍ନ ଯୋଡ଼ନ୍ତୁ।",
+  "pinnedLocation": "ଚିହ୍ନିତ ସ୍ଥାନ",
+  "changePin": "ବଦଳାନ୍ତୁ",
+  "saveAddressAs": "ଏହି ଠିକଣା ଏହିପରି ସଞ୍ଚୟ କରନ୍ତୁ",
+  "labelHome": "ଘର",
+  "labelWork": "ଅଫିସ",
+  "labelOther": "ଅନ୍ୟାନ୍ୟ",
+  "addressLine1Label": "ଘର, ଫ୍ଲାଟ କିମ୍ବା ବିଲ୍ଡିଂ",
+  "addressLine1Hint": "12A, ଗ୍ରୀନ ରେସିଡେନ୍ସି",
+  "addressLine2Label": "ରାସ୍ତା କିମ୍ବା ଅଞ୍ଚଳ",
+  "addressLine2Hint": "2ୟ ଆଭେନ୍ୟୁ, ଅନ୍ନା ନଗର",
+  "landmarkLabel": "ଚିହ୍ନ",
+  "landmarkHint": "ବସ ଷ୍ଟପ ସାମ୍ନାରେ",
+  "cityLabel": "ସହର",
+  "stateLabel": "ରାଜ୍ୟ",
+  "pincodeLabel": "ପିନ କୋଡ",
+  "invalidPincode": "ସଠିକ 6 ଅଙ୍କର ପିନ କୋଡ ଦିଅନ୍ତୁ",
+  "contactNameLabel": "ଯୋଗାଯୋଗ ନାମ",
+  "contactPhoneLabel": "ଯୋଗାଯୋଗ ନମ୍ବର",
+  "invalidMobileNumber": "ସଠିକ 10 ଅଙ୍କର ମୋବାଇଲ ନମ୍ବର ଦିଅନ୍ତୁ",
+  "makeDefaultAddress": "ଡିଫଲ୍ଟ ଭାବେ ଏଠାରେ ଡେଲିଭରି",
+  "saveAddress": "ଠିକଣା ସଞ୍ଚୟ କରନ୍ତୁ",
+  "addressSaved": "ଠିକଣା ସଞ୍ଚିତ ହେଲା",
+
+  "addressBookTitle": "ଡେଲିଭରି ଠିକଣା",
+  "manageAddresses": "ସଞ୍ଚିତ ଠିକଣା ପରିଚାଳନା କରନ୍ତୁ",
+  "noAddressesTitle": "ଏପର୍ଯ୍ୟନ୍ତ ଠିକଣା ନାହିଁ",
+  "noAddressesSubtitle": "ଆପଣଙ୍କ ପାଖକୁ ଡେଲିଭରି କରୁଥିବା ଦୋକାନ ଦେଖାଇବାକୁ ଗୋଟିଏ ଠିକଣା ଯୋଡ଼ନ୍ତୁ।",
+  "addAddress": "ଠିକଣା ଯୋଡ଼ନ୍ତୁ",
+  "setAsDefault": "ଡିଫଲ୍ଟ କରନ୍ତୁ",
+  "editLabel": "ସମ୍ପାଦନା",
+  "addressUpdated": "ଠିକଣା ଅପଡେଟ ହେଲା",
+  "deleteLabel": "ବିଲୋପ କରନ୍ତୁ",
+  "deleteAddressTitle": "ଏହି ଠିକଣା ବିଲୋପ କରିବେ?",
+  "deleteAddressMessage": "ଆପଣ ପରେ ପୁଣି ଯୋଡ଼ିପାରିବେ।",
+
+  "rescueDealsTitle": "ଫୁଡ୍ ରେସ୍କ୍ୟୁ",
+
+  "notTakingOrders": "ଅର୍ଡର ନେଉନାହିଁ",
+
+  "closedRightNow": "ବର୍ତ୍ତମାନ ବନ୍ଦ",
+
+  "minimumOrder": "ସର୍ବନିମ୍ନ {amount}",
+
+  "portionsLeft": "{count} ବାକି",
+
+  "soldOut": "ସରିଗଲା",
+
+  "menuEmptyTitle": "ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ଖାଦ୍ୟ ନାହିଁ",
+
+  "menuEmptySubtitle": "ଏହି ରେଷ୍ଟୁରାଣ୍ଟ ନିଜ ମେନୁ ଯୋଡ଼ିନାହିଁ।",
+
+  "moreDishesTitle": "ଆଉ ଖାଦ୍ୟ",
+
+  "customisable": "ପସନ୍ଦ ଅନୁଯାୟୀ",
+
+  "requiredLabel": "ଆବଶ୍ୟକ",
+
+  "optionalLabel": "ଐଚ୍ଛିକ",
+
+  "chooseOne": "ଗୋଟିଏ ବାଛନ୍ତୁ",
+
+  "chooseUpTo": "ସର୍ବାଧିକ {count} ବାଛନ୍ତୁ",
+
+  "chooseAtLeast": "ସର୍ବନିମ୍ନ {count} ବାଛନ୍ତୁ",
+
+  "chooseBetween": "{min} ରୁ {max} ବାଛନ୍ତୁ",
+
+  "specialInstructions": "ବିଶେଷ ନିର୍ଦ୍ଦେଶ",
+
+  "specialInstructionsHint": "କମ୍ ଝାଲ, ପିଆଜ ନୁହେଁ…",
+
+  "addForAmount": "ଯୋଡ଼ନ୍ତୁ · {amount}",
+
+  "deliveryLabel": "ଡେଲିଭରୀ",
+
+  "pickupLabel": "ନିଜେ ନେବା",
+
+  "packagingLabel": "ପ୍ୟାକିଂ",
+
+  "discountLabel": "ରିହାତି",
+
+  "billDetailsTitle": "ବିଲ୍ ବିବରଣୀ",
+
+  "clearCart": "କାର୍ଟ ଖାଲି କରନ୍ତୁ",
+
+  "clearCartTitle": "ଏହି କାର୍ଟ ଖାଲି କରିବେ?",
+
+  "clearCartMessage": "ଏଥିରେ ଥିବା ସବୁକିଛି ହଟାଯିବ।",
+
+  "unavailableItemsNotice": "ଆଉ ଉପଲବ୍ଧ ନାହିଁ: {items}",
+
+  "removeUnavailable": "ସେଗୁଡ଼ିକ ହଟାନ୍ତୁ",
+
+  "minimumNotMet": "ସର୍ବନିମ୍ନ ଅର୍ଡର {amount}",
+
+  "checkoutTitle": "ଚେକଆଉଟ",
+
+  "deliveryAddressLabel": "ଡେଲିଭରୀ ଠିକଣା",
+
+  "noAddressSelected": "କୌଣସି ଠିକଣା ବଛାଯାଇନାହିଁ",
+
+  "paymentMethodLabel": "ଦେୟ",
+
+  "payOnDelivery": "ଡେଲିଭରୀ ସମୟରେ ନଗଦ",
+
+  "noteToRestaurant": "ରେଷ୍ଟୁରାଣ୍ଟ ପାଇଁ ଟିପ୍ପଣୀ",
+
+  "noteToRestaurantHint": "ଘଣ୍ଟି ଦୁଇଥର ବଜାନ୍ତୁ…",
+
+  "activeOrdersTitle": "ଚାଲୁଥିବା ଅର୍ଡର",
+
+  "pastOrdersTitle": "ପୁରୁଣା ଅର୍ଡର",
+
+  "orderItemsTitle": "ଖାଦ୍ୟ",
+
+  "orderProgressTitle": "ପ୍ରଗତି",
+
+  "arrivingIn": "ପହଞ୍ଚିବାକୁ",
+
+  "pickupCodeLabel": "ପିକଅପ୍ କୋଡ୍",
+
+  "cancellationReasonLabel": "ବାତିଲ ହେବାର କାରଣ",
+
+  "riderLabel": "ଡେଲିଭରୀ ପାର୍ଟନର",
+
+  "callRider": "କଲ୍ କରନ୍ତୁ",
+
+  "viewInvoice": "ଟିକସ ଇନଭଏସ",
+
+  "cancelOrder": "ଅର୍ଡର ବାତିଲ କରନ୍ତୁ",
+
+  "cancelOrderTitle": "ଏହି ଅର୍ଡର ବାତିଲ କରିବେ?",
+
+  "cancelOrderMessage": "ରେଷ୍ଟୁରାଣ୍ଟ ଗ୍ରହଣ କରିବା ପୂର୍ବରୁ ହିଁ ବାତିଲ କରାଯାଇପାରିବ।",
+
+  "cancelReasonLabel": "କାରଣ",
+
+  "cancelReasonFallback": "ଗ୍ରାହକ ବାତିଲ କରିଛନ୍ତି",
+
+  "orderCancelled": "ଅର୍ଡର ବାତିଲ ହେଲା",
+
+  "currentLocationLabel": "ବର୍ତ୍ତମାନ ଅବସ୍ଥାନ"
 }

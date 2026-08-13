@@ -4,6 +4,14 @@
         android:name="android.permission.INTERNET"/>
     <uses-permission
         android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- Delivery is limited to a 1 km radius and the API makes latitude and
+         longitude mandatory on an address, so the address book needs a fix on
+         the customer's position. Foreground only — Nexmile never tracks a
+         customer in the background. -->
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
         android:label="Nexmile"
         android:name="${applicationName}"

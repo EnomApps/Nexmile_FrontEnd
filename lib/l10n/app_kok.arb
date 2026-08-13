@@ -2,6 +2,7 @@
   "@@locale": "kok",
 
   "appName": "Nexmile",
+  "fieldRequired": "हें खण गरजेचें आसा",
   "tagline": "वेगान डिलिव्हरी. ताजें हास्य.",
   "chooseLanguageTitle": "तुमची भास वेंचात",
   "chooseLanguageSubtitle": "तुमकां सोंपी दिसता ती भास वेंचात. तुमी ती केन्नाय सेटिंग्जांत बदलूं येता.",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "कर आनी शुल्कां",
   "freeLabel": "फुकट",
   "toPay": "दिवपाचें",
-  "placeOrderFor": "ऑर्डर करात · ₹{amount}",
+  "placeOrderFor": "ऑर्डर करात · {amount}",
   "ordersTitle": "तुमच्यो ऑर्डरी",
   "ordersEmptyTitle": "अजून ऑर्डर ना",
   "ordersEmptySubtitle": "तुमच्यो पयल्यो ऑर्डरी हांगा दिसतल्यो.",
@@ -117,5 +118,173 @@
   "backToHome": "होमाचेर परत",
   "prototypeNotice": "नमुनो स्टोरफ्रंट — खरीं दुकानां कॅटलॉग API वांगडा येतलीं.",
   "prototypeCheckoutNotice": "हो एक प्रोटोटायप. खंयचेंच पैशे घेनात आनी खरी ऑर्डरय जायना.",
-  "prototypeTrackingNotice": "प्रोटोटायपा खातीर ट्रॅकिंग कृत्रिम आसा."
+  "prototypeTrackingNotice": "प्रोटोटायपा खातीर ट्रॅकिंग कृत्रिम आसा.",
+
+  "locationTitle": "डिलिव्हरी खंय करची?",
+  "locationSubtitle": "Nexmile फकत 1 किमी भितरल्या दुकानांतल्यान डिलिव्हरी करता, देखून तुमचें नेमकें सुवात जाय.",
+  "locationReasonRadiusTitle": "1 किमी भितरलीं दुकानां",
+  "locationReasonRadiusBody": "खंयच्यान जेवण गरम पावतलें, तीच रांदपाघरां आमी दाखयतांव.",
+  "locationReasonAccuracyTitle": "बरोबर दारा मेरेन",
+  "locationReasonAccuracyBody": "अचूक पिन आसल्यार डिलिव्हरी पार्टनर फोन करिनासतना तुमकां सोदता.",
+  "locationReasonPrivacyTitle": "फकत ॲप वापरतना",
+  "locationReasonPrivacyBody": "आमी फाटभुंयेर तुमचो माग काडिनांव, आनी नामो तुमी स्वता लेगीत बरोवंक शकतात.",
+  "allowLocation": "सुवातेची परवानगी दियात",
+  "enterAddressManually": "हांव नामो स्वता बरयतलों",
+  "locationDenied": "सुवातेची परवानगी मेळूंक ना. तुमी पिन स्वता दवरूंक शकतात.",
+  "locationDeniedForever": "Nexmile खातीर सुवात बंद आसा. सेटिंग्जांत सुरू करात वा पिन स्वता दवरात.",
+  "locationServiceOff": "ह्या उपकरणाचेर सुवात बंद आसा.",
+  "locationUnavailable": "सुवात मेळूंक ना. उपकार करून पिन स्वता दवरात.",
+  "openSettings": "सेटिंग्ज",
+
+  "pinLocationTitle": "तुमचो डिलिव्हरी पिन दवरात",
+  "deliveryRadiusHint": "वर्तूळ Nexmile डिलिव्हरी करता ती 1 किमी दाखयता.",
+  "useMyLocation": "म्हजी सुवात वापरात",
+  "deliveringHere": "हांगा डिलिव्हरी",
+  "dragToAdjust": "पिन बदलुंक नकासो ओडात",
+  "confirmLocation": "सुवात निश्चीत करात",
+
+  "addressDetailsTitle": "नाम्याचो तपशील",
+  "addressDetailsSubtitle": "बरोबर दारा मेरेन पावपाक घर क्रमांक आनी खूण जोडात.",
+  "pinnedLocation": "वेंचिल्ली सुवात",
+  "changePin": "बदलात",
+  "saveAddressAs": "हो नामो अशें जतनाय करात",
+  "labelHome": "घर",
+  "labelWork": "कार्यालय",
+  "labelOther": "हेर",
+  "addressLine1Label": "घर, फ्लॅट वा इमारत",
+  "addressLine1Hint": "12A, ग्रीन रेसिडेन्सी",
+  "addressLine2Label": "रस्तो वा वाठार",
+  "addressLine2Hint": "दुसरी ॲव्हेन्यू, अन्ना नगर",
+  "landmarkLabel": "खूण",
+  "landmarkHint": "बस स्टॉपा मुखार",
+  "cityLabel": "शार",
+  "stateLabel": "राज्य",
+  "pincodeLabel": "पिन कोड",
+  "invalidPincode": "योग्य 6 आंकड्यांचो पिन कोड घालात",
+  "contactNameLabel": "संपर्क नांव",
+  "contactPhoneLabel": "संपर्क क्रमांक",
+  "invalidMobileNumber": "योग्य 10 आंकड्यांचो मोबायल क्रमांक घालात",
+  "makeDefaultAddress": "डिफॉल्ट रुपान हांगाच डिलिव्हरी",
+  "saveAddress": "नामो जतनाय करात",
+  "addressSaved": "नामो जतनाय केलो",
+
+  "addressBookTitle": "डिलिव्हरी नामे",
+  "manageAddresses": "जतनाय केल्ले नामे सांबाळात",
+  "noAddressesTitle": "अजून नामो ना",
+  "noAddressesSubtitle": "तुमकां डिलिव्हरी करपी दुकानां दाखोवपाक एक नामो जोडात.",
+  "addAddress": "नामो जोडात",
+  "setAsDefault": "डिफॉल्ट करात",
+  "editLabel": "संपादन करात",
+  "addressUpdated": "नामो अद्यतन जालो",
+  "deleteLabel": "काडात",
+  "deleteAddressTitle": "हो नामो काडचो?",
+  "deleteAddressMessage": "तुमी ताका उपरांत परत जोडूंक शकतात.",
+
+  "rescueDealsTitle": "फूड रेस्क्यू",
+
+  "notTakingOrders": "ऑर्डर घेवपाक ना",
+
+  "closedRightNow": "आतां बंद आसा",
+
+  "minimumOrder": "कमीत कमी {amount}",
+
+  "portionsLeft": "{count} उरल्यात",
+
+  "soldOut": "सोंपले",
+
+  "menuEmptyTitle": "अजून कसलेच पदार्थ ना",
+
+  "menuEmptySubtitle": "ह्या रेस्टॉरंटान आपलो मेनू जोडूंक ना.",
+
+  "moreDishesTitle": "आनीक पदार्थ",
+
+  "customisable": "आवडी प्रमाणें",
+
+  "requiredLabel": "गरजेचें",
+
+  "optionalLabel": "ऐच्छीक",
+
+  "chooseOne": "एक निवडात",
+
+  "chooseUpTo": "चड आनी चड {count} निवडात",
+
+  "chooseAtLeast": "कमीत कमी {count} निवडात",
+
+  "chooseBetween": "{min} ते {max} निवडात",
+
+  "specialInstructions": "खाशेल्यो सुचोवण्यो",
+
+  "specialInstructionsHint": "उणें तिखट, कांदो नाका…",
+
+  "addForAmount": "जोडात · {amount}",
+
+  "deliveryLabel": "डिलिव्हरी",
+
+  "pickupLabel": "स्वता व्हरप",
+
+  "packagingLabel": "पॅकिंग",
+
+  "discountLabel": "सूट",
+
+  "billDetailsTitle": "बिलाची म्हायती",
+
+  "clearCart": "कार्ट रिकामी करात",
+
+  "clearCartTitle": "ही कार्ट रिकामी करूं?",
+
+  "clearCartMessage": "हातूंतलें सगळें काडून उडयतले.",
+
+  "unavailableItemsNotice": "आतां मेळना: {items}",
+
+  "removeUnavailable": "तीं काडात",
+
+  "minimumNotMet": "कमीत कमी ऑर्डर {amount} आसा",
+
+  "checkoutTitle": "चेकआउट",
+
+  "deliveryAddressLabel": "डिलिव्हरीचो नामो",
+
+  "noAddressSelected": "खंयचोच नामो निवडूंक ना",
+
+  "paymentMethodLabel": "पावती",
+
+  "payOnDelivery": "डिलिव्हरीचेर रोकड",
+
+  "noteToRestaurant": "रेस्टॉरंटाखातीर नोंद",
+
+  "noteToRestaurantHint": "घांट दोन फावटीं वाजयात…",
+
+  "activeOrdersTitle": "चालू आशिल्ल्यो ऑर्डरी",
+
+  "pastOrdersTitle": "पयल्यो ऑर्डरी",
+
+  "orderItemsTitle": "पदार्थ",
+
+  "orderProgressTitle": "प्रगती",
+
+  "arrivingIn": "पावपाक",
+
+  "pickupCodeLabel": "पिकअप कोड",
+
+  "cancellationReasonLabel": "रद्द जावपाचें कारण",
+
+  "riderLabel": "डिलिव्हरी पार्टनर",
+
+  "callRider": "कॉल करात",
+
+  "viewInvoice": "कर पावती",
+
+  "cancelOrder": "ऑर्डर रद्द करात",
+
+  "cancelOrderTitle": "ही ऑर्डर रद्द करूं?",
+
+  "cancelOrderMessage": "रेस्टॉरंटान मान्य करचे आदींच रद्द करूं येता.",
+
+  "cancelReasonLabel": "कारण",
+
+  "cancelReasonFallback": "गिरायकान रद्द केली",
+
+  "orderCancelled": "ऑर्डर रद्द जाली",
+
+  "currentLocationLabel": "सद्याची सुवात"
 }

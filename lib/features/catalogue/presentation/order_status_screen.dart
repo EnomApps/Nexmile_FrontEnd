@@ -1,23 +1,23 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/router/app_router.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/app_theme.dart';
-import '../../../core/widgets/gradient_button.dart';
 import '../../../generated/l10n/app_localizations.dart';
-import '../data/catalogue_models.dart';
-import '../state/cart_controller.dart';
+import '../../auth/data/auth_failure.dart';
+import '../data/cart_models.dart';
+import '../data/order_models.dart';
+import '../state/orders_controller.dart';
+import 'orders_tab.dart' show OrderStatusChip;
 import 'widgets/catalogue_widgets.dart';
 
-/// Order confirmation and live-ish tracking.
+/// One order: where it is, what is in it, and what it cost.
 ///
-/// The prototype advances the status on a timer so the whole journey is
-/// demonstrable without a backend. When the orders API arrives, delete the
-/// timer and drive [PlacedOrder.status] from the server (poll or socket) —
-/// the stepper below does not care where the status comes from.
+/// While the order is in flight the controller polls `/orders/{id}/track` every
+/// few seconds and stops the moment it finishes.
 class OrderStatusScreen extends StatefulWidget {
   const OrderStatusScreen({super.key, required this.args});
 
@@ -28,235 +28,302 @@ class OrderStatusScreen extends StatefulWidget {
 }
 
 class _OrderStatusScreenState extends State<OrderStatusScreen> {
-  static const Duration _stageDuration = Duration(seconds: 6);
-
-  Timer? _ticker;
-
   @override
   void initState() {
     super.initState();
-    _ticker = Timer.periodic(_stageDuration, (Timer timer) {
-      if (!mounted) {
-        timer.cancel();
-        return;
-      }
-      final CartController cart = context.read<CartController>();
-      final PlacedOrder? order = cart.orderById(widget.args.orderId);
-      if (order == null || order.status == OrderStatus.delivered) {
-        timer.cancel();
-        return;
-      }
-      cart.advance(order.id);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      context.read<OrdersController>().open(widget.args.orderId);
     });
   }
 
   @override
   void dispose() {
-    _ticker?.cancel();
+    // Nothing is watching the tracker once this screen is gone.
+    context.read<OrdersController>().stopPolling();
     super.dispose();
+  }
+
+  Future<void> _open(Uri uri) async {
+    final AppLocalizations l10n = AppLocalizations.of(context);
+    final bool opened =
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+    if (!opened && mounted) {
+      ScaffoldMessenger.of(context)
+        ..clearSnackBars()
+        ..showSnackBar(SnackBar(content: Text(l10n.somethingWentWrong)));
+    }
+  }
+
+  Future<void> _cancel(Order order) async {
+    final AppLocalizations l10n = AppLocalizations.of(context);
+    final TextEditingController reason = TextEditingController();
+
+    final bool confirmed = await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+            title: Text(l10n.cancelOrderTitle),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(l10n.cancelOrderMessage),
+                const SizedBox(height: 12),
+                TextField(
+                  controller: reason,
+                  maxLength: 120,
+                  decoration: InputDecoration(
+                    labelText: l10n.cancelReasonLabel,
+                    border: const OutlineInputBorder(),
+                  ),
+                ),
+              ],
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(l10n.keepBrowsing),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: Text(l10n.cancelOrder),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+
+    if (!confirmed || !mounted) {
+      reason.dispose();
+      return;
+    }
+
+    final OrdersController controller = context.read<OrdersController>();
+    final AuthFailure? failure = await controller.cancel(
+      order.id,
+      reason: reason.text.trim().isEmpty
+          ? l10n.cancelReasonFallback
+          : reason.text.trim(),
+    );
+    reason.dispose();
+
+    if (!mounted) return;
+    ScaffoldMessenger.of(context)
+      ..clearSnackBars()
+      ..showSnackBar(
+        SnackBar(
+          content: Text(
+            failure == null ? l10n.orderCancelled : failure.message(l10n),
+          ),
+        ),
+      );
   }
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations l10n = AppLocalizations.of(context);
-    final PlacedOrder? order =
-        context.watch<CartController>().orderById(widget.args.orderId);
+    final OrdersController controller = context.watch<OrdersController>();
+    final Order? order = controller.current;
+    final OrderTracking? tracking = controller.tracking;
 
     if (order == null) {
       return Scaffold(
         appBar: AppBar(),
-        body: EmptyState(
-          emoji: '📦',
-          title: l10n.ordersEmptyTitle,
-          subtitle: l10n.ordersEmptySubtitle,
-        ),
+        body: controller.isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : SingleChildScrollView(
+                child: EmptyState(
+                  emoji: '📡',
+                  title: l10n.somethingWentWrong,
+                  subtitle: AuthFailure.unknown.message(l10n),
+                  action: OutlinedButton(
+                    onPressed: () =>
+                        context.read<OrdersController>().open(widget.args.orderId),
+                    child: Text(l10n.retry),
+                  ),
+                ),
+              ),
       );
     }
 
-    final bool delivered = order.status == OrderStatus.delivered;
+    // The tracker is fresher than the order body while polling, so its label
+    // and estimate win when both are present.
+    final String statusLabel = tracking?.statusLabel.isNotEmpty ?? false
+        ? tracking!.statusLabel
+        : order.statusLabel;
+    final OrderStatus status = tracking?.status ?? order.status;
+    final int? eta = tracking?.estimatedMinutes ?? order.estimatedPrepMinutes;
+    final String? pickupCode = tracking?.pickupCode ?? order.pickupCode;
+    final String? cancellationReason =
+        tracking?.cancellationReason ?? order.cancellationReason;
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.orderTitle(order.id))),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
-        children: <Widget>[
-          _StatusHeadline(order: order),
-          const SizedBox(height: 24),
-          _StatusStepper(status: order.status),
-          const SizedBox(height: 24),
-          _OrderSummaryCard(order: order),
-          const SizedBox(height: 20),
-          Text(
-            l10n.prototypeTrackingNotice,
-            textAlign: TextAlign.center,
-            style: theme.textTheme.bodySmall,
+      appBar: AppBar(
+        title: Text(l10n.orderTitle(order.orderNumber)),
+        actions: <Widget>[
+          IconButton(
+            tooltip: l10n.viewInvoice,
+            icon: const Icon(Icons.receipt_long_outlined),
+            onPressed: () => _open(controller.invoiceUrl(order.id)),
           ),
         ],
       ),
-      bottomNavigationBar: SafeArea(
-        minimum: const EdgeInsets.fromLTRB(20, 0, 20, 12),
-        child: GradientButton(
-          label: delivered ? l10n.backToHome : l10n.keepBrowsing,
-          onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil(
-            AppRoutes.dashboard,
-            (Route<void> route) => false,
+      body: ListView(
+        padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  order.restaurantName ?? l10n.appName,
+                  style: theme.textTheme.titleMedium
+                      ?.copyWith(fontWeight: FontWeight.w800),
+                ),
+              ),
+              const SizedBox(width: 10),
+              OrderStatusChip(label: statusLabel, status: status),
+            ],
           ),
-        ),
+          const SizedBox(height: 6),
+          Text(
+            order.fulfilmentType == FulfilmentType.pickup
+                ? l10n.pickupLabel
+                : l10n.deliveryLabel,
+            style: theme.textTheme.bodySmall,
+          ),
+          if (status.isActive && eta != null) ...<Widget>[
+            const SizedBox(height: 16),
+            _Highlight(
+              icon: Icons.timer_outlined,
+              title: l10n.arrivingIn,
+              value: l10n.minutesAway(eta),
+            ),
+          ],
+          if (pickupCode != null && pickupCode.isNotEmpty) ...<Widget>[
+            const SizedBox(height: 12),
+            _Highlight(
+              icon: Icons.confirmation_number_outlined,
+              title: l10n.pickupCodeLabel,
+              value: pickupCode,
+            ),
+          ],
+          if (cancellationReason != null && cancellationReason.isNotEmpty) ...<Widget>[
+            const SizedBox(height: 12),
+            // Written by the merchant for the customer — shown verbatim.
+            _Highlight(
+              icon: Icons.info_outline_rounded,
+              title: l10n.cancellationReasonLabel,
+              value: cancellationReason,
+              isError: true,
+            ),
+          ],
+          if (tracking != null && (tracking.riderName ?? '').isNotEmpty) ...<Widget>[
+            const SizedBox(height: 16),
+            _RiderCard(
+              tracking: tracking,
+              onCall: (String phone) => _open(Uri.parse('tel:$phone')),
+            ),
+          ],
+          if (order.timeline.isNotEmpty) ...<Widget>[
+            const SizedBox(height: 24),
+            Text(
+              l10n.orderProgressTitle,
+              style: theme.textTheme.titleSmall
+                  ?.copyWith(fontWeight: FontWeight.w800),
+            ),
+            const SizedBox(height: 12),
+            _Timeline(entries: order.timeline),
+          ],
+          const SizedBox(height: 24),
+          Text(
+            l10n.orderItemsTitle,
+            style:
+                theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
+          ),
+          const SizedBox(height: 8),
+          for (final OrderItem item in order.items) _OrderItemRow(item: item),
+          if ((order.customerNote ?? '').isNotEmpty) ...<Widget>[
+            const SizedBox(height: 12),
+            Text(
+              order.customerNote!,
+              style: theme.textTheme.bodySmall
+                  ?.copyWith(fontStyle: FontStyle.italic),
+            ),
+          ],
+          const SizedBox(height: 24),
+          _OrderBill(order: order),
+          const SizedBox(height: 24),
+          if (status.isCancellable)
+            OutlinedButton(
+              onPressed: controller.isLoading ? null : () => _cancel(order),
+              style: OutlinedButton.styleFrom(
+                foregroundColor: theme.colorScheme.error,
+                side: BorderSide(color: theme.colorScheme.error),
+                minimumSize: const Size.fromHeight(48),
+              ),
+              child: Text(l10n.cancelOrder),
+            ),
+          const SizedBox(height: 12),
+          TextButton(
+            onPressed: () => Navigator.of(context).popUntil(
+              (Route<dynamic> route) => route.settings.name == AppRoutes.dashboard,
+            ),
+            child: Text(l10n.backToHome),
+          ),
+        ],
       ),
     );
   }
 }
 
-class _StatusHeadline extends StatelessWidget {
-  const _StatusHeadline({required this.order});
-
-  final PlacedOrder order;
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    final AppLocalizations l10n = AppLocalizations.of(context);
-    final bool delivered = order.status == OrderStatus.delivered;
-
-    return Column(
-      children: <Widget>[
-        Container(
-          width: 84,
-          height: 84,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            gradient: delivered
-                ? AppColors.greenGradient
-                : AppColors.orangeGradient,
-          ),
-          child: Icon(
-            delivered
-                ? Icons.check_rounded
-                : Icons.delivery_dining_rounded,
-            size: 42,
-            color: Colors.white,
-          ),
-        ),
-        const SizedBox(height: 16),
-        Text(
-          delivered ? l10n.orderDeliveredTitle : l10n.orderPlacedTitle,
-          textAlign: TextAlign.center,
-          style: theme.textTheme.headlineSmall,
-        ),
-        const SizedBox(height: 6),
-        Text(
-          delivered
-              ? l10n.orderDeliveredSubtitle
-              : l10n.orderPlacedSubtitle(order.restaurant.deliveryMinutes),
-          textAlign: TextAlign.center,
-          style: theme.textTheme.bodyMedium,
-        ),
-      ],
-    );
-  }
-}
-
-class _StatusStepper extends StatelessWidget {
-  const _StatusStepper({required this.status});
-
-  final OrderStatus status;
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations l10n = AppLocalizations.of(context);
-
-    final List<String> labels = <String>[
-      l10n.statusOrderPlaced,
-      l10n.statusPreparing,
-      l10n.statusOnTheWay,
-      l10n.statusDelivered,
-    ];
-
-    return Column(
-      children: <Widget>[
-        for (int i = 0; i < labels.length; i++)
-          _StepRow(
-            label: labels[i],
-            isDone: i <= status.index,
-            isCurrent: i == status.index,
-            isLast: i == labels.length - 1,
-          ),
-      ],
-    );
-  }
-}
-
-class _StepRow extends StatelessWidget {
-  const _StepRow({
-    required this.label,
-    required this.isDone,
-    required this.isCurrent,
-    required this.isLast,
+class _Highlight extends StatelessWidget {
+  const _Highlight({
+    required this.icon,
+    required this.title,
+    required this.value,
+    this.isError = false,
   });
 
-  final String label;
-  final bool isDone;
-  final bool isCurrent;
-  final bool isLast;
+  final IconData icon;
+  final String title;
+  final String value;
+  final bool isError;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final bool isDark = theme.brightness == Brightness.dark;
-    final Color accent = isDark ? AppColors.greenLight : AppColors.greenDeep;
-    final Color inactive = theme.colorScheme.outline;
+    final Color tint =
+        isError ? theme.colorScheme.error : AppColors.greenDeep;
 
-    return IntrinsicHeight(
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: tint.withValues(alpha: 0.10),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: tint.withValues(alpha: 0.35)),
+      ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Column(
-            children: <Widget>[
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 220),
-                width: 26,
-                height: 26,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: isDone ? accent : Colors.transparent,
-                  border: Border.all(
-                    color: isDone ? accent : inactive,
-                    width: 2,
-                  ),
-                ),
-                child: isDone
-                    ? Icon(
-                        Icons.check_rounded,
-                        size: 16,
-                        color: isDark ? AppColors.black : Colors.white,
-                      )
-                    : null,
-              ),
-              if (!isLast)
-                Expanded(
-                  child: Container(
-                    width: 2,
-                    margin: const EdgeInsets.symmetric(vertical: 2),
-                    color: isDone ? accent : inactive,
-                  ),
-                ),
-            ],
-          ),
-          const SizedBox(width: 14),
+          Icon(icon, size: 20, color: tint),
+          const SizedBox(width: 12),
           Expanded(
-            child: Padding(
-              padding: EdgeInsets.only(bottom: isLast ? 0 : 22, top: 2),
-              child: Text(
-                label,
-                style: theme.textTheme.titleSmall?.copyWith(
-                  color: isDone
-                      ? theme.colorScheme.onSurface
-                      : theme.colorScheme.onSurfaceVariant,
-                  fontWeight: isCurrent ? FontWeight.w800 : FontWeight.w600,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(
+                  title,
+                  style: theme.textTheme.labelMedium
+                      ?.copyWith(fontWeight: FontWeight.w700),
                 ),
-              ),
+                const SizedBox(height: 2),
+                Text(
+                  value,
+                  style: theme.textTheme.titleSmall
+                      ?.copyWith(fontWeight: FontWeight.w800),
+                ),
+              ],
             ),
           ),
         ],
@@ -265,10 +332,249 @@ class _StepRow extends StatelessWidget {
   }
 }
 
-class _OrderSummaryCard extends StatelessWidget {
-  const _OrderSummaryCard({required this.order});
+/// The rider, with their live position when the API is sending one.
+class _RiderCard extends StatelessWidget {
+  const _RiderCard({required this.tracking, required this.onCall});
 
-  final PlacedOrder order;
+  final OrderTracking tracking;
+  final ValueChanged<String> onCall;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final AppLocalizations l10n = AppLocalizations.of(context);
+    final String? phone = tracking.riderPhone;
+
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surfaceContainerLow,
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: theme.colorScheme.outline),
+          ),
+          child: Row(
+            children: <Widget>[
+              const CircleAvatar(
+                backgroundColor: AppColors.orangeDeep,
+                child: Icon(Icons.pedal_bike_rounded, color: Colors.white),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(
+                      l10n.riderLabel,
+                      style: theme.textTheme.labelSmall,
+                    ),
+                    Text(
+                      tracking.riderName ?? '',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.titleSmall
+                          ?.copyWith(fontWeight: FontWeight.w700),
+                    ),
+                  ],
+                ),
+              ),
+              if (phone != null && phone.isNotEmpty)
+                IconButton.filled(
+                  onPressed: () => onCall(phone),
+                  icon: const Icon(Icons.call_rounded),
+                  tooltip: l10n.callRider,
+                ),
+            ],
+          ),
+        ),
+        if (tracking.hasRiderPosition) ...<Widget>[
+          const SizedBox(height: 12),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(14),
+            child: SizedBox(
+              height: 180,
+              child: FlutterMap(
+                options: MapOptions(
+                  initialCenter: LatLng(
+                    tracking.riderLatitude!,
+                    tracking.riderLongitude!,
+                  ),
+                  initialZoom: 15.5,
+                  // A tracking map is for looking at, not for driving.
+                  interactionOptions: const InteractionOptions(
+                    flags: InteractiveFlag.none,
+                  ),
+                ),
+                children: <Widget>[
+                  TileLayer(
+                    urlTemplate:
+                        'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    userAgentPackageName: 'com.nexmile.app',
+                    maxNativeZoom: 19,
+                  ),
+                  MarkerLayer(
+                    markers: <Marker>[
+                      Marker(
+                        point: LatLng(
+                          tracking.riderLatitude!,
+                          tracking.riderLongitude!,
+                        ),
+                        width: 40,
+                        height: 40,
+                        child: const Icon(
+                          Icons.pedal_bike_rounded,
+                          color: AppColors.orangeDeep,
+                          size: 32,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const RichAttributionWidget(
+                    attributions: <SourceAttribution>[
+                      TextSourceAttribution('OpenStreetMap contributors'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+class _Timeline extends StatelessWidget {
+  const _Timeline({required this.entries});
+
+  final List<OrderTimelineEntry> entries;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
+    return Column(
+      children: <Widget>[
+        for (int i = 0; i < entries.length; i++)
+          IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Container(
+                      width: 12,
+                      height: 12,
+                      margin: const EdgeInsets.only(top: 4),
+                      decoration: const BoxDecoration(
+                        color: AppColors.greenDeep,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    if (i != entries.length - 1)
+                      Expanded(
+                        child: Container(
+                          width: 2,
+                          color: theme.colorScheme.outline,
+                        ),
+                      ),
+                  ],
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        // Server-authored and already localised for the
+                        // customer, so it is rendered verbatim.
+                        Text(
+                          entries[i].label,
+                          style: theme.textTheme.bodyMedium
+                              ?.copyWith(fontWeight: FontWeight.w700),
+                        ),
+                        if (entries[i].at != null)
+                          Text(
+                            TimeOfDay.fromDateTime(entries[i].at!)
+                                .format(context),
+                            style: theme.textTheme.bodySmall,
+                          ),
+                        if ((entries[i].note ?? '').isNotEmpty)
+                          Text(
+                            entries[i].note!,
+                            style: theme.textTheme.bodySmall,
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class _OrderItemRow extends StatelessWidget {
+  const _OrderItemRow({required this.item});
+
+  final OrderItem item;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(top: 3),
+            child: VegMark(isVeg: item.isVeg, size: 14),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(
+                  '${item.quantity} × ${item.name}',
+                  style: theme.textTheme.bodyMedium,
+                ),
+                if (item.options.isNotEmpty)
+                  Text(
+                    item.options
+                        .map((OrderItemOption o) => o.name)
+                        .join(', '),
+                    style: theme.textTheme.bodySmall,
+                  ),
+                if ((item.notes ?? '').isNotEmpty)
+                  Text(
+                    item.notes!,
+                    style: theme.textTheme.bodySmall
+                        ?.copyWith(fontStyle: FontStyle.italic),
+                  ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 10),
+          Rupees(item.lineTotal, style: theme.textTheme.bodyMedium),
+        ],
+      ),
+    );
+  }
+}
+
+class _OrderBill extends StatelessWidget {
+  const _OrderBill({required this.order});
+
+  final Order order;
 
   @override
   Widget build(BuildContext context) {
@@ -276,88 +582,42 @@ class _OrderSummaryCard extends StatelessWidget {
     final AppLocalizations l10n = AppLocalizations.of(context);
 
     return Container(
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: theme.colorScheme.surfaceContainerLow,
-        borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: theme.colorScheme.outline),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              FoodImage(
-                emoji: order.restaurant.emoji,
-                seed: order.restaurant.id,
-                size: 44,
-                radius: 12,
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Text(
-                  order.restaurant.name,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const Divider(height: 26),
-          for (final ({String name, int quantity, int price}) item
-              in order.items) ...<Widget>[
-            Row(
-              children: <Widget>[
-                SizedBox(
-                  width: 34,
-                  child: Text(
-                    '${item.quantity}×',
-                    textDirection: TextDirection.ltr,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Text(
-                    item.name,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.bodyMedium,
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Rupees(
-                  item.price * item.quantity,
-                  style: theme.textTheme.bodyMedium,
-                ),
-              ],
+          Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: Text(
+              l10n.billDetailsTitle,
+              style: theme.textTheme.titleSmall
+                  ?.copyWith(fontWeight: FontWeight.w800),
             ),
-            const SizedBox(height: 10),
-          ],
-          const Divider(height: 16),
-          const SizedBox(height: 10),
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: Text(
-                  l10n.toPay,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-              ),
-              Rupees(
-                order.total,
-                style: theme.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-            ],
           ),
+          const SizedBox(height: 12),
+          BillRow(label: l10n.itemTotal, amount: order.itemsTotal),
+          if (order.packagingFee > 0)
+            BillRow(label: l10n.packagingLabel, amount: order.packagingFee),
+          if (order.fulfilmentType == FulfilmentType.delivery)
+            BillRow(
+              label: l10n.deliveryFeeLabel,
+              amount: order.deliveryFee,
+              freeLabel: order.deliveryFee == 0 ? l10n.freeLabel : null,
+            ),
+          if (order.discountTotal > 0)
+            BillRow(
+              label: l10n.discountLabel,
+              amount: -order.discountTotal,
+              highlight: true,
+            ),
+          if (order.taxTotal > 0)
+            BillRow(label: l10n.taxesAndCharges, amount: order.taxTotal),
+          const Divider(height: 24),
+          BillRow(label: l10n.toPay, amount: order.grandTotal, emphasis: true),
         ],
       ),
     );

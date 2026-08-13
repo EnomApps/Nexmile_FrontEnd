@@ -2,6 +2,7 @@
   "@@locale": "ne",
 
   "appName": "Nexmile",
+  "fieldRequired": "यो फिल्ड आवश्यक छ",
   "tagline": "छिटो डेलिभरी। ताजा मुस्कान।",
   "chooseLanguageTitle": "आफ्नो भाषा छान्नुहोस्",
   "chooseLanguageSubtitle": "तपाईंलाई सहज लाग्ने भाषा छान्नुहोस्। तपाईं यसलाई जुनसुकै बेला सेटिङमा परिवर्तन गर्न सक्नुहुन्छ।",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "कर र शुल्क",
   "freeLabel": "निःशुल्क",
   "toPay": "तिर्नुपर्ने",
-  "placeOrderFor": "अर्डर गर्नुहोस् · ₹{amount}",
+  "placeOrderFor": "अर्डर गर्नुहोस् · {amount}",
   "ordersTitle": "तपाईंका अर्डर",
   "ordersEmptyTitle": "अझै कुनै अर्डर छैन",
   "ordersEmptySubtitle": "तपाईंका विगतका अर्डर यहाँ देखिनेछन्।",
@@ -117,5 +118,173 @@
   "backToHome": "होममा फर्कनुहोस्",
   "prototypeNotice": "नमुना स्टोरफ्रन्ट — वास्तविक पसलहरू क्याटलग APIसँगै आउनेछन्।",
   "prototypeCheckoutNotice": "यो एउटा प्रोटोटाइप हो। कुनै भुक्तानी लिइँदैन र वास्तविक अर्डर पनि हुँदैन।",
-  "prototypeTrackingNotice": "प्रोटोटाइपका लागि ट्र्याकिङ कृत्रिम हो।"
+  "prototypeTrackingNotice": "प्रोटोटाइपका लागि ट्र्याकिङ कृत्रिम हो।",
+
+  "locationTitle": "कहाँ डेलिभरी गर्ने?",
+  "locationSubtitle": "Nexmile ले 1 किमी भित्रका पसलहरूबाट मात्र डेलिभरी गर्छ, त्यसैले तपाईंको ठ्याक्कै स्थान चाहिन्छ।",
+  "locationReasonRadiusTitle": "1 किमी भित्रका पसल",
+  "locationReasonRadiusBody": "जहाँबाट खाना तातो पुग्छ, त्यही भान्साहरू मात्र देखाउँछौं।",
+  "locationReasonAccuracyTitle": "ठीक ढोकासम्म",
+  "locationReasonAccuracyBody": "सही पिन भए डेलिभरी पार्टनरले फोन नगरी तपाईंलाई भेट्टाउँछन्।",
+  "locationReasonPrivacyTitle": "एप चलाउँदा मात्र",
+  "locationReasonPrivacyBody": "हामी पृष्ठभूमिमा तपाईंलाई ट्र्याक गर्दैनौं, र ठेगाना तपाईं आफैँ लेख्न सक्नुहुन्छ।",
+  "allowLocation": "स्थानको अनुमति दिनुहोस्",
+  "enterAddressManually": "म आफैँ ठेगाना लेख्छु",
+  "locationDenied": "स्थानको अनुमति अस्वीकार भयो। तपाईं पिन आफैँ राख्न सक्नुहुन्छ।",
+  "locationDeniedForever": "Nexmile का लागि स्थान बन्द छ। सेटिङमा खोल्नुहोस् वा पिन आफैँ राख्नुहोस्।",
+  "locationServiceOff": "यो यन्त्रमा स्थान बन्द छ।",
+  "locationUnavailable": "स्थान पाउन सकिएन। कृपया पिन आफैँ राख्नुहोस्।",
+  "openSettings": "सेटिङ",
+
+  "pinLocationTitle": "आफ्नो डेलिभरी पिन राख्नुहोस्",
+  "deliveryRadiusHint": "वृत्तले Nexmile ले डेलिभरी गर्ने 1 किमी देखाउँछ।",
+  "useMyLocation": "मेरो स्थान प्रयोग गर्नुहोस्",
+  "deliveringHere": "यहाँ डेलिभरी",
+  "dragToAdjust": "पिन मिलाउन नक्सा तान्नुहोस्",
+  "confirmLocation": "स्थान पुष्टि गर्नुहोस्",
+
+  "addressDetailsTitle": "ठेगानाको विवरण",
+  "addressDetailsSubtitle": "ठीक ढोकामा पुग्न घर नम्बर र चिनारी थप्नुहोस्।",
+  "pinnedLocation": "छानिएको स्थान",
+  "changePin": "बदल्नुहोस्",
+  "saveAddressAs": "यो ठेगाना यसरी सुरक्षित गर्नुहोस्",
+  "labelHome": "घर",
+  "labelWork": "कार्यालय",
+  "labelOther": "अन्य",
+  "addressLine1Label": "घर, फ्ल्याट वा भवन",
+  "addressLine1Hint": "12A, ग्रीन रेजिडेन्सी",
+  "addressLine2Label": "सडक वा क्षेत्र",
+  "addressLine2Hint": "दोस्रो एभेन्यू, अन्ना नगर",
+  "landmarkLabel": "चिनारी",
+  "landmarkHint": "बस स्टपको सामुन्ने",
+  "cityLabel": "सहर",
+  "stateLabel": "राज्य",
+  "pincodeLabel": "पिन कोड",
+  "invalidPincode": "सही 6 अंकको पिन कोड लेख्नुहोस्",
+  "contactNameLabel": "सम्पर्क नाम",
+  "contactPhoneLabel": "सम्पर्क नम्बर",
+  "invalidMobileNumber": "सही 10 अंकको मोबाइल नम्बर लेख्नुहोस्",
+  "makeDefaultAddress": "पूर्वनिर्धारित रूपमा यहीँ डेलिभरी",
+  "saveAddress": "ठेगाना सुरक्षित गर्नुहोस्",
+  "addressSaved": "ठेगाना सुरक्षित भयो",
+
+  "addressBookTitle": "डेलिभरी ठेगाना",
+  "manageAddresses": "सुरक्षित ठेगानाहरू व्यवस्थापन गर्नुहोस्",
+  "noAddressesTitle": "अझै कुनै ठेगाना छैन",
+  "noAddressesSubtitle": "तपाईंकहाँ डेलिभरी गर्ने पसलहरू देखाउन एउटा ठेगाना थप्नुहोस्।",
+  "addAddress": "ठेगाना थप्नुहोस्",
+  "setAsDefault": "पूर्वनिर्धारित बनाउनुहोस्",
+  "editLabel": "सम्पादन",
+  "addressUpdated": "ठेगाना अद्यावधिक भयो",
+  "deleteLabel": "मेटाउनुहोस्",
+  "deleteAddressTitle": "यो ठेगाना मेटाउने?",
+  "deleteAddressMessage": "तपाईं यसलाई पछि फेरि थप्न सक्नुहुन्छ।",
+
+  "rescueDealsTitle": "फूड रेस्क्यू",
+
+  "notTakingOrders": "अर्डर लिइरहेको छैन",
+
+  "closedRightNow": "अहिले बन्द छ",
+
+  "minimumOrder": "न्यूनतम {amount}",
+
+  "portionsLeft": "{count} बाँकी",
+
+  "soldOut": "सकियो",
+
+  "menuEmptyTitle": "अझै कुनै परिकार छैन",
+
+  "menuEmptySubtitle": "यो रेस्टुरेन्टले आफ्नो मेनु थपेको छैन।",
+
+  "moreDishesTitle": "थप परिकार",
+
+  "customisable": "रुचिअनुसार",
+
+  "requiredLabel": "अनिवार्य",
+
+  "optionalLabel": "वैकल्पिक",
+
+  "chooseOne": "एउटा छान्नुहोस्",
+
+  "chooseUpTo": "बढीमा {count} छान्नुहोस्",
+
+  "chooseAtLeast": "कम्तीमा {count} छान्नुहोस्",
+
+  "chooseBetween": "{min} देखि {max} सम्म छान्नुहोस्",
+
+  "specialInstructions": "विशेष निर्देशन",
+
+  "specialInstructionsHint": "कम पिरो, प्याज नराख्नू…",
+
+  "addForAmount": "थप्नुहोस् · {amount}",
+
+  "deliveryLabel": "डेलिभरी",
+
+  "pickupLabel": "आफैँ लैजाने",
+
+  "packagingLabel": "प्याकिङ",
+
+  "discountLabel": "छुट",
+
+  "billDetailsTitle": "बिल विवरण",
+
+  "clearCart": "कार्ट खाली गर्नुहोस्",
+
+  "clearCartTitle": "यो कार्ट खाली गर्ने?",
+
+  "clearCartMessage": "यसभित्रका सबै कुरा हटाइनेछ।",
+
+  "unavailableItemsNotice": "अब उपलब्ध छैन: {items}",
+
+  "removeUnavailable": "ती हटाउनुहोस्",
+
+  "minimumNotMet": "न्यूनतम अर्डर {amount} हो",
+
+  "checkoutTitle": "चेकआउट",
+
+  "deliveryAddressLabel": "डेलिभरी ठेगाना",
+
+  "noAddressSelected": "कुनै ठेगाना छानिएको छैन",
+
+  "paymentMethodLabel": "भुक्तानी",
+
+  "payOnDelivery": "डेलिभरीमा नगद",
+
+  "noteToRestaurant": "रेस्टुरेन्टका लागि नोट",
+
+  "noteToRestaurantHint": "घण्टी दुई पटक बजाउनुहोस्…",
+
+  "activeOrdersTitle": "चलिरहेका अर्डर",
+
+  "pastOrdersTitle": "पुराना अर्डर",
+
+  "orderItemsTitle": "परिकार",
+
+  "orderProgressTitle": "प्रगति",
+
+  "arrivingIn": "पुग्न",
+
+  "pickupCodeLabel": "पिकअप कोड",
+
+  "cancellationReasonLabel": "रद्द भएको कारण",
+
+  "riderLabel": "डेलिभरी पार्टनर",
+
+  "callRider": "कल गर्नुहोस्",
+
+  "viewInvoice": "कर बिजक",
+
+  "cancelOrder": "अर्डर रद्द गर्नुहोस्",
+
+  "cancelOrderTitle": "यो अर्डर रद्द गर्ने?",
+
+  "cancelOrderMessage": "रेस्टुरेन्टले स्वीकार गर्नुअघि मात्र रद्द गर्न सकिन्छ।",
+
+  "cancelReasonLabel": "कारण",
+
+  "cancelReasonFallback": "ग्राहकले रद्द गरे",
+
+  "orderCancelled": "अर्डर रद्द भयो",
+
+  "currentLocationLabel": "हालको स्थान"
 }

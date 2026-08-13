@@ -4,10 +4,14 @@ import 'package:flutter/services.dart';
 import 'app.dart';
 import 'core/network/api_client.dart';
 import 'core/services/preferences_service.dart';
+import 'features/address/data/address_repository.dart';
+import 'features/address/data/location_service.dart';
+import 'features/address/state/address_controller.dart';
 import 'features/auth/data/auth_repository.dart';
 import 'features/auth/data/auth_session.dart';
 import 'features/auth/data/token_store.dart';
 import 'features/auth/state/auth_controller.dart';
+import 'features/catalogue/data/storefront_repository.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,6 +52,11 @@ Future<void> main() async {
     NexmileApp(
       preferences: preferences,
       authController: authController,
+      addressController: AddressController(
+        repository: ApiAddressRepository(apiClient),
+      ),
+      locationService: const GeolocatorLocationService(),
+      storefrontRepository: ApiStorefrontRepository(apiClient),
     ),
   );
 }

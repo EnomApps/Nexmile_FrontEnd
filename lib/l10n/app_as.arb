@@ -2,6 +2,7 @@
   "@@locale": "as",
 
   "appName": "Nexmile",
+  "fieldRequired": "এই ঘৰটো পূৰণ কৰা আৱশ্যক",
   "tagline": "দ্ৰুত ডেলিভাৰী। সতেজ হাঁহি।",
   "chooseLanguageTitle": "আপোনাৰ ভাষা বাছনি কৰক",
   "chooseLanguageSubtitle": "আপুনি সহজ অনুভৱ কৰা ভাষা বাছনি কৰক। আপুনি ইয়াক যিকোনো সময়তে ছেটিংছত সলনি কৰিব পাৰে।",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "কৰ আৰু মাচুল",
   "freeLabel": "বিনামূলীয়া",
   "toPay": "দিব লগীয়া",
-  "placeOrderFor": "অৰ্ডাৰ কৰক · ₹{amount}",
+  "placeOrderFor": "অৰ্ডাৰ কৰক · {amount}",
   "ordersTitle": "আপোনাৰ অৰ্ডাৰ",
   "ordersEmptyTitle": "এতিয়াও কোনো অৰ্ডাৰ নাই",
   "ordersEmptySubtitle": "আপোনাৰ আগৰ অৰ্ডাৰবোৰ ইয়াত দেখা যাব।",
@@ -117,5 +118,173 @@
   "backToHome": "হ'মলৈ উভতি যাওক",
   "prototypeNotice": "নমুনা ষ্ট'ৰফ্ৰণ্ট — প্ৰকৃত দোকান কেটেলগ APIৰ সৈতে আহিব।",
   "prototypeCheckoutNotice": "এইটো এটা প্ৰট'টাইপ। কোনো ধন লোৱা নহয় আৰু প্ৰকৃত অৰ্ডাৰো নহয়।",
-  "prototypeTrackingNotice": "প্ৰট'টাইপৰ বাবে ট্ৰেকিং কৃত্ৰিম।"
+  "prototypeTrackingNotice": "প্ৰট'টাইপৰ বাবে ট্ৰেকিং কৃত্ৰিম।",
+
+  "locationTitle": "ক'ত ডেলিভাৰী কৰিব লাগে?",
+  "locationSubtitle": "Nexmile কেৱল 1 কিমিৰ ভিতৰৰ দোকানৰ পৰা ডেলিভাৰী কৰে, সেয়েহে আপোনাৰ সঠিক ঠাই লাগে।",
+  "locationReasonRadiusTitle": "1 কিমিৰ ভিতৰৰ দোকান",
+  "locationReasonRadiusBody": "য'ৰ পৰা খাদ্য গৰম হৈ পাব, কেৱল সেই ৰন্ধনশালাবোৰেই দেখুৱাওঁ।",
+  "locationReasonAccuracyTitle": "শুদ্ধ দুৱাৰলৈ",
+  "locationReasonAccuracyBody": "সঠিক পিন থাকিলে ডেলিভাৰী পাৰ্টনাৰে ফোন নকৰাকৈয়ে আপোনাক বিচাৰি পায়।",
+  "locationReasonPrivacyTitle": "কেৱল এপ ব্যৱহাৰৰ সময়ত",
+  "locationReasonPrivacyBody": "আমি পটভূমিত আপোনাক ট্ৰেক নকৰোঁ, আৰু ঠিকনা আপুনি নিজেও লিখিব পাৰে।",
+  "allowLocation": "অৱস্থানৰ অনুমতি দিয়ক",
+  "enterAddressManually": "মই নিজেই ঠিকনা লিখিম",
+  "locationDenied": "অৱস্থানৰ অনুমতি পোৱা নগ'ল। আপুনি নিজেই পিন বহুৱাব পাৰে।",
+  "locationDeniedForever": "Nexmile ৰ বাবে অৱস্থান বন্ধ আছে। ছেটিংছত চালু কৰক বা পিন নিজে বহুৱাওক।",
+  "locationServiceOff": "এই ডিভাইচত অৱস্থান বন্ধ আছে।",
+  "locationUnavailable": "অৱস্থান পোৱা নগ'ল। অনুগ্ৰহ কৰি পিন নিজে বহুৱাওক।",
+  "openSettings": "ছেটিংছ",
+
+  "pinLocationTitle": "আপোনাৰ ডেলিভাৰী পিন বহুৱাওক",
+  "deliveryRadiusHint": "বৃত্তটোৱে Nexmile এ ডেলিভাৰী কৰা 1 কিমি দেখুৱাইছে।",
+  "useMyLocation": "মোৰ অৱস্থান ব্যৱহাৰ কৰক",
+  "deliveringHere": "ইয়াত ডেলিভাৰী",
+  "dragToAdjust": "পিন সলনি কৰিবলৈ মানচিত্ৰ টানক",
+  "confirmLocation": "অৱস্থান নিশ্চিত কৰক",
+
+  "addressDetailsTitle": "ঠিকনাৰ বিৱৰণ",
+  "addressDetailsSubtitle": "শুদ্ধ দুৱাৰত উপনীত হ'বলৈ ঘৰৰ নম্বৰ আৰু চিন যোগ কৰক।",
+  "pinnedLocation": "চিহ্নিত অৱস্থান",
+  "changePin": "সলনি কৰক",
+  "saveAddressAs": "এই ঠিকনা এনেদৰে সাঁচি থওক",
+  "labelHome": "ঘৰ",
+  "labelWork": "কাৰ্যালয়",
+  "labelOther": "অন্যান্য",
+  "addressLine1Label": "ঘৰ, ফ্লেট বা অট্টালিকা",
+  "addressLine1Hint": "12A, গ্ৰীন ৰেছিডেন্সি",
+  "addressLine2Label": "পথ বা অঞ্চল",
+  "addressLine2Hint": "২য় এভিনিউ, আন্না নগৰ",
+  "landmarkLabel": "চিন",
+  "landmarkHint": "বাছ ষ্টপৰ বিপৰীতে",
+  "cityLabel": "চহৰ",
+  "stateLabel": "ৰাজ্য",
+  "pincodeLabel": "পিন ক'ড",
+  "invalidPincode": "শুদ্ধ 6 সংখ্যাৰ পিন ক'ড দিয়ক",
+  "contactNameLabel": "যোগাযোগৰ নাম",
+  "contactPhoneLabel": "যোগাযোগৰ নম্বৰ",
+  "invalidMobileNumber": "শুদ্ধ 10 সংখ্যাৰ মোবাইল নম্বৰ দিয়ক",
+  "makeDefaultAddress": "ডিফল্টভাৱে ইয়াতেই ডেলিভাৰী",
+  "saveAddress": "ঠিকনা সাঁচি থওক",
+  "addressSaved": "ঠিকনা সাঁচি থোৱা হ'ল",
+
+  "addressBookTitle": "ডেলিভাৰীৰ ঠিকনা",
+  "manageAddresses": "সাঁচি থোৱা ঠিকনা পৰিচালনা কৰক",
+  "noAddressesTitle": "এতিয়াও কোনো ঠিকনা নাই",
+  "noAddressesSubtitle": "আপোনালৈ ডেলিভাৰী কৰা দোকান দেখুৱাবলৈ এটা ঠিকনা যোগ কৰক।",
+  "addAddress": "ঠিকনা যোগ কৰক",
+  "setAsDefault": "ডিফল্ট কৰক",
+  "editLabel": "সম্পাদনা কৰক",
+  "addressUpdated": "ঠিকনা আপডেট হ'ল",
+  "deleteLabel": "মচক",
+  "deleteAddressTitle": "এই ঠিকনা মচিব?",
+  "deleteAddressMessage": "আপুনি পিছত পুনৰ যোগ কৰিব পাৰিব।",
+
+  "rescueDealsTitle": "ফুড ৰেছকিউ",
+
+  "notTakingOrders": "অৰ্ডাৰ লোৱা হোৱা নাই",
+
+  "closedRightNow": "এতিয়া বন্ধ",
+
+  "minimumOrder": "নূন্যতম {amount}",
+
+  "portionsLeft": "{count} বাকী",
+
+  "soldOut": "শেষ হৈ গ’ল",
+
+  "menuEmptyTitle": "এতিয়াও কোনো ব্যঞ্জন নাই",
+
+  "menuEmptySubtitle": "এই ৰেষ্টুৰেণ্টে নিজৰ মেনু যোগ কৰা নাই।",
+
+  "moreDishesTitle": "আৰু ব্যঞ্জন",
+
+  "customisable": "নিজৰ পছন্দমতে",
+
+  "requiredLabel": "আৱশ্যক",
+
+  "optionalLabel": "ঐচ্ছিক",
+
+  "chooseOne": "এটা বাছনি কৰক",
+
+  "chooseUpTo": "সৰ্বাধিক {count} বাছনি কৰক",
+
+  "chooseAtLeast": "কমেও {count} বাছনি কৰক",
+
+  "chooseBetween": "{min} ৰ পৰা {max} বাছনি কৰক",
+
+  "specialInstructions": "বিশেষ নিৰ্দেশনা",
+
+  "specialInstructionsHint": "কম জলকীয়া, পিয়াজ নালাগে…",
+
+  "addForAmount": "যোগ কৰক · {amount}",
+
+  "deliveryLabel": "ডেলিভাৰী",
+
+  "pickupLabel": "নিজে লোৱা",
+
+  "packagingLabel": "পেকিং",
+
+  "discountLabel": "ৰেহাই",
+
+  "billDetailsTitle": "বিলৰ বিৱৰণ",
+
+  "clearCart": "কাৰ্ট খালী কৰক",
+
+  "clearCartTitle": "এই কাৰ্ট খালী কৰিব নেকি?",
+
+  "clearCartMessage": "ইয়াত থকা সকলো আঁতৰোৱা হ’ব।",
+
+  "unavailableItemsNotice": "আৰু পোৱা নাযায়: {items}",
+
+  "removeUnavailable": "সেইবোৰ আঁতৰাওক",
+
+  "minimumNotMet": "নূন্যতম অৰ্ডাৰ {amount}",
+
+  "checkoutTitle": "চেকআউট",
+
+  "deliveryAddressLabel": "ডেলিভাৰীৰ ঠিকনা",
+
+  "noAddressSelected": "কোনো ঠিকনা বছা হোৱা নাই",
+
+  "paymentMethodLabel": "পৰিশোধ",
+
+  "payOnDelivery": "ডেলিভাৰীৰ সময়ত নগদ",
+
+  "noteToRestaurant": "ৰেষ্টুৰেণ্টৰ বাবে টোকা",
+
+  "noteToRestaurantHint": "ঘণ্টা দুবাৰ বজাব…",
+
+  "activeOrdersTitle": "চলি থকা অৰ্ডাৰ",
+
+  "pastOrdersTitle": "পুৰণি অৰ্ডাৰ",
+
+  "orderItemsTitle": "ব্যঞ্জন",
+
+  "orderProgressTitle": "অগ্ৰগতি",
+
+  "arrivingIn": "পাবলৈ",
+
+  "pickupCodeLabel": "পিকআপ ক’ড",
+
+  "cancellationReasonLabel": "বাতিল হোৱাৰ কাৰণ",
+
+  "riderLabel": "ডেলিভাৰী পাৰ্টনাৰ",
+
+  "callRider": "কল কৰক",
+
+  "viewInvoice": "কৰ ইনভইচ",
+
+  "cancelOrder": "অৰ্ডাৰ বাতিল কৰক",
+
+  "cancelOrderTitle": "এই অৰ্ডাৰ বাতিল কৰিব নেকি?",
+
+  "cancelOrderMessage": "ৰেষ্টুৰেণ্টে গ্ৰহণ কৰাৰ আগতেহে বাতিল কৰিব পাৰি।",
+
+  "cancelReasonLabel": "কাৰণ",
+
+  "cancelReasonFallback": "গ্ৰাহকে বাতিল কৰিছে",
+
+  "orderCancelled": "অৰ্ডাৰ বাতিল হ’ল",
+
+  "currentLocationLabel": "বৰ্তমান স্থান"
 }

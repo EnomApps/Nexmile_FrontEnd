@@ -27,6 +27,7 @@ class AuthTextField extends StatelessWidget {
     this.autofocus = false,
     this.onSubmitted,
     this.onChanged,
+    this.forceLtrInput = true,
   });
 
   final String label;
@@ -43,6 +44,11 @@ class AuthTextField extends StatelessWidget {
   final bool autofocus;
   final ValueChanged<String>? onSubmitted;
   final ValueChanged<String>? onChanged;
+
+  /// Emails, phone numbers and PIN codes read left-to-right whatever the app's
+  /// direction is. Set false for free text such as a name or a street, which
+  /// should follow the customer's own script.
+  final bool forceLtrInput;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +79,7 @@ class AuthTextField extends StatelessWidget {
           onFieldSubmitted: onSubmitted,
           onChanged: onChanged,
           autovalidateMode: AutovalidateMode.onUserInteraction,
-          textDirection: TextDirection.ltr,
+          textDirection: forceLtrInput ? TextDirection.ltr : null,
           style: theme.textTheme.bodyLarge?.copyWith(
             color: theme.colorScheme.onSurface,
           ),
@@ -81,7 +87,7 @@ class AuthTextField extends StatelessWidget {
             hintText: hint,
             hintMaxLines: 1,
             counterText: '',
-            hintTextDirection: TextDirection.ltr,
+            hintTextDirection: forceLtrInput ? TextDirection.ltr : null,
             prefixIcon: prefixIcon == null ? null : Icon(prefixIcon, size: 21),
             // Errors routinely wrap to two lines once translated.
             errorMaxLines: 3,

@@ -2,6 +2,7 @@
   "@@locale": "ta",
 
   "appName": "Nexmile",
+  "fieldRequired": "இந்தப் புலம் அவசியம்",
   "tagline": "விரைவான டெலிவரி. புத்துணர்ச்சியான புன்னகை.",
   "chooseLanguageTitle": "உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்",
   "chooseLanguageSubtitle": "உங்களுக்கு வசதியான மொழியைத் தேர்ந்தெடுக்கவும். அமைப்புகளில் எப்போது வேண்டுமானாலும் இதை மாற்றலாம்.",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "வரிகள் மற்றும் கட்டணங்கள்",
   "freeLabel": "இலவசம்",
   "toPay": "செலுத்த வேண்டியது",
-  "placeOrderFor": "ஆர்டர் செய் · ₹{amount}",
+  "placeOrderFor": "ஆர்டர் செய் · {amount}",
   "ordersTitle": "உங்கள் ஆர்டர்கள்",
   "ordersEmptyTitle": "இதுவரை ஆர்டர்கள் இல்லை",
   "ordersEmptySubtitle": "உங்கள் முந்தைய ஆர்டர்கள் இங்கே தோன்றும்.",
@@ -117,5 +118,173 @@
   "backToHome": "முகப்புக்குத் திரும்பு",
   "prototypeNotice": "மாதிரி உணவகப் பட்டியல் — உண்மையான கடைகள் API வந்ததும் சேரும்.",
   "prototypeCheckoutNotice": "இது ஒரு மாதிரி வடிவமைப்பு. பணம் எதுவும் வசூலிக்கப்படவில்லை, உண்மையான ஆர்டரும் இல்லை.",
-  "prototypeTrackingNotice": "இந்த மாதிரிக்காக டிராக்கிங் உருவகப்படுத்தப்பட்டுள்ளது."
+  "prototypeTrackingNotice": "இந்த மாதிரிக்காக டிராக்கிங் உருவகப்படுத்தப்பட்டுள்ளது.",
+
+  "locationTitle": "எங்கு டெலிவரி செய்ய வேண்டும்?",
+  "locationSubtitle": "1 கி.மீ சுற்றளவில் உள்ள கடைகளிலிருந்து மட்டுமே Nexmile டெலிவரி செய்கிறது, எனவே உங்கள் சரியான இடம் தேவை.",
+  "locationReasonRadiusTitle": "1 கி.மீ-க்குள் உள்ள கடைகள்",
+  "locationReasonRadiusBody": "சூடாக வந்து சேரக்கூடிய கடைகளை மட்டுமே காட்டுகிறோம்.",
+  "locationReasonAccuracyTitle": "சரியான வீட்டு வாசல்",
+  "locationReasonAccuracyBody": "துல்லியமான இடம் இருந்தால், டெலிவரி நபர் அழைக்காமலேயே உங்களைக் கண்டுபிடிப்பார்.",
+  "locationReasonPrivacyTitle": "செயலியைப் பயன்படுத்தும்போது மட்டும்",
+  "locationReasonPrivacyBody": "பின்னணியில் நாங்கள் உங்களைக் கண்காணிப்பதில்லை; முகவரியை நீங்களே தட்டச்சு செய்யலாம்.",
+  "allowLocation": "இருப்பிடத்தை அனுமதி",
+  "enterAddressManually": "நானே முகவரியை உள்ளிடுகிறேன்",
+  "locationDenied": "இருப்பிட அனுமதி மறுக்கப்பட்டது. நீங்களே பின்னை வைக்கலாம்.",
+  "locationDeniedForever": "Nexmile-க்கு இருப்பிடம் தடுக்கப்பட்டுள்ளது. அமைப்புகளில் இயக்கவும் அல்லது பின்னை கையால் வைக்கவும்.",
+  "locationServiceOff": "இந்தச் சாதனத்தில் இருப்பிடம் அணைக்கப்பட்டுள்ளது.",
+  "locationUnavailable": "இருப்பிடத்தைப் பெற முடியவில்லை. பின்னை நீங்களே வைக்கவும்.",
+  "openSettings": "அமைப்புகள்",
+
+  "pinLocationTitle": "உங்கள் டெலிவரி பின்னை அமைக்கவும்",
+  "deliveryRadiusHint": "Nexmile டெலிவரி செய்யும் 1 கி.மீ சுற்றளவை வட்டம் காட்டுகிறது.",
+  "useMyLocation": "என் இருப்பிடத்தைப் பயன்படுத்து",
+  "deliveringHere": "இங்கே டெலிவரி",
+  "dragToAdjust": "பின்னை மாற்ற வரைபடத்தை நகர்த்தவும்",
+  "confirmLocation": "இருப்பிடத்தை உறுதிசெய்",
+
+  "addressDetailsTitle": "முகவரி விவரங்கள்",
+  "addressDetailsSubtitle": "சரியான வாசலை அடைய வீட்டு எண் மற்றும் அடையாளத்தைச் சேர்க்கவும்.",
+  "pinnedLocation": "குறிக்கப்பட்ட இடம்",
+  "changePin": "மாற்று",
+  "saveAddressAs": "இந்த முகவரியை இப்படிச் சேமி",
+  "labelHome": "வீடு",
+  "labelWork": "அலுவலகம்",
+  "labelOther": "மற்றவை",
+  "addressLine1Label": "வீடு / கட்டிட எண்",
+  "addressLine1Hint": "12A, கிரீன் ரெசிடென்சி",
+  "addressLine2Label": "தெரு அல்லது பகுதி",
+  "addressLine2Hint": "2வது அவென்யூ, அண்ணா நகர்",
+  "landmarkLabel": "அடையாளம்",
+  "landmarkHint": "பேருந்து நிறுத்தத்திற்கு எதிரில்",
+  "cityLabel": "நகரம்",
+  "stateLabel": "மாநிலம்",
+  "pincodeLabel": "பின் கோடு",
+  "invalidPincode": "சரியான 6 இலக்க பின் கோடை உள்ளிடவும்",
+  "contactNameLabel": "தொடர்பு பெயர்",
+  "contactPhoneLabel": "தொடர்பு எண்",
+  "invalidMobileNumber": "சரியான 10 இலக்க கைபேசி எண்ணை உள்ளிடவும்",
+  "makeDefaultAddress": "இயல்பாக இங்கே டெலிவரி",
+  "saveAddress": "முகவரியைச் சேமி",
+  "addressSaved": "முகவரி சேமிக்கப்பட்டது",
+
+  "addressBookTitle": "டெலிவரி முகவரிகள்",
+  "manageAddresses": "சேமித்த முகவரிகளை நிர்வகி",
+  "noAddressesTitle": "இதுவரை முகவரிகள் இல்லை",
+  "noAddressesSubtitle": "உங்களுக்கு டெலிவரி செய்யும் கடைகளைக் காட்ட ஒரு முகவரியைச் சேர்க்கவும்.",
+  "addAddress": "முகவரியைச் சேர்",
+  "setAsDefault": "இயல்பாக அமை",
+  "editLabel": "திருத்து",
+  "addressUpdated": "முகவரி புதுப்பிக்கப்பட்டது",
+  "deleteLabel": "நீக்கு",
+  "deleteAddressTitle": "இந்த முகவரியை நீக்கவா?",
+  "deleteAddressMessage": "பிறகு எப்போது வேண்டுமானாலும் மீண்டும் சேர்க்கலாம்.",
+
+  "rescueDealsTitle": "உணவு மீட்பு",
+
+  "notTakingOrders": "ஆர்டர் ஏற்கவில்லை",
+
+  "closedRightNow": "இப்போது மூடியுள்ளது",
+
+  "minimumOrder": "குறைந்தது {amount}",
+
+  "portionsLeft": "{count} மீதம்",
+
+  "soldOut": "விற்றுத் தீர்ந்தது",
+
+  "menuEmptyTitle": "இன்னும் உணவுகள் இல்லை",
+
+  "menuEmptySubtitle": "இந்த உணவகம் மெனுவைச் சேர்க்கவில்லை.",
+
+  "moreDishesTitle": "மேலும் உணவுகள்",
+
+  "customisable": "விருப்பப்படி",
+
+  "requiredLabel": "கட்டாயம்",
+
+  "optionalLabel": "விருப்பம்",
+
+  "chooseOne": "ஒன்றைத் தேர்வு செய்க",
+
+  "chooseUpTo": "அதிகபட்சம் {count} தேர்வு செய்க",
+
+  "chooseAtLeast": "குறைந்தது {count} தேர்வு செய்க",
+
+  "chooseBetween": "{min} முதல் {max} வரை தேர்வு செய்க",
+
+  "specialInstructions": "சிறப்பு அறிவுறுத்தல்கள்",
+
+  "specialInstructionsHint": "குறைவான காரம், வெங்காயம் வேண்டாம்…",
+
+  "addForAmount": "சேர் · {amount}",
+
+  "deliveryLabel": "டெலிவரி",
+
+  "pickupLabel": "நேரில் பெறுதல்",
+
+  "packagingLabel": "பேக்கிங்",
+
+  "discountLabel": "தள்ளுபடி",
+
+  "billDetailsTitle": "கட்டண விவரம்",
+
+  "clearCart": "கார்ட்டை காலி செய்",
+
+  "clearCartTitle": "இந்த கார்ட்டை காலி செய்யவா?",
+
+  "clearCartMessage": "இதில் உள்ள அனைத்தும் நீக்கப்படும்.",
+
+  "unavailableItemsNotice": "இப்போது கிடைக்கவில்லை: {items}",
+
+  "removeUnavailable": "அவற்றை நீக்கு",
+
+  "minimumNotMet": "குறைந்தபட்ச ஆர்டர் {amount}",
+
+  "checkoutTitle": "செக்அவுட்",
+
+  "deliveryAddressLabel": "டெலிவரி முகவரி",
+
+  "noAddressSelected": "முகவரி தேர்வு செய்யவில்லை",
+
+  "paymentMethodLabel": "கட்டணம்",
+
+  "payOnDelivery": "டெலிவரியின் போது பணம்",
+
+  "noteToRestaurant": "உணவகத்திற்கு குறிப்பு",
+
+  "noteToRestaurantHint": "மணியை இருமுறை அடிக்கவும்…",
+
+  "activeOrdersTitle": "நடப்பு ஆர்டர்கள்",
+
+  "pastOrdersTitle": "முந்தைய ஆர்டர்கள்",
+
+  "orderItemsTitle": "உணவுகள்",
+
+  "orderProgressTitle": "நிலை",
+
+  "arrivingIn": "வந்து சேரும் நேரம்",
+
+  "pickupCodeLabel": "பிக்அப் குறியீடு",
+
+  "cancellationReasonLabel": "ரத்து செய்யப்பட்ட காரணம்",
+
+  "riderLabel": "டெலிவரி பார்ட்னர்",
+
+  "callRider": "அழை",
+
+  "viewInvoice": "வரி விலைப்பட்டியல்",
+
+  "cancelOrder": "ஆர்டரை ரத்து செய்",
+
+  "cancelOrderTitle": "இந்த ஆர்டரை ரத்து செய்யவா?",
+
+  "cancelOrderMessage": "உணவகம் ஏற்றுக்கொள்வதற்கு முன்பே ரத்து செய்ய முடியும்.",
+
+  "cancelReasonLabel": "காரணம்",
+
+  "cancelReasonFallback": "வாடிக்கையாளர் ரத்து செய்தார்",
+
+  "orderCancelled": "ஆர்டர் ரத்து செய்யப்பட்டது",
+
+  "currentLocationLabel": "தற்போதைய இடம்"
 }

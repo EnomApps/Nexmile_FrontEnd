@@ -2,6 +2,7 @@
   "@@locale": "mni",
 
   "appName": "Nexmile",
+  "fieldRequired": "মসি হাপচিনবা তংাইফদে",
   "tagline": "থুনা ডেলিভরি। অনৌবা নোকপা।",
   "chooseLanguageTitle": "নহাক্কী লোল খল্লু",
   "chooseLanguageSubtitle": "নহাক্না লাইনা খংবা লোল অদু খল্লু। মসিবু মতম খুদিংদা সেটিংস্তা হোংদোকপা য়াই।",
@@ -99,7 +100,7 @@
   "taxesAndCharges": "খাজনা অমসুং চার্জ",
   "freeLabel": "ফ্রি",
   "toPay": "পীগদবা",
-  "placeOrderFor": "ওর্দর তৌ · ₹{amount}",
+  "placeOrderFor": "ওর্দর তৌ · {amount}",
   "ordersTitle": "নহাক্কী ওর্দরশিং",
   "ordersEmptyTitle": "হৌজিক ফাওবা ওর্দর লৈতে",
   "ordersEmptySubtitle": "নহাক্কী মমাংগী ওর্দরশিং মফম অসিদা উগনি।",
@@ -117,5 +118,173 @@
   "backToHome": "হোমদা হল্লকউ",
   "prototypeNotice": "খুদম ওইবা স্তোরফ্রন্ত — অচুম্বা দোকানশিং কেতালোগ API-গা লোয়ননা লাক্কনি।",
   "prototypeCheckoutNotice": "মসি প্রোতোতাইপনি। সেন্ফম অমত্তা লৌদে অমসুং অচুম্বা ওর্দরসু তৌদে।",
-  "prototypeTrackingNotice": "প্রোতোতাইপকীদমক ত্রেকিং অসি খুদম ওইনা শেম্বনি।"
+  "prototypeTrackingNotice": "প্রোতোতাইপকীদমক ত্রেকিং অসি খুদম ওইনা শেম্বনি।",
+
+  "locationTitle": "কদাইদা দেলিভরি তৌগদগে?",
+  "locationSubtitle": "Nexmile না কিমি ১ গী মনুংদা লৈবা দোকানশিংদগীখক্তা দেলিভরি তৌই, মরমদুনা নহাক্কী চুম্বা মফম চঙই।",
+  "locationReasonRadiusTitle": "কিমি ১ গী মনুংগী দোকানশিং",
+  "locationReasonRadiusBody": "চিঞ্জাক অসাবা ওইনা য়ৌরকপা ঙম্বা থোংফমশিংখক্তা উৎচরি।",
+  "locationReasonAccuracyTitle": "চুম্বা থোংদা",
+  "locationReasonAccuracyBody": "চুম্বা পিন লৈরবদি দেলিভরি পার্তনরনা ফোন তৌদনা নহাক্কী মনাক্তা য়ৌরক্কনি।",
+  "locationReasonPrivacyTitle": "এপ শিজিন্নরিঙৈ খক্তা",
+  "locationReasonPrivacyBody": "ঐখোয়না মতুংদা নহাক্কী মফম থিদে, অমসুং এদ্রেস নহাক্না নশাসু ইবা য়াই।",
+  "allowLocation": "মফমগী অয়াবা পীয়ু",
+  "enterAddressManually": "ঐনা এদ্রেস ইশাগী মখুৎনা ইগনি",
+  "locationDenied": "মফমগী অয়াবা পীদে। নহাক্না পিন ইশানা থম্বা য়াই।",
+  "locationDeniedForever": "Nexmile গীদমক মফম থিংলে। সেটিংস্তা হৌদোকউ নত্ত্রগা পিন ইশানা থম্মু।",
+  "locationServiceOff": "দিভাইস অসিদা মফম থিংলি।",
+  "locationUnavailable": "মফম ফংদে। চানবিদুনা পিন ইশানা থম্মু।",
+  "openSettings": "সেটিংস",
+
+  "pinLocationTitle": "নহাক্কী দেলিভরি পিন থম্মু",
+  "deliveryRadiusHint": "কোইল অসিনা Nexmile না দেলিভরি তৌবা কিমি ১ অদু উৎলি।",
+  "useMyLocation": "ঐগী মফম শিজিন্নৌ",
+  "deliveringHere": "মফম অসিদা দেলিভরি",
+  "dragToAdjust": "পিন শেমদোক্নবা মেপ চিংথৌ",
+  "confirmLocation": "মফম শোয়দনা য়েংউ",
+
+  "addressDetailsTitle": "এদ্রেসকী অকুপ্পা",
+  "addressDetailsSubtitle": "চুম্বা থোংদা য়ৌনবা য়ুমগী মশিং অমসুং খুদম হাপচিল্লু।",
+  "pinnedLocation": "খল্লবা মফম",
+  "changePin": "হোংদোকউ",
+  "saveAddressAs": "এদ্রেস অসি অসুম্না থম্মু",
+  "labelHome": "য়ুম",
+  "labelWork": "অফিস",
+  "labelOther": "অতোপ্পা",
+  "addressLine1Label": "য়ুম, ফ্লেট নত্ত্রগা বিল্দিং",
+  "addressLine1Hint": "12A, গ্রীন রেসিদেন্সি",
+  "addressLine2Label": "লম্বী নত্ত্রগা মফম",
+  "addressLine2Hint": "২শুবা এভেন্যু, অন্না নগর",
+  "landmarkLabel": "খুদম",
+  "landmarkHint": "বস স্তোপকী মমাংদা",
+  "cityLabel": "সহর",
+  "stateLabel": "স্তেত",
+  "pincodeLabel": "পিন কোদ",
+  "invalidPincode": "অচুম্বা মশিং ৬ গী পিন কোদ হাপচিল্লু",
+  "contactNameLabel": "কন্তেক্ত মিং",
+  "contactPhoneLabel": "কন্তেক্ত নম্বর",
+  "invalidMobileNumber": "অচুম্বা মশিং ১০ গী মোবাইল নম্বর হাপচিল্লু",
+  "makeDefaultAddress": "ডিফোল্ট ওইনা মফম অসিদা দেলিভরি",
+  "saveAddress": "এদ্রেস থম্মু",
+  "addressSaved": "এদ্রেস থম্লে",
+
+  "addressBookTitle": "দেলিভরি এদ্রেসশিং",
+  "manageAddresses": "থম্লবা এদ্রেসশিং শেন্দোকউ",
+  "noAddressesTitle": "হৌজিক ফাওবা এদ্রেস লৈতে",
+  "noAddressesSubtitle": "নহাক্কী মনাক্তা দেলিভরি তৌবা দোকানশিং উৎনবা এদ্রেস অমা হাপচিল্লু।",
+  "addAddress": "এদ্রেস হাপচিল্লু",
+  "setAsDefault": "ডিফোল্ট ওইহল্লু",
+  "editLabel": "সেমদোকউ",
+  "addressUpdated": "এদ্রেস অনৌ শেমখ্রে",
+  "deleteLabel": "মুত্থৎলু",
+  "deleteAddressTitle": "এদ্রেস অসি মুত্থৎকদ্রা?",
+  "deleteAddressMessage": "মতুংদা অমুক হন্না হাপচিনবা য়াই।",
+
+  "rescueDealsTitle": "ꯐꯨꯗ ꯔꯦꯁꯀꯤꯌꯨ",
+
+  "notTakingOrders": "ꯑꯣꯔꯗꯔ ꯂꯧꯗ꯭ꯔꯤ",
+
+  "closedRightNow": "ꯍꯧꯖꯤꯛ ꯂꯣꯅꯈ꯭ꯔꯦ",
+
+  "minimumOrder": "ꯈ꯭ꯋꯥꯏꯗꯒꯤ ꯍꯟꯊꯕ {amount}",
+
+  "portionsLeft": "{count} ꯋꯥꯠꯂꯤ",
+
+  "soldOut": "ꯂꯣꯏꯔꯦ",
+
+  "menuEmptyTitle": "ꯍꯧꯖꯤꯛ ꯐꯛ ꯂꯩꯇꯦ",
+
+  "menuEmptySubtitle": "ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ ꯑꯁꯤꯅ ꯃꯍꯥꯛꯀꯤ ꯃꯦꯅꯨ ꯍꯥꯞꯆꯤꯟꯗ꯭ꯔꯤ꯫",
+
+  "moreDishesTitle": "ꯑꯍꯦꯟꯕ ꯆꯥꯅꯕ",
+
+  "customisable": "ꯄꯥꯝꯕꯒꯨꯝꯅ",
+
+  "requiredLabel": "ꯃꯊꯧ ꯇꯥꯏ",
+
+  "optionalLabel": "ꯏꯆ꯭ꯆꯥ",
+
+  "chooseOne": "ꯑꯃ ꯈꯅꯕꯤꯌꯨ",
+
+  "chooseUpTo": "ꯈ꯭ꯋꯥꯏꯗꯒꯤ ꯌꯥꯝꯅ {count} ꯈꯅꯕꯤꯌꯨ",
+
+  "chooseAtLeast": "ꯈ꯭ꯋꯥꯏꯗꯒꯤ ꯍꯟꯊꯅ {count} ꯈꯅꯕꯤꯌꯨ",
+
+  "chooseBetween": "{min} ꯗꯒꯤ {max} ꯐꯥꯑꯣꯕ ꯈꯅꯕꯤꯌꯨ",
+
+  "specialInstructions": "ꯑꯈꯟꯅꯕ ꯋꯥꯐꯝ",
+
+  "specialInstructionsHint": "ꯑꯀꯅꯕ ꯍꯟꯊꯅ, ꯇꯤꯜꯍꯧ ꯌꯥꯗꯦ…",
+
+  "addForAmount": "ꯍꯥꯞꯆꯤꯜꯂꯨ · {amount}",
+
+  "deliveryLabel": "ꯗꯦꯂꯤꯚꯔꯤ",
+
+  "pickupLabel": "ꯃꯁꯥꯅ ꯂꯧꯕ",
+
+  "packagingLabel": "ꯄꯦꯛꯀꯤꯡ",
+
+  "discountLabel": "ꯗꯤꯁꯀꯥꯎꯟꯠ",
+
+  "billDetailsTitle": "ꯕꯤꯜ ꯑꯀꯨꯞꯄ",
+
+  "clearCart": "ꯀꯥꯔꯠ ꯍꯥꯡꯗꯣꯛꯎ",
+
+  "clearCartTitle": "ꯀꯥꯔꯠ ꯑꯁꯤ ꯍꯥꯡꯗꯣꯛꯀꯗ꯭ꯔꯥ?",
+
+  "clearCartMessage": "ꯃꯗꯨꯗ ꯂꯩꯔꯤꯕ ꯄꯨꯝꯅꯃꯛ ꯂꯧꯊꯣꯛꯀꯅꯤ꯫",
+
+  "unavailableItemsNotice": "ꯍꯧꯖꯤꯛ ꯐꯪꯗ꯭ꯔꯦ: {items}",
+
+  "removeUnavailable": "ꯃꯈꯣꯏ ꯂꯧꯊꯣꯛꯎ",
+
+  "minimumNotMet": "ꯈ꯭ꯋꯥꯏꯗꯒꯤ ꯍꯟꯊꯕ ꯑꯣꯔꯗꯔ {amount}",
+
+  "checkoutTitle": "ꯆꯦꯀꯥꯎꯠ",
+
+  "deliveryAddressLabel": "ꯗꯦꯂꯤꯚꯔꯤ ꯑꯗ꯭ꯔꯦꯁ",
+
+  "noAddressSelected": "ꯑꯗ꯭ꯔꯦꯁ ꯈꯟꯗ꯭ꯔꯤ",
+
+  "paymentMethodLabel": "ꯄꯦꯃꯦꯟꯠ",
+
+  "payOnDelivery": "ꯗꯦꯂꯤꯚꯔꯤꯗ ꯀꯦꯁ",
+
+  "noteToRestaurant": "ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯇꯀꯤ ꯋꯥꯐꯝ",
+
+  "noteToRestaurantHint": "ꯕꯦꯜ ꯑꯅꯤꯔꯛ ꯈꯣꯡꯕꯤꯌꯨ…",
+
+  "activeOrdersTitle": "ꯆꯠꯂꯤꯕ ꯑꯣꯔꯗꯔ",
+
+  "pastOrdersTitle": "ꯃꯃꯥꯡꯒꯤ ꯑꯣꯔꯗꯔ",
+
+  "orderItemsTitle": "ꯆꯥꯅꯕ",
+
+  "orderProgressTitle": "ꯄꯔꯤꯡ",
+
+  "arrivingIn": "ꯌꯧꯔꯛꯀꯗꯕ",
+
+  "pickupCodeLabel": "ꯄꯤꯀꯑꯞ ꯀꯣꯗ",
+
+  "cancellationReasonLabel": "ꯀꯛꯊꯠꯄꯒꯤ ꯃꯔꯝ",
+
+  "riderLabel": "ꯗꯦꯂꯤꯚꯔꯤ ꯄꯥꯔꯠꯅꯔ",
+
+  "callRider": "ꯀꯣꯜ ꯇꯧ",
+
+  "viewInvoice": "ꯇꯦꯛꯁ ꯏꯅꯚꯣꯏꯁ",
+
+  "cancelOrder": "ꯑꯣꯔꯗꯔ ꯀꯛꯊꯠꯂꯨ",
+
+  "cancelOrderTitle": "ꯑꯣꯔꯗꯔ ꯑꯁꯤ ꯀꯛꯊꯠꯀꯗ꯭ꯔꯥ?",
+
+  "cancelOrderMessage": "ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠꯅ ꯌꯥꯅꯗ꯭ꯔꯤꯉꯩꯗ ꯈꯛꯇ ꯀꯛꯊꯠꯄ ꯌꯥꯏ꯫",
+
+  "cancelReasonLabel": "ꯃꯔꯝ",
+
+  "cancelReasonFallback": "ꯀꯁ꯭ꯇꯃꯔꯅ ꯀꯛꯊꯠꯂꯦ",
+
+  "orderCancelled": "ꯑꯣꯔꯗꯔ ꯀꯛꯊꯠꯂꯦ",
+
+  "currentLocationLabel": "ꯍꯧꯖꯤꯛꯀꯤ ꯃꯐꯝ"
 }

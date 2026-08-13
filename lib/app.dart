@@ -9,8 +9,13 @@ import 'core/router/app_router.dart';
 import 'core/services/preferences_service.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/app_typography.dart';
+import 'features/address/data/location_service.dart';
+import 'features/address/state/address_controller.dart';
 import 'features/auth/state/auth_controller.dart';
+import 'features/catalogue/data/storefront_repository.dart';
 import 'features/catalogue/state/cart_controller.dart';
+import 'features/catalogue/state/orders_controller.dart';
+import 'features/catalogue/state/storefront_controller.dart';
 import 'generated/l10n/app_localizations.dart';
 
 class NexmileApp extends StatelessWidget {
@@ -18,6 +23,9 @@ class NexmileApp extends StatelessWidget {
     super.key,
     required this.preferences,
     required this.authController,
+    required this.addressController,
+    required this.locationService,
+    required this.storefrontRepository,
   });
 
   final PreferencesService preferences;
@@ -25,6 +33,15 @@ class NexmileApp extends StatelessWidget {
   /// Built in `main.dart` (or by a test), because it has to exist before the
   /// API client can be told where to get its bearer token from.
   final AuthController authController;
+
+  final AddressController addressController;
+
+  /// Injected so tests can run the address flow without a GPS chip.
+  final LocationService locationService;
+
+  /// Backs the storefront, cart and order controllers. Injected rather than
+  /// constructed here so a test can swap in a fake without an HTTP stack.
+  final StorefrontRepository storefrontRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +51,21 @@ class NexmileApp extends StatelessWidget {
           create: (_) => LocaleController(preferences),
         ),
         ChangeNotifierProvider<AuthController>.value(value: authController),
-        // Prototype storefront state. In-memory today; the cart moves
-        // server-side when the catalogue API lands.
+        ChangeNotifierProvider<AddressController>.value(
+          value: addressController,
+        ),
+        Provider<LocationService>.value(value: locationService),
+        Provider<StorefrontRepository>.value(value: storefrontRepository),
+        // Storefront state. The cart and the order history both live on the
+        // server; these hold what the screens are currently looking at.
+        ChangeNotifierProvider<StorefrontController>(
+          create: (_) => StorefrontController(repository: storefrontRepository),
+        ),
         ChangeNotifierProvider<CartController>(
-          create: (_) => CartController(),
+          create: (_) => CartController(repository: storefrontRepository),
+        ),
+        ChangeNotifierProvider<OrdersController>(
+          create: (_) => OrdersController(repository: storefrontRepository),
         ),
       ],
       child: Consumer<LocaleController>(
