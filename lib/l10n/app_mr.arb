@@ -71,12 +71,12 @@
   "cravingTitle": "आज काय खावंसं वाटतंय?",
   "offersTitle": "तुमच्यासाठी ऑफर",
   "restaurantsNearby": "तुमच्या जवळची रेस्टॉरंट",
-  "restaurantsCount": "{count} रेस्टॉरंट",
+  "restaurantsCount": "{count, plural, =1{1 रेस्टॉरंट} other{{count} रेस्टॉरंट}}",
   "noRestaurantsTitle": "इथे अजून काही नाही",
   "noRestaurantsSubtitle": "दुसरी श्रेणी पहा किंवा फिल्टर काढा.",
   "minutesAway": "{minutes} मिनिटे",
   "kilometresAway": "{distance} किमी",
-  "ratingsCount": "{count}+ रेटिंग",
+  "ratingsCount": "{count, plural, =1{1 रेटिंग} other{{count} रेटिंग}}",
   "priceForTwo": "दोघांसाठी ₹{amount}",
   "freeDelivery": "मोफत डिलिव्हरी",
   "percentOff": "{percent}% सूट",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "तुमची कार्ट रिकामी आहे",
   "cartEmptySubtitle": "सुरू करण्यासाठी एखाद्या रेस्टॉरंटमधून पदार्थ जोडा.",
   "browseRestaurants": "रेस्टॉरंट पहा",
-  "itemsInCart": "{count} वस्तू",
+  "itemsInCart": "{count, plural, =1{1 वस्तू} other{{count} वस्तू}}",
   "viewCart": "कार्ट पहा",
   "itemTotal": "वस्तूंची एकूण",
   "deliveryFeeLabel": "डिलिव्हरी शुल्क",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "ऑर्डर रद्द झाली",
 
-  "currentLocationLabel": "सध्याचे ठिकाण"
+  "currentLocationLabel": "सध्याचे ठिकाण",
+
+  "editProfileTitle": "प्रोफाइल संपादित करा",
+
+  "editProfileSubtitle": "रेस्टॉरंट आणि डिलिव्हरी पार्टनरला तुमचे नावच दिसते.",
+
+  "saveChanges": "बदल जतन करा",
+
+  "profileUpdated": "प्रोफाइल अद्ययावत झाले",
+
+  "deleteAccount": "खाते हटवा",
+
+  "deleteAccountTitle": "तुमचे खाते हटवायचे?",
+
+  "deleteAccountMessage": "सर्व उपकरणांवरून साइन आउट व्हाल. जुन्या ऑर्डर आणि पावत्या कर नोंदींसाठी ठेवल्या जातात.",
+
+  "accountDeleted": "तुमचे खाते हटवले गेले",
+
+  "devicesTitle": "साइन-इन उपकरणे",
+
+  "devicesSubtitle": "तुम्ही कुठे साइन इन आहात",
+
+  "devicesEmptyTitle": "दुसरे कोणतेही उपकरण नाही",
+
+  "devicesEmptySubtitle": "तुम्ही फक्त याच उपकरणावर साइन इन आहात.",
+
+  "signOutDevice": "साइन आउट",
+
+  "signOutDeviceTitle": "हे उपकरण साइन आउट करायचे?",
+
+  "signOutDeviceMessage": "तुम्ही हेच उपकरण वापरत असाल तर पुन्हा साइन इन करावे लागेल.",
+
+  "deviceSignedOut": "उपकरण साइन आउट झाले",
+
+  "signOutEverywhere": "सर्वत्र साइन आउट",
+
+  "signOutEverywhereTitle": "सर्वत्र साइन आउट करायचे?",
+
+  "signOutEverywhereMessage": "या उपकरणासह प्रत्येक उपकरण साइन आउट होईल.",
+
+  "unknownDevice": "अज्ञात उपकरण",
+
+  "activeNow": "आत्ता सक्रिय",
+
+  "minutesAgo": "{count} मिनिटांपूर्वी",
+
+  "hoursAgo": "{count} तासांपूर्वी",
+
+  "daysAgo": "{count} दिवसांपूर्वी",
+
+  "filtersAndSorting": "फिल्टर आणि क्रम",
+
+  "clearAll": "सर्व काढा",
+
+  "showResults": "निकाल पहा",
+
+  "closeLabel": "बंद करा",
+
+  "sortByTitle": "क्रमवारी",
+
+  "sortRelevance": "सुसंगतता",
+
+  "sortRating": "रेटिंग",
+
+  "sortDeliveryTime": "डिलिव्हरी वेळ",
+
+  "sortCostLowHigh": "किंमत: कमी ते जास्त",
+
+  "sortCostHighLow": "किंमत: जास्त ते कमी",
+
+  "timeSection": "वेळ",
+
+  "nearAndFast": "जवळ आणि जलद",
+
+  "openNow": "आत्ता उघडे",
+
+  "ratingSection": "रेस्टॉरंट रेटिंग",
+
+  "ratedAbove": "{rating}+ रेटिंग",
+
+  "offersSection": "ऑफर",
+
+  "hasOffersLabel": "ऑफर असलेले",
+
+  "dishPriceSection": "पदार्थाची किंमत",
+
+  "costUnder": "{amount} पेक्षा कमी",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "अधिक",
+
+  "noPackagingCharges": "पॅकिंग शुल्क नाही",
+
+  "allRestaurantsTitle": "सर्व रेस्टॉरंट",
+
+  "whatsOnYourMind": "काय खावंसं वाटतंय?",
+
+  "listeningNow": "ऐकत आहोत…",
+
+  "speakNowHint": "पदार्थ किंवा रेस्टॉरंट सांगा",
+
+  "voiceUnavailable": "व्हॉइस सर्च उपलब्ध नाही",
+
+  "voiceUnavailableBody": "तुम्ही टाइप करूनही शोधू शकता.",
+
+  "microphoneDenied": "मायक्रोफोन परवानगी बंद",
+
+  "voiceSearchLabel": "आवाजाने शोधा",
+
+  "ratingsAndReviews": "रेटिंग आणि परीक्षणे",
+
+  "reviewsWithTextOnly": "परीक्षण असलेली",
+
+  "noReviewsTitle": "अजून एकही रेटिंग नाही",
+
+  "noReviewsSubtitle": "ऑर्डरनंतर पहिले रेटिंग तुम्हीच द्या.",
+
+  "rateOrderTitle": "तुमच्या ऑर्डरला रेटिंग द्या",
+
+  "rateDishesTitle": "पदार्थांना रेटिंग द्या",
+
+  "reviewHint": "आणखी काही सांगायचे आहे? (ऐच्छिक)",
+
+  "submitRating": "रेटिंग पाठवा",
+
+  "reviewThanks": "धन्यवाद — तुमचे रेटिंग नोंदले.",
+
+  "rateThisOrder": "या ऑर्डरला रेटिंग द्या"
 }

@@ -210,7 +210,13 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String restaurantsCount(int count) {
-    return '$count உணவகங்கள்';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count உணவகங்கள்',
+      one: '1 உணவகம்',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -231,7 +237,13 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String ratingsCount(int count) {
-    return '$count+ மதிப்பீடுகள்';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count மதிப்பீடுகள்',
+      one: '1 மதிப்பீடு',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -292,7 +304,13 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String itemsInCart(int count) {
-    return '$count பொருட்கள்';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count பொருட்கள்',
+      one: '1 பொருள்',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -721,4 +739,213 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get currentLocationLabel => 'தற்போதைய இடம்';
+
+  @override
+  String get editProfileTitle => 'சுயவிவரத்தைத் திருத்து';
+
+  @override
+  String get editProfileSubtitle => 'உணவகமும் டெலிவரி பார்ட்னரும் உங்கள் பெயரைத்தான் பார்ப்பார்கள்.';
+
+  @override
+  String get saveChanges => 'மாற்றங்களைச் சேமி';
+
+  @override
+  String get profileUpdated => 'சுயவிவரம் புதுப்பிக்கப்பட்டது';
+
+  @override
+  String get deleteAccount => 'கணக்கை நீக்கு';
+
+  @override
+  String get deleteAccountTitle => 'உங்கள் கணக்கை நீக்கவா?';
+
+  @override
+  String get deleteAccountMessage => 'எல்லா சாதனங்களிலிருந்தும் வெளியேற்றப்படுவீர்கள். பழைய ஆர்டர்களும் ரசீதுகளும் வரி பதிவுக்காக வைக்கப்படும்.';
+
+  @override
+  String get accountDeleted => 'உங்கள் கணக்கு நீக்கப்பட்டது';
+
+  @override
+  String get devicesTitle => 'உள்நுழைந்த சாதனங்கள்';
+
+  @override
+  String get devicesSubtitle => 'நீங்கள் எங்கு உள்நுழைந்துள்ளீர்கள்';
+
+  @override
+  String get devicesEmptyTitle => 'வேறு சாதனங்கள் இல்லை';
+
+  @override
+  String get devicesEmptySubtitle => 'இந்தச் சாதனத்தில் மட்டுமே உள்நுழைந்துள்ளீர்கள்.';
+
+  @override
+  String get signOutDevice => 'வெளியேறு';
+
+  @override
+  String get signOutDeviceTitle => 'இந்தச் சாதனத்திலிருந்து வெளியேறவா?';
+
+  @override
+  String get signOutDeviceMessage => 'நீங்கள் பயன்படுத்துவது இதுவே என்றால் மீண்டும் உள்நுழைய வேண்டும்.';
+
+  @override
+  String get deviceSignedOut => 'சாதனம் வெளியேற்றப்பட்டது';
+
+  @override
+  String get signOutEverywhere => 'எல்லா இடங்களிலிருந்தும் வெளியேறு';
+
+  @override
+  String get signOutEverywhereTitle => 'எல்லா இடங்களிலிருந்தும் வெளியேறவா?';
+
+  @override
+  String get signOutEverywhereMessage => 'இந்தச் சாதனம் உட்பட எல்லா சாதனங்களும் வெளியேற்றப்படும்.';
+
+  @override
+  String get unknownDevice => 'தெரியாத சாதனம்';
+
+  @override
+  String get activeNow => 'இப்போது செயலில்';
+
+  @override
+  String minutesAgo(int count) {
+    return '$count நிமிடங்களுக்கு முன்';
+  }
+
+  @override
+  String hoursAgo(int count) {
+    return '$count மணி நேரத்திற்கு முன்';
+  }
+
+  @override
+  String daysAgo(int count) {
+    return '$count நாட்களுக்கு முன்';
+  }
+
+  @override
+  String get filtersAndSorting => 'வடிகட்டி மற்றும் வரிசை';
+
+  @override
+  String get clearAll => 'அனைத்தையும் அழி';
+
+  @override
+  String get showResults => 'முடிவுகளைக் காட்டு';
+
+  @override
+  String get closeLabel => 'மூடு';
+
+  @override
+  String get sortByTitle => 'வரிசைப்படுத்து';
+
+  @override
+  String get sortRelevance => 'பொருத்தம்';
+
+  @override
+  String get sortRating => 'மதிப்பீடு';
+
+  @override
+  String get sortDeliveryTime => 'டெலிவரி நேரம்';
+
+  @override
+  String get sortCostLowHigh => 'விலை: குறைவு முதல் அதிகம்';
+
+  @override
+  String get sortCostHighLow => 'விலை: அதிகம் முதல் குறைவு';
+
+  @override
+  String get timeSection => 'நேரம்';
+
+  @override
+  String get nearAndFast => 'அருகில் & விரைவு';
+
+  @override
+  String get openNow => 'இப்போது திறந்துள்ளது';
+
+  @override
+  String get ratingSection => 'உணவக மதிப்பீடு';
+
+  @override
+  String ratedAbove(String rating) {
+    return '$rating+ மதிப்பீடு';
+  }
+
+  @override
+  String get offersSection => 'சலுகைகள்';
+
+  @override
+  String get hasOffersLabel => 'சலுகை உள்ளவை';
+
+  @override
+  String get dishPriceSection => 'உணவு விலை';
+
+  @override
+  String costUnder(String amount) {
+    return '$amountக்கும் குறைவு';
+  }
+
+  @override
+  String costBetween(String min, String max) {
+    return '$min – $max';
+  }
+
+  @override
+  String costOver(String amount) {
+    return '$amount+';
+  }
+
+  @override
+  String get moreSection => 'மேலும்';
+
+  @override
+  String get noPackagingCharges => 'பேக்கிங் கட்டணம் இல்லை';
+
+  @override
+  String get allRestaurantsTitle => 'அனைத்து உணவகங்கள்';
+
+  @override
+  String get whatsOnYourMind => 'என்ன சாப்பிடலாம்?';
+
+  @override
+  String get listeningNow => 'கேட்கிறோம்…';
+
+  @override
+  String get speakNowHint => 'உணவு அல்லது உணவகத்தைச் சொல்லுங்கள்';
+
+  @override
+  String get voiceUnavailable => 'குரல் தேடல் கிடைக்கவில்லை';
+
+  @override
+  String get voiceUnavailableBody => 'நீங்கள் தட்டச்சு செய்தும் தேடலாம்.';
+
+  @override
+  String get microphoneDenied => 'மைக்ரோஃபோன் அனுமதி இல்லை';
+
+  @override
+  String get voiceSearchLabel => 'குரலால் தேடு';
+
+  @override
+  String get ratingsAndReviews => 'மதிப்பீடுகளும் விமர்சனங்களும்';
+
+  @override
+  String get reviewsWithTextOnly => 'விமர்சனம் உள்ளவை';
+
+  @override
+  String get noReviewsTitle => 'இதுவரை மதிப்பீடு இல்லை';
+
+  @override
+  String get noReviewsSubtitle => 'ஆர்டர் செய்த பிறகு முதல் மதிப்பீட்டை நீங்களே அளியுங்கள்.';
+
+  @override
+  String get rateOrderTitle => 'உங்கள் ஆர்டரை மதிப்பிடுங்கள்';
+
+  @override
+  String get rateDishesTitle => 'உணவுகளை மதிப்பிடுங்கள்';
+
+  @override
+  String get reviewHint => 'மேலும் ஏதேனும் சொல்ல விரும்புகிறீர்களா? (விருப்பம்)';
+
+  @override
+  String get submitRating => 'மதிப்பீட்டை அனுப்பு';
+
+  @override
+  String get reviewThanks => 'நன்றி — உங்கள் மதிப்பீடு பதிவானது.';
+
+  @override
+  String get rateThisOrder => 'இந்த ஆர்டரை மதிப்பிடுங்கள்';
 }

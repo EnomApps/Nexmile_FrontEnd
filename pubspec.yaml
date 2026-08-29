@@ -37,6 +37,10 @@ dependencies:
   flutter_map: ^7.0.2
   latlong2: ^0.9.1
 
+  # Voice search in the search bar. Uses the platform recogniser, so there is
+  # no audio upload and nothing to key or bill.
+  speech_to_text: ^7.0.0
+
   # The tax invoice is a printable HTML page rather than JSON, and a rider's
   # phone number is only useful if it can be dialled.
   url_launcher: ^6.3.1

@@ -71,12 +71,12 @@
   "cravingTitle": "اَز کیٚاہ کھیٚنُک دِل چھُ؟",
   "offersTitle": "توہہِ خٲطرٕ آفر",
   "restaurantsNearby": "توہنٛدِن نزدیٚکی ریسٹورنٹ",
-  "restaurantsCount": "{count} ریسٹورنٹ",
+  "restaurantsCount": "{count, plural, =1{1 ریستوران} other{{count} ریستوران}}",
   "noRestaurantsTitle": "یَتہِ چھُ ناوُ کینٛہہ نہ",
   "noRestaurantsSubtitle": "بیٚاکھ قِسم وُچھِو یا فلٹر ہٹاوِو۔",
   "minutesAway": "{minutes} مِنٹ",
   "kilometresAway": "{distance} کِلومیٹر",
-  "ratingsCount": "{count}+ ریٹِنگ",
+  "ratingsCount": "{count, plural, =1{1 ریٹنگ} other{{count} ریٹنگ}}",
   "priceForTwo": "زٕن خٲطرٕ ₹{amount}",
   "freeDelivery": "مُفت ڈیلیوری",
   "percentOff": "{percent}% رعایت",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "توہنٛد کارٹ چھُ خٲلی",
   "cartEmptySubtitle": "شُروع کرنہٕ خٲطرٕ کُنہِ ریسٹورنٹ پؠٹھٕ کھَنہٕ شٲمِل کرِو۔",
   "browseRestaurants": "ریسٹورنٹ وُچھِو",
-  "itemsInCart": "{count} چیٖز",
+  "itemsInCart": "{count, plural, =1{1 چیز} other{{count} چیزٕ}}",
   "viewCart": "کارٹ وُچھِو",
   "itemTotal": "چیٖزَن ہُند کُل",
   "deliveryFeeLabel": "ڈیلیوری فیٖس",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "آرڈر گو منسوخ",
 
-  "currentLocationLabel": "موجودٕ جاے"
+  "currentLocationLabel": "موجودٕ جاے",
+
+  "editProfileTitle": "پروفائل تبدیل کریو",
+
+  "editProfileSubtitle": "ریستوران تہٕ ڈیلیوری پارٹنرَس چھُ توٚہنٛد ناو ہی بوٚزان۔",
+
+  "saveChanges": "تبدیلی محفوظ کریو",
+
+  "profileUpdated": "پروفائل گۄ اپ ڈیٹ",
+
+  "deleteAccount": "اکاؤنٹ مِٹٲویو",
+
+  "deleteAccountTitle": "پنُن اکاؤنٹ مِٹٲویو؟",
+
+  "deleteAccountMessage": "سٲری ڈیوائسن پؠٹھٕ گژھِو سائن آؤٹ۔ پرانہٕ آرڈر تہٕ بل چھِ ٹیکس ریکارڈ خٲطرٕ رٹنہٕ یِوان۔",
+
+  "accountDeleted": "توٚہنٛد اکاؤنٹ آو مِٹاونہٕ",
+
+  "devicesTitle": "سائن ان ڈیوائسہٕ",
+
+  "devicesSubtitle": "توہہِ چھِو کۄتہِ سائن ان",
+
+  "devicesEmptyTitle": "بیٛاکھ کانہہ ڈیوائس چھُنہ",
+
+  "devicesEmptySubtitle": "توہہِ چھِو صرف یَتھ ڈیوائسس پؠٹھ سائن ان۔",
+
+  "signOutDevice": "سائن آؤٹ",
+
+  "signOutDeviceTitle": "یہ ڈیوائس کریو سائن آؤٹ؟",
+
+  "signOutDeviceMessage": "اگر توہہِ چھِو یہی ڈیوائس استعمال کران تہٕ پھیر گژھِو سائن ان کرُن۔",
+
+  "deviceSignedOut": "ڈیوائس گۄ سائن آؤٹ",
+
+  "signOutEverywhere": "ہر جایہٕ پؠٹھٕ سائن آؤٹ",
+
+  "signOutEverywhereTitle": "ہر جایہٕ پؠٹھٕ کریو سائن آؤٹ؟",
+
+  "signOutEverywhereMessage": "یَتھ ڈیوائسس سٲتؠ سٲری ڈیوائسہٕ گژھن سائن آؤٹ۔",
+
+  "unknownDevice": "ناواقف ڈیوائس",
+
+  "activeNow": "وُنی فعال",
+
+  "minutesAgo": "{count} منٹ برونٛہہ",
+
+  "hoursAgo": "{count} گھنٹہٕ برونٛہہ",
+
+  "daysAgo": "{count} دۄہ برونٛہہ",
+
+  "filtersAndSorting": "فلٹر تہٕ ترتیب",
+
+  "clearAll": "سٲرؠ ہٹٲویو",
+
+  "showResults": "نتیجہٕ ہٲویو",
+
+  "closeLabel": "بند کریو",
+
+  "sortByTitle": "ترتیب",
+
+  "sortRelevance": "مطابقت",
+
+  "sortRating": "ریٹنگ",
+
+  "sortDeliveryTime": "ڈیلیوری وَکھ",
+
+  "sortCostLowHigh": "قیمت: کم پؠٹھٕ زیادٕ",
+
+  "sortCostHighLow": "قیمت: زیادٕ پؠٹھٕ کم",
+
+  "timeSection": "وَکھ",
+
+  "nearAndFast": "نزدیک تہٕ تیز",
+
+  "openNow": "وُنی کھۄلمُت",
+
+  "ratingSection": "ریستوران ریٹنگ",
+
+  "ratedAbove": "{rating}+ ریٹنگ",
+
+  "offersSection": "آفر",
+
+  "hasOffersLabel": "آفر ٲسِتھ",
+
+  "dishPriceSection": "کھانَکؠ قیمت",
+
+  "costUnder": "{amount} کھۄتہٕ کم",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "زیادٕ",
+
+  "noPackagingCharges": "پیکنگ فیس چھُنہ",
+
+  "allRestaurantsTitle": "سٲرؠ ریستوران",
+
+  "whatsOnYourMind": "کیاہ کھینٕچ خواہش چھِ؟",
+
+  "listeningNow": "بوزان چھِ…",
+
+  "speakNowHint": "کانہہ کھانہٕ یا ریستوران وَنیو",
+
+  "voiceUnavailable": "آواز ژھانڈُن چھُنہ دستیاب",
+
+  "voiceUnavailableBody": "توہہِ ہیٚکِو ٹایپ کٔرِتھ تہٕ ژھانڈِتھ۔",
+
+  "microphoneDenied": "مائیکروفونُک اجازت چھُ بند",
+
+  "voiceSearchLabel": "آوازہٕ سٟتؠ ژھانڈیو",
+
+  "ratingsAndReviews": "ریٹنگ تہٕ جائزٕ",
+
+  "reviewsWithTextOnly": "جائزٕ والۍ",
+
+  "noReviewsTitle": "وُنی چھُ نہٕ کانہہ ریٹنگ",
+
+  "noReviewsSubtitle": "آرڈرَس پتٕ گۆڈنیُک ریٹنگ توہہِ دِیِو۔",
+
+  "rateOrderTitle": "پنُن آرڈر ریٹ کریِو",
+
+  "rateDishesTitle": "کھَنہٕ ریٹ کریِو",
+
+  "reviewHint": "کینٛہہ بیٚیہ وننٕ چھُ؟ (اختیاری)",
+
+  "submitRating": "ریٹنگ ہاوِو",
+
+  "reviewThanks": "شکریہ — توٚہنٛز ریٹنگ آیہٕ۔",
+
+  "rateThisOrder": "یہ آرڈر ریٹ کریِو"
 }

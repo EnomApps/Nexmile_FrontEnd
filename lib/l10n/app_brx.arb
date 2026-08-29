@@ -71,12 +71,12 @@
   "cravingTitle": "दिनै मा जानो गोसो?",
   "offersTitle": "नोंथांनि थाखाय अफार",
   "restaurantsNearby": "नोंथांनि खात्रिनि रेस्टुरेन्टफोर",
-  "restaurantsCount": "{count} रेस्टुरेन्ट",
+  "restaurantsCount": "{count, plural, =1{1 रेस्टुरेन्ट} other{{count} रेस्टुरेन्ट}}",
   "noRestaurantsTitle": "बेयाव दासिम जेबो गैया",
   "noRestaurantsSubtitle": "गुबुन हानजा नाय एबा फिल्टार बोखार।",
   "minutesAway": "{minutes} मिनिट",
   "kilometresAway": "{distance} किमि",
-  "ratingsCount": "{count}+ रेटिं",
+  "ratingsCount": "{count, plural, =1{1 रेटिं} other{{count} रेटिं}}",
   "priceForTwo": "मोननैनि थाखाय ₹{amount}",
   "freeDelivery": "मुफ्ट डेलिभारि",
   "percentOff": "{percent}% खमी",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "नोंथांनि कार्टआ लांदां",
   "cartEmptySubtitle": "जागायनो जायखिजाया रेस्टुरेन्टनिफ्राय आहार दाजाबदेर।",
   "browseRestaurants": "रेस्टुरेन्ट नाय",
-  "itemsInCart": "{count} बेसाद",
+  "itemsInCart": "{count, plural, =1{1 बेसाद} other{{count} बेसाद}}",
   "viewCart": "कार्ट नाय",
   "itemTotal": "बेसादनि गासै",
   "deliveryFeeLabel": "डेलिभारि बिजाब",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "अर्डार बातिल जाबाय",
 
-  "currentLocationLabel": "दानिनि जायगा"
+  "currentLocationLabel": "दानिनि जायगा",
+
+  "editProfileTitle": "प्रफाइल सुद्रायहो",
+
+  "editProfileSubtitle": "रेस्टुरेन्ट आरो डेलिभारि पार्टनारा नोंथांनि मुंखौलो नुयो।",
+
+  "saveChanges": "सोलायनायखौ थिना दोन",
+
+  "profileUpdated": "प्रफाइल आपडेट जाबाय",
+
+  "deleteAccount": "एकाउन्ट खोमोर",
+
+  "deleteAccountTitle": "नोंथांनि एकाउन्टखौ खोमोरनो नामा?",
+
+  "deleteAccountMessage": "गासै डिभाइसनिफ्राय साइन आउट जागोन। गागैनि अर्डार आरो बिलखौ ट्याक्स रेकर्डनि थाखाय दोनो।",
+
+  "accountDeleted": "नोंथांनि एकाउन्ट खोमोरबाय",
+
+  "devicesTitle": "साइन-इन डिभाइस",
+
+  "devicesSubtitle": "नोंथाङा बबेयाव साइन इन दंब्ला",
+
+  "devicesEmptyTitle": "गुबुन जेबो डिभाइस गैया",
+
+  "devicesEmptySubtitle": "नोंथाङा बे डिभाइसावलो साइन इन दङ।",
+
+  "signOutDevice": "साइन आउट",
+
+  "signOutDeviceTitle": "बे डिभाइसखौ साइन आउट खालामनो नामा?",
+
+  "signOutDeviceMessage": "नोंथाङा बे डिभाइसखौबो बाहायगासिनो दङब्ला फिन साइन इन खालामनांगोन।",
+
+  "deviceSignedOut": "डिभाइस साइन आउट जाबाय",
+
+  "signOutEverywhere": "गासै जायगानिफ्राय साइन आउट",
+
+  "signOutEverywhereTitle": "गासै जायगानिफ्राय साइन आउट खालामनो नामा?",
+
+  "signOutEverywhereMessage": "बे डिभाइस लोगोसे मोनफ्रोम डिभाइसआ साइन आउट जागोन।",
+
+  "unknownDevice": "मिथिमोनै डिभाइस",
+
+  "activeNow": "दानो सोलिगासिनो",
+
+  "minutesAgo": "{count} मिनिट सिगां",
+
+  "hoursAgo": "{count} घन्टा सिगां",
+
+  "daysAgo": "{count} सान सिगां",
+
+  "filtersAndSorting": "फिल्टार आरो थाखो",
+
+  "clearAll": "गासैखौ खोमोर",
+
+  "showResults": "फिथाइ दिन्थि",
+
+  "closeLabel": "बन्द खालाम",
+
+  "sortByTitle": "थाखो",
+
+  "sortRelevance": "सोमोन्दो",
+
+  "sortRating": "रेटिं",
+
+  "sortDeliveryTime": "डेलिभारि सम",
+
+  "sortCostLowHigh": "बेसेन: खमनिफ्राय बांसिन",
+
+  "sortCostHighLow": "बेसेन: बांसिननिफ्राय खम",
+
+  "timeSection": "सम",
+
+  "nearAndFast": "खाथि आरो गोख्रों",
+
+  "openNow": "दानो खेवनाय",
+
+  "ratingSection": "रेस्टुरेन्ट रेटिं",
+
+  "ratedAbove": "{rating}+ रेटिं",
+
+  "offersSection": "अफार",
+
+  "hasOffersLabel": "अफार दङ",
+
+  "dishPriceSection": "जानायनि बेसेन",
+
+  "costUnder": "{amount} निख्रुइ खम",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "गोबां",
+
+  "noPackagingCharges": "पेकिं खम गैया",
+
+  "allRestaurantsTitle": "गासै रेस्टुरेन्ट",
+
+  "whatsOnYourMind": "मा जानो मोन दङ?",
+
+  "listeningNow": "खोनासंनो दङ…",
+
+  "speakNowHint": "मोनसे जानाय एबा रेस्टुरेन्ट बुं",
+
+  "voiceUnavailable": "सोदोब नागिरनाय मोनाकै",
+
+  "voiceUnavailableBody": "नोंथाङा टाइप खालामनानै नागिरनो हागौ।",
+
+  "microphoneDenied": "माइक्रफन गनायथि गैया",
+
+  "voiceSearchLabel": "सोदोबजों नागिर",
+
+  "ratingsAndReviews": "रेटिं आरो सिमांथि",
+
+  "reviewsWithTextOnly": "सिमांथि दङब्ला",
+
+  "noReviewsTitle": "दासिम जेबो रेटिं गैया",
+
+  "noReviewsSubtitle": "अर्दार खालामनायनि उनाव गिबि रेटिं नोंथाङा हो।",
+
+  "rateOrderTitle": "नोंथांनि अर्दारखौ रेट खालाम",
+
+  "rateDishesTitle": "आवगोदांफोरखौ रेट खालाम",
+
+  "reviewHint": "गुबुन जेबो बुङनो लुबैयो ना? (इच्छा)",
+
+  "submitRating": "रेटिं दैथाय",
+
+  "reviewThanks": "साबायखर — नोंथांनि रेटिं मोनबाय।",
+
+  "rateThisOrder": "बे अर्दारखौ रेट खालाम"
 }

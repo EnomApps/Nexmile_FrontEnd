@@ -210,7 +210,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String restaurantsCount(int count) {
-    return '$count restaurants';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count restaurants',
+      one: '1 restaurant',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -231,7 +237,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String ratingsCount(int count) {
-    return '$count+ ratings';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ratings',
+      one: '1 rating',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -292,7 +304,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String itemsInCart(int count) {
-    return '$count items';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items',
+      one: '1 item',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -721,4 +739,213 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get currentLocationLabel => 'Current location';
+
+  @override
+  String get editProfileTitle => 'Edit profile';
+
+  @override
+  String get editProfileSubtitle => 'Your name is what the restaurant and the delivery partner see.';
+
+  @override
+  String get saveChanges => 'Save changes';
+
+  @override
+  String get profileUpdated => 'Profile updated';
+
+  @override
+  String get deleteAccount => 'Delete account';
+
+  @override
+  String get deleteAccountTitle => 'Delete your account?';
+
+  @override
+  String get deleteAccountMessage => 'You will be signed out everywhere. Past orders and invoices are kept for tax records.';
+
+  @override
+  String get accountDeleted => 'Your account has been deleted';
+
+  @override
+  String get devicesTitle => 'Signed-in devices';
+
+  @override
+  String get devicesSubtitle => 'Where you are signed in';
+
+  @override
+  String get devicesEmptyTitle => 'No other devices';
+
+  @override
+  String get devicesEmptySubtitle => 'You are signed in on this device only.';
+
+  @override
+  String get signOutDevice => 'Sign out';
+
+  @override
+  String get signOutDeviceTitle => 'Sign out this device?';
+
+  @override
+  String get signOutDeviceMessage => 'If this is the device you are using, you will have to sign in again.';
+
+  @override
+  String get deviceSignedOut => 'Device signed out';
+
+  @override
+  String get signOutEverywhere => 'Sign out everywhere';
+
+  @override
+  String get signOutEverywhereTitle => 'Sign out everywhere?';
+
+  @override
+  String get signOutEverywhereMessage => 'Every device, including this one, will be signed out.';
+
+  @override
+  String get unknownDevice => 'Unknown device';
+
+  @override
+  String get activeNow => 'Active now';
+
+  @override
+  String minutesAgo(int count) {
+    return '$count min ago';
+  }
+
+  @override
+  String hoursAgo(int count) {
+    return '$count h ago';
+  }
+
+  @override
+  String daysAgo(int count) {
+    return '$count d ago';
+  }
+
+  @override
+  String get filtersAndSorting => 'Filters and sorting';
+
+  @override
+  String get clearAll => 'Clear all';
+
+  @override
+  String get showResults => 'Show results';
+
+  @override
+  String get closeLabel => 'Close';
+
+  @override
+  String get sortByTitle => 'Sort by';
+
+  @override
+  String get sortRelevance => 'Relevance';
+
+  @override
+  String get sortRating => 'Rating';
+
+  @override
+  String get sortDeliveryTime => 'Delivery time';
+
+  @override
+  String get sortCostLowHigh => 'Cost: low to high';
+
+  @override
+  String get sortCostHighLow => 'Cost: high to low';
+
+  @override
+  String get timeSection => 'Time';
+
+  @override
+  String get nearAndFast => 'Near & Fast';
+
+  @override
+  String get openNow => 'Open now';
+
+  @override
+  String get ratingSection => 'Restaurant rating';
+
+  @override
+  String ratedAbove(String rating) {
+    return 'Rated $rating+';
+  }
+
+  @override
+  String get offersSection => 'Offers';
+
+  @override
+  String get hasOffersLabel => 'Has offers';
+
+  @override
+  String get dishPriceSection => 'Dish price';
+
+  @override
+  String costUnder(String amount) {
+    return 'Under $amount';
+  }
+
+  @override
+  String costBetween(String min, String max) {
+    return '$min – $max';
+  }
+
+  @override
+  String costOver(String amount) {
+    return '$amount+';
+  }
+
+  @override
+  String get moreSection => 'More';
+
+  @override
+  String get noPackagingCharges => 'No packaging charges';
+
+  @override
+  String get allRestaurantsTitle => 'All restaurants';
+
+  @override
+  String get whatsOnYourMind => 'What\'s on your mind?';
+
+  @override
+  String get listeningNow => 'Listening…';
+
+  @override
+  String get speakNowHint => 'Say a dish or a restaurant';
+
+  @override
+  String get voiceUnavailable => 'Voice search is unavailable';
+
+  @override
+  String get voiceUnavailableBody => 'You can still type your search.';
+
+  @override
+  String get microphoneDenied => 'Microphone access is off';
+
+  @override
+  String get voiceSearchLabel => 'Search by voice';
+
+  @override
+  String get ratingsAndReviews => 'Ratings & reviews';
+
+  @override
+  String get reviewsWithTextOnly => 'With reviews';
+
+  @override
+  String get noReviewsTitle => 'No ratings yet';
+
+  @override
+  String get noReviewsSubtitle => 'Be the first to rate this place after your order.';
+
+  @override
+  String get rateOrderTitle => 'Rate your order';
+
+  @override
+  String get rateDishesTitle => 'Rate the dishes';
+
+  @override
+  String get reviewHint => 'Anything you would like to add? (optional)';
+
+  @override
+  String get submitRating => 'Submit rating';
+
+  @override
+  String get reviewThanks => 'Thanks — your rating is in.';
+
+  @override
+  String get rateThisOrder => 'Rate this order';
 }

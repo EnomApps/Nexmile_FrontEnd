@@ -61,7 +61,7 @@ class ApiClient {
 
   Future<Map<String, dynamic>> get(
     String path, {
-    Map<String, String>? query,
+    Map<String, dynamic>? query,
     bool authenticated = true,
   }) {
     return _send(
@@ -90,19 +90,24 @@ class ApiClient {
 
   Future<Map<String, dynamic>> delete(
     String path, {
+    // Unusual for a DELETE, and needed by exactly one endpoint: unregistering
+    // a push token identifies the row by the token rather than by an id.
+    Map<String, dynamic>? body,
     bool authenticated = true,
   }) {
-    return _send('DELETE', path, authenticated: authenticated);
+    return _send('DELETE', path, body: body, authenticated: authenticated);
   }
 
   Future<Map<String, dynamic>> _send(
     String method,
     String path, {
-    Map<String, String>? query,
+    Map<String, dynamic>? query,
     Map<String, dynamic>? body,
     required bool authenticated,
     bool isRetry = false,
   }) async {
+    // Values may be a String or an Iterable<String>; Uri repeats the key for
+    // the latter, which is how multi-select filters like `?cuisine=` are sent.
     final Uri uri = Uri.parse('$_baseUrl$path').replace(
       queryParameters: query,
     );

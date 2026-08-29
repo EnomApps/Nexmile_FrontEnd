@@ -71,12 +71,12 @@
   "cravingTitle": "آج کیا کھانے کا دل ہے؟",
   "offersTitle": "آپ کے لیے آفرز",
   "restaurantsNearby": "آپ کے قریبی ریستوران",
-  "restaurantsCount": "{count} ریستوران",
+  "restaurantsCount": "{count, plural, =1{1 ریستوران} other{{count} ریستوران}}",
   "noRestaurantsTitle": "یہاں ابھی کچھ نہیں ہے",
   "noRestaurantsSubtitle": "کوئی اور قسم دیکھیں یا فلٹر ہٹا دیں۔",
   "minutesAway": "{minutes} منٹ",
   "kilometresAway": "{distance} کلومیٹر",
-  "ratingsCount": "{count}+ ریٹنگز",
+  "ratingsCount": "{count, plural, =1{1 ریٹنگ} other{{count} ریٹنگز}}",
   "priceForTwo": "دو افراد کے لیے ₹{amount}",
   "freeDelivery": "مفت ڈیلیوری",
   "percentOff": "{percent}% رعایت",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "آپ کی کارٹ خالی ہے",
   "cartEmptySubtitle": "شروع کرنے کے لیے کسی ریستوران سے کھانا شامل کریں۔",
   "browseRestaurants": "ریستوران دیکھیں",
-  "itemsInCart": "{count} چیزیں",
+  "itemsInCart": "{count, plural, =1{1 چیز} other{{count} چیزیں}}",
   "viewCart": "کارٹ دیکھیں",
   "itemTotal": "اشیاء کا کل",
   "deliveryFeeLabel": "ڈیلیوری فیس",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "آرڈر منسوخ ہو گیا",
 
-  "currentLocationLabel": "موجودہ مقام"
+  "currentLocationLabel": "موجودہ مقام",
+
+  "editProfileTitle": "پروفائل میں تبدیلی",
+
+  "editProfileSubtitle": "ریستوران اور ڈیلیوری پارٹنر کو آپ کا نام ہی نظر آتا ہے۔",
+
+  "saveChanges": "تبدیلیاں محفوظ کریں",
+
+  "profileUpdated": "پروفائل اپ ڈیٹ ہو گئی",
+
+  "deleteAccount": "اکاؤنٹ حذف کریں",
+
+  "deleteAccountTitle": "اپنا اکاؤنٹ حذف کریں؟",
+
+  "deleteAccountMessage": "ہر ڈیوائس سے سائن آؤٹ ہو جائیں گے۔ پرانے آرڈر اور بل ٹیکس ریکارڈ کے لیے رکھے جاتے ہیں۔",
+
+  "accountDeleted": "آپ کا اکاؤنٹ حذف کر دیا گیا",
+
+  "devicesTitle": "سائن ان ڈیوائسز",
+
+  "devicesSubtitle": "آپ کہاں سائن ان ہیں",
+
+  "devicesEmptyTitle": "کوئی اور ڈیوائس نہیں",
+
+  "devicesEmptySubtitle": "آپ صرف اسی ڈیوائس پر سائن ان ہیں۔",
+
+  "signOutDevice": "سائن آؤٹ",
+
+  "signOutDeviceTitle": "یہ ڈیوائس سائن آؤٹ کریں؟",
+
+  "signOutDeviceMessage": "اگر آپ یہی ڈیوائس استعمال کر رہے ہیں تو دوبارہ سائن ان کرنا ہوگا۔",
+
+  "deviceSignedOut": "ڈیوائس سائن آؤٹ ہو گئی",
+
+  "signOutEverywhere": "ہر جگہ سے سائن آؤٹ",
+
+  "signOutEverywhereTitle": "ہر جگہ سے سائن آؤٹ کریں؟",
+
+  "signOutEverywhereMessage": "اس ڈیوائس سمیت ہر ڈیوائس سائن آؤٹ ہو جائے گی۔",
+
+  "unknownDevice": "نامعلوم ڈیوائس",
+
+  "activeNow": "ابھی فعال",
+
+  "minutesAgo": "{count} منٹ پہلے",
+
+  "hoursAgo": "{count} گھنٹے پہلے",
+
+  "daysAgo": "{count} دن پہلے",
+
+  "filtersAndSorting": "فلٹر اور ترتیب",
+
+  "clearAll": "سب ہٹا دیں",
+
+  "showResults": "نتائج دیکھیں",
+
+  "closeLabel": "بند کریں",
+
+  "sortByTitle": "ترتیب دیں",
+
+  "sortRelevance": "مطابقت",
+
+  "sortRating": "ریٹنگ",
+
+  "sortDeliveryTime": "ڈیلیوری وقت",
+
+  "sortCostLowHigh": "قیمت: کم سے زیادہ",
+
+  "sortCostHighLow": "قیمت: زیادہ سے کم",
+
+  "timeSection": "وقت",
+
+  "nearAndFast": "قریب اور تیز",
+
+  "openNow": "ابھی کھلا",
+
+  "ratingSection": "ریستوران ریٹنگ",
+
+  "ratedAbove": "{rating}+ ریٹنگ",
+
+  "offersSection": "آفرز",
+
+  "hasOffersLabel": "آفر والے",
+
+  "dishPriceSection": "پکوان کی قیمت",
+
+  "costUnder": "{amount} سے کم",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "مزید",
+
+  "noPackagingCharges": "پیکنگ چارج نہیں",
+
+  "allRestaurantsTitle": "تمام ریستوران",
+
+  "whatsOnYourMind": "کیا کھانے کا دل ہے؟",
+
+  "listeningNow": "سن رہے ہیں…",
+
+  "speakNowHint": "کوئی پکوان یا ریستوران بولیں",
+
+  "voiceUnavailable": "وائس سرچ دستیاب نہیں",
+
+  "voiceUnavailableBody": "آپ ٹائپ کر کے بھی تلاش کر سکتے ہیں۔",
+
+  "microphoneDenied": "مائیکروفون کی اجازت بند ہے",
+
+  "voiceSearchLabel": "آواز سے تلاش کریں",
+
+  "ratingsAndReviews": "ریٹنگ اور جائزے",
+
+  "reviewsWithTextOnly": "جائزے والے",
+
+  "noReviewsTitle": "ابھی کوئی ریٹنگ نہیں",
+
+  "noReviewsSubtitle": "آرڈر کے بعد پہلی ریٹنگ آپ دیں۔",
+
+  "rateOrderTitle": "اپنے آرڈر کو ریٹ کریں",
+
+  "rateDishesTitle": "کھانوں کو ریٹ کریں",
+
+  "reviewHint": "کچھ اور کہنا چاہیں گے؟ (اختیاری)",
+
+  "submitRating": "ریٹنگ بھیجیں",
+
+  "reviewThanks": "شکریہ — آپ کی ریٹنگ موصول ہو گئی۔",
+
+  "rateThisOrder": "اس آرڈر کو ریٹ کریں"
 }

@@ -71,12 +71,12 @@
   "cravingTitle": "ᱛᱮᱦᱮᱧ ᱪᱮᱫ ᱡᱚᱢ ᱥᱟᱱᱟᱢ?",
   "offersTitle": "ᱟᱢᱟᱜ ᱞᱟᱹᱜᱤᱫ ᱚᱯᱷᱟᱨ",
   "restaurantsNearby": "ᱟᱢᱟᱜ ᱡᱟᱹᱛᱤᱭᱟᱹᱨ ᱦᱚᱴᱮᱞ",
-  "restaurantsCount": "{count} ᱦᱚᱴᱮᱞ",
+  "restaurantsCount": "{count, plural, =1{1 ᱨᱮᱥᱴᱚᱨᱮᱱᱴ} other{{count} ᱨᱮᱥᱴᱚᱨᱮᱱᱴ}}",
   "noRestaurantsTitle": "ᱱᱚᱰᱮ ᱦᱟᱲᱮ ᱡᱟᱦᱟᱸ ᱵᱟᱝᱟ",
   "noRestaurantsSubtitle": "ᱮᱴᱟᱜ ᱦᱟᱹᱴᱤᱧ ᱧᱮᱞ ᱢᱮ ᱵᱟᱝᱠᱷᱟᱱ ᱯᱷᱤᱞᱴᱟᱨ ᱚᱪᱚᱜ ᱢᱮ᱾",
   "minutesAway": "{minutes} ᱢᱤᱱᱤᱴ",
   "kilometresAway": "{distance} ᱠᱤᱢᱤ",
-  "ratingsCount": "{count}+ ᱨᱮᱴᱤᱝ",
+  "ratingsCount": "{count, plural, =1{1 ᱨᱮᱴᱤᱝ} other{{count} ᱨᱮᱴᱤᱝ}}",
   "priceForTwo": "ᱵᱟᱨᱭᱟ ᱦᱚᱲ ᱞᱟᱹᱜᱤᱫ ₹{amount}",
   "freeDelivery": "ᱯᱷᱨᱤ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ",
   "percentOff": "{percent}% ᱠᱚᱢ",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "ᱟᱢᱟᱜ ᱠᱟᱨᱴ ᱠᱷᱟᱹᱞᱤ ᱢᱮᱱᱟᱜ-ᱟ",
   "cartEmptySubtitle": "ᱮᱦᱚᱵ ᱞᱟᱹᱜᱤᱫ ᱡᱟᱦᱟᱸ ᱦᱚᱴᱮᱞ ᱠᱷᱚᱱ ᱡᱚᱢᱟᱜ ᱥᱮᱞᱮᱫ ᱢᱮ᱾",
   "browseRestaurants": "ᱦᱚᱴᱮᱞ ᱧᱮᱞ ᱢᱮ",
-  "itemsInCart": "{count} ᱡᱤᱱᱤᱥ",
+  "itemsInCart": "{count, plural, =1{1 ᱡᱤᱱᱤᱥ} other{{count} ᱡᱤᱱᱤᱥ}}",
   "viewCart": "ᱠᱟᱨᱴ ᱧᱮᱞ ᱢᱮ",
   "itemTotal": "ᱡᱤᱱᱤᱥ ᱨᱮᱭᱟᱜ ᱡᱚᱛᱚ",
   "deliveryFeeLabel": "ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱠᱷᱚᱨᱚᱡ",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "ᱚᱰᱟᱨ ᱵᱟᱹᱰᱨᱟᱹ ᱮᱱᱟ",
 
-  "currentLocationLabel": "ᱱᱤᱛᱚᱜᱟᱜ ᱡᱟᱭᱜᱟ"
+  "currentLocationLabel": "ᱱᱤᱛᱚᱜᱟᱜ ᱡᱟᱭᱜᱟ",
+
+  "editProfileTitle": "ᱯᱨᱚᱯᱷᱟᱭᱤᱞ ᱵᱚᱫᱚᱞ ᱢᱮ",
+
+  "editProfileSubtitle": "ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱟᱨ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱥᱟᱣᱛᱟ ᱟᱢᱟᱜ ᱧᱩᱛᱩᱢ ᱜᱮ ᱧᱮᱞᱚᱜᱼᱟ ᱾",
+
+  "saveChanges": "ᱵᱚᱫᱚᱞ ᱠᱚ ᱥᱟᱺᱪᱟᱣ ᱢᱮ",
+
+  "profileUpdated": "ᱯᱨᱚᱯᱷᱟᱭᱤᱞ ᱱᱟᱶᱟ ᱦᱩᱭᱮᱱᱟ",
+
+  "deleteAccount": "ᱠᱷᱟᱛᱟ ᱢᱮᱴᱟᱣ ᱢᱮ",
+
+  "deleteAccountTitle": "ᱟᱢᱟᱜ ᱠᱷᱟᱛᱟ ᱢᱮᱴᱟᱣᱟ?",
+
+  "deleteAccountMessage": "ᱡᱚᱛᱚ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱠᱷᱚᱱ ᱥᱟᱭᱤᱱ ᱟᱩᱴ ᱦᱩᱭᱩᱜᱼᱟᱢ ᱾ ᱢᱟᱲᱟᱝ ᱚᱰᱟᱨ ᱟᱨ ᱵᱤᱞ ᱠᱚ ᱴᱮᱠᱥ ᱨᱮᱠᱚᱰ ᱞᱟᱹᱜᱤᱫ ᱫᱚᱦᱚᱭᱟ ᱾",
+
+  "accountDeleted": "ᱟᱢᱟᱜ ᱠᱷᱟᱛᱟ ᱢᱮᱴᱟᱣ ᱮᱱᱟ",
+
+  "devicesTitle": "ᱥᱟᱭᱤᱱ ᱤᱱ ᱰᱤᱵᱷᱟᱭᱤᱥ",
+
+  "devicesSubtitle": "ᱟᱢ ᱚᱠᱟ ᱨᱮ ᱥᱟᱭᱤᱱ ᱤᱱ ᱢᱮᱱᱟᱢᱟ",
+
+  "devicesEmptyTitle": "ᱮᱴᱟᱜ ᱡᱟᱦᱟᱸ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱵᱟᱹᱱᱩᱜᱼᱟ",
+
+  "devicesEmptySubtitle": "ᱟᱢ ᱱᱚᱶᱟ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱨᱮ ᱮᱥᱠᱟᱨ ᱥᱟᱭᱤᱱ ᱤᱱ ᱢᱮᱱᱟᱢᱟ ᱾",
+
+  "signOutDevice": "ᱥᱟᱭᱤᱱ ᱟᱩᱴ",
+
+  "signOutDeviceTitle": "ᱱᱚᱶᱟ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱥᱟᱭᱤᱱ ᱟᱩᱴᱟ?",
+
+  "signOutDeviceMessage": "ᱟᱢ ᱱᱚᱶᱟ ᱜᱮ ᱵᱮᱵᱷᱟᱨ ᱠᱟᱱᱟᱢ ᱠᱷᱟᱱ ᱫᱚ ᱫᱚᱦᱲᱟ ᱥᱟᱭᱤᱱ ᱤᱱ ᱞᱟᱹᱠᱛᱤᱭᱟ ᱾",
+
+  "deviceSignedOut": "ᱰᱤᱵᱷᱟᱭᱤᱥ ᱥᱟᱭᱤᱱ ᱟᱩᱴ ᱮᱱᱟ",
+
+  "signOutEverywhere": "ᱡᱚᱛᱚ ᱡᱟᱭᱜᱟ ᱠᱷᱚᱱ ᱥᱟᱭᱤᱱ ᱟᱩᱴ",
+
+  "signOutEverywhereTitle": "ᱡᱚᱛᱚ ᱡᱟᱭᱜᱟ ᱠᱷᱚᱱ ᱥᱟᱭᱤᱱ ᱟᱩᱴᱟ?",
+
+  "signOutEverywhereMessage": "ᱱᱚᱶᱟ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱥᱟᱶᱛᱮ ᱡᱚᱛᱚ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱥᱟᱭᱤᱱ ᱟᱩᱴ ᱦᱩᱭᱩᱜᱼᱟ ᱾",
+
+  "unknownDevice": "ᱵᱟᱝ ᱩᱲᱩᱜ ᱰᱤᱵᱷᱟᱭᱤᱥ",
+
+  "activeNow": "ᱱᱤᱛᱚᱜ ᱪᱟᱹᱞᱩ",
+
+  "minutesAgo": "{count} ᱴᱤᱯᱤᱡ ᱞᱟᱦᱟ",
+
+  "hoursAgo": "{count} ᱴᱟᱲᱟᱝ ᱞᱟᱦᱟ",
+
+  "daysAgo": "{count} ᱢᱟᱦᱟᱸ ᱞᱟᱦᱟ",
+
+  "filtersAndSorting": "ᱯᱷᱤᱞᱴᱟᱨ ᱟᱨ ᱛᱟᱹᱞᱠᱟᱹ",
+
+  "clearAll": "ᱡᱚᱛᱚ ᱚᱪᱚᱜ ᱢᱮ",
+
+  "showResults": "ᱯᱷᱚᱞ ᱩᱫᱩᱜ ᱢᱮ",
+
+  "closeLabel": "ᱵᱚᱸᱫᱚ ᱢᱮ",
+
+  "sortByTitle": "ᱛᱟᱹᱞᱠᱟᱹ",
+
+  "sortRelevance": "ᱡᱩᱲᱟᱣ",
+
+  "sortRating": "ᱨᱮᱴᱤᱝ",
+
+  "sortDeliveryTime": "ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱚᱠᱛᱚ",
+
+  "sortCostLowHigh": "ᱜᱚᱸᱡ: ᱠᱚᱢ ᱠᱷᱚᱱ ᱵᱟᱲᱛᱤ",
+
+  "sortCostHighLow": "ᱜᱚᱸᱡ: ᱵᱟᱲᱛᱤ ᱠᱷᱚᱱ ᱠᱚᱢ",
+
+  "timeSection": "ᱚᱠᱛᱚ",
+
+  "nearAndFast": "ᱡᱟᱹᱛᱤ ᱟᱨ ᱞᱚᱜᱚᱱ",
+
+  "openNow": "ᱱᱤᱛᱚᱜ ᱡᱷᱤᱡ",
+
+  "ratingSection": "ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱨᱮᱴᱤᱝ",
+
+  "ratedAbove": "{rating}+ ᱨᱮᱴᱤᱝ",
+
+  "offersSection": "ᱚᱯᱷᱟᱨ",
+
+  "hasOffersLabel": "ᱚᱯᱷᱟᱨ ᱢᱮᱱᱟᱜ",
+
+  "dishPriceSection": "ᱡᱚᱢᱟᱜ ᱜᱚᱸᱡ",
+
+  "costUnder": "{amount} ᱠᱷᱚᱱ ᱠᱚᱢ",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "ᱟᱨᱦᱚᱸ",
+
+  "noPackagingCharges": "ᱯᱮᱠᱤᱝ ᱠᱚᱲᱟ ᱵᱟᱹᱱᱩᱜᱼᱟ",
+
+  "allRestaurantsTitle": "ᱡᱚᱛᱚ ᱨᱮᱥᱴᱚᱨᱮᱱᱴ",
+
+  "whatsOnYourMind": "ᱪᱮᱫ ᱡᱚᱢ ᱢᱚᱱ ᱢᱮᱱᱟᱜᱼᱟ?",
+
+  "listeningNow": "ᱟᱸᱡᱚᱢ ᱠᱟᱱᱟ…",
+
+  "speakNowHint": "ᱢᱤᱫᱴᱟᱝ ᱡᱚᱢᱟᱜ ᱟᱨᱵᱟᱝ ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱞᱟᱹᱭ ᱢᱮ",
+
+  "voiceUnavailable": "ᱟᱲᱟᱝ ᱯᱟᱱᱛᱮ ᱵᱟᱝ ᱧᱟᱢᱚᱜᱼᱟ",
+
+  "voiceUnavailableBody": "ᱟᱢ ᱴᱟᱭᱤᱯ ᱠᱟᱛᱮ ᱦᱚᱸ ᱯᱟᱱᱛᱮ ᱫᱟᱲᱮᱭᱟᱜᱼᱟᱢ ᱾",
+
+  "microphoneDenied": "ᱢᱟᱭᱠᱨᱚᱯᱷᱚᱱ ᱟᱹᱬ ᱵᱟᱹᱱᱩᱜᱼᱟ",
+
+  "voiceSearchLabel": "ᱟᱲᱟᱝ ᱛᱮ ᱯᱟᱱᱛᱮ ᱢᱮ",
+
+  "ratingsAndReviews": "ᱨᱮᱴᱤᱝ ᱟᱨ ᱥᱟᱢᱤᱠᱥᱟ",
+
+  "reviewsWithTextOnly": "ᱥᱟᱢᱤᱠᱥᱟ ᱢᱮᱱᱟᱜ",
+
+  "noReviewsTitle": "ᱱᱤᱛᱚᱜ ᱫᱷᱟᱹᱵᱤᱡ ᱡᱟᱦᱟᱸ ᱨᱮᱴᱤᱝ ᱵᱟᱬᱩᱜ",
+
+  "noReviewsSubtitle": "ᱚᱰᱚᱨ ᱛᱟᱭᱚᱢ ᱯᱩᱭᱞᱩ ᱨᱮᱴᱤᱝ ᱟᱢ ᱮᱢ ᱢᱮ ᱾",
+
+  "rateOrderTitle": "ᱟᱢᱟᱜ ᱚᱰᱚᱨ ᱨᱮᱴ ᱢᱮ",
+
+  "rateDishesTitle": "ᱡᱚᱢᱟᱜ ᱠᱚ ᱨᱮᱴ ᱢᱮ",
+
+  "reviewHint": "ᱟᱨ ᱡᱟᱦᱟᱸ ᱠᱟᱛᱷᱟ ᱢᱮᱱᱟᱜ? (ᱤᱪᱪᱷᱟ)",
+
+  "submitRating": "ᱨᱮᱴᱤᱝ ᱠᱩᱞ ᱢᱮ",
+
+  "reviewThanks": "ᱥᱟᱨᱦᱟᱣ — ᱟᱢᱟᱜ ᱨᱮᱴᱤᱝ ᱧᱟᱢ ᱠᱮᱫᱟ ᱾",
+
+  "rateThisOrder": "ᱱᱚᱶᱟ ᱚᱰᱚᱨ ᱨᱮᱴ ᱢᱮ"
 }

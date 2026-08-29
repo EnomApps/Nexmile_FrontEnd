@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -9,6 +10,9 @@ import 'package:nexmile/core/constants/app_assets.dart';
 import 'package:nexmile/core/localization/app_language.dart';
 import 'package:nexmile/core/network/api_client.dart';
 import 'package:nexmile/core/network/api_exception.dart';
+import 'package:nexmile/core/push/device_registrar.dart';
+import 'package:nexmile/core/push/push_destination.dart';
+import 'package:nexmile/core/push/push_service.dart';
 import 'package:nexmile/core/router/app_router.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:nexmile/core/services/preferences_service.dart';
@@ -22,7 +26,9 @@ import 'package:nexmile/features/address/presentation/location_permission_screen
 import 'package:nexmile/features/address/state/address_controller.dart';
 import 'package:nexmile/features/auth/data/auth_repository.dart';
 import 'package:nexmile/features/auth/data/auth_session.dart';
+import 'package:nexmile/features/auth/data/device_repository.dart';
 import 'package:nexmile/features/auth/data/auth_user.dart';
+import 'package:nexmile/features/auth/data/device_session.dart';
 import 'package:nexmile/features/auth/data/login_identifier.dart';
 import 'package:nexmile/features/auth/data/token_store.dart';
 import 'package:nexmile/features/auth/presentation/login_screen.dart';
@@ -30,9 +36,14 @@ import 'package:nexmile/features/auth/presentation/otp_verification_screen.dart'
 import 'package:nexmile/features/auth/state/auth_controller.dart';
 import 'package:nexmile/features/auth/data/auth_failure.dart';
 import 'package:nexmile/features/catalogue/data/cart_models.dart';
+import 'package:nexmile/features/catalogue/data/home_models.dart';
+import 'package:nexmile/features/catalogue/data/restaurant_filters.dart';
+import 'package:nexmile/features/catalogue/data/review_models.dart';
+import 'package:nexmile/features/catalogue/presentation/widgets/catalogue_widgets.dart';
 import 'package:nexmile/features/catalogue/data/order_models.dart';
 import 'package:nexmile/features/catalogue/data/storefront_models.dart';
 import 'package:nexmile/features/catalogue/data/storefront_repository.dart';
+import 'package:nexmile/features/catalogue/presentation/search_tab.dart';
 import 'package:nexmile/features/catalogue/state/cart_controller.dart';
 import 'package:nexmile/features/catalogue/state/orders_controller.dart';
 import 'package:nexmile/features/catalogue/state/storefront_controller.dart';
@@ -64,7 +75,123 @@ AuthSession _testSession() => const AuthSession(
     );
 
 /// Scriptable stand-in for the live API.
+/// A push transport with no Firebase behind it, so the registration rules can
+/// be proved without a device or a real notification.
+class FakePushService implements PushService {
+  FakePushService({String? initial}) : _token = initial;
+
+  String? _token;
+  bool permissionAsked = false;
+  bool channelCreated = false;
+
+  final StreamController<String> _refresh = StreamController<String>.broadcast();
+  final StreamController<Map<String, Object?>> _taps =
+      StreamController<Map<String, Object?>>.broadcast();
+
+  /// What the transport does when it decides the old token is stale.
+  void rotate(String token) {
+    _token = token;
+    _refresh.add(token);
+  }
+
+  @override
+  Future<String?> token() async => _token;
+
+  @override
+  Stream<String> get onTokenRefresh => _refresh.stream;
+
+  @override
+  Stream<Map<String, Object?>> get onTap => _taps.stream;
+
+  @override
+  Future<bool> requestPermission() async {
+    permissionAsked = true;
+    return _token != null;
+  }
+
+  @override
+  Future<void> ensureChannel() async => channelCreated = true;
+}
+
+class FakeDeviceRepository implements DeviceRepository {
+  final List<String> registered = <String>[];
+  final List<String> unregistered = <String>[];
+  final List<String> platforms = <String>[];
+
+  bool failRegister = false;
+
+  @override
+  Future<void> registerDevice({
+    required String token,
+    required String platform,
+  }) async {
+    if (failRegister) {
+      throw const ApiException(kind: ApiErrorKind.network, statusCode: 0);
+    }
+    registered.add(token);
+    platforms.add(platform);
+  }
+
+  @override
+  Future<void> unregisterDevice({required String token}) async {
+    unregistered.add(token);
+  }
+}
+
 class FakeAuthRepository implements AuthRepository {
+  /// Account management, added alongside the profile and devices screens.
+  List<DeviceSession> deviceSessions = <DeviceSession>[
+    const DeviceSession(id: 1, deviceName: 'Pixel 8', ipAddress: '10.0.0.2'),
+    const DeviceSession(id: 2, deviceName: 'iPhone 14'),
+  ];
+  final List<int> revoked = <int>[];
+  Map<String, dynamic>? lastProfilePatch;
+  int deleteAccountCount = 0;
+  int signOutEverywhereCount = 0;
+  ApiException? profilePatchError;
+
+  @override
+  Future<AuthUser> updateProfile({
+    String? name,
+    String? email,
+    String? phone,
+    String? preferredLocale,
+  }) async {
+    lastProfilePatch = <String, dynamic>{
+      if (name != null) 'name': name,
+      if (email != null) 'email': email,
+      if (phone != null) 'phone': phone,
+      if (preferredLocale != null) 'preferred_locale': preferredLocale,
+    };
+    final ApiException? error = profilePatchError;
+    if (error != null) {
+      profilePatchError = null;
+      throw error;
+    }
+    return AuthUser(
+      id: _testUser.id,
+      name: name ?? _testUser.name,
+      email: email ?? _testUser.email,
+      phone: phone ?? _testUser.phone,
+      role: _testUser.role,
+      status: _testUser.status,
+      preferredLocale: preferredLocale ?? _testUser.preferredLocale,
+      phoneVerified: _testUser.phoneVerified,
+    );
+  }
+
+  @override
+  Future<void> deleteAccount() async => deleteAccountCount++;
+
+  @override
+  Future<List<DeviceSession>> sessions() async => deviceSessions;
+
+  @override
+  Future<void> revokeSession(int id) async => revoked.add(id);
+
+  @override
+  Future<void> signOutEverywhere() async => signOutEverywhereCount++;
+
   FakeAuthRepository({this.validCode = '123456'});
 
   final String validCode;
@@ -324,6 +451,7 @@ late AddressController _addresses;
 late FakeAddressRepository _addressRepo;
 late FakeLocationService _location;
 late FakeStorefrontRepository _storefrontRepo;
+late FakeAuthRepository _authRepo;
 
 Future<void> _pumpApp(
   WidgetTester tester, {
@@ -335,8 +463,9 @@ Future<void> _pumpApp(
   FakeStorefrontRepository? storefrontRepository,
 }) async {
   final PreferencesService preferences = await _prefs(seed);
+  _authRepo = repository ?? FakeAuthRepository();
   _controller = AuthController(
-    repository: repository ?? FakeAuthRepository(),
+    repository: _authRepo,
     tokenStore: InMemoryTokenStore(session),
     initialSession: session,
   );
@@ -759,7 +888,9 @@ void main() {
       await _settleSplash(tester);
 
       expect(find.byType(AppShell), findsOneWidget);
-      expect(find.text('Hello, Priya'), findsOneWidget);
+      // The greeting was removed from the header; the avatar carries the
+      // signed-in identity now, so its initial is what proves it.
+      expect(find.text('P'), findsWidgets);
     });
 
     testWidgets('splash paints every frame without error',
@@ -941,7 +1072,9 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(AppShell), findsOneWidget);
-      expect(find.text('Hello, Priya'), findsOneWidget);
+      // The greeting was removed from the header; the avatar carries the
+      // signed-in identity now, so its initial is what proves it.
+      expect(find.text('P'), findsWidgets);
       expect(repo.verifyCount, 1);
       expect(repo.lastCode, '123456');
       expect(_controller.isSignedIn, isTrue);
@@ -1172,6 +1305,158 @@ void main() {
   });
 
   // -------------------------------------------------------------------------
+  group('account', () {
+    testWidgets('editing the profile sends only what changed',
+        (WidgetTester tester) async {
+      _useTallPhone(tester);
+      await _pumpApp(tester, seed: _languageChosen, session: _testSession());
+      await _settleSplash(tester);
+
+      await tester.tap(find.text('Profile').first);
+      await tester.pumpAndSettle();
+      // The name appears twice — in the header and in the editable tile.
+      await tester.tap(find.text('Priya Kumar').last);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Edit profile'), findsOneWidget);
+      await tester.enterText(
+        find.widgetWithText(TextFormField, 'Name'),
+        'Priya R',
+      );
+      await tester.tap(find.text('Save changes'));
+      await tester.pumpAndSettle();
+
+      final Map<String, dynamic> sent = _authRepo.lastProfilePatch!;
+      expect(sent['name'], 'Priya R');
+      // English is one of the three the API accepts, so it rides along.
+      expect(sent['preferred_locale'], 'en');
+    });
+
+    testWidgets('a locale the API does not accept is simply not sent',
+        (WidgetTester tester) async {
+      _useTallPhone(tester);
+      // The app offers 23 languages; `preferred_locale` accepts en, ta and hi.
+      // Malayalam must not be forced into one of the three.
+      await _pumpApp(
+        tester,
+        seed: _languageChosenAs('ml'),
+        session: _testSession(),
+      );
+      await _settleSplash(tester);
+
+      await tester.tap(find.byIcon(Icons.person_outline_rounded).last);
+      await tester.pumpAndSettle();
+      // The name appears twice — in the header and in the editable tile.
+      await tester.tap(find.text('Priya Kumar').last);
+      await tester.pumpAndSettle();
+      await tester.tap(find.byType(FilledButton).last);
+      await tester.pumpAndSettle();
+
+      expect(_authRepo.lastProfilePatch!.containsKey('preferred_locale'), isFalse);
+    });
+
+    test('a rejected update keeps the server field errors', () async {
+      final FakeAuthRepository repo = FakeAuthRepository()
+        ..profilePatchError = const ApiException(
+          kind: ApiErrorKind.validation,
+          statusCode: 422,
+          message: 'Unprocessable',
+          errors: <String, List<String>>{
+            'phone': <String>['That mobile number is already in use.'],
+          },
+        );
+      final AuthController auth = AuthController(
+        repository: repo,
+        tokenStore: InMemoryTokenStore(_testSession()),
+        initialSession: _testSession(),
+      );
+
+      final AuthFailure? failure = await auth.updateProfile(phone: '9876543210');
+      expect(failure, AuthFailure.invalidIdentifier);
+      expect(auth.firstError('phone'), 'That mobile number is already in use.');
+      auth.dispose();
+    });
+
+    test('only en, ta and hi reach the server as a locale', () {
+      expect(AuthController.serverLocaleFor('en'), 'en');
+      expect(AuthController.serverLocaleFor('ta'), 'ta');
+      expect(AuthController.serverLocaleFor('hi'), 'hi');
+      for (final String other in <String>['ml', 'bn', 'sat', 'brx']) {
+        expect(AuthController.serverLocaleFor(other), isNull, reason: other);
+      }
+    });
+
+    test('deleting the account clears the local session', () async {
+      final FakeAuthRepository repo = FakeAuthRepository();
+      final AuthController auth = AuthController(
+        repository: repo,
+        tokenStore: InMemoryTokenStore(_testSession()),
+        initialSession: _testSession(),
+      );
+
+      expect(await auth.deleteAccount(), isNull);
+      expect(repo.deleteAccountCount, 1);
+      // The server revokes every session, so staying signed in locally would
+      // leave the app holding a token that no longer works.
+      expect(auth.isSignedIn, isFalse);
+      auth.dispose();
+    });
+
+    test('signing out everywhere takes this device with it', () async {
+      final FakeAuthRepository repo = FakeAuthRepository();
+      final AuthController auth = AuthController(
+        repository: repo,
+        tokenStore: InMemoryTokenStore(_testSession()),
+        initialSession: _testSession(),
+      );
+
+      await auth.signOutEverywhere();
+      expect(repo.signOutEverywhereCount, 1);
+      expect(auth.isSignedIn, isFalse);
+      auth.dispose();
+    });
+
+    testWidgets('the devices screen lists sessions and revokes one',
+        (WidgetTester tester) async {
+      _useTallScreen(tester);
+      await _pumpApp(tester, seed: _languageChosen, session: _testSession());
+      await _settleSplash(tester);
+      _nav(tester).pushNamed(AppRoutes.devices);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Pixel 8'), findsOneWidget);
+      expect(find.text('iPhone 14'), findsOneWidget);
+
+      await tester.tap(find.byIcon(Icons.logout_rounded).first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.widgetWithText(FilledButton, 'Sign out'));
+      await tester.pumpAndSettle();
+
+      expect(_authRepo.revoked, <int>[1]);
+    });
+
+    testWidgets('a session with no device name still renders',
+        (WidgetTester tester) async {
+      _useTallScreen(tester);
+      // Every field but the id is nullable in the schema.
+      final FakeAuthRepository repo = FakeAuthRepository()
+        ..deviceSessions = <DeviceSession>[const DeviceSession(id: 9)];
+      await _pumpApp(
+        tester,
+        seed: _languageChosen,
+        session: _testSession(),
+        repository: repo,
+      );
+      await _settleSplash(tester);
+      _nav(tester).pushNamed(AppRoutes.devices);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Unknown device'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+  });
+
+  // -------------------------------------------------------------------------
   group('dashboard', () {
     testWidgets('the language can be changed from the profile tab',
         (WidgetTester tester) async {
@@ -1243,14 +1528,17 @@ void main() {
     test('the uncategorised bucket becomes a section of its own', () {
       final RestaurantMenu menu = RestaurantMenu.fromJson(<String, dynamic>{
         'menu': <Map<String, dynamic>>[
+          // A real category always carries an id; only the API's own
+          // "Uncategorised" group has a null one.
           <String, dynamic>{
+            'id': 7,
             'name': 'Biryani',
             'items': <Map<String, dynamic>>[
               <String, dynamic>{'id': 1, 'name': 'Mutton Biryani', 'price': 320},
             ],
           },
           // An empty category is dropped rather than rendered as a bare header.
-          <String, dynamic>{'name': 'Desserts', 'items': <Object>[]},
+          <String, dynamic>{'id': 8, 'name': 'Desserts', 'items': <Object>[]},
         ],
         'uncategorised': <Map<String, dynamic>>[
           <String, dynamic>{'id': 9, 'name': 'Filter Coffee', 'price': 30},
@@ -1261,6 +1549,36 @@ void main() {
       expect(menu.sections.first.name, 'Biryani');
       expect(menu.sections.last.isUncategorised, isTrue);
       expect(menu.allItems.length, 2);
+    });
+
+    test('the API\'s own "Uncategorised" heading is not shown to customers',
+        () {
+      // The live API returns that group with a null id and an English name.
+      // Rendering the name verbatim would put an untranslated word above the
+      // menu in all 22 other languages.
+      final RestaurantMenu menu = RestaurantMenu.fromJson(<String, dynamic>{
+        'menu': <Map<String, dynamic>>[
+          <String, dynamic>{
+            'id': null,
+            'name': 'Uncategorised',
+            'items': <Map<String, dynamic>>[
+              <String, dynamic>{'id': 2, 'name': 'Dosa', 'price': 50},
+            ],
+          },
+          <String, dynamic>{
+            'id': 7,
+            'name': 'Biryani',
+            'items': <Map<String, dynamic>>[
+              <String, dynamic>{'id': 3, 'name': 'Mutton', 'price': 320},
+            ],
+          },
+        ],
+      });
+
+      expect(menu.sections.first.isUncategorised, isTrue);
+      expect(menu.sections.first.name, isEmpty);
+      // A real category keeps the merchant's own name.
+      expect(menu.sections.last.name, 'Biryani');
     });
 
     test('a dish needs the sheet only when a group demands an answer', () {
@@ -1341,6 +1659,427 @@ void main() {
       expect(menu.isEmpty, isFalse);
       expect(menu.allItems.single.name, 'Dosa');
       expect(menu.sections.single.isUncategorised, isTrue);
+    });
+
+    test('the merchant chooses which photo leads, not the banner', () {
+      final Restaurant restaurant = Restaurant.fromJson(<String, dynamic>{
+        'id': '4',
+        'name': 'kishore food',
+        'banner_url': 'https://x/banner.png',
+        'photos': <Map<String, dynamic>>[
+          <String, dynamic>{'id': 3, 'url': 'https://x/a.png', 'caption': 'Our dining area'},
+          <String, dynamic>{'id': 7, 'url': 'https://x/b.png', 'caption': null},
+          // No url is not a photo. Rendering it would be a grey box the
+          // customer has to swipe past.
+          <String, dynamic>{'id': 9, 'caption': 'Missing'},
+        ],
+      });
+
+      expect(restaurant.photos.length, 2);
+      // The banner is not prepended: `photos` is already in the merchant's
+      // order and its first entry is the one they chose to lead with.
+      expect(
+        restaurant.gallery.map((RestaurantPhoto p) => p.id).toList(),
+        <int>[3, 7],
+      );
+      expect(restaurant.gallery.first.caption, 'Our dining area');
+      // A blank caption is no caption, not an empty alt text.
+      expect(restaurant.gallery.last.caption, isNull);
+    });
+
+    test('a restaurant with no photos falls back to its banner', () {
+      final Restaurant restaurant = Restaurant.fromJson(<String, dynamic>{
+        'id': '4',
+        'name': 'kishore food',
+        'banner_url': 'https://x/banner.png',
+      });
+
+      expect(restaurant.photos, isEmpty);
+      expect(restaurant.gallery.single.url, 'https://x/banner.png');
+    });
+
+    test('a single photo is the whole gallery, banner and all', () {
+      // One photo means one slide — the banner does not join it to make two.
+      final Restaurant restaurant = Restaurant.fromJson(<String, dynamic>{
+        'id': '4',
+        'name': 'kishore food',
+        'banner_url': 'https://x/banner.png',
+        'photos': <Map<String, dynamic>>[
+          <String, dynamic>{'id': 3, 'url': 'https://x/a.png'},
+        ],
+      });
+
+      expect(restaurant.gallery.single.url, 'https://x/a.png');
+    });
+
+    test('nearby restaurants carry no photos, and must not pretend to', () {
+      // The list endpoint omits them on purpose — twenty shops would be a
+      // hundred and sixty signed URLs.
+      final Restaurant restaurant =
+          Restaurant.fromJson(<String, dynamic>{'id': '4', 'name': 'kishore food'});
+      expect(restaurant.gallery, isEmpty);
+    });
+
+    test('a dish rating is hidden until the API sends one', () {
+      final MenuItem unrated =
+          MenuItem.fromJson(<String, dynamic>{'id': 2, 'name': 'Dosa', 'price': 50});
+      expect(unrated.hasRating, isFalse);
+      // Never zero: a dish nobody has rated is not a bad dish.
+      expect(unrated.rating, isNull);
+
+      final MenuItem rated = MenuItem.fromJson(<String, dynamic>{
+        'id': 2,
+        'name': 'Dosa',
+        'price': 50,
+        'rating': '4.5',
+        'rating_count': 12,
+      });
+      expect(rated.rating, 4.5);
+      expect(rated.ratingCount, 12);
+    });
+
+    test('a review summary reads the histogram the server keys as strings', () {
+      final ReviewPage page = ReviewPage.fromJson(
+        <Map<String, dynamic>>[],
+        <String, dynamic>{
+          'rating': '4.2',
+          'rating_count': 18,
+          'breakdown': <String, dynamic>{
+            '5': 10,
+            '4': '4',
+            '3': 2,
+            '1': 2,
+            // Not a star, so not a bar.
+            '0': 99,
+            'x': 5,
+          },
+          'current_page': 1,
+          'last_page': 3,
+        },
+      );
+
+      expect(page.summary.rating, 4.2);
+      expect(page.summary.countFor(4), 4);
+      // A star nobody gave reads as zero rather than as a gap.
+      expect(page.summary.countFor(2), 0);
+      expect(page.summary.breakdown.containsKey(0), isFalse);
+      expect(page.summary.busiestStar, 10);
+      expect(page.hasMore, isTrue);
+    });
+
+    test('an unrated restaurant shows no rating rather than a zero', () {
+      final ReviewPage page = ReviewPage.fromJson(
+        <Map<String, dynamic>>[],
+        const <String, dynamic>{'rating': null, 'rating_count': 0},
+      );
+
+      expect(page.summary.hasRating, isFalse);
+      // Nothing said there was another page, and there is nothing on this one.
+      expect(page.hasMore, isFalse);
+      // Never divides by zero when the histogram is empty.
+      expect(page.summary.busiestStar, 1);
+    });
+
+    test('the last page is the last page, whatever it holds', () {
+      final ReviewPage page = ReviewPage.fromJson(
+        <Map<String, dynamic>>[
+          <String, dynamic>{'id': 1, 'author': 'Priya', 'rating': 5},
+        ],
+        const <String, dynamic>{'current_page': 3, 'last_page': 3},
+      );
+      expect(page.hasMore, isFalse);
+      // A blank comment is no comment — the tile must not reserve space for it.
+      expect(page.items.single.hasComment, isFalse);
+    });
+
+    test('reviews are asked for by page, and filtered server-side', () async {
+      final List<Uri> seen = <Uri>[];
+      final ApiStorefrontRepository repository = ApiStorefrontRepository(
+        ApiClient(
+          baseUrl: 'https://api.test/api',
+          httpClient: MockClient((http.Request request) async {
+            seen.add(request.url);
+            return http.Response(
+              jsonEncode(<String, dynamic>{
+                'data': <Object>[],
+                'meta': <String, dynamic>{'rating': 4, 'rating_count': 2},
+              }),
+              200,
+            );
+          }),
+        ),
+      );
+
+      await repository.reviews('4');
+      await repository.reviews('4', page: 2, withCommentOnly: true);
+
+      // Page one adds nothing, so the first request is the plain URL.
+      expect(seen.first.query, isEmpty);
+      expect(seen.last.queryParameters['page'], '2');
+      expect(seen.last.queryParameters['with_comment'], '1');
+    });
+
+    test('dish ratings are posted keyed by menu item, and omitted when none',
+        () async {
+      final List<String> bodies = <String>[];
+      final ApiStorefrontRepository repository = ApiStorefrontRepository(
+        ApiClient(
+          baseUrl: 'https://api.test/api',
+          httpClient: MockClient((http.Request request) async {
+            bodies.add(request.body);
+            return http.Response('{"data":{}}', 200);
+          }),
+        ),
+      );
+
+      await repository.reviewOrder(
+        7,
+        rating: 4,
+        comment: '  ',
+        dishes: <int, int>{41: 5, 44: 2},
+      );
+      await repository.reviewOrder(7, rating: 5);
+
+      final Map<String, dynamic> withDishes =
+          jsonDecode(bodies.first) as Map<String, dynamic>;
+      expect(withDishes['rating'], 4);
+      expect(withDishes['dishes'], <String, dynamic>{'41': 5, '44': 2});
+      // Whitespace is not a comment.
+      expect(withDishes.containsKey('comment'), isFalse);
+
+      // Nothing rated means no key at all, rather than an empty object.
+      final Map<String, dynamic> bare =
+          jsonDecode(bodies.last) as Map<String, dynamic>;
+      expect(bare.containsKey('dishes'), isFalse);
+    });
+
+    test('an order line can only be rated when the API names the dish', () {
+      // `GET /v1/orders` sends the line id but not `menu_item_id`. Guessing
+      // from the line id would rate whichever dish shared that number.
+      final OrderItem bare =
+          OrderItem.fromJson(<String, dynamic>{'id': 5, 'name': 'Dosa'});
+      expect(bare.menuItemId, isNull);
+
+      final OrderItem named = OrderItem.fromJson(
+        <String, dynamic>{'id': 5, 'menu_item_id': 2, 'name': 'Dosa'},
+      );
+      expect(named.menuItemId, 2);
+    });
+
+    test('a cart line takes its id from cart_item_id, as the API sends it', () {
+      // The live payload names it `cart_item_id`. Reading only `id` gave 0,
+      // which sent every PATCH and DELETE to `/cart/items/0` — so changing a
+      // quantity or removing a line silently failed.
+      final Cart cart = Cart.fromJson(<String, dynamic>{
+        'id': 1,
+        'items': <Map<String, dynamic>>[
+          <String, dynamic>{
+            'cart_item_id': 4,
+            'menu_item_id': 2,
+            'name': 'Dosa',
+            'quantity': 1,
+            'unit_price': 50,
+            'line_total': 50,
+          },
+        ],
+      });
+
+      expect(cart.lines.single.id, 4);
+      expect(cart.lines.single.menuItemId, 2);
+    });
+
+    test('an open cart counts its own lines when no count is sent', () {
+      // `GET /v1/carts` sends the lines, not a count. Showing "0 items" beside
+      // a non-zero total is worse than showing nothing.
+      final OpenCart open = OpenCart.fromJson(<String, dynamic>{
+        'restaurant': <String, dynamic>{'id': '4', 'name': 'kishore food'},
+        'items': <Map<String, dynamic>>[
+          <String, dynamic>{'cart_item_id': 4, 'quantity': 2},
+          <String, dynamic>{'cart_item_id': 5, 'quantity': 1},
+        ],
+        'totals': <String, dynamic>{'grand_total': 82},
+      });
+
+      expect(open.itemCount, 3);
+      expect(open.grandTotal, 82);
+      expect(open.restaurantName, 'kishore food');
+    });
+
+    test('home v2 fields default to absent, not to zero', () {
+      // None of these exist in the API today. The card hides each rather than
+      // rendering a "0.0" rating or a blank offer ribbon.
+      final Restaurant plain = Restaurant.fromJson(<String, dynamic>{
+        'id': 'r1',
+        'name': 'X',
+        'service_category': 'Restaurant',
+        'area': 'Anna Nagar',
+      });
+
+      expect(plain.rating, isNull);
+      expect(plain.hasRating, isFalse);
+      expect(plain.isPureVeg, isFalse);
+      expect(plain.costForTwo, isNull);
+      expect(plain.cuisines, isEmpty);
+      expect(plain.offers, isEmpty);
+      expect(plain.isFavourite, isFalse);
+      // Falls back to the category and area the API does send today.
+      expect(plain.subtitle(), 'Restaurant · Anna Nagar');
+    });
+
+    test('home v2 fields decode once the API sends them', () {
+      final Restaurant rich = Restaurant.fromJson(<String, dynamic>{
+        'id': 'r1',
+        'name': 'Behrouz',
+        'rating': '4.2',
+        'rating_count': '1284',
+        'is_pure_veg': 'true',
+        'cost_for_two': 300,
+        'cuisines': <String>['Biryani', 'North Indian'],
+        'offers': <Map<String, dynamic>>[
+          <String, dynamic>{'label': '₹100 OFF above ₹499', 'type': 'flat'},
+          // An offer with no wording is dropped rather than shown blank.
+          <String, dynamic>{'label': '', 'type': 'flat'},
+        ],
+        'has_free_delivery': 1,
+        'is_favourite': true,
+      });
+
+      expect(rich.rating, 4.2);
+      expect(rich.ratingCount, 1284);
+      expect(rich.isPureVeg, isTrue);
+      expect(rich.costForTwo, 300);
+      expect(rich.offers.single.label, '₹100 OFF above ₹499');
+      expect(rich.hasFreeDelivery, isTrue);
+      expect(rich.isFavourite, isTrue);
+      // Cuisines replace the service-category fallback once they exist.
+      expect(rich.subtitle(), 'Biryani · North Indian');
+    });
+
+    test('unfiltered nearby sends exactly what it sends today', () {
+      // The whole filter set must add nothing until something is selected,
+      // otherwise every existing request changes shape.
+      expect(RestaurantFilters.none.toQuery(), isEmpty);
+      expect(RestaurantFilters.none.isActive, isFalse);
+      expect(RestaurantFilters.none.activeCount, 0);
+    });
+
+    test('filters become the query parameters the API spec asks for', () {
+      const RestaurantFilters filters = RestaurantFilters(
+        sort: RestaurantSort.costLowHigh,
+        cuisines: <String>{'biryani'},
+        ratingMin: 4.0,
+        cost: CostBracket(min: 150, max: 300),
+        vegOnly: true,
+        nearAndFast: true,
+      );
+
+      final Map<String, List<String>> query = filters.toQuery();
+      expect(query['sort'], <String>['cost_low_high']);
+      // Brackets matter: Laravel silently keeps only the last value without
+      // them, so a two-cuisine filter would become a one-cuisine filter.
+      expect(query['cuisine[]'], <String>['biryani']);
+      expect(query.containsKey('cuisine'), isFalse);
+      expect(query['rating_min'], <String>['4.0']);
+      expect(query['cost_min'], <String>['150']);
+      expect(query['cost_max'], <String>['300']);
+      expect(query['veg_only'], <String>['1']);
+      expect(query['near_and_fast'], <String>['1']);
+      // Untouched filters stay out of the URL entirely.
+      expect(query.containsKey('free_delivery'), isFalse);
+      // Sort is excluded from the count — there is always a sort, so counting
+      // it would show "1" on an untouched list.
+      expect(filters.activeCount, 5);
+    });
+
+    test('a cuisine toggles off as well as on', () {
+      final RestaurantFilters once =
+          RestaurantFilters.none.toggleCuisine('pizza');
+      expect(once.cuisines, <String>{'pizza'});
+      expect(once.toggleCuisine('pizza').cuisines, isEmpty);
+    });
+
+    test('clearing a rating is distinct from leaving it alone', () {
+      const RestaurantFilters set = RestaurantFilters(ratingMin: 4.0);
+      // copyWith(ratingMin: null) cannot mean "clear" — null is also "unchanged".
+      expect(set.copyWith().ratingMin, 4.0);
+      expect(set.copyWith(clearRating: true).ratingMin, isNull);
+    });
+
+    test('an unrecognised home section is skipped, not rendered', () {
+      // The contract: new section types ship server-side before the app
+      // supports them. Anything unknown must be dropped silently.
+      final HomeScreen home = HomeScreen.fromJson(<String, dynamic>{
+        'sections': <Map<String, dynamic>>[
+          <String, dynamic>{
+            'type': 'flash_sale_countdown',
+            'items': <Object>[],
+          },
+          <String, dynamic>{
+            'type': 'cuisines',
+            'items': <Map<String, dynamic>>[
+              <String, dynamic>{'slug': 'biryani', 'name': 'Biryani'},
+            ],
+          },
+        ],
+      }, const <String, dynamic>{'radius_metres': 2000});
+
+      expect(home.sections.length, 1);
+      expect(home.sections.single, isA<CuisineSection>());
+      expect(home.radiusMetres, 2000);
+    });
+
+    test('an empty home section is dropped rather than left as a bare header',
+        () {
+      final HomeScreen home = HomeScreen.fromJson(<String, dynamic>{
+        'sections': <Map<String, dynamic>>[
+          <String, dynamic>{'type': 'banners', 'items': <Object>[]},
+          <String, dynamic>{
+            'type': 'restaurants',
+            'title': 'Featured',
+            'layout': 'list',
+            'items': <Object>[],
+          },
+        ],
+      }, const <String, dynamic>{});
+
+      expect(home.sections, isEmpty);
+      expect(home.isEmpty, isTrue);
+    });
+
+    test('a restaurant section carries the layout the server chose', () {
+      final HomeScreen home = HomeScreen.fromJson(<String, dynamic>{
+        'sections': <Map<String, dynamic>>[
+          <String, dynamic>{
+            'type': 'restaurants',
+            'title': 'Recommended for you',
+            'layout': 'grid',
+            'items': <Map<String, dynamic>>[
+              <String, dynamic>{'id': 'r1', 'name': 'Behrouz'},
+            ],
+          },
+        ],
+      }, const <String, dynamic>{});
+
+      final RestaurantSection section =
+          home.sections.single as RestaurantSection;
+      expect(section.isGrid, isTrue);
+      // Already localised by the server, so it is rendered verbatim.
+      expect(section.title, 'Recommended for you');
+    });
+
+    test('a banner action arriving as an array does not lose the tap', () {
+      // The generated schema types `action` as an array; the API sends an
+      // object. Neither shape may throw.
+      expect(BannerAction.fromJson(<Object>[]).isNone, isTrue);
+      expect(BannerAction.fromJson(null).isNone, isTrue);
+
+      final BannerAction real = BannerAction.fromJson(<String, dynamic>{
+        'type': 'collection',
+        'value': 'under-250',
+      });
+      expect(real.type, 'collection');
+      expect(real.value, 'under-250');
+      expect(real.isNone, isFalse);
     });
 
     test('unavailable items decode from names or from objects', () {
@@ -1594,6 +2333,112 @@ void main() {
       expect(find.text('Anjappar Chettinad'), findsWidgets);
     });
 
+    testWidgets('picking a category does not take the categories away',
+        (WidgetTester tester) async {
+      // The curated sections hide once a filter is on, and should. The rail
+      // must not go with them: it is the only way back out of the category the
+      // customer just tapped.
+      final FakeStorefrontRepository repo = FakeStorefrontRepository()
+        ..homePayload = <String, dynamic>{
+          'sections': <Map<String, dynamic>>[
+            <String, dynamic>{
+              'type': 'cuisines',
+              'items': <Map<String, dynamic>>[
+                <String, dynamic>{'slug': 'biryani', 'name': 'Biryani'},
+              ],
+            },
+          ],
+        };
+      await openStore(tester, repository: repo);
+
+      await tester.tap(find.text('Biryani'));
+      await tester.pumpAndSettle();
+
+      expect(repo.lastFilters.cuisines, <String>{'biryani'});
+      expect(find.text('Biryani'), findsOneWidget);
+
+      // And the veg switch, which is the other way into a filtered list.
+      await tester.tap(find.text('Veg only'));
+      await tester.pumpAndSettle();
+      expect(find.text('Biryani'), findsOneWidget);
+    });
+
+    testWidgets('the search bar and the categories survive the scroll',
+        (WidgetTester tester) async {
+      // The banner is worth the space on arrival and none of it afterwards;
+      // the search field, the veg switch and the categories are worth it the
+      // whole way down.
+      final FakeStorefrontRepository repo = FakeStorefrontRepository()
+        ..homePayload = <String, dynamic>{
+          'sections': <Map<String, dynamic>>[
+            <String, dynamic>{
+              'type': 'banners',
+              'items': <Map<String, dynamic>>[
+                <String, dynamic>{'id': 1, 'image_url': 'https://x/a.png'},
+              ],
+            },
+            <String, dynamic>{
+              'type': 'cuisines',
+              'items': <Map<String, dynamic>>[
+                <String, dynamic>{'slug': 'biryani', 'name': 'Biryani'},
+              ],
+            },
+          ],
+        };
+      await openStore(tester, repository: repo);
+
+      final Finder mic = find.byIcon(Icons.mic_none_rounded);
+      final double heroTop = tester.getTopLeft(mic).dy;
+      expect(find.text('Biryani'), findsOneWidget);
+
+      await tester.drag(find.byType(CustomScrollView), const Offset(0, -500));
+      await tester.pumpAndSettle();
+
+      // The hero collapsed — the bar climbed — but nothing on it left.
+      expect(tester.getTopLeft(mic).dy, lessThan(heroTop));
+      expect(mic, findsOneWidget);
+      expect(find.text('Veg only'), findsOneWidget);
+      expect(find.text('Biryani'), findsOneWidget);
+    });
+
+    testWidgets('the home search field carries its own microphone',
+        (WidgetTester tester) async {
+      // Tapping the field opens search with a cursor; the microphone has to be
+      // a target of its own inside the field, or dictating costs three taps.
+      await openStore(tester);
+      expect(find.byIcon(Icons.mic_none_rounded), findsOneWidget);
+    });
+
+    testWidgets('the header microphone opens search already listening',
+        (WidgetTester tester) async {
+      // Built, not mounted: constructing the page proves the flag travelled,
+      // and mounting it would reach for the platform recogniser.
+      late SearchTab voiced;
+      late SearchTab plain;
+      await tester.pumpWidget(
+        Builder(
+          builder: (BuildContext context) {
+            voiced = (AppRouter.onGenerateRoute(
+              const RouteSettings(
+                name: AppRoutes.search,
+                arguments: SearchArgs(startWithVoice: true),
+              ),
+            ) as MaterialPageRoute<dynamic>)
+                .builder(context) as SearchTab;
+            plain = (AppRouter.onGenerateRoute(
+              const RouteSettings(name: AppRoutes.search),
+            ) as MaterialPageRoute<dynamic>)
+                .builder(context) as SearchTab;
+            return const SizedBox();
+          },
+        ),
+      );
+
+      expect(voiced.startWithVoice, isTrue);
+      // The plain field must not start dictating on its own.
+      expect(plain.startWithVoice, isFalse);
+    });
+
     testWidgets('a restored session still reads the saved address',
         (WidgetTester tester) async {
       // Launching with a stored token goes splash → storefront without passing
@@ -1654,8 +2499,78 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Sold out'), findsWidgets);
-      final Finder add = find.widgetWithText(OutlinedButton, 'ADD');
-      expect(tester.widget<OutlinedButton>(add.last).onPressed, isNull);
+      // The ADD control morphs into the stepper rather than swapping widgets,
+      // so what matters is that its tap target is dead, not which class it is.
+      final Finder add = find.ancestor(
+        of: find.text('ADD'),
+        matching: find.byType(InkWell),
+      );
+      expect(tester.widget<InkWell>(add.last).onTap, isNull);
+    });
+
+    testWidgets('the orders tab renders the history it fetched',
+        (WidgetTester tester) async {
+      await openStore(tester);
+
+      await tester.tap(find.text('Orders').first);
+      await tester.pumpAndSettle();
+
+      expect(_storefrontRepo.orderCalls, greaterThan(0));
+      expect(find.text('Order NX1001'), findsWidgets);
+    });
+
+    testWidgets('an empty order history still says so',
+        (WidgetTester tester) async {
+      await openStore(
+        tester,
+        repository: FakeStorefrontRepository()..orderList = <String>[],
+      );
+
+      await tester.tap(find.text('Orders').first);
+      await tester.pumpAndSettle();
+
+      expect(find.text('No orders yet'), findsOneWidget);
+    });
+
+    testWidgets('the filter sheet opens, filters, and re-queries',
+        (WidgetTester tester) async {
+      // Nothing opened this sheet before, which is how a crash in its
+      // initState reached a device: localisations are not available there.
+      _useTallScreen(tester);
+      await openStore(tester);
+
+      await tester.tap(find.text('Filters and sorting').first);
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+
+      // The left rail and every section heading render.
+      expect(find.text('Sort by'), findsWidgets);
+      expect(find.text('Restaurant rating'), findsWidgets);
+
+      await tester.tap(find.text('Rated 4.0+'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Show results'));
+      await tester.pumpAndSettle();
+
+      // The sheet returns a draft, and only then does the list re-query.
+      expect(_storefrontRepo.lastFilters.ratingMin, 4.0);
+      expect(_storefrontRepo.lastNearby?['rating_min'], <String>['4.0']);
+    });
+
+    testWidgets('backing out of the filter sheet changes nothing',
+        (WidgetTester tester) async {
+      _useTallScreen(tester);
+      await openStore(tester);
+
+      await tester.tap(find.text('Filters and sorting').first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Rated 3.5+'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Close'));
+      await tester.pumpAndSettle();
+
+      // Dismissing returns null, which the caller reads as "leave it alone".
+      expect(_storefrontRepo.lastFilters.ratingMin, isNull);
     });
 
     testWidgets('a cart route without arguments falls back to login',
@@ -1680,6 +2595,271 @@ void main() {
   });
 
   // -------------------------------------------------------------------------
+  group('push', () {
+    test('a tap on an order notification opens that order', () {
+      // FCM flattens every data value to a string, so the id arrives as "42"
+      // and not as 42.
+      final PushDestination? destination = PushDestination.fromData(
+        <String, Object?>{'type': 'order_status', 'order_id': '42'},
+      );
+
+      expect(destination?.routeName, AppRoutes.orderStatus);
+      expect((destination!.arguments! as OrderArgs).orderId, 42);
+    });
+
+    test('a push this build cannot place lands nowhere', () {
+      // New notification types ship server-side long before the app that
+      // understands them. Opening the wrong screen is worse than opening none.
+      expect(
+        PushDestination.fromData(<String, Object?>{'type': 'promo'}),
+        isNull,
+      );
+      expect(
+        PushDestination.fromData(
+          <String, Object?>{'type': 'promo', 'order_id': '42'},
+        ),
+        isNull,
+      );
+      expect(PushDestination.fromData(<String, Object?>{}), isNull);
+      expect(
+        PushDestination.fromData(<String, Object?>{'order_id': 'not-a-number'}),
+        isNull,
+      );
+    });
+
+    test('an unfamiliar type about an order still opens the order', () {
+      // The id is what the route is built from; the type is only read to bow
+      // out of a push that is explicitly about something else.
+      final PushDestination? destination = PushDestination.fromData(
+        <String, Object?>{'type': 'rider_nearby', 'order_id': 7},
+      );
+      expect((destination!.arguments! as OrderArgs).orderId, 7);
+    });
+
+    test('signing in registers the device, signing out withdraws it', () async {
+      final FakePushService push = FakePushService(initial: 'token-1');
+      final FakeDeviceRepository devices = FakeDeviceRepository();
+      final DeviceRegistrar registrar =
+          DeviceRegistrar(push: push, repository: devices);
+
+      await registrar.register();
+      expect(devices.registered, <String>['token-1']);
+      expect(push.permissionAsked, isTrue);
+
+      // A rotated token that is not re-registered means notifications stop
+      // arriving, silently, forever.
+      push.rotate('token-2');
+      await Future<void>.delayed(Duration.zero);
+      expect(devices.registered, <String>['token-1', 'token-2']);
+
+      await registrar.unregister();
+      // Withdraws what was actually registered, not whatever the transport
+      // happens to hold by then.
+      expect(devices.unregistered, <String>['token-2']);
+
+      // And stops listening: a rotation after sign-out has no session to
+      // register against.
+      push.rotate('token-3');
+      await Future<void>.delayed(Duration.zero);
+      expect(devices.registered, <String>['token-1', 'token-2']);
+    });
+
+    test('no token is a normal state, not a failure', () async {
+      // Permission refused, no Play Services, or a build with no transport.
+      final FakePushService push = FakePushService(initial: null);
+      final FakeDeviceRepository devices = FakeDeviceRepository();
+      final DeviceRegistrar registrar =
+          DeviceRegistrar(push: push, repository: devices);
+
+      await registrar.register();
+      await registrar.unregister();
+
+      expect(devices.registered, isEmpty);
+      // Nothing was registered, so there is nothing to withdraw.
+      expect(devices.unregistered, isEmpty);
+    });
+
+    test('a failed registration never breaks the sign-in', () async {
+      final FakePushService push = FakePushService(initial: 'token-1');
+      final FakeDeviceRepository devices = FakeDeviceRepository()
+        ..failRegister = true;
+      final DeviceRegistrar registrar =
+          DeviceRegistrar(push: push, repository: devices);
+
+      // Would throw if the registrar let it.
+      await registrar.register();
+      expect(registrar.registeredToken, isNull);
+
+      // And a sign-out with nothing on the server does not call the endpoint.
+      await registrar.unregister();
+      expect(devices.unregistered, isEmpty);
+    });
+
+    test('the device is withdrawn before the token is thrown away', () async {
+      // After the session is cleared, DELETE /v1/devices can only 401.
+      final FakePushService push = FakePushService(initial: 'token-1');
+      final FakeDeviceRepository devices = FakeDeviceRepository();
+      final FakeAuthRepository auth = FakeAuthRepository();
+      final AuthController controller = AuthController(
+        repository: auth,
+        tokenStore: InMemoryTokenStore(),
+        deviceRegistrar:
+            DeviceRegistrar(push: push, repository: devices),
+      );
+
+      await controller.verifyCode(
+        identifier: LoginIdentifier.tryParse('9876543210')!,
+        code: '123456',
+      );
+      expect(devices.registered, <String>['token-1']);
+
+      await controller.signOut();
+      expect(devices.unregistered, <String>['token-1']);
+      expect(controller.isSignedIn, isFalse);
+      controller.dispose();
+    });
+  });
+
+  group('reviews', () {
+    Future<void> openRestaurant(
+      WidgetTester tester,
+      FakeStorefrontRepository repo,
+    ) async {
+      _useTallPhone(tester);
+      await _pumpApp(
+        tester,
+        seed: _languageChosen,
+        session: _testSession(),
+        storefrontRepository: repo,
+      );
+      await _settleSplash(tester);
+      await tester.tap(find.text('Anjappar Chettinad').first);
+      await tester.pumpAndSettle();
+    }
+
+    /// Named so the finder can tell this carousel from the home banner rail,
+    /// which is a page view too and is still mounted behind the route.
+    final Finder carousel = find.byKey(const Key('restaurant-photos'));
+
+    testWidgets('a merchant with photos gets a carousel',
+        (WidgetTester tester) async {
+      final FakeStorefrontRepository repo = FakeStorefrontRepository()
+        ..storefrontExtras = <String, dynamic>{
+          'banner_url': 'https://x/banner.png',
+          'photos': <Map<String, dynamic>>[
+            <String, dynamic>{'id': 3, 'url': 'https://x/a.png'},
+            <String, dynamic>{'id': 7, 'url': 'https://x/b.png'},
+          ],
+        };
+      await openRestaurant(tester, repo);
+      expect(carousel, findsOneWidget);
+    });
+
+    testWidgets('one picture is not a carousel', (WidgetTester tester) async {
+      // With nothing to swipe to, there is no page view to swallow a drag —
+      // exactly the single image the header always drew.
+      final FakeStorefrontRepository repo = FakeStorefrontRepository()
+        ..storefrontExtras = <String, dynamic>{
+          'banner_url': 'https://x/banner.png',
+        };
+      await openRestaurant(tester, repo);
+      expect(carousel, findsNothing);
+    });
+
+    testWidgets('the rating badge is the way in to the reviews',
+        (WidgetTester tester) async {
+      final FakeStorefrontRepository repo = FakeStorefrontRepository()
+        ..storefrontExtras = <String, dynamic>{
+          'rating': '4.2',
+          'rating_count': 18,
+        };
+      await openRestaurant(tester, repo);
+
+      await tester.tap(find.text('18 ratings'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Ratings & reviews'), findsOneWidget);
+      expect(find.text('4.2'), findsOneWidget);
+      expect(find.text('Biryani was worth the wait.'), findsOneWidget);
+      // A rating with no words still counts, and still shows its stars.
+      expect(find.text('Arun'), findsOneWidget);
+      expect(repo.reviewCalls.single['with_comment'], isFalse);
+    });
+
+    testWidgets('an unrated restaurant offers no way into an empty list',
+        (WidgetTester tester) async {
+      // A tap that leads nowhere is worse than no tap, and an unrated shop is
+      // not a badly rated one.
+      await openRestaurant(tester, FakeStorefrontRepository());
+      expect(find.byType(RatingBadge), findsNothing);
+    });
+
+    testWidgets('the filter asks the server, not the list already fetched',
+        (WidgetTester tester) async {
+      // Moderation can take a review down between two reads, so filtering
+      // client-side would be filtering a list that may already be wrong.
+      final FakeStorefrontRepository repo = FakeStorefrontRepository()
+        ..storefrontExtras = <String, dynamic>{
+          'rating': '4.2',
+          'rating_count': 18,
+        };
+      await openRestaurant(tester, repo);
+      await tester.tap(find.text('18 ratings'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('With reviews'));
+      await tester.pumpAndSettle();
+
+      expect(repo.reviewCalls.last['with_comment'], isTrue);
+      // The one with no comment is gone; the one with words remains.
+      expect(find.text('Arun'), findsNothing);
+      expect(find.text('Priya'), findsOneWidget);
+    });
+
+    testWidgets('a delivered order can be rated, and needs a rating to send',
+        (WidgetTester tester) async {
+      final FakeStorefrontRepository repo = FakeStorefrontRepository()
+        ..orderStatus = 'delivered';
+      _useTallPhone(tester);
+      await _pumpApp(
+        tester,
+        seed: _languageChosen,
+        session: _testSession(),
+        storefrontRepository: repo,
+      );
+      await _settleSplash(tester);
+
+      await tester.tap(find.text('Orders').first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Order NX1001').first);
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Rate this order'));
+      await tester.pumpAndSettle();
+
+      // Nothing to send until the customer says something.
+      final Finder submit = find.widgetWithText(FilledButton, 'Submit rating');
+      expect(tester.widget<FilledButton>(submit).onPressed, isNull);
+
+      // The fourth star of the overall rating.
+      await tester.tap(find.byIcon(Icons.star_outline_rounded).at(3));
+      await tester.pumpAndSettle();
+      expect(tester.widget<FilledButton>(submit).onPressed, isNotNull);
+
+      await tester.tap(submit);
+      await tester.pump();
+      await tester.pump();
+
+      expect(repo.orderReviews.single['rating'], 4);
+      expect(repo.orderReviews.single['order'], 1);
+      // No dish was rated, so none is claimed.
+      expect(repo.orderReviews.single['dishes'], isEmpty);
+      expect(find.text('Thanks — your rating is in.'), findsOneWidget);
+      // Let the snack bar retire, or its timer outlives the test.
+      await tester.pumpAndSettle(const Duration(seconds: 5));
+    });
+  });
+
   group('address', () {
     test('a draft sends coordinates as numbers and drops empty optionals', () {
       const AddressDraft draft = AddressDraft(
@@ -2302,6 +3482,16 @@ class FakeStorefrontRepository implements StorefrontRepository {
   /// Thrown by the next mutating call, then cleared.
   ApiException? failNextWith;
 
+  int orderCalls = 0;
+  int homeCalls = 0;
+  final List<Map<String, Object>> favouriteCalls = <Map<String, Object>>[];
+
+  /// Empty by default: the live API omits sections that have no data, so the
+  /// home screen must render correctly with none.
+  Map<String, dynamic> homePayload = const <String, dynamic>{
+    'sections': <Object>[],
+  };
+  RestaurantFilters lastFilters = RestaurantFilters.none;
   Map<String, Object?>? lastNearby;
   Map<String, Object?>? lastCheckout;
   int trackCalls = 0;
@@ -2362,12 +3552,94 @@ class FakeStorefrontRepository implements StorefrontRepository {
       };
 
   @override
-  Future<List<Restaurant>> nearby({
+  Future<HomeScreen> home({
+    int? addressId,
+    double? latitude,
+    double? longitude,
+  }) async {
+    homeCalls++;
+    return HomeScreen.fromJson(homePayload, const <String, dynamic>{});
+  }
+
+  @override
+  Future<List<Restaurant>> favourites() async => <Restaurant>[];
+
+  /// Pages served to `reviews`, oldest call first. Defaults to one page.
+  List<Map<String, dynamic>> reviewPayload = <Map<String, dynamic>>[
+    <String, dynamic>{
+      'id': 1,
+      'author': 'Priya',
+      'rating': 5,
+      'comment': 'Biryani was worth the wait.',
+      'created_at': '2026-08-20T10:00:00Z',
+    },
+    <String, dynamic>{
+      'id': 2,
+      'author': 'Arun',
+      'rating': 3,
+      'comment': null,
+      'created_at': '2026-08-19T10:00:00Z',
+    },
+  ];
+  Map<String, dynamic> reviewMeta = const <String, dynamic>{
+    'rating': '4.2',
+    'rating_count': 18,
+    'breakdown': <String, dynamic>{'5': 10, '4': 4, '3': 2, '2': 1, '1': 1},
+    'current_page': 1,
+    'last_page': 1,
+  };
+  final List<Map<String, Object?>> reviewCalls = <Map<String, Object?>>[];
+  final List<Map<String, Object?>> orderReviews = <Map<String, Object?>>[];
+
+  @override
+  Future<ReviewPage> reviews(
+    String restaurantId, {
+    int page = 1,
+    bool withCommentOnly = false,
+  }) async {
+    _maybeThrow();
+    reviewCalls.add(<String, Object?>{
+      'id': restaurantId,
+      'page': page,
+      'with_comment': withCommentOnly,
+    });
+    final List<Map<String, dynamic>> items = withCommentOnly
+        ? reviewPayload
+            .where((Map<String, dynamic> r) => r['comment'] != null)
+            .toList()
+        : reviewPayload;
+    return ReviewPage.fromJson(items, reviewMeta);
+  }
+
+  @override
+  Future<void> reviewOrder(
+    int orderId, {
+    required int rating,
+    String? comment,
+    Map<int, int> dishes = const <int, int>{},
+  }) async {
+    _maybeThrow();
+    orderReviews.add(<String, Object?>{
+      'order': orderId,
+      'rating': rating,
+      'comment': comment,
+      'dishes': dishes,
+    });
+  }
+
+  @override
+  Future<void> setFavourite(String restaurantId, {required bool value}) async {
+    favouriteCalls.add(<String, Object>{'id': restaurantId, 'value': value});
+  }
+
+  @override
+  Future<RestaurantPage> nearby({
     int? addressId,
     double? latitude,
     double? longitude,
     String? search,
     String? serviceCategory,
+    RestaurantFilters filters = RestaurantFilters.none,
   }) async {
     lastNearby = <String, Object?>{
       'address_id': addressId,
@@ -2375,13 +3647,20 @@ class FakeStorefrontRepository implements StorefrontRepository {
       'longitude': longitude,
       'search': search,
       'service_category': serviceCategory,
+      ...filters.toQuery(),
     };
+    lastFilters = filters;
     final int count = (search ?? '').isEmpty ? 2 : searchResultCount;
-    return <Restaurant>[
-      Restaurant.fromJson(_restaurantJson('r1', 'Anjappar Chettinad', open: false)),
-      if (count > 1)
-        Restaurant.fromJson(_restaurantJson('r2', 'Saravana Bhavan')),
-    ];
+    return RestaurantPage(
+      items: <Restaurant>[
+        Restaurant.fromJson(
+          _restaurantJson('r1', 'Anjappar Chettinad', open: false),
+        ),
+        if (count > 1)
+          Restaurant.fromJson(_restaurantJson('r2', 'Saravana Bhavan')),
+      ],
+      total: count,
+    );
   }
 
   @override
@@ -2406,9 +3685,16 @@ class FakeStorefrontRepository implements StorefrontRepository {
     ];
   }
 
+  /// Extra fields folded into the storefront payload only — the nearby list
+  /// deliberately carries neither photos nor a menu.
+  Map<String, dynamic> storefrontExtras = const <String, dynamic>{};
+
   @override
   Future<Restaurant> restaurant(String id) async => Restaurant.fromJson(
-        _restaurantJson(id, 'Anjappar Chettinad', open: false),
+        <String, dynamic>{
+          ..._restaurantJson(id, 'Anjappar Chettinad', open: false),
+          ...storefrontExtras,
+        },
       );
 
   @override
@@ -2501,8 +3787,10 @@ class FakeStorefrontRepository implements StorefrontRepository {
   }
 
   @override
-  Future<List<Order>> orders({bool activeOnly = false}) async =>
-      orderList.map((String s) => Order.fromJson(_orderJson(s))).toList();
+  Future<List<Order>> orders({bool activeOnly = false}) async {
+    orderCalls++;
+    return orderList.map((String s) => Order.fromJson(_orderJson(s))).toList();
+  }
 
   @override
   Future<Order> order(int id) async => Order.fromJson(_orderJson(orderStatus));

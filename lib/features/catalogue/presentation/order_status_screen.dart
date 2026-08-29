@@ -4,6 +4,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../core/motion/app_motion.dart';
 import '../../../core/router/app_router.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../generated/l10n/app_localizations.dart';
@@ -28,6 +29,11 @@ class OrderStatusScreen extends StatefulWidget {
 }
 
 class _OrderStatusScreenState extends State<OrderStatusScreen> {
+  /// Held rather than looked up in [dispose]: by then this element has been
+  /// deactivated, and reaching back up the tree for a provider from there is
+  /// unsafe — it throws the moment the screen is torn down with its ancestors.
+  OrdersController? _orders;
+
   @override
   void initState() {
     super.initState();
@@ -38,9 +44,15 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _orders = context.read<OrdersController>();
+  }
+
+  @override
   void dispose() {
     // Nothing is watching the tracker once this screen is gone.
-    context.read<OrdersController>().stopPolling();
+    _orders?.stopPolling();
     super.dispose();
   }
 
@@ -197,6 +209,26 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
               icon: Icons.timer_outlined,
               title: l10n.arrivingIn,
               value: l10n.minutesAway(eta),
+              // A slow breath on the estimate is the one place a pulse earns
+              // its keep: it is the app's only signal that the number is live
+              // and being re-fetched, not frozen from when the screen opened.
+              pulse: true,
+            ),
+          ],
+          // Offered once the food has actually arrived, and nowhere else: a
+          // rating asked for mid-delivery is a rating of the wait.
+          if (status == OrderStatus.delivered) ...<Widget>[
+            const SizedBox(height: 16),
+            OutlinedButton.icon(
+              onPressed: () => Navigator.of(context).pushNamed(
+                AppRoutes.rateOrder,
+                arguments: RateOrderArgs(order: order),
+              ),
+              icon: const Icon(Icons.star_outline_rounded),
+              label: Text(l10n.rateThisOrder),
+              style: OutlinedButton.styleFrom(
+                minimumSize: const Size.fromHeight(48),
+              ),
             ),
           ],
           if (pickupCode != null && pickupCode.isNotEmpty) ...<Widget>[
@@ -276,12 +308,13 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
   }
 }
 
-class _Highlight extends StatelessWidget {
+class _Highlight extends StatefulWidget {
   const _Highlight({
     required this.icon,
     required this.title,
     required this.value,
     this.isError = false,
+    this.pulse = false,
   });
 
   final IconData icon;
@@ -289,11 +322,56 @@ class _Highlight extends StatelessWidget {
   final String value;
   final bool isError;
 
+  /// Breathes gently, to show the value is being refreshed.
+  final bool pulse;
+
+  @override
+  State<_Highlight> createState() => _HighlightState();
+}
+
+class _HighlightState extends State<_Highlight>
+    with SingleTickerProviderStateMixin {
+  AnimationController? _breath;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.pulse) {
+      _breath = AnimationController(
+        vsync: this,
+        duration: const Duration(milliseconds: 1900),
+      )..repeat(reverse: true);
+    }
+  }
+
+  @override
+  void dispose() {
+    _breath?.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    final IconData icon = widget.icon;
+    final String title = widget.title;
+    final String value = widget.value;
     final Color tint =
-        isError ? theme.colorScheme.error : AppColors.greenDeep;
+        widget.isError ? theme.colorScheme.error : AppColors.greenDeep;
+
+    final AnimationController? breath =
+        AppMotion.reduced(context) ? null : _breath;
+
+    final Widget dot = breath == null
+        ? const SizedBox.shrink()
+        : FadeTransition(
+            opacity: Tween<double>(begin: 0.25, end: 1).animate(breath),
+            child: Container(
+              width: 8,
+              height: 8,
+              decoration: BoxDecoration(color: tint, shape: BoxShape.circle),
+            ),
+          );
 
     return Container(
       padding: const EdgeInsets.all(14),
@@ -312,10 +390,18 @@ class _Highlight extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Text(
-                  title,
-                  style: theme.textTheme.labelMedium
-                      ?.copyWith(fontWeight: FontWeight.w700),
+                Row(
+                  children: <Widget>[
+                    Text(
+                      title,
+                      style: theme.textTheme.labelMedium
+                          ?.copyWith(fontWeight: FontWeight.w700),
+                    ),
+                    if (breath != null) ...<Widget>[
+                      const SizedBox(width: 8),
+                      dot,
+                    ],
+                  ],
                 ),
                 const SizedBox(height: 2),
                 Text(

@@ -210,7 +210,13 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String restaurantsCount(int count) {
-    return '$count రెస్టారెంట్లు';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count రెస్టారెంట్లు',
+      one: '1 రెస్టారెంట్',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -231,7 +237,13 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String ratingsCount(int count) {
-    return '$count+ రేటింగ్‌లు';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count రేటింగ్‌లు',
+      one: '1 రేటింగ్',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -292,7 +304,13 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String itemsInCart(int count) {
-    return '$count వస్తువులు';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count వస్తువులు',
+      one: '1 వస్తువు',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -721,4 +739,213 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get currentLocationLabel => 'ప్రస్తుత స్థానం';
+
+  @override
+  String get editProfileTitle => 'ప్రొఫైల్ మార్చు';
+
+  @override
+  String get editProfileSubtitle => 'రెస్టారెంట్‌కు, డెలివరీ భాగస్వామికి మీ పేరే కనిపిస్తుంది.';
+
+  @override
+  String get saveChanges => 'మార్పులను భద్రపరచు';
+
+  @override
+  String get profileUpdated => 'ప్రొఫైల్ నవీకరించబడింది';
+
+  @override
+  String get deleteAccount => 'ఖాతా తొలగించు';
+
+  @override
+  String get deleteAccountTitle => 'మీ ఖాతాను తొలగించాలా?';
+
+  @override
+  String get deleteAccountMessage => 'అన్ని పరికరాల నుండి సైన్ అవుట్ అవుతారు. పాత ఆర్డర్లు, బిల్లులు పన్ను రికార్డుల కోసం ఉంచబడతాయి.';
+
+  @override
+  String get accountDeleted => 'మీ ఖాతా తొలగించబడింది';
+
+  @override
+  String get devicesTitle => 'సైన్ ఇన్ చేసిన పరికరాలు';
+
+  @override
+  String get devicesSubtitle => 'మీరు ఎక్కడ సైన్ ఇన్ అయ్యారు';
+
+  @override
+  String get devicesEmptyTitle => 'ఇతర పరికరాలు లేవు';
+
+  @override
+  String get devicesEmptySubtitle => 'మీరు ఈ పరికరంలో మాత్రమే సైన్ ఇన్ అయ్యారు.';
+
+  @override
+  String get signOutDevice => 'సైన్ అవుట్';
+
+  @override
+  String get signOutDeviceTitle => 'ఈ పరికరం నుండి సైన్ అవుట్ చేయాలా?';
+
+  @override
+  String get signOutDeviceMessage => 'మీరు వాడుతున్నది ఇదే అయితే మళ్ళీ సైన్ ఇన్ చేయాల్సి ఉంటుంది.';
+
+  @override
+  String get deviceSignedOut => 'పరికరం సైన్ అవుట్ అయింది';
+
+  @override
+  String get signOutEverywhere => 'అన్ని చోట్ల నుండి సైన్ అవుట్';
+
+  @override
+  String get signOutEverywhereTitle => 'అన్ని చోట్ల నుండి సైన్ అవుట్ చేయాలా?';
+
+  @override
+  String get signOutEverywhereMessage => 'ఈ పరికరంతో సహా అన్ని పరికరాలు సైన్ అవుట్ అవుతాయి.';
+
+  @override
+  String get unknownDevice => 'తెలియని పరికరం';
+
+  @override
+  String get activeNow => 'ఇప్పుడు క్రియాశీలం';
+
+  @override
+  String minutesAgo(int count) {
+    return '$count నిమిషాల క్రితం';
+  }
+
+  @override
+  String hoursAgo(int count) {
+    return '$count గంటల క్రితం';
+  }
+
+  @override
+  String daysAgo(int count) {
+    return '$count రోజుల క్రితం';
+  }
+
+  @override
+  String get filtersAndSorting => 'ఫిల్టర్‌లు, క్రమం';
+
+  @override
+  String get clearAll => 'అన్నీ తీసివేయి';
+
+  @override
+  String get showResults => 'ఫలితాలు చూపు';
+
+  @override
+  String get closeLabel => 'మూసివేయి';
+
+  @override
+  String get sortByTitle => 'క్రమబద్ధీకరణ';
+
+  @override
+  String get sortRelevance => 'సంబంధితం';
+
+  @override
+  String get sortRating => 'రేటింగ్';
+
+  @override
+  String get sortDeliveryTime => 'డెలివరీ సమయం';
+
+  @override
+  String get sortCostLowHigh => 'ధర: తక్కువ నుండి ఎక్కువ';
+
+  @override
+  String get sortCostHighLow => 'ధర: ఎక్కువ నుండి తక్కువ';
+
+  @override
+  String get timeSection => 'సమయం';
+
+  @override
+  String get nearAndFast => 'దగ్గర & వేగం';
+
+  @override
+  String get openNow => 'ఇప్పుడు తెరిచి ఉంది';
+
+  @override
+  String get ratingSection => 'రెస్టారెంట్ రేటింగ్';
+
+  @override
+  String ratedAbove(String rating) {
+    return '$rating+ రేటింగ్';
+  }
+
+  @override
+  String get offersSection => 'ఆఫర్‌లు';
+
+  @override
+  String get hasOffersLabel => 'ఆఫర్‌లు ఉన్నవి';
+
+  @override
+  String get dishPriceSection => 'వంటకం ధర';
+
+  @override
+  String costUnder(String amount) {
+    return '$amount కంటే తక్కువ';
+  }
+
+  @override
+  String costBetween(String min, String max) {
+    return '$min – $max';
+  }
+
+  @override
+  String costOver(String amount) {
+    return '$amount+';
+  }
+
+  @override
+  String get moreSection => 'మరిన్ని';
+
+  @override
+  String get noPackagingCharges => 'ప్యాకింగ్ రుసుము లేదు';
+
+  @override
+  String get allRestaurantsTitle => 'అన్ని రెస్టారెంట్లు';
+
+  @override
+  String get whatsOnYourMind => 'ఏం తినాలని ఉంది?';
+
+  @override
+  String get listeningNow => 'వింటున్నాం…';
+
+  @override
+  String get speakNowHint => 'వంటకం లేదా రెస్టారెంట్ చెప్పండి';
+
+  @override
+  String get voiceUnavailable => 'వాయిస్ సెర్చ్ అందుబాటులో లేదు';
+
+  @override
+  String get voiceUnavailableBody => 'మీరు టైప్ చేసి కూడా వెతకవచ్చు.';
+
+  @override
+  String get microphoneDenied => 'మైక్రోఫోన్ అనుమతి లేదు';
+
+  @override
+  String get voiceSearchLabel => 'వాయిస్‌తో వెతకండి';
+
+  @override
+  String get ratingsAndReviews => 'రేటింగ్‌లు & సమీక్షలు';
+
+  @override
+  String get reviewsWithTextOnly => 'సమీక్షలు ఉన్నవి';
+
+  @override
+  String get noReviewsTitle => 'ఇంకా రేటింగ్‌లు లేవు';
+
+  @override
+  String get noReviewsSubtitle => 'ఆర్డర్ తర్వాత మొదటి రేటింగ్ మీరే ఇవ్వండి.';
+
+  @override
+  String get rateOrderTitle => 'మీ ఆర్డర్‌కు రేటింగ్ ఇవ్వండి';
+
+  @override
+  String get rateDishesTitle => 'వంటకాలకు రేటింగ్ ఇవ్వండి';
+
+  @override
+  String get reviewHint => 'ఇంకా ఏమైనా చెప్పాలనుకుంటున్నారా? (ఐచ్ఛికం)';
+
+  @override
+  String get submitRating => 'రేటింగ్ పంపండి';
+
+  @override
+  String get reviewThanks => 'ధన్యవాదాలు — మీ రేటింగ్ అందింది.';
+
+  @override
+  String get rateThisOrder => 'ఈ ఆర్డర్‌కు రేటింగ్ ఇవ్వండి';
 }

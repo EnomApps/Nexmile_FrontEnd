@@ -99,7 +99,10 @@ class CartLine {
       options.map((CartLineOption o) => o.name).join(', ');
 
   static CartLine fromJson(Map<String, dynamic> json) => CartLine(
-        id: asInt(json['id']),
+        // The live API names this `cart_item_id`; the schema calls it `id`.
+        // Reading only `id` silently yielded 0, which sent every quantity
+        // change and every removal to `/cart/items/0`.
+        id: asInt(json['cart_item_id'] ?? json['id']),
         menuItemId: asInt(json['menu_item_id']),
         name: asString(json['name']),
         quantity: asInt(json['quantity'], 1),
@@ -239,10 +242,21 @@ class OpenCart {
     final Map<String, dynamic> t =
         totals is Map<String, dynamic> ? totals : const <String, dynamic>{};
 
+    // `GET /v1/carts` sends the whole line list rather than a count, so the
+    // count is derived. Reading a `item_count` field that is never present
+    // showed "0 items" next to a non-zero total.
+    final List<Map<String, dynamic>> items = asMapList(json['items']);
+    final int counted = items.fold(
+      0,
+      (int sum, Map<String, dynamic> item) => sum + asInt(item['quantity'], 1),
+    );
+
     return OpenCart(
       restaurantId: asString(r['id'] ?? json['restaurant_id']),
       restaurantName: asString(r['name'] ?? json['restaurant_name']),
-      itemCount: asInt(json['item_count'] ?? json['items_count']),
+      itemCount: items.isNotEmpty
+          ? counted
+          : asInt(json['item_count'] ?? json['items_count']),
       grandTotal: asDouble(t['grand_total'] ?? json['grand_total']),
     );
   }

@@ -1,0 +1,453 @@
+<title>Rider App Handoff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+
+<style>
+  :root {
+    --ground: #FBFCF8;
+    --surface: #FFFFFF;
+    --surface-2: #F2F5EC;
+    --ink: #14180F;
+    --ink-2: #3D4536;
+    --muted: #6B7261;
+    --line: #DFE4D6;
+    --line-soft: #ECEFE5;
+    --brand: #2C8B0D;
+    --brand-ink: #1F6608;
+    --brand-wash: #EAF4E1;
+    --flag: #C74400;
+    --flag-wash: #FCEDE4;
+
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+    --measure: 66ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0E1109; --surface: #161A0F; --surface-2: #1D2214;
+      --ink: #EDF0E4; --ink-2: #C2C9B5; --muted: #8B937E;
+      --line: #2C331F; --line-soft: #232917;
+      --brand: #9DCD2B; --brand-ink: #B6DE55; --brand-wash: #1B2410;
+      --flag: #FF8446; --flag-wash: #2A1709;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0E1109; --surface: #161A0F; --surface-2: #1D2214;
+    --ink: #EDF0E4; --ink-2: #C2C9B5; --muted: #8B937E;
+    --line: #2C331F; --line-soft: #232917;
+    --brand: #9DCD2B; --brand-ink: #B6DE55; --brand-wash: #1B2410;
+    --flag: #FF8446; --flag-wash: #2A1709;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 940px; margin: 0 auto; padding: 0 28px 96px; }
+
+  header.top { padding: 72px 0 36px; border-bottom: 1px solid var(--line); }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--brand-ink); margin: 0 0 18px;
+  }
+
+  h1 {
+    font-family: var(--display); font-optical-sizing: auto; font-weight: 800;
+    font-size: clamp(40px, 7vw, 68px); line-height: 0.96;
+    letter-spacing: -0.03em; margin: 0; text-wrap: balance;
+  }
+  h1 .light { color: var(--muted); font-weight: 500; }
+
+  .standfirst {
+    max-width: var(--measure); margin: 22px 0 0;
+    font-size: 19px; color: var(--ink-2);
+  }
+
+  section { padding-top: 52px; }
+  section + section { margin-top: 8px; }
+
+  h2 {
+    font-family: var(--display); font-weight: 700; font-size: 30px;
+    letter-spacing: -0.02em; margin: 0 0 8px;
+  }
+  section > p { max-width: var(--measure); margin: 0 0 22px; color: var(--ink-2); }
+
+  h3 {
+    font-family: var(--display); font-weight: 700; font-size: 20px;
+    letter-spacing: -0.01em; margin: 28px 0 8px;
+  }
+
+  /* ---- Swatches ---- */
+  .swatches {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+    gap: 12px; margin: 0 0 24px;
+  }
+  .sw {
+    border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
+    background: var(--surface);
+  }
+  .sw .chip { height: 62px; }
+  .sw .meta { padding: 10px 12px; }
+  .sw .name { font-size: 14px; font-weight: 600; }
+  .sw .hex {
+    font-family: var(--mono); font-size: 12px; color: var(--muted);
+    text-transform: uppercase;
+  }
+  .sw .use { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  /* ---- Tables ---- */
+  .scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 16px; margin: 0 0 8px; }
+  th {
+    text-align: left; font-family: var(--mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+    padding: 0 16px 8px 0; border-bottom: 1px solid var(--line); white-space: nowrap;
+  }
+  td {
+    padding: 12px 16px 12px 0; border-bottom: 1px solid var(--line-soft);
+    vertical-align: top; color: var(--ink-2);
+  }
+  td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
+  td code, .val {
+    font-family: var(--mono); font-size: 0.86em; background: var(--surface-2);
+    border: 1px solid var(--line-soft); border-radius: 3px; padding: 1px 6px;
+    color: var(--ink);
+  }
+
+  /* ---- Asks ---- */
+  .asks { list-style: none; margin: 0; padding: 0; counter-reset: ask; display: grid; gap: 14px; }
+  .asks li {
+    counter-increment: ask;
+    display: grid; grid-template-columns: 34px 1fr; gap: 16px;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 6px; padding: 16px 18px; max-width: var(--measure);
+  }
+  .asks li::before {
+    content: counter(ask); font-family: var(--mono); font-size: 13px;
+    font-weight: 600; color: var(--brand-ink); background: var(--brand-wash);
+    border-radius: 4px; height: 26px; display: grid; place-items: center;
+  }
+  .asks strong {
+    display: block; color: var(--ink); font-family: var(--display);
+    font-weight: 700; font-size: 17px; margin-bottom: 3px; letter-spacing: -0.01em;
+  }
+  .asks p { margin: 0; color: var(--ink-2); font-size: 16px; }
+
+  /* ---- Callouts ---- */
+  .note {
+    max-width: var(--measure); background: var(--surface);
+    border: 1px solid var(--line); border-left: 3px solid var(--brand);
+    border-radius: 4px; padding: 15px 18px; margin: 0 0 14px; color: var(--ink-2);
+  }
+  .warn {
+    max-width: var(--measure); background: var(--flag-wash);
+    border: 1px solid color-mix(in srgb, var(--flag) 30%, transparent);
+    border-radius: 4px; padding: 15px 18px; margin: 0 0 14px; color: var(--ink-2);
+  }
+  .note strong, .warn strong { color: var(--ink); }
+
+  .tag {
+    display: block; font-family: var(--mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--brand-ink); margin-bottom: 5px;
+  }
+  .warn .tag { color: var(--flag); }
+
+  ul.plain { max-width: var(--measure); padding-left: 22px; color: var(--ink-2); }
+  ul.plain li { margin-bottom: 7px; }
+
+  /* ---- Divergence grid ---- */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 760px; }
+  .split > div {
+    border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px;
+    background: var(--surface);
+  }
+  .split h4 {
+    margin: 0 0 8px; font-family: var(--mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+  }
+  .split p { margin: 0; font-size: 15px; color: var(--ink-2); }
+
+  footer {
+    margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
+    font-size: 14px; color: var(--muted);
+  }
+
+  @media (max-width: 700px) {
+    .split { grid-template-columns: 1fr; }
+    header.top { padding-top: 48px; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="top">
+    <p class="eyebrow">Design handoff · Customer app → Rider app</p>
+    <h1>Rider App<br><span class="light">Design Handoff</span></h1>
+    <p class="standfirst">
+      The customer app now has a defined design system. This is what the rider
+      app should take from it, what it should deliberately do differently, and
+      the questions worth settling before either team builds further.
+    </p>
+  </header>
+
+  <section>
+    <h2>Start here: the two apps are not the same job</h2>
+    <p>
+      The instinct is to copy the customer app so the products match. Resist
+      half of that. A customer browses indoors, two hands, deciding what to eat.
+      A rider glances at a phone in sunlight, one hand, often beside a running
+      bike, and needs one number and one button.
+    </p>
+    <div class="split">
+      <div>
+        <h4>Share</h4>
+        <p>Colour, typography, corner radii, motion timings, icon style, the
+        error and empty-state patterns. These make the two apps feel like one
+        company.</p>
+      </div>
+      <div>
+        <h4>Diverge</h4>
+        <p>Density, tap-target size, contrast, and how much motion is used.
+        These follow the context of use, and the rider's is harsher.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Take as-is: brand colour</h2>
+    <p>Sampled from the Nexmile logo. These are already live in the customer app.</p>
+    <div class="swatches">
+      <div class="sw">
+        <div class="chip" style="background:#2C8B0D"></div>
+        <div class="meta">
+          <div class="name">Green Deep</div>
+          <div class="hex">#2C8B0D</div>
+          <div class="use">Primary action, brand surfaces</div>
+        </div>
+      </div>
+      <div class="sw">
+        <div class="chip" style="background:#9DCD2B"></div>
+        <div class="meta">
+          <div class="name">Green Light</div>
+          <div class="hex">#9DCD2B</div>
+          <div class="use">Primary on dark theme</div>
+        </div>
+      </div>
+      <div class="sw">
+        <div class="chip" style="background:#FF5400"></div>
+        <div class="meta">
+          <div class="name">Orange Deep</div>
+          <div class="hex">#FF5400</div>
+          <div class="use">Attention, in-progress state</div>
+        </div>
+      </div>
+      <div class="sw">
+        <div class="chip" style="background:#FF8406"></div>
+        <div class="meta">
+          <div class="name">Orange Light</div>
+          <div class="hex">#FF8406</div>
+          <div class="use">Accents on brand surfaces</div>
+        </div>
+      </div>
+      <div class="sw">
+        <div class="chip" style="background:#14170F"></div>
+        <div class="meta">
+          <div class="name">Ink Strong</div>
+          <div class="hex">#14170F</div>
+          <div class="use">Body text, light theme</div>
+        </div>
+      </div>
+      <div class="sw">
+        <div class="chip" style="background:#F4F7EF"></div>
+        <div class="meta">
+          <div class="name">Surface Tint</div>
+          <div class="hex">#F4F7EF</div>
+          <div class="use">Cards, raised surfaces</div>
+        </div>
+      </div>
+    </div>
+    <p class="note">
+      <span class="tag">Worth copying, not just the hex values</span>
+      The neutrals are <strong>green-shifted, not grey</strong> — ink is
+      <span class="val">#14170F</span>, not <span class="val">#141414</span>.
+      It is subtle and it is why the dark theme reads as Nexmile rather than as
+      a default Material app. Ask the rider team to use the same neutrals rather
+      than picking their own greys.
+    </p>
+  </section>
+
+  <section>
+    <h2>Take as-is: type, shape, motion</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Token</th><th>Value</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Text scale clamp</td><td><code>0.9 – 1.3</code></td><td>Honour the OS setting, but bounded so no screen breaks. Verified on 320×568 at maximum.</td></tr>
+          <tr><td>Leading distribution</td><td><code>even</code></td><td>Non-negotiable for Indic scripts — Tamil and Malayalam clip their ascenders otherwise.</td></tr>
+          <tr><td>Corner radius</td><td><code>16</code> / <code>22</code></td><td>Standard controls / large cards.</td></tr>
+          <tr><td>Instant</td><td><code>120ms</code></td><td>Anything the finger is still on — press states, toggles.</td></tr>
+          <tr><td>Quick</td><td><code>260ms</code></td><td>The default. Content entering, bars sliding.</td></tr>
+          <tr><td>Settled</td><td><code>420ms</code></td><td>Sheets and screen-level changes.</td></tr>
+          <tr><td>Stagger</td><td><code>45ms</code></td><td>Gap between siblings, capped at 8 items.</td></tr>
+          <tr><td>Enter / exit curve</td><td><code>easeOutCubic</code> / <code>easeInCubic</code></td><td>Hard deceleration reads as arriving, not drifting.</td></tr>
+          <tr><td>Press scale</td><td><code>0.97</code>, release on <code>easeOutBack</code></td><td>Says the whole card is the button, which a ripple does not.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">
+      <span class="tag">Reduce motion</span>
+      Every animation in the customer app is skipped when the OS
+      &ldquo;reduce motion&rdquo; setting is on — content is <em>placed</em>,
+      not moved. The rider app should do the same, and arguably should ship
+      with less motion regardless.
+    </p>
+  </section>
+
+  <section>
+    <h2>Deliberately different for riders</h2>
+    <p>
+      These are the places where copying the customer app would make the rider
+      app worse.
+    </p>
+
+    <h3>Tap targets</h3>
+    <p>
+      The customer app uses 38–48px controls. <strong>Accept, Pickup and
+      Deliver should be no smaller than 64px tall</strong>, full width, with
+      real separation between them. A mis-tap on <span class="val">/deliver</span>
+      is not recoverable in the way a mis-tap on a menu item is.
+    </p>
+
+    <h3>Sunlight</h3>
+    <p>
+      A rider reads the screen outdoors. The customer app's muted body text
+      (<span class="val">#5C6356</span>) is fine indoors and marginal in
+      daylight. Push the rider app's body text to full ink, and reserve muted
+      grey for genuinely secondary information.
+    </p>
+
+    <h3>Motion</h3>
+    <p>
+      Skip staggered list reveals on the available-orders screen. A customer
+      enjoys a list arriving; a rider racing another rider to accept a job does
+      not. Keep press feedback and state transitions; drop the choreography.
+    </p>
+
+    <h3>One state above all</h3>
+    <p>
+      <span class="val">on_duty</span> / <span class="val">off_duty</span> is
+      the most consequential thing on the rider's screen — it decides whether
+      they earn. It should be readable across a room and impossible to toggle
+      by accident. This has no equivalent in the customer app, so there is no
+      pattern to copy; it needs designing on its own terms.
+    </p>
+  </section>
+
+  <section>
+    <h2>What to ask the rider team</h2>
+    <p>Ordered by how expensive they get to change later.</p>
+    <ol class="asks">
+      <li>
+        <div>
+          <strong>Are you using the same colour and type tokens?</strong>
+          <p>If they have already picked their own greens or greys, that is the
+          one thing worth fixing immediately — it is cheap now and everywhere
+          later.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>How many languages does the rider app support?</strong>
+          <p>The customer app ships 23, fully translated. If the rider app
+          ships 3, that is a defensible decision — riders are a smaller, more
+          uniform group — but it should be a decision, not an accident. Ask
+          which they chose and why.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Does the KYC wizard save progress between steps?</strong>
+          <p>Six documents plus eleven detail fields is a long flow to lose. The
+          API has separate <span class="val">/kyc/details</span> and
+          <span class="val">/kyc/documents</span> endpoints, so partial saving
+          is possible — confirm they are using it rather than submitting at the
+          end.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>What happens visually when a rider is pending approval?</strong>
+          <p>A rider sits in <span class="val">pending</span> until an admin
+          approves them, and cannot work. That waiting state needs a real
+          screen, not a disabled button — otherwise support gets the call.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>How often are you posting location, and is that visible?</strong>
+          <p>The customer app shows the rider's live position on a map. That
+          only works if <span class="val">/rider/location</span> is being posted
+          on a sensible interval. Agree the cadence between both teams, and show
+          the rider that it is on — silent battery use is how riders learn to
+          force-quit the app.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Are order statuses shown with the server's own labels?</strong>
+          <p>The customer app renders <span class="val">status_label</span>
+          verbatim, so a status the build predates degrades instead of
+          crashing. If both apps do this, a new status can ship server-side
+          without releasing either app.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Is the release / cancel path designed as carefully as accept?</strong>
+          <p>Releasing an order is the rider's escape hatch when something goes
+          wrong on the road. It tends to get built as an afterthought and is the
+          thing they need most under pressure.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Two things to warn them about</h2>
+    <p class="warn">
+      <span class="tag">Field names do not match the schema</span>
+      Building the customer app against the live API turned up cases where the
+      documented field name and the sent field name differ — cart lines arrive
+      as <span class="val">cart_item_id</span> where the schema says
+      <span class="val">id</span>, and one list endpoint sends its items rather
+      than a count. Tell the rider team to <strong>log real responses early</strong>
+      rather than trusting the schema; we lost time to exactly this.
+    </p>
+    <p class="warn">
+      <span class="tag">Numbers arrive as strings</span>
+      Prices, booleans and IDs come back as JSON strings in some places and
+      numbers in others. Every value should be coerced on the way in. A rider
+      app that crashes on <span class="val">"49.97"</span> mid-delivery is a
+      support call and a lost order.
+    </p>
+  </section>
+
+  <footer>
+    Nexmile · Customer app design system, prepared for the rider app team.
+  </footer>
+
+</div>

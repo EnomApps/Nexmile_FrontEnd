@@ -71,12 +71,12 @@
   "cravingTitle": "اڄ ڇا کائڻ جو دل آهي؟",
   "offersTitle": "توهان لاءِ آفرون",
   "restaurantsNearby": "توهان جي ويجهو ريسٽورنٽ",
-  "restaurantsCount": "{count} ريسٽورنٽ",
+  "restaurantsCount": "{count, plural, =1{1 ريسٽورنٽ} other{{count} ريسٽورنٽ}}",
   "noRestaurantsTitle": "هتي اڃا ڪجهه ناهي",
   "noRestaurantsSubtitle": "ٻيو ڪو قسم ڏسو يا فلٽر هٽايو.",
   "minutesAway": "{minutes} منٽ",
   "kilometresAway": "{distance} ڪلوميٽر",
-  "ratingsCount": "{count}+ ريٽنگون",
+  "ratingsCount": "{count, plural, =1{1 ريٽنگ} other{{count} ريٽنگون}}",
   "priceForTwo": "ٻن لاءِ ₹{amount}",
   "freeDelivery": "مفت ڊليوري",
   "percentOff": "{percent}% رعايت",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "توهان جي ڪارٽ خالي آهي",
   "cartEmptySubtitle": "شروع ڪرڻ لاءِ ڪنهن ريسٽورنٽ مان کاڌو شامل ڪريو.",
   "browseRestaurants": "ريسٽورنٽ ڏسو",
-  "itemsInCart": "{count} شيون",
+  "itemsInCart": "{count, plural, =1{1 شيء} other{{count} شيون}}",
   "viewCart": "ڪارٽ ڏسو",
   "itemTotal": "شين جو ڪل",
   "deliveryFeeLabel": "ڊليوري فيس",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "آرڊر رد ٿي ويو",
 
-  "currentLocationLabel": "موجوده هنڌ"
+  "currentLocationLabel": "موجوده هنڌ",
+
+  "editProfileTitle": "پروفائل تبديل ڪريو",
+
+  "editProfileSubtitle": "ريسٽورنٽ ۽ ڊليوري پارٽنر کي توهانجو نالو ئي نظر ايندو آهي.",
+
+  "saveChanges": "تبديليون محفوظ ڪريو",
+
+  "profileUpdated": "پروفائل اپڊيٽ ٿي وئي",
+
+  "deleteAccount": "کاتو ختم ڪريو",
+
+  "deleteAccountTitle": "پنهنجو کاتو ختم ڪجي؟",
+
+  "deleteAccountMessage": "هر ڊوائس تان سائن آئوٽ ٿي ويندؤ. پراڻا آرڊر ۽ بل ٽيڪس رڪارڊ لاءِ رکيا ويندا آهن.",
+
+  "accountDeleted": "توهانجو کاتو ختم ڪيو ويو",
+
+  "devicesTitle": "سائن ان ڊوائسز",
+
+  "devicesSubtitle": "توهان ڪٿي سائن ان آهيو",
+
+  "devicesEmptyTitle": "ٻي ڪا ڊوائس ناهي",
+
+  "devicesEmptySubtitle": "توهان رڳو هن ڊوائس تي سائن ان آهيو.",
+
+  "signOutDevice": "سائن آئوٽ",
+
+  "signOutDeviceTitle": "هيءَ ڊوائس سائن آئوٽ ڪجي؟",
+
+  "signOutDeviceMessage": "جيڪڏهن توهان اها ئي ڊوائس استعمال ڪري رهيا آهيو ته وري سائن ان ڪرڻو پوندو.",
+
+  "deviceSignedOut": "ڊوائس سائن آئوٽ ٿي وئي",
+
+  "signOutEverywhere": "هر هنڌ کان سائن آئوٽ",
+
+  "signOutEverywhereTitle": "هر هنڌ کان سائن آئوٽ ڪجي؟",
+
+  "signOutEverywhereMessage": "هن ڊوائس سميت هر ڊوائس سائن آئوٽ ٿي ويندي.",
+
+  "unknownDevice": "اڻڄاتل ڊوائس",
+
+  "activeNow": "هينئر سرگرم",
+
+  "minutesAgo": "{count} منٽ اڳ",
+
+  "hoursAgo": "{count} ڪلاڪ اڳ",
+
+  "daysAgo": "{count} ڏينهن اڳ",
+
+  "filtersAndSorting": "فلٽر ۽ ترتيب",
+
+  "clearAll": "سڀ هٽايو",
+
+  "showResults": "نتيجا ڏيکاريو",
+
+  "closeLabel": "بند ڪريو",
+
+  "sortByTitle": "ترتيب",
+
+  "sortRelevance": "لاڳاپو",
+
+  "sortRating": "ريٽنگ",
+
+  "sortDeliveryTime": "ڊليوري وقت",
+
+  "sortCostLowHigh": "قيمت: گھٽ کان وڌ",
+
+  "sortCostHighLow": "قيمت: وڌ کان گھٽ",
+
+  "timeSection": "وقت",
+
+  "nearAndFast": "ويجھو ۽ تيز",
+
+  "openNow": "هينئر کليل",
+
+  "ratingSection": "ريسٽورنٽ ريٽنگ",
+
+  "ratedAbove": "{rating}+ ريٽنگ",
+
+  "offersSection": "آڇون",
+
+  "hasOffersLabel": "آڇن وارا",
+
+  "dishPriceSection": "کاڌي جي قيمت",
+
+  "costUnder": "{amount} کان گھٽ",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "وڌيڪ",
+
+  "noPackagingCharges": "پيڪنگ خرچ ناهي",
+
+  "allRestaurantsTitle": "سڀ ريسٽورنٽ",
+
+  "whatsOnYourMind": "ڇا کائڻ جو دل آهي؟",
+
+  "listeningNow": "ٻڌي رهيا آهيون…",
+
+  "speakNowHint": "ڪو کاڌو يا ريسٽورنٽ چئو",
+
+  "voiceUnavailable": "وائس ڳولا دستياب ناهي",
+
+  "voiceUnavailableBody": "توهان ٽائيپ ڪري به ڳولي سگهو ٿا.",
+
+  "microphoneDenied": "مائڪروفون جي اجازت بند",
+
+  "voiceSearchLabel": "آواز سان ڳوليو",
+
+  "ratingsAndReviews": "ريٽنگ ۽ جائزا",
+
+  "reviewsWithTextOnly": "جائزي وارا",
+
+  "noReviewsTitle": "اڃا ڪا ريٽنگ ناهي",
+
+  "noReviewsSubtitle": "آرڊر کان پوءِ پهرين ريٽنگ توهان ڏيو.",
+
+  "rateOrderTitle": "پنهنجي آرڊر کي ريٽ ڪريو",
+
+  "rateDishesTitle": "کاڌن کي ريٽ ڪريو",
+
+  "reviewHint": "ٻيو ڪجهه چوڻو آهي؟ (اختياري)",
+
+  "submitRating": "ريٽنگ موڪليو",
+
+  "reviewThanks": "مهرباني — توهان جي ريٽنگ ملي وئي.",
+
+  "rateThisOrder": "هن آرڊر کي ريٽ ڪريو"
 }

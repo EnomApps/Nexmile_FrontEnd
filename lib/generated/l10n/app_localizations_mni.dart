@@ -210,7 +210,13 @@ class AppLocalizationsMni extends AppLocalizations {
 
   @override
   String restaurantsCount(int count) {
-    return 'রেস্তোরান্ত $count';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ',
+      one: '1 ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -231,7 +237,13 @@ class AppLocalizationsMni extends AppLocalizations {
 
   @override
   String ratingsCount(int count) {
-    return 'রেটিং $count+';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count রেটিং',
+      one: '1 রেটিং',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -292,7 +304,13 @@ class AppLocalizationsMni extends AppLocalizations {
 
   @override
   String itemsInCart(int count) {
-    return 'পোৎলম $count';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ꯄꯣꯠ',
+      one: '1 ꯄꯣꯠ',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -721,4 +739,213 @@ class AppLocalizationsMni extends AppLocalizations {
 
   @override
   String get currentLocationLabel => 'ꯍꯧꯖꯤꯛꯀꯤ ꯃꯐꯝ';
+
+  @override
+  String get editProfileTitle => 'ꯄ꯭ꯔꯣꯐꯥꯏꯜ ꯁꯦꯝꯗꯣꯛꯎ';
+
+  @override
+  String get editProfileSubtitle => 'ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ ꯑꯃꯁꯨꯡ ꯗꯦꯂꯤꯚꯔꯤ ꯄꯥꯔꯠꯅꯔꯅ ꯑꯗꯣꯝꯒꯤ ꯃꯃꯤꯡ ꯑꯗꯨ ꯎꯏ꯫';
+
+  @override
+  String get saveChanges => 'ꯑꯍꯣꯡꯕ ꯊꯝꯃꯨ';
+
+  @override
+  String get profileUpdated => 'ꯄ꯭ꯔꯣꯐꯥꯏꯜ ꯑꯅꯧꯕ ꯑꯣꯏꯔꯦ';
+
+  @override
+  String get deleteAccount => 'ꯑꯦꯀꯥꯎꯟꯠ ꯃꯨꯠꯊꯠꯂꯨ';
+
+  @override
+  String get deleteAccountTitle => 'ꯑꯗꯣꯝꯒꯤ ꯑꯦꯀꯥꯎꯟꯠ ꯃꯨꯠꯊꯠꯀꯗ꯭ꯔꯥ?';
+
+  @override
+  String get deleteAccountMessage => 'ꯗꯤꯚꯥꯏꯁ ꯄꯨꯝꯅꯃꯛꯇꯒꯤ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯑꯣꯏꯒꯅꯤ꯫ ꯃꯃꯥꯡꯒꯤ ꯑꯣꯔꯗꯔ ꯑꯃꯁꯨꯡ ꯕꯤꯜ ꯑꯗꯨ ꯇꯦꯛꯁ ꯔꯦꯀꯣꯔꯗꯀꯤꯗꯃꯛ ꯊꯝꯃꯤ꯫';
+
+  @override
+  String get accountDeleted => 'ꯑꯗꯣꯝꯒꯤ ꯑꯦꯀꯥꯎꯟꯠ ꯃꯨꯠꯊꯠꯂꯦ';
+
+  @override
+  String get devicesTitle => 'ꯁꯥꯏꯟ ꯏꯟ ꯗꯤꯚꯥꯏꯁ';
+
+  @override
+  String get devicesSubtitle => 'ꯑꯗꯣꯝ ꯀꯗꯥꯏꯗ ꯁꯥꯏꯟ ꯏꯟ ꯇꯧꯔꯤ';
+
+  @override
+  String get devicesEmptyTitle => 'ꯑꯇꯣꯞꯄ ꯗꯤꯚꯥꯏꯁ ꯂꯩꯇꯦ';
+
+  @override
+  String get devicesEmptySubtitle => 'ꯑꯗꯣꯝ ꯗꯤꯚꯥꯏꯁ ꯑꯁꯤꯗ ꯈꯛꯇ ꯁꯥꯏꯟ ꯏꯟ ꯇꯧꯔꯤ꯫';
+
+  @override
+  String get signOutDevice => 'ꯁꯥꯏꯟ ꯑꯥꯎꯠ';
+
+  @override
+  String get signOutDeviceTitle => 'ꯗꯤꯚꯥꯏꯁ ꯑꯁꯤ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯇꯧꯒꯗ꯭ꯔꯥ?';
+
+  @override
+  String get signOutDeviceMessage => 'ꯑꯗꯣꯝꯅ ꯁꯤꯖꯤꯟꯅꯔꯤꯕ ꯗꯤꯚꯥꯏꯁ ꯑꯁꯤ ꯑꯣꯏꯔꯕꯗꯤ ꯑꯃꯨꯛ ꯁꯥꯏꯟ ꯏꯟ ꯇꯧꯒꯗꯕꯅꯤ꯫';
+
+  @override
+  String get deviceSignedOut => 'ꯗꯤꯚꯥꯏꯁ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯇꯧꯔꯦ';
+
+  @override
+  String get signOutEverywhere => 'ꯃꯐꯝ ꯄꯨꯝꯅꯃꯛꯇꯒꯤ ꯁꯥꯏꯟ ꯑꯥꯎꯠ';
+
+  @override
+  String get signOutEverywhereTitle => 'ꯃꯐꯝ ꯄꯨꯝꯅꯃꯛꯇꯒꯤ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯇꯧꯒꯗ꯭ꯔꯥ?';
+
+  @override
+  String get signOutEverywhereMessage => 'ꯗꯤꯚꯥꯏꯁ ꯑꯁꯤ ꯌꯥꯑꯣꯅ ꯗꯤꯚꯥꯏꯁ ꯈꯨꯗꯤꯡꯃꯛ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯑꯣꯏꯒꯅꯤ꯫';
+
+  @override
+  String get unknownDevice => 'ꯃꯁꯛ ꯈꯉꯗꯕ ꯗꯤꯚꯥꯏꯁ';
+
+  @override
+  String get activeNow => 'ꯍꯧꯖꯤꯛ ꯁꯛꯇꯤꯅ ꯂꯩꯔꯤ';
+
+  @override
+  String minutesAgo(int count) {
+    return '$count ꯃꯤꯅꯤꯠ ꯃꯃꯥꯡꯗ';
+  }
+
+  @override
+  String hoursAgo(int count) {
+    return '$count ꯄꯨꯡ ꯃꯃꯥꯡꯗ';
+  }
+
+  @override
+  String daysAgo(int count) {
+    return '$count ꯅꯨꯃꯤꯠ ꯃꯃꯥꯡꯗ';
+  }
+
+  @override
+  String get filtersAndSorting => 'ꯐꯤꯜꯇꯔ ꯑꯃꯁꯨꯡ ꯑꯣꯏꯅ ꯊꯝꯕ';
+
+  @override
+  String get clearAll => 'ꯄꯨꯝꯅꯃꯛ ꯂꯧꯊꯣꯛꯎ';
+
+  @override
+  String get showResults => 'ꯐꯜ ꯎꯠꯂꯨ';
+
+  @override
+  String get closeLabel => 'ꯂꯣꯅꯁꯤꯜꯂꯨ';
+
+  @override
+  String get sortByTitle => 'ꯑꯣꯏꯅ ꯊꯝꯕ';
+
+  @override
+  String get sortRelevance => 'ꯃꯔꯤ ꯂꯩꯅꯕ';
+
+  @override
+  String get sortRating => 'ꯔꯦꯇꯤꯡ';
+
+  @override
+  String get sortDeliveryTime => 'ꯗꯦꯂꯤꯚꯔꯤ ꯃꯇꯝ';
+
+  @override
+  String get sortCostLowHigh => 'ꯃꯃꯜ: ꯍꯟꯊꯕꯗꯒꯤ ꯌꯥꯝꯕ';
+
+  @override
+  String get sortCostHighLow => 'ꯃꯃꯜ: ꯌꯥꯝꯕꯗꯒꯤ ꯍꯟꯊꯕ';
+
+  @override
+  String get timeSection => 'ꯃꯇꯝ';
+
+  @override
+  String get nearAndFast => 'ꯅꯛꯅ ꯑꯃꯁꯨꯡ ꯌꯥꯡꯅ';
+
+  @override
+  String get openNow => 'ꯍꯧꯖꯤꯛ ꯍꯥꯡꯗꯣꯛꯂꯤ';
+
+  @override
+  String get ratingSection => 'ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ ꯔꯦꯇꯤꯡ';
+
+  @override
+  String ratedAbove(String rating) {
+    return '$rating+ ꯔꯦꯇꯤꯡ';
+  }
+
+  @override
+  String get offersSection => 'ꯑꯣꯐꯔ';
+
+  @override
+  String get hasOffersLabel => 'ꯑꯣꯐꯔ ꯂꯩꯕ';
+
+  @override
+  String get dishPriceSection => 'ꯆꯥꯅꯕꯒꯤ ꯃꯃꯜ';
+
+  @override
+  String costUnder(String amount) {
+    return '$amount ꯗꯒꯤ ꯍꯟꯊꯕ';
+  }
+
+  @override
+  String costBetween(String min, String max) {
+    return '$min – $max';
+  }
+
+  @override
+  String costOver(String amount) {
+    return '$amount+';
+  }
+
+  @override
+  String get moreSection => 'ꯑꯍꯦꯟꯕ';
+
+  @override
+  String get noPackagingCharges => 'ꯄꯦꯛꯀꯤꯡ ꯆꯥꯔꯖ ꯂꯩꯇꯦ';
+
+  @override
+  String get allRestaurantsTitle => 'ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ ꯄꯨꯝꯅꯃꯛ';
+
+  @override
+  String get whatsOnYourMind => 'ꯀꯔꯤ ꯆꯥꯅꯤꯡꯏ?';
+
+  @override
+  String get listeningNow => 'ꯇꯥꯔꯤ…';
+
+  @override
+  String get speakNowHint => 'ꯆꯥꯅꯕ ꯅꯠꯔꯒ ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ ꯍꯥꯌꯕꯤꯌꯨ';
+
+  @override
+  String get voiceUnavailable => 'ꯈꯣꯟꯗ ꯊꯤꯕ ꯐꯪꯗꯦ';
+
+  @override
+  String get voiceUnavailableBody => 'ꯑꯗꯣꯝꯅ ꯇꯥꯏꯞ ꯇꯧꯗꯨꯅꯥ ꯊꯤꯕ ꯌꯥꯏ꯫';
+
+  @override
+  String get microphoneDenied => 'ꯃꯥꯏꯀ꯭ꯔꯣꯐꯣꯟ ꯑꯌꯥꯕ ꯂꯩꯇꯦ';
+
+  @override
+  String get voiceSearchLabel => 'ꯈꯣꯟꯗ ꯊꯤꯌꯨ';
+
+  @override
+  String get ratingsAndReviews => 'রেটিং অমসুং রিভিয়ু';
+
+  @override
+  String get reviewsWithTextOnly => 'রিভিয়ু লৈবা';
+
+  @override
+  String get noReviewsTitle => 'হৌজিক ফাওবা রেটিং লৈতে';
+
+  @override
+  String get noReviewsSubtitle => 'অর্দর তৌরবা মতুংদা অহানবা রেটিং অদু নহাক্না পীয়ু।';
+
+  @override
+  String get rateOrderTitle => 'নহাক্কী অর্দর অসি রেট তৌবিয়ু';
+
+  @override
+  String get rateDishesTitle => 'চাক্লোনশিং রেট তৌবিয়ু';
+
+  @override
+  String get reviewHint => 'অতোপ্পা করিগুম্বা হায়নিংবা লৈব্রা? (য়াদবা)';
+
+  @override
+  String get submitRating => 'রেটিং থাবিয়ু';
+
+  @override
+  String get reviewThanks => 'থাগৎচরি — নহাক্কী রেটিং ফংলে।';
+
+  @override
+  String get rateThisOrder => 'অর্দর অসি রেট তৌবিয়ু';
 }

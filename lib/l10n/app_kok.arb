@@ -71,12 +71,12 @@
   "cravingTitle": "आयज कितें खावंक जाय?",
   "offersTitle": "तुमकां खातीर ऑफर",
   "restaurantsNearby": "तुमच्या लागसारचीं रेस्टॉरंटां",
-  "restaurantsCount": "{count} रेस्टॉरंटां",
+  "restaurantsCount": "{count, plural, =1{1 रेस्टॉरंट} other{{count} रेस्टॉरंटां}}",
   "noRestaurantsTitle": "हांगा अजून कितेंच ना",
   "noRestaurantsSubtitle": "हेर वर्ग पळयात वा फिल्टर काडात.",
   "minutesAway": "{minutes} मिनटां",
   "kilometresAway": "{distance} किमी",
-  "ratingsCount": "{count}+ रेटिंगां",
+  "ratingsCount": "{count, plural, =1{1 रेटिंग} other{{count} रेटिंगां}}",
   "priceForTwo": "दोगांक ₹{amount}",
   "freeDelivery": "फुकट डिलिव्हरी",
   "percentOff": "{percent}% सूट",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "तुमची कार्ट रिकामी आसा",
   "cartEmptySubtitle": "सुरू करुंक खंयच्याय रेस्टॉरंटांतल्यान जेवण जोडात.",
   "browseRestaurants": "रेस्टॉरंटां पळयात",
-  "itemsInCart": "{count} वस्तू",
+  "itemsInCart": "{count, plural, =1{1 वस्त} other{{count} वस्तू}}",
   "viewCart": "कार्ट पळयात",
   "itemTotal": "वस्तूंची बेरीज",
   "deliveryFeeLabel": "डिलिव्हरी शुल्क",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "ऑर्डर रद्द जाली",
 
-  "currentLocationLabel": "सद्याची सुवात"
+  "currentLocationLabel": "सद्याची सुवात",
+
+  "editProfileTitle": "प्रोफायल बदलात",
+
+  "editProfileSubtitle": "रेस्टॉरंट आनी डिलिव्हरी पार्टनराक तुमचें नांवच दिसता.",
+
+  "saveChanges": "बदल जतनाय करात",
+
+  "profileUpdated": "प्रोफायल अद्ययावत जाली",
+
+  "deleteAccount": "खातें काडात",
+
+  "deleteAccountTitle": "तुमचें खातें काडूं?",
+
+  "deleteAccountMessage": "सगळ्या उपकरणांतल्यान सायन आवट जातले. पोरन्यो ऑर्डरी आनी बिलां कर नोंदींखातीर दवरतात.",
+
+  "accountDeleted": "तुमचें खातें काडलें",
+
+  "devicesTitle": "सायन-इन उपकरणां",
+
+  "devicesSubtitle": "तुमी खंय सायन इन आसात",
+
+  "devicesEmptyTitle": "हेर खंयचेंच उपकरण ना",
+
+  "devicesEmptySubtitle": "तुमी फकत ह्याच उपकरणाचेर सायन इन आसात.",
+
+  "signOutDevice": "सायन आवट",
+
+  "signOutDeviceTitle": "हें उपकरण सायन आवट करूं?",
+
+  "signOutDeviceMessage": "तुमी हेंच उपकरण वापरता जाल्यार परतून सायन इन करचें पडटलें.",
+
+  "deviceSignedOut": "उपकरण सायन आवट जालें",
+
+  "signOutEverywhere": "सगळेकडेन सायन आवट",
+
+  "signOutEverywhereTitle": "सगळेकडेन सायन आवट करूं?",
+
+  "signOutEverywhereMessage": "ह्या उपकरणासयत दर एक उपकरण सायन आवट जातलें.",
+
+  "unknownDevice": "अज्ञात उपकरण",
+
+  "activeNow": "आतां सक्रिय",
+
+  "minutesAgo": "{count} मिनटां आदीं",
+
+  "hoursAgo": "{count} वरां आदीं",
+
+  "daysAgo": "{count} दीस आदीं",
+
+  "filtersAndSorting": "फिल्टर आनी क्रम",
+
+  "clearAll": "सगळें काडात",
+
+  "showResults": "निकाल दाखयात",
+
+  "closeLabel": "बंद करात",
+
+  "sortByTitle": "क्रम",
+
+  "sortRelevance": "सुसंगतताय",
+
+  "sortRating": "रेटिंग",
+
+  "sortDeliveryTime": "डिलिव्हरी वेळ",
+
+  "sortCostLowHigh": "दर: उण्यासावन चड",
+
+  "sortCostHighLow": "दर: चडासावन उणें",
+
+  "timeSection": "वेळ",
+
+  "nearAndFast": "लागीं आनी बेगीन",
+
+  "openNow": "आतां उगडें",
+
+  "ratingSection": "रेस्टॉरंट रेटिंग",
+
+  "ratedAbove": "{rating}+ रेटिंग",
+
+  "offersSection": "ऑफर",
+
+  "hasOffersLabel": "ऑफर आशिल्ले",
+
+  "dishPriceSection": "पदार्थाचो दर",
+
+  "costUnder": "{amount} परस उणें",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "चड",
+
+  "noPackagingCharges": "पॅकिंग शुल्क ना",
+
+  "allRestaurantsTitle": "सगळीं रेस्टॉरंटां",
+
+  "whatsOnYourMind": "कितें खावंक मन आसा?",
+
+  "listeningNow": "आयकतां…",
+
+  "speakNowHint": "खंयचोय पदार्थ वा रेस्टॉरंट सांगात",
+
+  "voiceUnavailable": "व्हॉयस सोद उपलब्ध ना",
+
+  "voiceUnavailableBody": "तुमी टायप करून लेगीत सोदूं येता.",
+
+  "microphoneDenied": "मायक्रोफोन परवानगी बंद",
+
+  "voiceSearchLabel": "आवाजान सोदात",
+
+  "ratingsAndReviews": "रेटिंग आनी समीक्षा",
+
+  "reviewsWithTextOnly": "समीक्षा आशिल्ले",
+
+  "noReviewsTitle": "अजून एकूय रेटिंग ना",
+
+  "noReviewsSubtitle": "ऑर्डर केल्या उपरांत पयलें रेटिंग तुमीच दियात.",
+
+  "rateOrderTitle": "तुमच्या ऑर्डराक रेटिंग दियात",
+
+  "rateDishesTitle": "जेवणांक रेटिंग दियात",
+
+  "reviewHint": "आनीक कितें सांगपाचें आसा? (ऐच्छिक)",
+
+  "submitRating": "रेटिंग धाडात",
+
+  "reviewThanks": "देव बरें करूं — तुमचें रेटिंग मेळ्ळें.",
+
+  "rateThisOrder": "ह्या ऑर्डराक रेटिंग दियात"
 }

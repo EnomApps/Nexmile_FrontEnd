@@ -71,12 +71,12 @@
   "cravingTitle": "आइ की खाय मोन अछि?",
   "offersTitle": "अहाँक लेल ऑफर",
   "restaurantsNearby": "अहाँक लगक रेस्टोरेंट",
-  "restaurantsCount": "{count} रेस्टोरेंट",
+  "restaurantsCount": "{count, plural, =1{1 रेस्टोरेंट} other{{count} रेस्टोरेंट}}",
   "noRestaurantsTitle": "एतय अखन किछु नहि अछि",
   "noRestaurantsSubtitle": "दोसर श्रेणी देखू वा फिल्टर हटाउ।",
   "minutesAway": "{minutes} मिनट",
   "kilometresAway": "{distance} किमी",
-  "ratingsCount": "{count}+ रेटिंग",
+  "ratingsCount": "{count, plural, =1{1 रेटिंग} other{{count} रेटिंग}}",
   "priceForTwo": "दू गोटेक लेल ₹{amount}",
   "freeDelivery": "मुफ्त डिलीवरी",
   "percentOff": "{percent}% छूट",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "अहाँक कार्ट खाली अछि",
   "cartEmptySubtitle": "शुरू करबाक लेल कोनो रेस्टोरेंट सँ व्यंजन जोड़ू।",
   "browseRestaurants": "रेस्टोरेंट देखू",
-  "itemsInCart": "{count} सामान",
+  "itemsInCart": "{count, plural, =1{1 वस्तु} other{{count} वस्तु}}",
   "viewCart": "कार्ट देखू",
   "itemTotal": "सामानक कुल",
   "deliveryFeeLabel": "डिलीवरी शुल्क",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "ऑर्डर रद्द भऽ गेल",
 
-  "currentLocationLabel": "वर्तमान ठाम"
+  "currentLocationLabel": "वर्तमान ठाम",
+
+  "editProfileTitle": "प्रोफाइल बदलू",
+
+  "editProfileSubtitle": "रेस्टोरेंट आ डिलीवरी पार्टनर अहाँक नामे देखैत छथि।",
+
+  "saveChanges": "बदलाव सहेजू",
+
+  "profileUpdated": "प्रोफाइल अपडेट भऽ गेल",
+
+  "deleteAccount": "खाता मेटाउ",
+
+  "deleteAccountTitle": "अपन खाता मेटाबी?",
+
+  "deleteAccountMessage": "सब डिवाइस सँ साइन आउट भऽ जाएब। पुरान ऑर्डर आ बिल कर रिकॉर्ड लेल राखल जाइत अछि।",
+
+  "accountDeleted": "अहाँक खाता मेटा देल गेल",
+
+  "devicesTitle": "साइन-इन डिवाइस",
+
+  "devicesSubtitle": "अहाँ कतय साइन इन छी",
+
+  "devicesEmptyTitle": "आन कोनो डिवाइस नहि",
+
+  "devicesEmptySubtitle": "अहाँ खाली एहि डिवाइस पर साइन इन छी।",
+
+  "signOutDevice": "साइन आउट",
+
+  "signOutDeviceTitle": "ई डिवाइस साइन आउट करी?",
+
+  "signOutDeviceMessage": "जँ अहाँ एहि डिवाइसक प्रयोग कऽ रहल छी तँ फेर साइन इन करय पड़त।",
+
+  "deviceSignedOut": "डिवाइस साइन आउट भऽ गेल",
+
+  "signOutEverywhere": "सब ठाम सँ साइन आउट",
+
+  "signOutEverywhereTitle": "सब ठाम सँ साइन आउट करी?",
+
+  "signOutEverywhereMessage": "एहि डिवाइस सहित सब डिवाइस साइन आउट भऽ जाएत।",
+
+  "unknownDevice": "अज्ञात डिवाइस",
+
+  "activeNow": "एखन सक्रिय",
+
+  "minutesAgo": "{count} मिनट पहिने",
+
+  "hoursAgo": "{count} घंटा पहिने",
+
+  "daysAgo": "{count} दिन पहिने",
+
+  "filtersAndSorting": "फिल्टर आ क्रम",
+
+  "clearAll": "सब हटाउ",
+
+  "showResults": "नतीजा देखू",
+
+  "closeLabel": "बन्न करू",
+
+  "sortByTitle": "क्रम",
+
+  "sortRelevance": "प्रासंगिकता",
+
+  "sortRating": "रेटिंग",
+
+  "sortDeliveryTime": "डिलीवरी समय",
+
+  "sortCostLowHigh": "दाम: कम सँ बेसी",
+
+  "sortCostHighLow": "दाम: बेसी सँ कम",
+
+  "timeSection": "समय",
+
+  "nearAndFast": "लगीच आ तेज",
+
+  "openNow": "अखन खुजल",
+
+  "ratingSection": "रेस्टोरेंट रेटिंग",
+
+  "ratedAbove": "{rating}+ रेटिंग",
+
+  "offersSection": "ऑफर",
+
+  "hasOffersLabel": "ऑफर वला",
+
+  "dishPriceSection": "व्यंजनक दाम",
+
+  "costUnder": "{amount} सँ कम",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "आओर",
+
+  "noPackagingCharges": "पैकिंग शुल्क नहि",
+
+  "allRestaurantsTitle": "सब रेस्टोरेंट",
+
+  "whatsOnYourMind": "की खाय के मोन अछि?",
+
+  "listeningNow": "सुनि रहल छी…",
+
+  "speakNowHint": "कोनो व्यंजन वा रेस्टोरेंट बाजू",
+
+  "voiceUnavailable": "वॉइस सर्च उपलब्ध नहि",
+
+  "voiceUnavailableBody": "अहाँ टाइप कऽ कऽ सेहो ताकि सकैत छी।",
+
+  "microphoneDenied": "माइक्रोफोन अनुमति बन्न",
+
+  "voiceSearchLabel": "बाजि कऽ ताकू",
+
+  "ratingsAndReviews": "रेटिंग आ समीक्षा",
+
+  "reviewsWithTextOnly": "समीक्षा वला",
+
+  "noReviewsTitle": "अखन धरि कोनो रेटिंग नै",
+
+  "noReviewsSubtitle": "ऑर्डरक बाद पहिल रेटिंग अहीं दिअ।",
+
+  "rateOrderTitle": "अपन ऑर्डरकेँ रेट करू",
+
+  "rateDishesTitle": "व्यंजन सभकेँ रेट करू",
+
+  "reviewHint": "आर किछु कहय चाहब? (वैकल्पिक)",
+
+  "submitRating": "रेटिंग पठाउ",
+
+  "reviewThanks": "धन्यवाद — अहाँक रेटिंग भेट गेल।",
+
+  "rateThisOrder": "ई ऑर्डरकेँ रेट करू"
 }

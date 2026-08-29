@@ -210,7 +210,13 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String restaurantsCount(int count) {
-    return '$countଟି ରେଷ୍ଟୁରାଣ୍ଟ';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countଟି ରେଷ୍ଟୁରାଣ୍ଟ',
+      one: '1ଟି ରେଷ୍ଟୁରାଣ୍ଟ',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -231,7 +237,13 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String ratingsCount(int count) {
-    return '$count+ ରେଟିଂ';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ରେଟିଂ',
+      one: '1 ରେଟିଂ',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -292,7 +304,13 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String itemsInCart(int count) {
-    return '$countଟି ଜିନିଷ';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countଟି ଜିନିଷ',
+      one: '1ଟି ଜିନିଷ',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -721,4 +739,213 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get currentLocationLabel => 'ବର୍ତ୍ତମାନ ଅବସ୍ଥାନ';
+
+  @override
+  String get editProfileTitle => 'ପ୍ରୋଫାଇଲ ସମ୍ପାଦନ କରନ୍ତୁ';
+
+  @override
+  String get editProfileSubtitle => 'ରେଷ୍ଟୁରାଣ୍ଟ ଓ ଡେଲିଭରୀ ପାର୍ଟନର ଆପଣଙ୍କ ନାମ ହିଁ ଦେଖନ୍ତି।';
+
+  @override
+  String get saveChanges => 'ପରିବର୍ତ୍ତନ ସଞ୍ଚୟ କରନ୍ତୁ';
+
+  @override
+  String get profileUpdated => 'ପ୍ରୋଫାଇଲ ଅପଡେଟ ହେଲା';
+
+  @override
+  String get deleteAccount => 'ଖାତା ବିଲୋପ କରନ୍ତୁ';
+
+  @override
+  String get deleteAccountTitle => 'ଆପଣଙ୍କ ଖାତା ବିଲୋପ କରିବେ?';
+
+  @override
+  String get deleteAccountMessage => 'ସବୁ ଉପକରଣରୁ ସାଇନ ଆଉଟ ହୋଇଯିବେ। ପୁରୁଣା ଅର୍ଡର ଓ ବିଲ କର ରେକର୍ଡ ପାଇଁ ରଖାଯାଏ।';
+
+  @override
+  String get accountDeleted => 'ଆପଣଙ୍କ ଖାତା ବିଲୋପ କରାଗଲା';
+
+  @override
+  String get devicesTitle => 'ସାଇନ-ଇନ ଉପକରଣ';
+
+  @override
+  String get devicesSubtitle => 'ଆପଣ କେଉଁଠି ସାଇନ ଇନ ଅଛନ୍ତି';
+
+  @override
+  String get devicesEmptyTitle => 'ଅନ୍ୟ କୌଣସି ଉପକରଣ ନାହିଁ';
+
+  @override
+  String get devicesEmptySubtitle => 'ଆପଣ କେବଳ ଏହି ଉପକରଣରେ ସାଇନ ଇନ ଅଛନ୍ତି।';
+
+  @override
+  String get signOutDevice => 'ସାଇନ ଆଉଟ';
+
+  @override
+  String get signOutDeviceTitle => 'ଏହି ଉପକରଣ ସାଇନ ଆଉଟ କରିବେ?';
+
+  @override
+  String get signOutDeviceMessage => 'ଆପଣ ଏହି ଉପକରଣ ବ୍ୟବହାର କରୁଥିଲେ ପୁଣି ସାଇନ ଇନ କରିବାକୁ ପଡ଼ିବ।';
+
+  @override
+  String get deviceSignedOut => 'ଉପକରଣ ସାଇନ ଆଉଟ ହେଲା';
+
+  @override
+  String get signOutEverywhere => 'ସବୁଠାରୁ ସାଇନ ଆଉଟ';
+
+  @override
+  String get signOutEverywhereTitle => 'ସବୁଠାରୁ ସାଇନ ଆଉଟ କରିବେ?';
+
+  @override
+  String get signOutEverywhereMessage => 'ଏହି ଉପକରଣ ସହିତ ପ୍ରତ୍ୟେକ ଉପକରଣ ସାଇନ ଆଉଟ ହୋଇଯିବ।';
+
+  @override
+  String get unknownDevice => 'ଅଜଣା ଉପକରଣ';
+
+  @override
+  String get activeNow => 'ବର୍ତ୍ତମାନ ସକ୍ରିୟ';
+
+  @override
+  String minutesAgo(int count) {
+    return '$count ମିନିଟ ପୂର୍ବେ';
+  }
+
+  @override
+  String hoursAgo(int count) {
+    return '$count ଘଣ୍ଟା ପୂର୍ବେ';
+  }
+
+  @override
+  String daysAgo(int count) {
+    return '$count ଦିନ ପୂର୍ବେ';
+  }
+
+  @override
+  String get filtersAndSorting => 'ଫିଲ୍ଟର ଓ କ୍ରମ';
+
+  @override
+  String get clearAll => 'ସବୁ ହଟାନ୍ତୁ';
+
+  @override
+  String get showResults => 'ଫଳାଫଳ ଦେଖନ୍ତୁ';
+
+  @override
+  String get closeLabel => 'ବନ୍ଦ କରନ୍ତୁ';
+
+  @override
+  String get sortByTitle => 'କ୍ରମ';
+
+  @override
+  String get sortRelevance => 'ପ୍ରାସଙ୍ଗିକତା';
+
+  @override
+  String get sortRating => 'ରେଟିଂ';
+
+  @override
+  String get sortDeliveryTime => 'ଡେଲିଭରୀ ସମୟ';
+
+  @override
+  String get sortCostLowHigh => 'ଦାମ: କମରୁ ଅଧିକ';
+
+  @override
+  String get sortCostHighLow => 'ଦାମ: ଅଧିକରୁ କମ';
+
+  @override
+  String get timeSection => 'ସମୟ';
+
+  @override
+  String get nearAndFast => 'ପାଖ ଓ ଶୀଘ୍ର';
+
+  @override
+  String get openNow => 'ବର୍ତ୍ତମାନ ଖୋଲା';
+
+  @override
+  String get ratingSection => 'ରେଷ୍ଟୁରାଣ୍ଟ ରେଟିଂ';
+
+  @override
+  String ratedAbove(String rating) {
+    return '$rating+ ରେଟିଂ';
+  }
+
+  @override
+  String get offersSection => 'ଅଫର';
+
+  @override
+  String get hasOffersLabel => 'ଅଫର ଥିବା';
+
+  @override
+  String get dishPriceSection => 'ଖାଦ୍ୟ ଦାମ';
+
+  @override
+  String costUnder(String amount) {
+    return '$amount ରୁ କମ';
+  }
+
+  @override
+  String costBetween(String min, String max) {
+    return '$min – $max';
+  }
+
+  @override
+  String costOver(String amount) {
+    return '$amount+';
+  }
+
+  @override
+  String get moreSection => 'ଅଧିକ';
+
+  @override
+  String get noPackagingCharges => 'ପ୍ୟାକିଂ ଶୁଳ୍କ ନାହିଁ';
+
+  @override
+  String get allRestaurantsTitle => 'ସମସ୍ତ ରେଷ୍ଟୁରାଣ୍ଟ';
+
+  @override
+  String get whatsOnYourMind => 'କଣ ଖାଇବାକୁ ମନ ହେଉଛି?';
+
+  @override
+  String get listeningNow => 'ଶୁଣୁଛୁ…';
+
+  @override
+  String get speakNowHint => 'ଏକ ଖାଦ୍ୟ କିମ୍ବା ରେଷ୍ଟୁରାଣ୍ଟ କୁହନ୍ତୁ';
+
+  @override
+  String get voiceUnavailable => 'ଭଏସ ସର୍ଚ ଉପଲବ୍ଧ ନାହିଁ';
+
+  @override
+  String get voiceUnavailableBody => 'ଆପଣ ଟାଇପ କରି ମଧ୍ୟ ଖୋଜିପାରିବେ।';
+
+  @override
+  String get microphoneDenied => 'ମାଇକ୍ରୋଫୋନ ଅନୁମତି ନାହିଁ';
+
+  @override
+  String get voiceSearchLabel => 'ସ୍ୱରରେ ଖୋଜନ୍ତୁ';
+
+  @override
+  String get ratingsAndReviews => 'ରେଟିଂ ଓ ସମୀକ୍ଷା';
+
+  @override
+  String get reviewsWithTextOnly => 'ସମୀକ୍ଷା ଥିବା';
+
+  @override
+  String get noReviewsTitle => 'ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ରେଟିଂ ନାହିଁ';
+
+  @override
+  String get noReviewsSubtitle => 'ଅର୍ଡର ପରେ ପ୍ରଥମ ରେଟିଂ ଆପଣ ଦିଅନ୍ତୁ।';
+
+  @override
+  String get rateOrderTitle => 'ଆପଣଙ୍କ ଅର୍ଡରକୁ ରେଟ କରନ୍ତୁ';
+
+  @override
+  String get rateDishesTitle => 'ଖାଦ୍ୟଗୁଡ଼ିକୁ ରେଟ କରନ୍ତୁ';
+
+  @override
+  String get reviewHint => 'ଆଉ କିଛି କହିବେ କି? (ଐଚ୍ଛିକ)';
+
+  @override
+  String get submitRating => 'ରେଟିଂ ପଠାନ୍ତୁ';
+
+  @override
+  String get reviewThanks => 'ଧନ୍ୟବାଦ — ଆପଣଙ୍କ ରେଟିଂ ମିଳିଲା।';
+
+  @override
+  String get rateThisOrder => 'ଏହି ଅର୍ଡରକୁ ରେଟ କରନ୍ତୁ';
 }

@@ -71,12 +71,12 @@
   "cravingTitle": "আজি কি খাবলৈ মন গৈছে?",
   "offersTitle": "আপোনাৰ বাবে অফাৰ",
   "restaurantsNearby": "আপোনাৰ ওচৰৰ ৰেষ্টুৰেণ্ট",
-  "restaurantsCount": "{count}টা ৰেষ্টুৰেণ্ট",
+  "restaurantsCount": "{count, plural, =1{1টা ৰেষ্টুৰেণ্ট} other{{count}টা ৰেষ্টুৰেণ্ট}}",
   "noRestaurantsTitle": "ইয়াত এতিয়াও একো নাই",
   "noRestaurantsSubtitle": "আন এটা শ্ৰেণী চাওক বা ফিল্টাৰ আঁতৰাওক।",
   "minutesAway": "{minutes} মিনিট",
   "kilometresAway": "{distance} কিমি",
-  "ratingsCount": "{count}+ ৰেটিং",
+  "ratingsCount": "{count, plural, =1{1 ৰেটিং} other{{count} ৰেটিং}}",
   "priceForTwo": "দুজনৰ বাবে ₹{amount}",
   "freeDelivery": "বিনামূলীয়া ডেলিভাৰী",
   "percentOff": "{percent}% ৰেহাই",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "আপোনাৰ কাৰ্ট খালী",
   "cartEmptySubtitle": "আৰম্ভ কৰিবলৈ কোনো ৰেষ্টুৰেণ্টৰ পৰা খাদ্য যোগ কৰক।",
   "browseRestaurants": "ৰেষ্টুৰেণ্ট চাওক",
-  "itemsInCart": "{count}টা সামগ্ৰী",
+  "itemsInCart": "{count, plural, =1{1টা বস্তু} other{{count}টা বস্তু}}",
   "viewCart": "কাৰ্ট চাওক",
   "itemTotal": "সামগ্ৰীৰ মুঠ",
   "deliveryFeeLabel": "ডেলিভাৰী মাচুল",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "অৰ্ডাৰ বাতিল হ’ল",
 
-  "currentLocationLabel": "বৰ্তমান স্থান"
+  "currentLocationLabel": "বৰ্তমান স্থান",
+
+  "editProfileTitle": "প্ৰ’ফাইল সম্পাদনা কৰক",
+
+  "editProfileSubtitle": "ৰেষ্টুৰেণ্ট আৰু ডেলিভাৰী পাৰ্টনাৰে আপোনাৰ নামেই দেখে।",
+
+  "saveChanges": "সালসলনি ৰক্ষা কৰক",
+
+  "profileUpdated": "প্ৰ’ফাইল নবীকৰণ হ’ল",
+
+  "deleteAccount": "একাউণ্ট মচক",
+
+  "deleteAccountTitle": "আপোনাৰ একাউণ্ট মচিব নেকি?",
+
+  "deleteAccountMessage": "সকলো ডিভাইচৰ পৰা ছাইন আউট হ’ব। পুৰণি অৰ্ডাৰ আৰু বিল কৰ নথিৰ বাবে ৰখা হয়।",
+
+  "accountDeleted": "আপোনাৰ একাউণ্ট মচা হ’ল",
+
+  "devicesTitle": "ছাইন-ইন ডিভাইচ",
+
+  "devicesSubtitle": "আপুনি ক’ত ছাইন ইন হৈ আছে",
+
+  "devicesEmptyTitle": "আন কোনো ডিভাইচ নাই",
+
+  "devicesEmptySubtitle": "আপুনি কেৱল এই ডিভাইচতে ছাইন ইন হৈ আছে।",
+
+  "signOutDevice": "ছাইন আউট",
+
+  "signOutDeviceTitle": "এই ডিভাইচ ছাইন আউট কৰিব নেকি?",
+
+  "signOutDeviceMessage": "আপুনি এইটোৱেই ব্যৱহাৰ কৰি থাকিলে পুনৰ ছাইন ইন কৰিব লাগিব।",
+
+  "deviceSignedOut": "ডিভাইচ ছাইন আউট হ’ল",
+
+  "signOutEverywhere": "সকলো ঠাইৰ পৰা ছাইন আউট",
+
+  "signOutEverywhereTitle": "সকলো ঠাইৰ পৰা ছাইন আউট কৰিব নেকি?",
+
+  "signOutEverywhereMessage": "এই ডিভাইচসহ প্ৰতিটো ডিভাইচ ছাইন আউট হ’ব।",
+
+  "unknownDevice": "অজ্ঞাত ডিভাইচ",
+
+  "activeNow": "এতিয়া সক্ৰিয়",
+
+  "minutesAgo": "{count} মিনিট আগেয়ে",
+
+  "hoursAgo": "{count} ঘণ্টা আগেয়ে",
+
+  "daysAgo": "{count} দিন আগেয়ে",
+
+  "filtersAndSorting": "ফিল্টাৰ আৰু ক্ৰম",
+
+  "clearAll": "সকলো আঁতৰাওক",
+
+  "showResults": "ফলাফল দেখুৱাওক",
+
+  "closeLabel": "বন্ধ কৰক",
+
+  "sortByTitle": "ক্ৰম",
+
+  "sortRelevance": "প্ৰাসংগিকতা",
+
+  "sortRating": "ৰেটিং",
+
+  "sortDeliveryTime": "ডেলিভাৰী সময়",
+
+  "sortCostLowHigh": "দাম: কমৰ পৰা বেছি",
+
+  "sortCostHighLow": "দাম: বেছিৰ পৰা কম",
+
+  "timeSection": "সময়",
+
+  "nearAndFast": "ওচৰত আৰু দ্ৰুত",
+
+  "openNow": "এতিয়া খোলা",
+
+  "ratingSection": "ৰেষ্টুৰেণ্ট ৰেটিং",
+
+  "ratedAbove": "{rating}+ ৰেটিং",
+
+  "offersSection": "অফাৰ",
+
+  "hasOffersLabel": "অফাৰ থকা",
+
+  "dishPriceSection": "ব্যঞ্জনৰ দাম",
+
+  "costUnder": "{amount} তকৈ কম",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "অধিক",
+
+  "noPackagingCharges": "পেকিং মাচুল নাই",
+
+  "allRestaurantsTitle": "সকলো ৰেষ্টুৰেণ্ট",
+
+  "whatsOnYourMind": "কি খাব মন গৈছে?",
+
+  "listeningNow": "শুনি আছোঁ…",
+
+  "speakNowHint": "এটা ব্যঞ্জন বা ৰেষ্টুৰেণ্ট কওক",
+
+  "voiceUnavailable": "ভইচ চাৰ্চ উপলব্ধ নহয়",
+
+  "voiceUnavailableBody": "আপুনি টাইপ কৰিও বিচাৰিব পাৰে।",
+
+  "microphoneDenied": "মাইক্ৰʼফোন অনুমতি বন্ধ",
+
+  "voiceSearchLabel": "মাতেৰে বিচাৰক",
+
+  "ratingsAndReviews": "ৰেটিং আৰু পৰ্যালোচনা",
+
+  "reviewsWithTextOnly": "পৰ্যালোচনা থকা",
+
+  "noReviewsTitle": "এতিয়ালৈকে কোনো ৰেটিং নাই",
+
+  "noReviewsSubtitle": "অৰ্ডাৰৰ পিছত প্ৰথম ৰেটিং আপুনিয়েই দিয়ক।",
+
+  "rateOrderTitle": "আপোনাৰ অৰ্ডাৰ ৰেট কৰক",
+
+  "rateDishesTitle": "খাদ্যবোৰ ৰেট কৰক",
+
+  "reviewHint": "আৰু কিবা ক'ব বিচাৰেনে? (ঐচ্ছিক)",
+
+  "submitRating": "ৰেটিং পঠিয়াওক",
+
+  "reviewThanks": "ধন্যবাদ — আপোনাৰ ৰেটিং জমা হ'ল।",
+
+  "rateThisOrder": "এই অৰ্ডাৰ ৰেট কৰক"
 }

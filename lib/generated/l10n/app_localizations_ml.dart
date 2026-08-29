@@ -210,7 +210,13 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String restaurantsCount(int count) {
-    return '$count റെസ്റ്റോറന്റുകൾ';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count റെസ്റ്റോറന്റുകൾ',
+      one: '1 റെസ്റ്റോറന്റ്',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -231,7 +237,13 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String ratingsCount(int count) {
-    return '$count+ റേറ്റിംഗുകൾ';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count റേറ്റിംഗുകൾ',
+      one: '1 റേറ്റിംഗ്',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -292,7 +304,13 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String itemsInCart(int count) {
-    return '$count സാധനങ്ങൾ';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ഇനങ്ങൾ',
+      one: '1 ഇനം',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -721,4 +739,213 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get currentLocationLabel => 'നിലവിലെ സ്ഥലം';
+
+  @override
+  String get editProfileTitle => 'പ്രൊഫൈൽ തിരുത്തുക';
+
+  @override
+  String get editProfileSubtitle => 'റെസ്റ്റോറന്റും ഡെലിവറി പങ്കാളിയും കാണുന്നത് നിങ്ങളുടെ പേരാണ്.';
+
+  @override
+  String get saveChanges => 'മാറ്റങ്ങൾ സൂക്ഷിക്കുക';
+
+  @override
+  String get profileUpdated => 'പ്രൊഫൈൽ പുതുക്കി';
+
+  @override
+  String get deleteAccount => 'അക്കൗണ്ട് ഇല്ലാതാക്കുക';
+
+  @override
+  String get deleteAccountTitle => 'നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കണോ?';
+
+  @override
+  String get deleteAccountMessage => 'എല്ലാ ഉപകരണങ്ങളിൽ നിന്നും സൈൻ ഔട്ട് ആകും. പഴയ ഓർഡറുകളും ബില്ലുകളും നികുതി രേഖയ്ക്കായി സൂക്ഷിക്കും.';
+
+  @override
+  String get accountDeleted => 'നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കി';
+
+  @override
+  String get devicesTitle => 'സൈൻ-ഇൻ ഉപകരണങ്ങൾ';
+
+  @override
+  String get devicesSubtitle => 'നിങ്ങൾ എവിടെ സൈൻ ഇൻ ചെയ്തിരിക്കുന്നു';
+
+  @override
+  String get devicesEmptyTitle => 'മറ്റ് ഉപകരണങ്ങളില്ല';
+
+  @override
+  String get devicesEmptySubtitle => 'ഈ ഉപകരണത്തിൽ മാത്രമേ നിങ്ങൾ സൈൻ ഇൻ ചെയ്തിട്ടുള്ളൂ.';
+
+  @override
+  String get signOutDevice => 'സൈൻ ഔട്ട്';
+
+  @override
+  String get signOutDeviceTitle => 'ഈ ഉപകരണം സൈൻ ഔട്ട് ചെയ്യണോ?';
+
+  @override
+  String get signOutDeviceMessage => 'നിങ്ങൾ ഉപയോഗിക്കുന്നത് ഇതാണെങ്കിൽ വീണ്ടും സൈൻ ഇൻ ചെയ്യേണ്ടിവരും.';
+
+  @override
+  String get deviceSignedOut => 'ഉപകരണം സൈൻ ഔട്ട് ചെയ്തു';
+
+  @override
+  String get signOutEverywhere => 'എല്ലായിടത്തും സൈൻ ഔട്ട്';
+
+  @override
+  String get signOutEverywhereTitle => 'എല്ലായിടത്തും സൈൻ ഔട്ട് ചെയ്യണോ?';
+
+  @override
+  String get signOutEverywhereMessage => 'ഈ ഉപകരണം ഉൾപ്പെടെ എല്ലാ ഉപകരണങ്ങളും സൈൻ ഔട്ട് ആകും.';
+
+  @override
+  String get unknownDevice => 'അജ്ഞാത ഉപകരണം';
+
+  @override
+  String get activeNow => 'ഇപ്പോൾ സജീവം';
+
+  @override
+  String minutesAgo(int count) {
+    return '$count മിനിറ്റ് മുൻപ്';
+  }
+
+  @override
+  String hoursAgo(int count) {
+    return '$count മണിക്കൂർ മുൻപ്';
+  }
+
+  @override
+  String daysAgo(int count) {
+    return '$count ദിവസം മുൻപ്';
+  }
+
+  @override
+  String get filtersAndSorting => 'ഫിൽട്ടറും ക്രമവും';
+
+  @override
+  String get clearAll => 'എല്ലാം മായ്ക്കുക';
+
+  @override
+  String get showResults => 'ഫലങ്ങൾ കാണിക്കുക';
+
+  @override
+  String get closeLabel => 'അടയ്ക്കുക';
+
+  @override
+  String get sortByTitle => 'ക്രമീകരിക്കുക';
+
+  @override
+  String get sortRelevance => 'പ്രസക്തി';
+
+  @override
+  String get sortRating => 'റേറ്റിംഗ്';
+
+  @override
+  String get sortDeliveryTime => 'ഡെലിവറി സമയം';
+
+  @override
+  String get sortCostLowHigh => 'വില: കുറഞ്ഞത് മുതൽ';
+
+  @override
+  String get sortCostHighLow => 'വില: കൂടിയത് മുതൽ';
+
+  @override
+  String get timeSection => 'സമയം';
+
+  @override
+  String get nearAndFast => 'അടുത്തും വേഗവും';
+
+  @override
+  String get openNow => 'ഇപ്പോൾ തുറന്നിരിക്കുന്നു';
+
+  @override
+  String get ratingSection => 'റെസ്റ്റോറന്റ് റേറ്റിംഗ്';
+
+  @override
+  String ratedAbove(String rating) {
+    return '$rating+ റേറ്റിംഗ്';
+  }
+
+  @override
+  String get offersSection => 'ഓഫറുകൾ';
+
+  @override
+  String get hasOffersLabel => 'ഓഫർ ഉള്ളവ';
+
+  @override
+  String get dishPriceSection => 'വിഭവ വില';
+
+  @override
+  String costUnder(String amount) {
+    return '$amount യിൽ താഴെ';
+  }
+
+  @override
+  String costBetween(String min, String max) {
+    return '$min – $max';
+  }
+
+  @override
+  String costOver(String amount) {
+    return '$amount+';
+  }
+
+  @override
+  String get moreSection => 'കൂടുതൽ';
+
+  @override
+  String get noPackagingCharges => 'പാക്കിംഗ് ചാർജ് ഇല്ല';
+
+  @override
+  String get allRestaurantsTitle => 'എല്ലാ റെസ്റ്റോറന്റുകളും';
+
+  @override
+  String get whatsOnYourMind => 'എന്ത് കഴിക്കാൻ തോന്നുന്നു?';
+
+  @override
+  String get listeningNow => 'കേൾക്കുന്നു…';
+
+  @override
+  String get speakNowHint => 'ഒരു വിഭവമോ റെസ്റ്റോറന്റോ പറയൂ';
+
+  @override
+  String get voiceUnavailable => 'വോയ്‌സ് സെർച്ച് ലഭ്യമല്ല';
+
+  @override
+  String get voiceUnavailableBody => 'ടൈപ്പ് ചെയ്തും തിരയാം.';
+
+  @override
+  String get microphoneDenied => 'മൈക്രോഫോൺ അനുമതിയില്ല';
+
+  @override
+  String get voiceSearchLabel => 'ശബ്ദത്തിൽ തിരയുക';
+
+  @override
+  String get ratingsAndReviews => 'റേറ്റിംഗുകളും അവലോകനങ്ങളും';
+
+  @override
+  String get reviewsWithTextOnly => 'അവലോകനമുള്ളവ';
+
+  @override
+  String get noReviewsTitle => 'ഇതുവരെ റേറ്റിംഗ് ഇല്ല';
+
+  @override
+  String get noReviewsSubtitle => 'ഓർഡറിന് ശേഷം ആദ്യ റേറ്റിംഗ് നിങ്ങൾ നൽകൂ.';
+
+  @override
+  String get rateOrderTitle => 'നിങ്ങളുടെ ഓർഡർ റേറ്റ് ചെയ്യൂ';
+
+  @override
+  String get rateDishesTitle => 'വിഭവങ്ങൾ റേറ്റ് ചെയ്യൂ';
+
+  @override
+  String get reviewHint => 'മറ്റെന്തെങ്കിലും പറയാനുണ്ടോ? (ഐച്ഛികം)';
+
+  @override
+  String get submitRating => 'റേറ്റിംഗ് അയയ്ക്കുക';
+
+  @override
+  String get reviewThanks => 'നന്ദി — നിങ്ങളുടെ റേറ്റിംഗ് ലഭിച്ചു.';
+
+  @override
+  String get rateThisOrder => 'ഈ ഓർഡർ റേറ്റ് ചെയ്യൂ';
 }

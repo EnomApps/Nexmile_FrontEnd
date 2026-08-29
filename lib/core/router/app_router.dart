@@ -10,9 +10,14 @@ import '../../features/auth/data/login_identifier.dart';
 import '../../features/auth/presentation/login_screen.dart';
 import '../../features/auth/presentation/otp_verification_screen.dart';
 import '../../features/catalogue/presentation/cart_screen.dart';
+import '../../features/catalogue/data/order_models.dart';
 import '../../features/catalogue/presentation/order_status_screen.dart';
+import '../../features/catalogue/presentation/rate_order_screen.dart';
+import '../../features/catalogue/presentation/reviews_screen.dart';
 import '../../features/catalogue/presentation/restaurant_screen.dart';
+import '../../features/catalogue/presentation/search_tab.dart';
 import '../../features/language/language_screen.dart';
+import '../../features/profile/devices_screen.dart';
 import '../../features/profile/profile_screen.dart';
 import '../../features/shell/app_shell.dart';
 import '../../features/splash/splash_screen.dart';
@@ -33,10 +38,20 @@ class AppRoutes {
   static const String dashboard = '/dashboard';
   static const String profile = '/profile';
 
+  /// "Where am I signed in" — every device holding a live refresh token.
+  static const String devices = '/devices';
+
+  /// Pushed from the header search field rather than living in the tab bar.
+  static const String search = '/search';
+
   // Storefront: nearby restaurants, the per-restaurant cart, and orders.
   static const String restaurant = '/restaurant';
   static const String cart = '/cart';
   static const String orderStatus = '/order';
+
+  /// Ratings and reviews for one restaurant, and the screen that leaves one.
+  static const String reviews = '/reviews';
+  static const String rateOrder = '/order/review';
 
   // Address book. Delivery is limited to 1 km and the API makes coordinates
   // mandatory, so the pin step is not skippable — only the GPS part is.
@@ -100,6 +115,33 @@ class AddressFormArgs {
   final ResolvedPlace? prefill;
 
   final bool isFirstAddress;
+}
+
+/// Argument bundle for [AppRoutes.search]. Optional — the route works without
+/// it, which is what the plain search field pushes.
+@immutable
+class SearchArgs {
+  const SearchArgs({this.startWithVoice = false});
+
+  final bool startWithVoice;
+}
+
+/// Argument bundle for [AppRoutes.reviews].
+@immutable
+class ReviewsArgs {
+  const ReviewsArgs({required this.restaurantId});
+
+  final String restaurantId;
+}
+
+/// Argument bundle for [AppRoutes.rateOrder].
+@immutable
+class RateOrderArgs {
+  const RateOrderArgs({required this.order});
+
+  /// Carried rather than re-fetched: the screen needs the lines to put stars
+  /// against, and the customer arrives here from a screen that already has it.
+  final Order order;
 }
 
 /// Argument bundle for [AppRoutes.restaurant].
@@ -170,6 +212,16 @@ class AppRouter {
       case AppRoutes.profile:
         return _slideRoute(const ProfileScreen(), settings);
 
+      case AppRoutes.devices:
+        return _slideRoute(const DevicesScreen(), settings);
+
+      case AppRoutes.search:
+        final Object? args = settings.arguments;
+        return _slideRoute(
+          SearchTab(startWithVoice: args is SearchArgs && args.startWithVoice),
+          settings,
+        );
+
       case AppRoutes.locationPermission:
         return _slideRoute(const LocationPermissionScreen(), settings);
 
@@ -204,6 +256,16 @@ class AppRouter {
         final Object? args = settings.arguments;
         if (args is! OrderArgs) return _misroute(settings);
         return _slideRoute(OrderStatusScreen(args: args), settings);
+
+      case AppRoutes.reviews:
+        final Object? args = settings.arguments;
+        if (args is! ReviewsArgs) return _misroute(settings);
+        return _slideRoute(ReviewsScreen(args: args), settings);
+
+      case AppRoutes.rateOrder:
+        final Object? args = settings.arguments;
+        if (args is! RateOrderArgs) return _misroute(settings);
+        return _slideRoute(RateOrderScreen(args: args), settings);
 
       default:
         return _fadeRoute(const SplashScreen(), settings);

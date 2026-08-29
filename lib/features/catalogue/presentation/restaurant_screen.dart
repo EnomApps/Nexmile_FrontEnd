@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/motion/app_motion.dart';
+import '../../../core/motion/reveal.dart';
+import '../../../core/motion/skeleton.dart';
 import '../../../core/router/app_router.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_theme.dart';
@@ -115,7 +118,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
     if (storefront.isMenuLoading) {
       return Scaffold(
         appBar: AppBar(),
-        body: const Center(child: CircularProgressIndicator()),
+        body: const MenuSkeleton(),
       );
     }
 
@@ -172,11 +175,14 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                     separatorBuilder: (_, __) => const Divider(height: 28),
                     itemBuilder: (BuildContext context, int index) {
                       final MenuItem item = section.items[index];
-                      return _MenuRow(
-                        item: item,
-                        canOrder: restaurant.isOpen,
-                        onAdd: () => _add(item),
-                        onRemove: () => _remove(item),
+                      return Reveal(
+                        index: index,
+                        child: _MenuRow(
+                          item: item,
+                          canOrder: restaurant.isOpen,
+                          onAdd: () => _add(item),
+                          onRemove: () => _remove(item),
+                        ),
                       );
                     },
                   ),
@@ -200,33 +206,155 @@ class _RestaurantHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       pinned: true,
-      expandedHeight: 190,
+      expandedHeight: 240,
+      // The bar fades from transparent-over-photo to solid as it collapses,
+      // so the back arrow never sits on a colour it cannot be read against.
+      backgroundColor: Theme.of(context).colorScheme.surface,
       flexibleSpace: FlexibleSpaceBar(
+        // Parallax: the photo drifts at half the scroll speed, which is what
+        // gives a flat banner a sense of depth.
+        collapseMode: CollapseMode.parallax,
         background: Stack(
           fit: StackFit.expand,
           children: <Widget>[
-            FoodImage(
-              seed: restaurant.id,
-              url: restaurant.bannerUrl.isEmpty
-                  ? restaurant.logoUrl
-                  : restaurant.bannerUrl,
-              size: double.infinity,
-              radius: 0,
-            ),
-            // The title sits on top of an arbitrary photo, so it needs its own
-            // contrast rather than relying on the image being dark.
+            _PhotoCarousel(restaurant: restaurant),
+            // Two scrims rather than one: the top keeps the back arrow legible
+            // on a bright photo, the bottom lets the summary below sit against
+            // something rather than a hard edge.
             const DecoratedBox(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
+                  end: Alignment.center,
                   colors: <Color>[Colors.black54, Colors.transparent],
+                ),
+              ),
+            ),
+            DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.center,
+                  colors: <Color>[
+                    Theme.of(context).colorScheme.surface,
+                    Theme.of(context)
+                        .colorScheme
+                        .surface
+                        .withValues(alpha: 0),
+                  ],
                 ),
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+/// The merchant's photographs, hero first.
+///
+/// One picture is not a carousel: with nothing to swipe to, this is exactly
+/// the single image the header always drew, with no dots and no page view to
+/// swallow a horizontal drag.
+class _PhotoCarousel extends StatefulWidget {
+  const _PhotoCarousel({required this.restaurant});
+
+  final Restaurant restaurant;
+
+  @override
+  State<_PhotoCarousel> createState() => _PhotoCarouselState();
+}
+
+class _PhotoCarouselState extends State<_PhotoCarousel> {
+  final PageController _controller = PageController();
+  int _index = 0;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final Restaurant restaurant = widget.restaurant;
+    final List<RestaurantPhoto> photos = restaurant.gallery;
+
+    if (photos.length < 2) {
+      return FoodImage(
+        seed: restaurant.id,
+        url: photos.isEmpty ? restaurant.logoUrl : photos.first.url,
+        size: double.infinity,
+        radius: 0,
+      );
+    }
+
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        PageView.builder(
+          // Named so a test can tell this carousel from the home banners.
+          key: const Key('restaurant-photos'),
+          controller: _controller,
+          itemCount: photos.length,
+          onPageChanged: (int i) => setState(() => _index = i),
+          itemBuilder: (BuildContext context, int i) {
+            final RestaurantPhoto photo = photos[i];
+            return Semantics(
+              image: true,
+              // The merchant's caption where they wrote one. Not drawn on the
+              // picture: it arrives in whatever language they typed it in, and
+              // the app is read in twenty-three.
+              label: photo.caption,
+              child: FoodImage(
+                seed: '${restaurant.id}-${photo.id}',
+                url: photo.url,
+                size: double.infinity,
+                radius: 0,
+              ),
+            );
+          },
+        ),
+        // Above the bottom scrim, which is where the page starts washing the
+        // photo out into the surface colour.
+        PositionedDirectional(
+          start: 0,
+          end: 0,
+          bottom: 58,
+          child: _PhotoDots(count: photos.length, index: _index),
+        ),
+      ],
+    );
+  }
+}
+
+class _PhotoDots extends StatelessWidget {
+  const _PhotoDots({required this.count, required this.index});
+
+  final int count;
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        for (int i = 0; i < count; i++)
+          AnimatedContainer(
+            duration: AppMotion.quick,
+            curve: AppMotion.enter,
+            margin: const EdgeInsets.symmetric(horizontal: 3),
+            // The current dot stretches rather than growing rounder, so the
+            // position reads at a glance on a busy photograph.
+            width: i == index ? 18 : 6,
+            height: 6,
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: i == index ? 0.95 : 0.5),
+              borderRadius: BorderRadius.circular(100),
+            ),
+          ),
+      ],
     );
   }
 }
@@ -263,6 +391,34 @@ class _RestaurantSummary extends StatelessWidget {
             Text(restaurant.description, style: theme.textTheme.bodySmall),
           ],
           const SizedBox(height: 12),
+          // The badge is the way in to the reviews. Hidden entirely when there
+          // is no rating: a tap that leads to an empty list is a dead end, and
+          // an unrated shop is not a badly rated one.
+          if (restaurant.hasRating) ...<Widget>[
+            InkWell(
+              onTap: () => Navigator.of(context).pushNamed(
+                AppRoutes.reviews,
+                arguments: ReviewsArgs(restaurantId: restaurant.id),
+              ),
+              borderRadius: BorderRadius.circular(8),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    RatingBadge(rating: restaurant.rating!),
+                    const SizedBox(width: 8),
+                    Text(
+                      l10n.ratingsCount(restaurant.ratingCount),
+                      style: theme.textTheme.bodySmall,
+                    ),
+                    const Icon(Icons.chevron_right_rounded, size: 20),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+          ],
           Wrap(
             spacing: 10,
             runSpacing: 8,
@@ -384,6 +540,23 @@ class _MenuRow extends StatelessWidget {
                   style: theme.textTheme.titleSmall
                       ?.copyWith(fontWeight: FontWeight.w700),
                 ),
+                // Null until three people have rated it, and hidden rather
+                // than shown as zero: a dish nobody has rated yet is not a bad
+                // dish.
+                if (item.hasRating) ...<Widget>[
+                  const SizedBox(height: 5),
+                  Row(
+                    children: <Widget>[
+                      RatingBadge(rating: item.rating!),
+                      const SizedBox(width: 6),
+                      Text(
+                        '(${item.ratingCount})',
+                        textDirection: TextDirection.ltr,
+                        style: theme.textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
+                ],
                 const SizedBox(height: 4),
                 Row(
                   children: <Widget>[
@@ -465,18 +638,49 @@ class _CartBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    final AppLocalizations l10n = AppLocalizations.of(context);
     final CartController controller = context.watch<CartController>();
     final Cart? cart = controller.cart;
 
-    if (cart == null || cart.isEmpty) return const SizedBox.shrink();
+    final bool visible = cart != null && !cart.isEmpty;
+    // Kept mounted and slid out of view rather than removed, so adding the
+    // first item slides the bar up from the bottom edge instead of making the
+    // page jump by its height.
+    return AnimatedSlide(
+      offset: visible ? Offset.zero : const Offset(0, 1.4),
+      duration: AppMotion.settled,
+      curve: visible ? AppMotion.spring : AppMotion.exit,
+      child: AnimatedOpacity(
+        opacity: visible ? 1 : 0,
+        duration: AppMotion.quick,
+        child: IgnorePointer(
+          ignoring: !visible,
+          child: _CartBarBody(cart: cart, restaurantId: restaurantId),
+        ),
+      ),
+    );
+  }
+}
+
+class _CartBarBody extends StatelessWidget {
+  const _CartBarBody({required this.cart, required this.restaurantId});
+
+  final Cart? cart;
+  final String restaurantId;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final AppLocalizations l10n = AppLocalizations.of(context);
+    final Cart? cart = this.cart;
+    if (cart == null) return const SizedBox(height: 0);
 
     return SafeArea(
       minimum: const EdgeInsets.fromLTRB(16, 0, 16, 12),
       child: Material(
         color: AppColors.greenDeep,
         borderRadius: BorderRadius.circular(AppTheme.radius),
+        elevation: 10,
+        shadowColor: AppColors.greenDeep.withValues(alpha: 0.5),
         child: InkWell(
           borderRadius: BorderRadius.circular(AppTheme.radius),
           onTap: () => Navigator.of(context).pushNamed(

@@ -2,6 +2,7 @@ import '../../../core/config/app_config.dart';
 import '../../../core/network/api_client.dart';
 import '../../../core/network/api_exception.dart';
 import 'auth_session.dart';
+import 'device_session.dart';
 import 'auth_user.dart';
 import 'login_identifier.dart';
 
@@ -38,6 +39,33 @@ abstract class AuthRepository {
 
   /// `POST /v1/auth/logout` — revokes this device only.
   Future<void> signOut();
+
+  /// `PATCH /v1/profile`
+  ///
+  /// Only the name, contact details and language. Role and account status are
+  /// deliberately not editable — a customer must not be able to promote
+  /// themselves or lift a suspension.
+  Future<AuthUser> updateProfile({
+    String? name,
+    String? email,
+    String? phone,
+    String? preferredLocale,
+  });
+
+  /// `DELETE /v1/profile`
+  ///
+  /// A soft delete server-side: past orders, invoices and settlement records
+  /// stay intact for tax purposes. Every session is revoked.
+  Future<void> deleteAccount();
+
+  /// `GET /v1/auth/sessions` — every device holding a live refresh token.
+  Future<List<DeviceSession>> sessions();
+
+  /// `DELETE /v1/auth/sessions/{id}` — signs one other device out.
+  Future<void> revokeSession(int id);
+
+  /// `POST /v1/auth/logout-all` — ends every session, this one included.
+  Future<void> signOutEverywhere();
 }
 
 class ApiAuthRepository implements AuthRepository {
@@ -99,6 +127,57 @@ class ApiAuthRepository implements AuthRepository {
   Future<AuthUser> profile() async {
     final Map<String, dynamic> response = await _client.get('/v1/profile');
     return AuthUser.fromJson(_data(response));
+  }
+
+  @override
+  Future<AuthUser> updateProfile({
+    String? name,
+    String? email,
+    String? phone,
+    String? preferredLocale,
+  }) async {
+    final Map<String, dynamic> response = await _client.patch(
+      '/v1/profile',
+      // Only send what is actually being changed. An explicit null clears the
+      // field server-side, which is not what "left untouched" should mean.
+      body: <String, dynamic>{
+        if (name != null) 'name': name,
+        if (email != null) 'email': email,
+        if (phone != null) 'phone': phone,
+        if (preferredLocale != null) 'preferred_locale': preferredLocale,
+      },
+    );
+    return AuthUser.fromJson(_data(response));
+  }
+
+  @override
+  Future<void> deleteAccount() => _client.delete('/v1/profile');
+
+  @override
+  Future<List<DeviceSession>> sessions() async {
+    final Map<String, dynamic> response =
+        await _client.get('/v1/auth/sessions');
+    final Object? data = response['data'];
+    if (data is! List) return const <DeviceSession>[];
+    return data
+        .whereType<Map<String, dynamic>>()
+        .map(DeviceSession.fromJson)
+        .toList(growable: false);
+  }
+
+  @override
+  Future<void> revokeSession(int id) =>
+      _client.delete('/v1/auth/sessions/$id');
+
+  @override
+  Future<void> signOutEverywhere() async {
+    try {
+      await _client.post('/v1/auth/logout-all');
+    } on ApiException {
+      // Same reasoning as signOut: the local session is cleared either way.
+      // Leaving the customer signed in because the revoke call failed would be
+      // the worse outcome of the two.
+    }
   }
 
   @override

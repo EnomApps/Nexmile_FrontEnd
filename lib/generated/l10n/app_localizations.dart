@@ -524,7 +524,7 @@ abstract class AppLocalizations {
   /// Heading above the restaurant list once a category filter is applied.
   ///
   /// In en, this message translates to:
-  /// **'{count} restaurants'**
+  /// **'{count, plural, =1{1 restaurant} other{{count} restaurants}}'**
   String restaurantsCount(int count);
 
   /// Empty state when a category has no restaurants.
@@ -554,7 +554,7 @@ abstract class AppLocalizations {
   /// Number of customer ratings a restaurant has.
   ///
   /// In en, this message translates to:
-  /// **'{count}+ ratings'**
+  /// **'{count, plural, =1{1 rating} other{{count} ratings}}'**
   String ratingsCount(int count);
 
   /// Typical spend for two people. Keep the ₹ symbol.
@@ -656,7 +656,7 @@ abstract class AppLocalizations {
   /// Item count on the floating cart bar and on an order card.
   ///
   /// In en, this message translates to:
-  /// **'{count} items'**
+  /// **'{count, plural, =1{1 item} other{{count} items}}'**
   String itemsInCart(int count);
 
   /// Action on the floating cart bar.
@@ -1468,6 +1468,396 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Current location'**
   String get currentLocationLabel;
+
+  /// Title of the sheet that edits name, email and mobile number.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit profile'**
+  String get editProfileTitle;
+
+  /// Supporting copy explaining why the name matters.
+  ///
+  /// In en, this message translates to:
+  /// **'Your name is what the restaurant and the delivery partner see.'**
+  String get editProfileSubtitle;
+
+  /// Confirm button on the edit-profile sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Save changes'**
+  String get saveChanges;
+
+  /// Confirmation after a successful profile update.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile updated'**
+  String get profileUpdated;
+
+  /// Button that deletes the account. Destructive.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete account'**
+  String get deleteAccount;
+
+  /// Title of the confirm-before-deleting dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete your account?'**
+  String get deleteAccountTitle;
+
+  /// Body of the confirm-before-deleting dialog. The server keeps a soft-deleted record so past orders and invoices survive.
+  ///
+  /// In en, this message translates to:
+  /// **'You will be signed out everywhere. Past orders and invoices are kept for tax records.'**
+  String get deleteAccountMessage;
+
+  /// Confirmation after the account is deleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account has been deleted'**
+  String get accountDeleted;
+
+  /// Title of the screen listing every signed-in device.
+  ///
+  /// In en, this message translates to:
+  /// **'Signed-in devices'**
+  String get devicesTitle;
+
+  /// One-line description of the devices screen, also used as the profile row value.
+  ///
+  /// In en, this message translates to:
+  /// **'Where you are signed in'**
+  String get devicesSubtitle;
+
+  /// Title when no other device holds a session.
+  ///
+  /// In en, this message translates to:
+  /// **'No other devices'**
+  String get devicesEmptyTitle;
+
+  /// Supporting copy for the empty devices list.
+  ///
+  /// In en, this message translates to:
+  /// **'You are signed in on this device only.'**
+  String get devicesEmptySubtitle;
+
+  /// Signs one listed device out.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out'**
+  String get signOutDevice;
+
+  /// Title of the confirm-before-revoking dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out this device?'**
+  String get signOutDeviceTitle;
+
+  /// Body of the confirm dialog. The API gives no way to tell which row is this phone, so the copy has to warn it might be.
+  ///
+  /// In en, this message translates to:
+  /// **'If this is the device you are using, you will have to sign in again.'**
+  String get signOutDeviceMessage;
+
+  /// Confirmation after one device is signed out.
+  ///
+  /// In en, this message translates to:
+  /// **'Device signed out'**
+  String get deviceSignedOut;
+
+  /// Ends every session on every device, this one included.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out everywhere'**
+  String get signOutEverywhere;
+
+  /// Title of the confirm-before-signing-out-everywhere dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out everywhere?'**
+  String get signOutEverywhereTitle;
+
+  /// Body of that dialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Every device, including this one, will be signed out.'**
+  String get signOutEverywhereMessage;
+
+  /// Shown in place of a device name when the API returns none.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown device'**
+  String get unknownDevice;
+
+  /// Shown when a device used its session in the last couple of minutes.
+  ///
+  /// In en, this message translates to:
+  /// **'Active now'**
+  String get activeNow;
+
+  /// How long ago a device last used its session. Keep it short — it sits under a device name.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min ago'**
+  String minutesAgo(int count);
+
+  /// How long ago a device last used its session.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} h ago'**
+  String hoursAgo(int count);
+
+  /// How long ago a device last used its session.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} d ago'**
+  String daysAgo(int count);
+
+  /// Title of the filter sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Filters and sorting'**
+  String get filtersAndSorting;
+
+  /// Resets every filter in the sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear all'**
+  String get clearAll;
+
+  /// Confirms the filter sheet and re-queries the list.
+  ///
+  /// In en, this message translates to:
+  /// **'Show results'**
+  String get showResults;
+
+  /// Dismisses the filter sheet without applying anything.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get closeLabel;
+
+  /// Section heading over the sort options.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort by'**
+  String get sortByTitle;
+
+  /// Default sort — the server decides the order.
+  ///
+  /// In en, this message translates to:
+  /// **'Relevance'**
+  String get sortRelevance;
+
+  /// Sort by customer rating, highest first.
+  ///
+  /// In en, this message translates to:
+  /// **'Rating'**
+  String get sortRating;
+
+  /// Sort by fastest delivery.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery time'**
+  String get sortDeliveryTime;
+
+  /// Sort by price, cheapest first.
+  ///
+  /// In en, this message translates to:
+  /// **'Cost: low to high'**
+  String get sortCostLowHigh;
+
+  /// Sort by price, dearest first.
+  ///
+  /// In en, this message translates to:
+  /// **'Cost: high to low'**
+  String get sortCostHighLow;
+
+  /// Filter section heading.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get timeSection;
+
+  /// Filter chip for close, quick restaurants. What qualifies is decided by the server.
+  ///
+  /// In en, this message translates to:
+  /// **'Near & Fast'**
+  String get nearAndFast;
+
+  /// Filter chip hiding shut restaurants.
+  ///
+  /// In en, this message translates to:
+  /// **'Open now'**
+  String get openNow;
+
+  /// Filter section heading over the rating thresholds.
+  ///
+  /// In en, this message translates to:
+  /// **'Restaurant rating'**
+  String get ratingSection;
+
+  /// Rating threshold chip in the filter sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Rated {rating}+'**
+  String ratedAbove(String rating);
+
+  /// Filter section heading.
+  ///
+  /// In en, this message translates to:
+  /// **'Offers'**
+  String get offersSection;
+
+  /// Filter chip for restaurants running a promotion.
+  ///
+  /// In en, this message translates to:
+  /// **'Has offers'**
+  String get hasOffersLabel;
+
+  /// Filter section heading over the price brackets.
+  ///
+  /// In en, this message translates to:
+  /// **'Dish price'**
+  String get dishPriceSection;
+
+  /// Price bracket. The amount arrives already formatted with the rupee symbol.
+  ///
+  /// In en, this message translates to:
+  /// **'Under {amount}'**
+  String costUnder(String amount);
+
+  /// Price bracket between two already-formatted amounts.
+  ///
+  /// In en, this message translates to:
+  /// **'{min} – {max}'**
+  String costBetween(String min, String max);
+
+  /// Open-ended top price bracket.
+  ///
+  /// In en, this message translates to:
+  /// **'{amount}+'**
+  String costOver(String amount);
+
+  /// Filter section heading over the remaining toggles.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get moreSection;
+
+  /// Filter for restaurants that add no packaging fee.
+  ///
+  /// In en, this message translates to:
+  /// **'No packaging charges'**
+  String get noPackagingCharges;
+
+  /// Heading over the full nearby list, below the curated home sections.
+  ///
+  /// In en, this message translates to:
+  /// **'All restaurants'**
+  String get allRestaurantsTitle;
+
+  /// Heading over the cuisine grid on the search screen, before anything is typed.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s on your mind?'**
+  String get whatsOnYourMind;
+
+  /// Title of the voice-search sheet while the microphone is open.
+  ///
+  /// In en, this message translates to:
+  /// **'Listening…'**
+  String get listeningNow;
+
+  /// Placeholder under the microphone before any words are recognised.
+  ///
+  /// In en, this message translates to:
+  /// **'Say a dish or a restaurant'**
+  String get speakNowHint;
+
+  /// Shown when the device has no speech recogniser at all.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice search is unavailable'**
+  String get voiceUnavailable;
+
+  /// Supporting copy for the unavailable and denied states — typing always works.
+  ///
+  /// In en, this message translates to:
+  /// **'You can still type your search.'**
+  String get voiceUnavailableBody;
+
+  /// Shown when microphone permission was refused.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone access is off'**
+  String get microphoneDenied;
+
+  /// Tooltip on the microphone button in the search field.
+  ///
+  /// In en, this message translates to:
+  /// **'Search by voice'**
+  String get voiceSearchLabel;
+
+  /// Title of the ratings and reviews screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Ratings & reviews'**
+  String get ratingsAndReviews;
+
+  /// Filter chip that hides ratings with no written review.
+  ///
+  /// In en, this message translates to:
+  /// **'With reviews'**
+  String get reviewsWithTextOnly;
+
+  /// Empty state when a restaurant has no ratings at all.
+  ///
+  /// In en, this message translates to:
+  /// **'No ratings yet'**
+  String get noReviewsTitle;
+
+  /// Supporting copy for the empty reviews list.
+  ///
+  /// In en, this message translates to:
+  /// **'Be the first to rate this place after your order.'**
+  String get noReviewsSubtitle;
+
+  /// Title of the screen where a customer rates a finished order.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate your order'**
+  String get rateOrderTitle;
+
+  /// Heading above the per-dish star rows.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate the dishes'**
+  String get rateDishesTitle;
+
+  /// Placeholder in the optional free-text comment field.
+  ///
+  /// In en, this message translates to:
+  /// **'Anything you would like to add? (optional)'**
+  String get reviewHint;
+
+  /// Button that posts the rating.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit rating'**
+  String get submitRating;
+
+  /// Confirmation shown after a rating is accepted.
+  ///
+  /// In en, this message translates to:
+  /// **'Thanks — your rating is in.'**
+  String get reviewThanks;
+
+  /// Call to action on a delivered order.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate this order'**
+  String get rateThisOrder;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -63,7 +63,16 @@ class Restaurant {
     required this.minOrderValue,
     required this.supportsPickup,
     required this.area,
+    required this.cuisines,
+    required this.offers,
+    this.photos = const <RestaurantPhoto>[],
     this.distanceMetres,
+    this.rating,
+    this.ratingCount = 0,
+    this.isPureVeg = false,
+    this.costForTwo,
+    this.hasFreeDelivery = false,
+    this.isFavourite = false,
   });
 
   /// The API types this as a string; treat it as opaque.
@@ -91,6 +100,65 @@ class Restaurant {
   /// Only present on a nearby search; null when fetched directly.
   final int? distanceMetres;
 
+  /// The merchant's own photographs, in the order they chose, up to eight.
+  ///
+  /// Storefront only: a nearby list of twenty shops would otherwise carry a
+  /// hundred and sixty signed URLs. Empty when the merchant has added none,
+  /// which is why [bannerUrl] stays the hero and this is additional.
+  final List<RestaurantPhoto> photos;
+
+  /// What the storefront header shows.
+  ///
+  /// The two image fields do two different jobs. [photos] is the carousel and
+  /// is already in the merchant's order — the first entry is the one they
+  /// chose to lead with, so the banner is *not* prepended to it. [bannerUrl]
+  /// is the fallback for a merchant who has added no photos, and stays the
+  /// hero on cards in every list.
+  List<RestaurantPhoto> get gallery => photos.isNotEmpty
+      ? photos
+      : <RestaurantPhoto>[
+          if (bannerUrl.isNotEmpty)
+            RestaurantPhoto(id: -1, url: bannerUrl, caption: null),
+        ];
+
+  // --- Home v2 -------------------------------------------------------------
+  //
+  // Everything below is absent from the API today and defaults to "unknown".
+  // The UI hides each one rather than showing a zero, so the app renders
+  // correctly before the backend ships these and lights up without a release
+  // once it does.
+
+  /// Null until a restaurant has enough ratings to show one. Deliberately not
+  /// zero — "0.0" reads as *bad*, where a new restaurant is merely unrated.
+  final double? rating;
+
+  final int ratingCount;
+
+  /// Drives the VEG toggle in the home header.
+  final bool isPureVeg;
+
+  final int? costForTwo;
+
+  /// Cuisine names for the card subtitle. Empty until the taxonomy exists.
+  final List<String> cuisines;
+
+  /// Promotions, already worded by the server. Only the first is shown on a
+  /// card, so the order is the merchandising decision.
+  final List<RestaurantOffer> offers;
+
+  final bool hasFreeDelivery;
+  final bool isFavourite;
+
+  bool get hasRating => rating != null;
+
+  /// The line under the name: cuisines when the API sends them, otherwise the
+  /// service category and area we already have.
+  String subtitle() {
+    if (cuisines.isNotEmpty) return cuisines.join(' · ');
+    if (area.isEmpty) return serviceCategory;
+    return '$serviceCategory · $area';
+  }
+
   /// Kilometres, one decimal — what the cards show.
   String? get distanceKmLabel => distanceMetres == null
       ? null
@@ -113,13 +181,96 @@ class Restaurant {
         area: asString(json['area']),
         distanceMetres:
             json['distance_metres'] == null ? null : asInt(json['distance_metres']),
+        rating: json['rating'] == null ? null : asDouble(json['rating']),
+        ratingCount: asInt(json['rating_count']),
+        isPureVeg: asBool(json['is_pure_veg']),
+        costForTwo:
+            json['cost_for_two'] == null ? null : asInt(json['cost_for_two']),
+        cuisines: _strings(json['cuisines']),
+        photos: asMapList(json['photos'])
+            .map(RestaurantPhoto.fromJson)
+            .where((RestaurantPhoto p) => p.url.isNotEmpty)
+            .toList(growable: false),
+        offers: asMapList(json['offers'])
+            .map(RestaurantOffer.fromJson)
+            .where((RestaurantOffer o) => o.label.isNotEmpty)
+            .toList(growable: false),
+        hasFreeDelivery: asBool(json['has_free_delivery']),
+        isFavourite: asBool(json['is_favourite']),
       );
+
+  static List<String> _strings(Object? raw) {
+    if (raw is! List) return const <String>[];
+    return raw
+        .map((Object? e) => e is String ? e : asString((e as Map?)?['name']))
+        .where((String s) => s.isNotEmpty)
+        .toList(growable: false);
+  }
 
   @override
   bool operator ==(Object other) => other is Restaurant && other.id == id;
 
+  /// A copy with the bookmark flipped, for the optimistic update.
+  Restaurant withFavourite(bool value) => Restaurant(
+        id: id,
+        name: name,
+        serviceCategory: serviceCategory,
+        description: description,
+        logoUrl: logoUrl,
+        bannerUrl: bannerUrl,
+        isOpen: isOpen,
+        isAcceptingOrders: isAcceptingOrders,
+        withinOperatingHours: withinOperatingHours,
+        avgPrepTimeMinutes: avgPrepTimeMinutes,
+        packagingFee: packagingFee,
+        minOrderValue: minOrderValue,
+        supportsPickup: supportsPickup,
+        area: area,
+        cuisines: cuisines,
+        offers: offers,
+        photos: photos,
+        distanceMetres: distanceMetres,
+        rating: rating,
+        ratingCount: ratingCount,
+        isPureVeg: isPureVeg,
+        costForTwo: costForTwo,
+        hasFreeDelivery: hasFreeDelivery,
+        isFavourite: value,
+      );
+
   @override
   int get hashCode => id.hashCode;
+}
+
+/// One picture on a restaurant's storefront carousel.
+@immutable
+class RestaurantPhoto {
+  const RestaurantPhoto({
+    required this.id,
+    required this.url,
+    required this.caption,
+  });
+
+  /// The hero is synthesised from `banner_url` and carries -1: it has no row
+  /// of its own server-side.
+  final int id;
+
+  /// Signed and expiring — re-fetch the restaurant for a fresh link.
+  final String url;
+
+  /// The merchant's own words, often absent. Used as the slide's alt text
+  /// rather than drawn over the picture: it is not translated, and a caption
+  /// burned onto every photo would be one more thing to read past.
+  final String? caption;
+
+  static RestaurantPhoto fromJson(Map<String, dynamic> json) {
+    final String caption = asString(json['caption']);
+    return RestaurantPhoto(
+      id: asInt(json['id']),
+      url: asString(json['url']),
+      caption: caption.trim().isEmpty ? null : caption,
+    );
+  }
 }
 
 /// A Food Rescue deal: surplus food, discounted, and time-limited.
@@ -255,6 +406,8 @@ class MenuItem {
     this.imageUrl,
     this.compareAtPrice,
     this.isDiscounted = false,
+    this.rating,
+    this.ratingCount = 0,
   });
 
   final int id;
@@ -277,6 +430,14 @@ class MenuItem {
 
   final int prepTimeMinutes;
   final List<OptionGroup> optionGroups;
+
+  /// Null until three people have rated the dish. Hidden rather than shown as
+  /// zero — the same rule the restaurant badge follows, and the reason a new
+  /// dish is not punished for being new.
+  final double? rating;
+  final int ratingCount;
+
+  bool get hasRating => rating != null;
 
   /// True when adding needs the customisation sheet rather than a bare tap.
   bool get needsOptions =>
@@ -305,6 +466,8 @@ class MenuItem {
         containsEgg: asBool(json['contains_egg']),
         isAvailable: asBool(json['is_available'], true),
         prepTimeMinutes: asInt(json['prep_time_minutes']),
+        rating: json['rating'] == null ? null : asDouble(json['rating']),
+        ratingCount: asInt(json['rating_count']),
         optionGroups: asMapList(json['option_groups'])
             .map(OptionGroup.fromJson)
             .toList(growable: false),
@@ -345,8 +508,17 @@ class RestaurantMenu {
           .map(MenuItem.fromJson)
           .toList(growable: false);
       if (items.isEmpty) continue;
+
+      // A shop that filed nothing under a category gets one group back named
+      // "Uncategorised" with a null id. That name is the API's own English and
+      // would appear untranslated above the menu, so the null id — not the
+      // name — is what marks the bucket, and the app supplies its own heading.
+      final bool isBucket = category['id'] == null;
       sections.add(
-        MenuSection(name: asString(category['name']), items: items),
+        MenuSection(
+          name: isBucket ? '' : asString(category['name']),
+          items: items,
+        ),
       );
     }
 
@@ -359,4 +531,24 @@ class RestaurantMenu {
 
     return RestaurantMenu(sections: sections);
   }
+}
+
+/// A promotion on a restaurant card.
+///
+/// [label] is written and localised by the server and rendered verbatim — the
+/// wording of an offer is a commercial decision, not the app's to paraphrase.
+@immutable
+class RestaurantOffer {
+  const RestaurantOffer({required this.label, required this.type});
+
+  final String label;
+
+  /// Free-form; the app does not branch on it today, but it lets the backend
+  /// change how an offer is styled later without changing the label.
+  final String type;
+
+  static RestaurantOffer fromJson(Map<String, dynamic> json) => RestaurantOffer(
+        label: asString(json['label']),
+        type: asString(json['type']),
+      );
 }

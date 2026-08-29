@@ -10,6 +10,10 @@
          customer in the background. -->
     <uses-permission
         android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- Voice search only. Recognition runs on the device's own recogniser;
+         Nexmile never records audio itself and never uploads any. -->
+    <uses-permission
+        android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission
         android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
@@ -55,6 +59,13 @@
                 android:name="android.intent.action.PROCESS_TEXT"/>
             <data
                 android:mimeType="text/plain"/>
+        </intent>
+        <!-- Voice search. Android 11 and later hide other packages unless
+             they are declared here, so without this the speech recogniser is
+             reported as simply unavailable rather than failing loudly. -->
+        <intent>
+            <action
+                android:name="android.speech.RecognitionService"/>
         </intent>
     </queries>
 </manifest>

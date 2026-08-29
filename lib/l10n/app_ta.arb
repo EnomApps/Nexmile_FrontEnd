@@ -71,12 +71,12 @@
   "cravingTitle": "என்ன சாப்பிட ஆசை?",
   "offersTitle": "உங்களுக்கான சலுகைகள்",
   "restaurantsNearby": "அருகிலுள்ள உணவகங்கள்",
-  "restaurantsCount": "{count} உணவகங்கள்",
+  "restaurantsCount": "{count, plural, =1{1 உணவகம்} other{{count} உணவகங்கள்}}",
   "noRestaurantsTitle": "இங்கே இன்னும் எதுவும் இல்லை",
   "noRestaurantsSubtitle": "வேறு வகையை முயற்சிக்கவும் அல்லது வடிகட்டியை நீக்கவும்.",
   "minutesAway": "{minutes} நிமி",
   "kilometresAway": "{distance} கி.மீ",
-  "ratingsCount": "{count}+ மதிப்பீடுகள்",
+  "ratingsCount": "{count, plural, =1{1 மதிப்பீடு} other{{count} மதிப்பீடுகள்}}",
   "priceForTwo": "இருவருக்கு ₹{amount}",
   "freeDelivery": "இலவச டெலிவரி",
   "percentOff": "{percent}% தள்ளுபடி",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "உங்கள் கூடை காலியாக உள்ளது",
   "cartEmptySubtitle": "தொடங்க ஒரு உணவகத்திலிருந்து உணவைச் சேர்க்கவும்.",
   "browseRestaurants": "உணவகங்களைப் பார்",
-  "itemsInCart": "{count} பொருட்கள்",
+  "itemsInCart": "{count, plural, =1{1 பொருள்} other{{count} பொருட்கள்}}",
   "viewCart": "கூடையைப் பார்",
   "itemTotal": "பொருட்களின் மொத்தம்",
   "deliveryFeeLabel": "டெலிவரி கட்டணம்",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "ஆர்டர் ரத்து செய்யப்பட்டது",
 
-  "currentLocationLabel": "தற்போதைய இடம்"
+  "currentLocationLabel": "தற்போதைய இடம்",
+
+  "editProfileTitle": "சுயவிவரத்தைத் திருத்து",
+
+  "editProfileSubtitle": "உணவகமும் டெலிவரி பார்ட்னரும் உங்கள் பெயரைத்தான் பார்ப்பார்கள்.",
+
+  "saveChanges": "மாற்றங்களைச் சேமி",
+
+  "profileUpdated": "சுயவிவரம் புதுப்பிக்கப்பட்டது",
+
+  "deleteAccount": "கணக்கை நீக்கு",
+
+  "deleteAccountTitle": "உங்கள் கணக்கை நீக்கவா?",
+
+  "deleteAccountMessage": "எல்லா சாதனங்களிலிருந்தும் வெளியேற்றப்படுவீர்கள். பழைய ஆர்டர்களும் ரசீதுகளும் வரி பதிவுக்காக வைக்கப்படும்.",
+
+  "accountDeleted": "உங்கள் கணக்கு நீக்கப்பட்டது",
+
+  "devicesTitle": "உள்நுழைந்த சாதனங்கள்",
+
+  "devicesSubtitle": "நீங்கள் எங்கு உள்நுழைந்துள்ளீர்கள்",
+
+  "devicesEmptyTitle": "வேறு சாதனங்கள் இல்லை",
+
+  "devicesEmptySubtitle": "இந்தச் சாதனத்தில் மட்டுமே உள்நுழைந்துள்ளீர்கள்.",
+
+  "signOutDevice": "வெளியேறு",
+
+  "signOutDeviceTitle": "இந்தச் சாதனத்திலிருந்து வெளியேறவா?",
+
+  "signOutDeviceMessage": "நீங்கள் பயன்படுத்துவது இதுவே என்றால் மீண்டும் உள்நுழைய வேண்டும்.",
+
+  "deviceSignedOut": "சாதனம் வெளியேற்றப்பட்டது",
+
+  "signOutEverywhere": "எல்லா இடங்களிலிருந்தும் வெளியேறு",
+
+  "signOutEverywhereTitle": "எல்லா இடங்களிலிருந்தும் வெளியேறவா?",
+
+  "signOutEverywhereMessage": "இந்தச் சாதனம் உட்பட எல்லா சாதனங்களும் வெளியேற்றப்படும்.",
+
+  "unknownDevice": "தெரியாத சாதனம்",
+
+  "activeNow": "இப்போது செயலில்",
+
+  "minutesAgo": "{count} நிமிடங்களுக்கு முன்",
+
+  "hoursAgo": "{count} மணி நேரத்திற்கு முன்",
+
+  "daysAgo": "{count} நாட்களுக்கு முன்",
+
+  "filtersAndSorting": "வடிகட்டி மற்றும் வரிசை",
+
+  "clearAll": "அனைத்தையும் அழி",
+
+  "showResults": "முடிவுகளைக் காட்டு",
+
+  "closeLabel": "மூடு",
+
+  "sortByTitle": "வரிசைப்படுத்து",
+
+  "sortRelevance": "பொருத்தம்",
+
+  "sortRating": "மதிப்பீடு",
+
+  "sortDeliveryTime": "டெலிவரி நேரம்",
+
+  "sortCostLowHigh": "விலை: குறைவு முதல் அதிகம்",
+
+  "sortCostHighLow": "விலை: அதிகம் முதல் குறைவு",
+
+  "timeSection": "நேரம்",
+
+  "nearAndFast": "அருகில் & விரைவு",
+
+  "openNow": "இப்போது திறந்துள்ளது",
+
+  "ratingSection": "உணவக மதிப்பீடு",
+
+  "ratedAbove": "{rating}+ மதிப்பீடு",
+
+  "offersSection": "சலுகைகள்",
+
+  "hasOffersLabel": "சலுகை உள்ளவை",
+
+  "dishPriceSection": "உணவு விலை",
+
+  "costUnder": "{amount}க்கும் குறைவு",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "மேலும்",
+
+  "noPackagingCharges": "பேக்கிங் கட்டணம் இல்லை",
+
+  "allRestaurantsTitle": "அனைத்து உணவகங்கள்",
+
+  "whatsOnYourMind": "என்ன சாப்பிடலாம்?",
+
+  "listeningNow": "கேட்கிறோம்…",
+
+  "speakNowHint": "உணவு அல்லது உணவகத்தைச் சொல்லுங்கள்",
+
+  "voiceUnavailable": "குரல் தேடல் கிடைக்கவில்லை",
+
+  "voiceUnavailableBody": "நீங்கள் தட்டச்சு செய்தும் தேடலாம்.",
+
+  "microphoneDenied": "மைக்ரோஃபோன் அனுமதி இல்லை",
+
+  "voiceSearchLabel": "குரலால் தேடு",
+
+  "ratingsAndReviews": "மதிப்பீடுகளும் விமர்சனங்களும்",
+
+  "reviewsWithTextOnly": "விமர்சனம் உள்ளவை",
+
+  "noReviewsTitle": "இதுவரை மதிப்பீடு இல்லை",
+
+  "noReviewsSubtitle": "ஆர்டர் செய்த பிறகு முதல் மதிப்பீட்டை நீங்களே அளியுங்கள்.",
+
+  "rateOrderTitle": "உங்கள் ஆர்டரை மதிப்பிடுங்கள்",
+
+  "rateDishesTitle": "உணவுகளை மதிப்பிடுங்கள்",
+
+  "reviewHint": "மேலும் ஏதேனும் சொல்ல விரும்புகிறீர்களா? (விருப்பம்)",
+
+  "submitRating": "மதிப்பீட்டை அனுப்பு",
+
+  "reviewThanks": "நன்றி — உங்கள் மதிப்பீடு பதிவானது.",
+
+  "rateThisOrder": "இந்த ஆர்டரை மதிப்பிடுங்கள்"
 }

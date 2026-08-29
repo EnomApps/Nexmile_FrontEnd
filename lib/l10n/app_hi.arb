@@ -71,12 +71,12 @@
   "cravingTitle": "आज क्या खाने का मन है?",
   "offersTitle": "आपके लिए ऑफ़र",
   "restaurantsNearby": "आपके पास के रेस्टोरेंट",
-  "restaurantsCount": "{count} रेस्टोरेंट",
+  "restaurantsCount": "{count, plural, =1{1 रेस्टोरेंट} other{{count} रेस्टोरेंट}}",
   "noRestaurantsTitle": "यहाँ अभी कुछ नहीं है",
   "noRestaurantsSubtitle": "कोई दूसरी श्रेणी आज़माएँ या फ़िल्टर हटाएँ.",
   "minutesAway": "{minutes} मिनट",
   "kilometresAway": "{distance} किमी",
-  "ratingsCount": "{count}+ रेटिंग",
+  "ratingsCount": "{count, plural, =1{1 रेटिंग} other{{count} रेटिंग}}",
   "priceForTwo": "दो लोगों के लिए ₹{amount}",
   "freeDelivery": "मुफ़्त डिलीवरी",
   "percentOff": "{percent}% छूट",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "आपकी कार्ट ख़ाली है",
   "cartEmptySubtitle": "शुरू करने के लिए किसी रेस्टोरेंट से व्यंजन जोड़ें.",
   "browseRestaurants": "रेस्टोरेंट देखें",
-  "itemsInCart": "{count} चीज़ें",
+  "itemsInCart": "{count, plural, =1{1 चीज़} other{{count} चीज़ें}}",
   "viewCart": "कार्ट देखें",
   "itemTotal": "चीज़ों का कुल",
   "deliveryFeeLabel": "डिलीवरी शुल्क",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "ऑर्डर रद्द हो गया",
 
-  "currentLocationLabel": "वर्तमान स्थान"
+  "currentLocationLabel": "वर्तमान स्थान",
+
+  "editProfileTitle": "प्रोफ़ाइल बदलें",
+
+  "editProfileSubtitle": "आपका नाम रेस्टोरेंट और डिलीवरी पार्टनर को दिखता है।",
+
+  "saveChanges": "बदलाव सहेजें",
+
+  "profileUpdated": "प्रोफ़ाइल अपडेट हो गई",
+
+  "deleteAccount": "खाता हटाएँ",
+
+  "deleteAccountTitle": "अपना खाता हटाएँ?",
+
+  "deleteAccountMessage": "आप हर डिवाइस से साइन आउट हो जाएँगे। पुराने ऑर्डर और बिल कर रिकॉर्ड के लिए रखे जाते हैं।",
+
+  "accountDeleted": "आपका खाता हटा दिया गया",
+
+  "devicesTitle": "साइन-इन डिवाइस",
+
+  "devicesSubtitle": "आप कहाँ साइन इन हैं",
+
+  "devicesEmptyTitle": "कोई दूसरा डिवाइस नहीं",
+
+  "devicesEmptySubtitle": "आप सिर्फ़ इसी डिवाइस पर साइन इन हैं।",
+
+  "signOutDevice": "साइन आउट",
+
+  "signOutDeviceTitle": "इस डिवाइस से साइन आउट करें?",
+
+  "signOutDeviceMessage": "अगर यही डिवाइस आप इस्तेमाल कर रहे हैं तो दोबारा साइन इन करना होगा।",
+
+  "deviceSignedOut": "डिवाइस साइन आउट हो गया",
+
+  "signOutEverywhere": "हर जगह से साइन आउट",
+
+  "signOutEverywhereTitle": "हर जगह से साइन आउट करें?",
+
+  "signOutEverywhereMessage": "इस डिवाइस समेत हर डिवाइस साइन आउट हो जाएगा।",
+
+  "unknownDevice": "अज्ञात डिवाइस",
+
+  "activeNow": "अभी सक्रिय",
+
+  "minutesAgo": "{count} मिनट पहले",
+
+  "hoursAgo": "{count} घंटे पहले",
+
+  "daysAgo": "{count} दिन पहले",
+
+  "filtersAndSorting": "फ़िल्टर और क्रम",
+
+  "clearAll": "सब हटाएँ",
+
+  "showResults": "नतीजे देखें",
+
+  "closeLabel": "बंद करें",
+
+  "sortByTitle": "क्रम",
+
+  "sortRelevance": "प्रासंगिकता",
+
+  "sortRating": "रेटिंग",
+
+  "sortDeliveryTime": "डिलीवरी समय",
+
+  "sortCostLowHigh": "कीमत: कम से ज़्यादा",
+
+  "sortCostHighLow": "कीमत: ज़्यादा से कम",
+
+  "timeSection": "समय",
+
+  "nearAndFast": "पास और तेज़",
+
+  "openNow": "अभी खुला",
+
+  "ratingSection": "रेस्टोरेंट रेटिंग",
+
+  "ratedAbove": "{rating}+ रेटिंग",
+
+  "offersSection": "ऑफ़र",
+
+  "hasOffersLabel": "ऑफ़र वाले",
+
+  "dishPriceSection": "व्यंजन की कीमत",
+
+  "costUnder": "{amount} से कम",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "और",
+
+  "noPackagingCharges": "पैकिंग शुल्क नहीं",
+
+  "allRestaurantsTitle": "सभी रेस्टोरेंट",
+
+  "whatsOnYourMind": "क्या खाने का मन है?",
+
+  "listeningNow": "सुन रहे हैं…",
+
+  "speakNowHint": "कोई व्यंजन या रेस्टोरेंट बोलिए",
+
+  "voiceUnavailable": "वॉइस सर्च उपलब्ध नहीं",
+
+  "voiceUnavailableBody": "आप टाइप करके खोज सकते हैं।",
+
+  "microphoneDenied": "माइक्रोफ़ोन की अनुमति बंद है",
+
+  "voiceSearchLabel": "बोलकर खोजें",
+
+  "ratingsAndReviews": "रेटिंग और समीक्षाएँ",
+
+  "reviewsWithTextOnly": "समीक्षा वाले",
+
+  "noReviewsTitle": "अभी कोई रेटिंग नहीं",
+
+  "noReviewsSubtitle": "ऑर्डर के बाद सबसे पहले रेटिंग आप दें।",
+
+  "rateOrderTitle": "अपने ऑर्डर को रेट करें",
+
+  "rateDishesTitle": "व्यंजनों को रेट करें",
+
+  "reviewHint": "कुछ और कहना चाहेंगे? (वैकल्पिक)",
+
+  "submitRating": "रेटिंग भेजें",
+
+  "reviewThanks": "धन्यवाद — आपकी रेटिंग मिल गई।",
+
+  "rateThisOrder": "इस ऑर्डर को रेट करें"
 }

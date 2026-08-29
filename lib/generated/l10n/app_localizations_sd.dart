@@ -210,7 +210,13 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String restaurantsCount(int count) {
-    return '$count ريسٽورنٽ';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ريسٽورنٽ',
+      one: '1 ريسٽورنٽ',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -231,7 +237,13 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String ratingsCount(int count) {
-    return '$count+ ريٽنگون';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ريٽنگون',
+      one: '1 ريٽنگ',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -292,7 +304,13 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String itemsInCart(int count) {
-    return '$count شيون';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count شيون',
+      one: '1 شيء',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -721,4 +739,213 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get currentLocationLabel => 'موجوده هنڌ';
+
+  @override
+  String get editProfileTitle => 'پروفائل تبديل ڪريو';
+
+  @override
+  String get editProfileSubtitle => 'ريسٽورنٽ ۽ ڊليوري پارٽنر کي توهانجو نالو ئي نظر ايندو آهي.';
+
+  @override
+  String get saveChanges => 'تبديليون محفوظ ڪريو';
+
+  @override
+  String get profileUpdated => 'پروفائل اپڊيٽ ٿي وئي';
+
+  @override
+  String get deleteAccount => 'کاتو ختم ڪريو';
+
+  @override
+  String get deleteAccountTitle => 'پنهنجو کاتو ختم ڪجي؟';
+
+  @override
+  String get deleteAccountMessage => 'هر ڊوائس تان سائن آئوٽ ٿي ويندؤ. پراڻا آرڊر ۽ بل ٽيڪس رڪارڊ لاءِ رکيا ويندا آهن.';
+
+  @override
+  String get accountDeleted => 'توهانجو کاتو ختم ڪيو ويو';
+
+  @override
+  String get devicesTitle => 'سائن ان ڊوائسز';
+
+  @override
+  String get devicesSubtitle => 'توهان ڪٿي سائن ان آهيو';
+
+  @override
+  String get devicesEmptyTitle => 'ٻي ڪا ڊوائس ناهي';
+
+  @override
+  String get devicesEmptySubtitle => 'توهان رڳو هن ڊوائس تي سائن ان آهيو.';
+
+  @override
+  String get signOutDevice => 'سائن آئوٽ';
+
+  @override
+  String get signOutDeviceTitle => 'هيءَ ڊوائس سائن آئوٽ ڪجي؟';
+
+  @override
+  String get signOutDeviceMessage => 'جيڪڏهن توهان اها ئي ڊوائس استعمال ڪري رهيا آهيو ته وري سائن ان ڪرڻو پوندو.';
+
+  @override
+  String get deviceSignedOut => 'ڊوائس سائن آئوٽ ٿي وئي';
+
+  @override
+  String get signOutEverywhere => 'هر هنڌ کان سائن آئوٽ';
+
+  @override
+  String get signOutEverywhereTitle => 'هر هنڌ کان سائن آئوٽ ڪجي؟';
+
+  @override
+  String get signOutEverywhereMessage => 'هن ڊوائس سميت هر ڊوائس سائن آئوٽ ٿي ويندي.';
+
+  @override
+  String get unknownDevice => 'اڻڄاتل ڊوائس';
+
+  @override
+  String get activeNow => 'هينئر سرگرم';
+
+  @override
+  String minutesAgo(int count) {
+    return '$count منٽ اڳ';
+  }
+
+  @override
+  String hoursAgo(int count) {
+    return '$count ڪلاڪ اڳ';
+  }
+
+  @override
+  String daysAgo(int count) {
+    return '$count ڏينهن اڳ';
+  }
+
+  @override
+  String get filtersAndSorting => 'فلٽر ۽ ترتيب';
+
+  @override
+  String get clearAll => 'سڀ هٽايو';
+
+  @override
+  String get showResults => 'نتيجا ڏيکاريو';
+
+  @override
+  String get closeLabel => 'بند ڪريو';
+
+  @override
+  String get sortByTitle => 'ترتيب';
+
+  @override
+  String get sortRelevance => 'لاڳاپو';
+
+  @override
+  String get sortRating => 'ريٽنگ';
+
+  @override
+  String get sortDeliveryTime => 'ڊليوري وقت';
+
+  @override
+  String get sortCostLowHigh => 'قيمت: گھٽ کان وڌ';
+
+  @override
+  String get sortCostHighLow => 'قيمت: وڌ کان گھٽ';
+
+  @override
+  String get timeSection => 'وقت';
+
+  @override
+  String get nearAndFast => 'ويجھو ۽ تيز';
+
+  @override
+  String get openNow => 'هينئر کليل';
+
+  @override
+  String get ratingSection => 'ريسٽورنٽ ريٽنگ';
+
+  @override
+  String ratedAbove(String rating) {
+    return '$rating+ ريٽنگ';
+  }
+
+  @override
+  String get offersSection => 'آڇون';
+
+  @override
+  String get hasOffersLabel => 'آڇن وارا';
+
+  @override
+  String get dishPriceSection => 'کاڌي جي قيمت';
+
+  @override
+  String costUnder(String amount) {
+    return '$amount کان گھٽ';
+  }
+
+  @override
+  String costBetween(String min, String max) {
+    return '$min – $max';
+  }
+
+  @override
+  String costOver(String amount) {
+    return '$amount+';
+  }
+
+  @override
+  String get moreSection => 'وڌيڪ';
+
+  @override
+  String get noPackagingCharges => 'پيڪنگ خرچ ناهي';
+
+  @override
+  String get allRestaurantsTitle => 'سڀ ريسٽورنٽ';
+
+  @override
+  String get whatsOnYourMind => 'ڇا کائڻ جو دل آهي؟';
+
+  @override
+  String get listeningNow => 'ٻڌي رهيا آهيون…';
+
+  @override
+  String get speakNowHint => 'ڪو کاڌو يا ريسٽورنٽ چئو';
+
+  @override
+  String get voiceUnavailable => 'وائس ڳولا دستياب ناهي';
+
+  @override
+  String get voiceUnavailableBody => 'توهان ٽائيپ ڪري به ڳولي سگهو ٿا.';
+
+  @override
+  String get microphoneDenied => 'مائڪروفون جي اجازت بند';
+
+  @override
+  String get voiceSearchLabel => 'آواز سان ڳوليو';
+
+  @override
+  String get ratingsAndReviews => 'ريٽنگ ۽ جائزا';
+
+  @override
+  String get reviewsWithTextOnly => 'جائزي وارا';
+
+  @override
+  String get noReviewsTitle => 'اڃا ڪا ريٽنگ ناهي';
+
+  @override
+  String get noReviewsSubtitle => 'آرڊر کان پوءِ پهرين ريٽنگ توهان ڏيو.';
+
+  @override
+  String get rateOrderTitle => 'پنهنجي آرڊر کي ريٽ ڪريو';
+
+  @override
+  String get rateDishesTitle => 'کاڌن کي ريٽ ڪريو';
+
+  @override
+  String get reviewHint => 'ٻيو ڪجهه چوڻو آهي؟ (اختياري)';
+
+  @override
+  String get submitRating => 'ريٽنگ موڪليو';
+
+  @override
+  String get reviewThanks => 'مهرباني — توهان جي ريٽنگ ملي وئي.';
+
+  @override
+  String get rateThisOrder => 'هن آرڊر کي ريٽ ڪريو';
 }

@@ -1,7 +1,10 @@
 import '../../../core/network/api_client.dart';
 import '../../../core/network/api_exception.dart';
 import 'cart_models.dart';
+import 'home_models.dart';
+import 'restaurant_filters.dart';
 import 'order_models.dart';
+import 'review_models.dart';
 import 'storefront_models.dart';
 
 /// The customer storefront: what is nearby, what is on the menu, what is in the
@@ -11,13 +14,31 @@ import 'storefront_models.dart';
 /// because the screens treat them as one surface — you cannot look at a menu
 /// without a restaurant, or a cart without both.
 abstract class StorefrontRepository {
+  /// `GET /v1/home` — the whole home screen as ordered sections.
+  ///
+  /// Sections the app does not recognise are dropped rather than rendered, and
+  /// an empty section is omitted by the server entirely, so the list is never
+  /// indexed by position.
+  Future<HomeScreen> home({
+    int? addressId,
+    double? latitude,
+    double? longitude,
+  });
+
+  /// `GET /v1/favourites`
+  Future<List<Restaurant>> favourites();
+
+  /// `POST` / `DELETE /v1/restaurants/{id}/favourite`. Idempotent server-side.
+  Future<void> setFavourite(String restaurantId, {required bool value});
+
   /// `GET /v1/restaurants` — nearby, by saved address or raw coordinates.
-  Future<List<Restaurant>> nearby({
+  Future<RestaurantPage> nearby({
     int? addressId,
     double? latitude,
     double? longitude,
     String? search,
     String? serviceCategory,
+    RestaurantFilters filters,
   });
 
   /// `GET /v1/restaurants/deals` — Food Rescue, soonest to expire first.
@@ -28,6 +49,27 @@ abstract class StorefrontRepository {
 
   /// `GET /v1/restaurants/{id}/menu`
   Future<RestaurantMenu> menu(String restaurantId);
+
+  /// `GET /v1/restaurants/{id}/reviews` — newest first, paginated.
+  ///
+  /// Never cached: moderation can take a review down between two reads, so a
+  /// page is a snapshot of now and the screen always starts again at page 1.
+  Future<ReviewPage> reviews(
+    String restaurantId, {
+    int page,
+    bool withCommentOnly,
+  });
+
+  /// `POST /v1/orders/{id}/review`
+  ///
+  /// [dishes] maps a menu item id to its rating. Anything not actually on the
+  /// order is dropped server-side, so a stale menu cannot poison the request.
+  Future<void> reviewOrder(
+    int orderId, {
+    required int rating,
+    String? comment,
+    Map<int, int> dishes,
+  });
 
   /// `GET /v1/restaurants/{id}/cart`
   Future<Cart> cart(String restaurantId, {FulfilmentType? fulfilmentType});
@@ -94,25 +136,65 @@ class ApiStorefrontRepository implements StorefrontRepository {
   final ApiClient _client;
 
   @override
-  Future<List<Restaurant>> nearby({
+  Future<HomeScreen> home({
+    int? addressId,
+    double? latitude,
+    double? longitude,
+  }) async {
+    final Map<String, dynamic> response = await _client.get(
+      '/v1/home',
+      query: <String, dynamic>{
+        if (addressId != null) 'address_id': '$addressId',
+        if (addressId == null && latitude != null) 'latitude': '$latitude',
+        if (addressId == null && longitude != null) 'longitude': '$longitude',
+      },
+    );
+    return HomeScreen.fromJson(_data(response), _meta(response));
+  }
+
+  @override
+  Future<List<Restaurant>> favourites() async {
+    final Map<String, dynamic> response = await _client.get('/v1/favourites');
+    return _list(response).map(Restaurant.fromJson).toList(growable: false);
+  }
+
+  @override
+  Future<void> setFavourite(String restaurantId, {required bool value}) {
+    final String path = '/v1/restaurants/$restaurantId/favourite';
+    return value ? _client.post(path) : _client.delete(path);
+  }
+
+  @override
+  Future<RestaurantPage> nearby({
     int? addressId,
     double? latitude,
     double? longitude,
     String? search,
     String? serviceCategory,
+    RestaurantFilters filters = RestaurantFilters.none,
   }) async {
     final Map<String, dynamic> response = await _client.get(
       '/v1/restaurants',
-      query: <String, String>{
+      query: <String, dynamic>{
         if (addressId != null) 'address_id': '$addressId',
         if (latitude != null) 'latitude': '$latitude',
         if (longitude != null) 'longitude': '$longitude',
         if (search != null && search.trim().isNotEmpty) 'search': search.trim(),
         if (serviceCategory != null && serviceCategory.isNotEmpty)
           'service_category': serviceCategory,
+        // Adds nothing while no filter is set, so the request is byte-for-byte
+        // what it is today until the customer touches the sheet.
+        ...filters.toQuery(),
       },
     );
-    return _list(response).map(Restaurant.fromJson).toList(growable: false);
+
+    final Map<String, dynamic> meta = _meta(response);
+    return RestaurantPage(
+      items: _list(response).map(Restaurant.fromJson).toList(growable: false),
+      total: meta['total'] == null ? null : asInt(meta['total']),
+      radiusMetres:
+          meta['radius_metres'] == null ? null : asInt(meta['radius_metres']),
+    );
   }
 
   @override
@@ -148,6 +230,46 @@ class ApiStorefrontRepository implements StorefrontRepository {
       'menu': data['menu'] ?? response['menu'],
       'uncategorised': data['uncategorised'] ?? response['uncategorised'],
     });
+  }
+
+  @override
+  Future<ReviewPage> reviews(
+    String restaurantId, {
+    int page = 1,
+    bool withCommentOnly = false,
+  }) async {
+    final Map<String, dynamic> response = await _client.get(
+      '/v1/restaurants/$restaurantId/reviews',
+      query: <String, String>{
+        if (page > 1) 'page': '$page',
+        if (withCommentOnly) 'with_comment': '1',
+      },
+    );
+    return ReviewPage.fromJson(_list(response), _meta(response));
+  }
+
+  @override
+  Future<void> reviewOrder(
+    int orderId, {
+    required int rating,
+    String? comment,
+    Map<int, int> dishes = const <int, int>{},
+  }) {
+    return _client.post(
+      '/v1/orders/$orderId/review',
+      body: <String, dynamic>{
+        'rating': rating,
+        if (comment != null && comment.trim().isNotEmpty)
+          'comment': comment.trim(),
+        // Keyed by id as a string, which is what a JSON object gives Laravel
+        // either way. Omitted entirely when nothing was rated, rather than
+        // sent as an empty object.
+        if (dishes.isNotEmpty)
+          'dishes': <String, int>{
+            for (final MapEntry<int, int> e in dishes.entries) '${e.key}': e.value,
+          },
+      },
+    );
   }
 
   @override
@@ -275,6 +397,20 @@ class ApiStorefrontRepository implements StorefrontRepository {
       kind: ApiErrorKind.server,
       message: 'Response did not contain a data object',
     );
+  }
+
+  /// The `meta` block, or empty when there is none. Carries `total` for the
+  /// filter sheet's result count and `radius_metres` for how far the server
+  /// looked.
+  static Map<String, dynamic> _meta(Map<String, dynamic> response) {
+    final Object? meta = response['meta'];
+    if (meta is Map<String, dynamic>) return meta;
+    // A paginated collection nests its own meta one level deeper.
+    final Object? data = response['data'];
+    if (data is Map<String, dynamic> && data['meta'] is Map<String, dynamic>) {
+      return data['meta'] as Map<String, dynamic>;
+    }
+    return const <String, dynamic>{};
   }
 
   static List<Map<String, dynamic>> _list(Map<String, dynamic> response) {

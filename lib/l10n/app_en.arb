@@ -297,7 +297,7 @@
   "restaurantsNearby": "Restaurants near you",
   "@restaurantsNearby": { "description": "Heading above the unfiltered restaurant list." },
 
-  "restaurantsCount": "{count} restaurants",
+  "restaurantsCount": "{count, plural, =1{1 restaurant} other{{count} restaurants}}",
   "@restaurantsCount": {
     "description": "Heading above the restaurant list once a category filter is applied.",
     "placeholders": { "count": { "type": "int", "example": "4" } }
@@ -321,7 +321,7 @@
     "placeholders": { "distance": { "type": "String", "example": "1.2" } }
   },
 
-  "ratingsCount": "{count}+ ratings",
+  "ratingsCount": "{count, plural, =1{1 rating} other{{count} ratings}}",
   "@ratingsCount": {
     "description": "Number of customer ratings a restaurant has.",
     "placeholders": { "count": { "type": "int", "example": "2840" } }
@@ -387,7 +387,7 @@
   "browseRestaurants": "Browse restaurants",
   "@browseRestaurants": { "description": "Action from an empty cart or empty order list." },
 
-  "itemsInCart": "{count} items",
+  "itemsInCart": "{count, plural, =1{1 item} other{{count} items}}",
   "@itemsInCart": {
     "description": "Item count on the floating cart bar and on an order card.",
     "placeholders": { "count": { "type": "int", "example": "3" } }
@@ -813,5 +813,220 @@
   "@orderCancelled": {"description":"Confirmation after a successful cancellation."},
 
   "currentLocationLabel": "Current location",
-  "@currentLocationLabel": {"description":"Small caps label above the home header when the customer has no saved address and the list is anchored on the phone GPS instead."}
+  "@currentLocationLabel": {"description":"Small caps label above the home header when the customer has no saved address and the list is anchored on the phone GPS instead."},
+
+  "editProfileTitle": "Edit profile",
+  "@editProfileTitle": {"description":"Title of the sheet that edits name, email and mobile number."},
+
+  "editProfileSubtitle": "Your name is what the restaurant and the delivery partner see.",
+  "@editProfileSubtitle": {"description":"Supporting copy explaining why the name matters."},
+
+  "saveChanges": "Save changes",
+  "@saveChanges": {"description":"Confirm button on the edit-profile sheet."},
+
+  "profileUpdated": "Profile updated",
+  "@profileUpdated": {"description":"Confirmation after a successful profile update."},
+
+  "deleteAccount": "Delete account",
+  "@deleteAccount": {"description":"Button that deletes the account. Destructive."},
+
+  "deleteAccountTitle": "Delete your account?",
+  "@deleteAccountTitle": {"description":"Title of the confirm-before-deleting dialog."},
+
+  "deleteAccountMessage": "You will be signed out everywhere. Past orders and invoices are kept for tax records.",
+  "@deleteAccountMessage": {"description":"Body of the confirm-before-deleting dialog. The server keeps a soft-deleted record so past orders and invoices survive."},
+
+  "accountDeleted": "Your account has been deleted",
+  "@accountDeleted": {"description":"Confirmation after the account is deleted."},
+
+  "devicesTitle": "Signed-in devices",
+  "@devicesTitle": {"description":"Title of the screen listing every signed-in device."},
+
+  "devicesSubtitle": "Where you are signed in",
+  "@devicesSubtitle": {"description":"One-line description of the devices screen, also used as the profile row value."},
+
+  "devicesEmptyTitle": "No other devices",
+  "@devicesEmptyTitle": {"description":"Title when no other device holds a session."},
+
+  "devicesEmptySubtitle": "You are signed in on this device only.",
+  "@devicesEmptySubtitle": {"description":"Supporting copy for the empty devices list."},
+
+  "signOutDevice": "Sign out",
+  "@signOutDevice": {"description":"Signs one listed device out."},
+
+  "signOutDeviceTitle": "Sign out this device?",
+  "@signOutDeviceTitle": {"description":"Title of the confirm-before-revoking dialog."},
+
+  "signOutDeviceMessage": "If this is the device you are using, you will have to sign in again.",
+  "@signOutDeviceMessage": {"description":"Body of the confirm dialog. The API gives no way to tell which row is this phone, so the copy has to warn it might be."},
+
+  "deviceSignedOut": "Device signed out",
+  "@deviceSignedOut": {"description":"Confirmation after one device is signed out."},
+
+  "signOutEverywhere": "Sign out everywhere",
+  "@signOutEverywhere": {"description":"Ends every session on every device, this one included."},
+
+  "signOutEverywhereTitle": "Sign out everywhere?",
+  "@signOutEverywhereTitle": {"description":"Title of the confirm-before-signing-out-everywhere dialog."},
+
+  "signOutEverywhereMessage": "Every device, including this one, will be signed out.",
+  "@signOutEverywhereMessage": {"description":"Body of that dialog."},
+
+  "unknownDevice": "Unknown device",
+  "@unknownDevice": {"description":"Shown in place of a device name when the API returns none."},
+
+  "activeNow": "Active now",
+  "@activeNow": {"description":"Shown when a device used its session in the last couple of minutes."},
+
+  "minutesAgo": "{count} min ago",
+  "@minutesAgo": {"description":"How long ago a device last used its session. Keep it short — it sits under a device name.","placeholders":{"count":{"type":"int","example":"12"}}},
+
+  "hoursAgo": "{count} h ago",
+  "@hoursAgo": {"description":"How long ago a device last used its session.","placeholders":{"count":{"type":"int","example":"5"}}},
+
+  "daysAgo": "{count} d ago",
+  "@daysAgo": {"description":"How long ago a device last used its session.","placeholders":{"count":{"type":"int","example":"3"}}},
+
+  "filtersAndSorting": "Filters and sorting",
+  "@filtersAndSorting": {"description":"Title of the filter sheet."},
+
+  "clearAll": "Clear all",
+  "@clearAll": {"description":"Resets every filter in the sheet."},
+
+  "showResults": "Show results",
+  "@showResults": {"description":"Confirms the filter sheet and re-queries the list."},
+
+  "closeLabel": "Close",
+  "@closeLabel": {"description":"Dismisses the filter sheet without applying anything."},
+
+  "sortByTitle": "Sort by",
+  "@sortByTitle": {"description":"Section heading over the sort options."},
+
+  "sortRelevance": "Relevance",
+  "@sortRelevance": {"description":"Default sort — the server decides the order."},
+
+  "sortRating": "Rating",
+  "@sortRating": {"description":"Sort by customer rating, highest first."},
+
+  "sortDeliveryTime": "Delivery time",
+  "@sortDeliveryTime": {"description":"Sort by fastest delivery."},
+
+  "sortCostLowHigh": "Cost: low to high",
+  "@sortCostLowHigh": {"description":"Sort by price, cheapest first."},
+
+  "sortCostHighLow": "Cost: high to low",
+  "@sortCostHighLow": {"description":"Sort by price, dearest first."},
+
+  "timeSection": "Time",
+  "@timeSection": {"description":"Filter section heading."},
+
+  "nearAndFast": "Near & Fast",
+  "@nearAndFast": {"description":"Filter chip for close, quick restaurants. What qualifies is decided by the server."},
+
+  "openNow": "Open now",
+  "@openNow": {"description":"Filter chip hiding shut restaurants."},
+
+  "ratingSection": "Restaurant rating",
+  "@ratingSection": {"description":"Filter section heading over the rating thresholds."},
+
+  "ratedAbove": "Rated {rating}+",
+  "@ratedAbove": {"description":"Rating threshold chip in the filter sheet.","placeholders":{"rating":{"type":"String","example":"4.0"}}},
+
+  "offersSection": "Offers",
+  "@offersSection": {"description":"Filter section heading."},
+
+  "hasOffersLabel": "Has offers",
+  "@hasOffersLabel": {"description":"Filter chip for restaurants running a promotion."},
+
+  "dishPriceSection": "Dish price",
+  "@dishPriceSection": {"description":"Filter section heading over the price brackets."},
+
+  "costUnder": "Under {amount}",
+  "@costUnder": {"description":"Price bracket. The amount arrives already formatted with the rupee symbol.","placeholders":{"amount":{"type":"String","example":"₹150"}}},
+
+  "costBetween": "{min} – {max}",
+  "@costBetween": {"description":"Price bracket between two already-formatted amounts.","placeholders":{"min":{"type":"String","example":"₹150"},"max":{"type":"String","example":"₹300"}}},
+
+  "costOver": "{amount}+",
+  "@costOver": {"description":"Open-ended top price bracket.","placeholders":{"amount":{"type":"String","example":"₹300"}}},
+
+  "moreSection": "More",
+  "@moreSection": {"description":"Filter section heading over the remaining toggles."},
+
+  "noPackagingCharges": "No packaging charges",
+  "@noPackagingCharges": {"description":"Filter for restaurants that add no packaging fee."},
+
+  "allRestaurantsTitle": "All restaurants",
+  "@allRestaurantsTitle": {"description":"Heading over the full nearby list, below the curated home sections."},
+
+  "whatsOnYourMind": "What's on your mind?",
+  "@whatsOnYourMind": {"description":"Heading over the cuisine grid on the search screen, before anything is typed."},
+
+  "listeningNow": "Listening…",
+  "@listeningNow": {"description":"Title of the voice-search sheet while the microphone is open."},
+
+  "speakNowHint": "Say a dish or a restaurant",
+  "@speakNowHint": {"description":"Placeholder under the microphone before any words are recognised."},
+
+  "voiceUnavailable": "Voice search is unavailable",
+  "@voiceUnavailable": {"description":"Shown when the device has no speech recogniser at all."},
+
+  "voiceUnavailableBody": "You can still type your search.",
+  "@voiceUnavailableBody": {"description":"Supporting copy for the unavailable and denied states — typing always works."},
+
+  "microphoneDenied": "Microphone access is off",
+  "@microphoneDenied": {"description":"Shown when microphone permission was refused."},
+
+  "voiceSearchLabel": "Search by voice",
+  "@voiceSearchLabel": {"description":"Tooltip on the microphone button in the search field."},
+
+  "ratingsAndReviews": "Ratings & reviews",
+  "@ratingsAndReviews": {
+    "description": "Title of the ratings and reviews screen."
+  },
+
+  "reviewsWithTextOnly": "With reviews",
+  "@reviewsWithTextOnly": {
+    "description": "Filter chip that hides ratings with no written review."
+  },
+
+  "noReviewsTitle": "No ratings yet",
+  "@noReviewsTitle": {
+    "description": "Empty state when a restaurant has no ratings at all."
+  },
+
+  "noReviewsSubtitle": "Be the first to rate this place after your order.",
+  "@noReviewsSubtitle": {
+    "description": "Supporting copy for the empty reviews list."
+  },
+
+  "rateOrderTitle": "Rate your order",
+  "@rateOrderTitle": {
+    "description": "Title of the screen where a customer rates a finished order."
+  },
+
+  "rateDishesTitle": "Rate the dishes",
+  "@rateDishesTitle": {
+    "description": "Heading above the per-dish star rows."
+  },
+
+  "reviewHint": "Anything you would like to add? (optional)",
+  "@reviewHint": {
+    "description": "Placeholder in the optional free-text comment field."
+  },
+
+  "submitRating": "Submit rating",
+  "@submitRating": {
+    "description": "Button that posts the rating."
+  },
+
+  "reviewThanks": "Thanks — your rating is in.",
+  "@reviewThanks": {
+    "description": "Confirmation shown after a rating is accepted."
+  },
+
+  "rateThisOrder": "Rate this order",
+  "@rateThisOrder": {
+    "description": "Call to action on a delivered order."
+  }
 }

@@ -210,7 +210,13 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String restaurantsCount(int count) {
-    return '$count भोजनालयानि';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count भोजनालयाः',
+      one: '1 भोजनालयः',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -231,7 +237,13 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String ratingsCount(int count) {
-    return '$count+ मूल्याङ्कनानि';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count मूल्याङ्कनानि',
+      one: '1 मूल्याङ्कनम्',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -292,7 +304,13 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String itemsInCart(int count) {
-    return '$count वस्तूनि';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count वस्तूनि',
+      one: '1 वस्तु',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -721,4 +739,213 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get currentLocationLabel => 'वर्तमानस्थानम्';
+
+  @override
+  String get editProfileTitle => 'विवरणं परिवर्तयतु';
+
+  @override
+  String get editProfileSubtitle => 'भोजनालयः प्रापणसहभागी च भवतः नाम एव पश्यतः।';
+
+  @override
+  String get saveChanges => 'परिवर्तनानि रक्षतु';
+
+  @override
+  String get profileUpdated => 'विवरणं नवीकृतम्';
+
+  @override
+  String get deleteAccount => 'खातं लोपयतु';
+
+  @override
+  String get deleteAccountTitle => 'भवतः खातं लोप्यताम्?';
+
+  @override
+  String get deleteAccountMessage => 'सर्वेभ्यः उपकरणेभ्यः निर्गमनं भविष्यति। प्राक्तनाः आदेशाः पत्राणि च करलेखार्थं रक्ष्यन्ते।';
+
+  @override
+  String get accountDeleted => 'भवतः खातं लोपितम्';
+
+  @override
+  String get devicesTitle => 'प्रविष्टानि उपकरणानि';
+
+  @override
+  String get devicesSubtitle => 'भवान् कुत्र प्रविष्टः';
+
+  @override
+  String get devicesEmptyTitle => 'अन्यत् किमपि उपकरणं नास्ति';
+
+  @override
+  String get devicesEmptySubtitle => 'भवान् अस्मिन् एव उपकरणे प्रविष्टः।';
+
+  @override
+  String get signOutDevice => 'निर्गच्छतु';
+
+  @override
+  String get signOutDeviceTitle => 'इदम् उपकरणं निष्कास्यताम्?';
+
+  @override
+  String get signOutDeviceMessage => 'यदि भवान् इदमेव उपकरणं प्रयुङ्क्ते तर्हि पुनः प्रवेशः करणीयः।';
+
+  @override
+  String get deviceSignedOut => 'उपकरणं निष्कासितम्';
+
+  @override
+  String get signOutEverywhere => 'सर्वत्र निर्गमनम्';
+
+  @override
+  String get signOutEverywhereTitle => 'सर्वत्र निर्गम्यताम्?';
+
+  @override
+  String get signOutEverywhereMessage => 'अनेन उपकरणेन सह सर्वाणि उपकरणानि निष्कासितानि भविष्यन्ति।';
+
+  @override
+  String get unknownDevice => 'अज्ञातम् उपकरणम्';
+
+  @override
+  String get activeNow => 'इदानीं सक्रियम्';
+
+  @override
+  String minutesAgo(int count) {
+    return '$count निमेषेभ्यः पूर्वम्';
+  }
+
+  @override
+  String hoursAgo(int count) {
+    return '$count होरेभ्यः पूर्वम्';
+  }
+
+  @override
+  String daysAgo(int count) {
+    return '$count दिनेभ्यः पूर्वम्';
+  }
+
+  @override
+  String get filtersAndSorting => 'चयनं क्रमश्च';
+
+  @override
+  String get clearAll => 'सर्वं निष्कासयतु';
+
+  @override
+  String get showResults => 'फलानि दर्शयतु';
+
+  @override
+  String get closeLabel => 'पिदधातु';
+
+  @override
+  String get sortByTitle => 'क्रमः';
+
+  @override
+  String get sortRelevance => 'सम्बद्धता';
+
+  @override
+  String get sortRating => 'मूल्याङ्कनम्';
+
+  @override
+  String get sortDeliveryTime => 'प्रापणकालः';
+
+  @override
+  String get sortCostLowHigh => 'मूल्यम्: अल्पात् अधिकम्';
+
+  @override
+  String get sortCostHighLow => 'मूल्यम्: अधिकात् अल्पम्';
+
+  @override
+  String get timeSection => 'कालः';
+
+  @override
+  String get nearAndFast => 'समीपं शीघ्रं च';
+
+  @override
+  String get openNow => 'अधुना उद्घाटितम्';
+
+  @override
+  String get ratingSection => 'भोजनालयमूल्याङ्कनम्';
+
+  @override
+  String ratedAbove(String rating) {
+    return '$rating+ मूल्याङ्कनम्';
+  }
+
+  @override
+  String get offersSection => 'प्रस्तावाः';
+
+  @override
+  String get hasOffersLabel => 'प्रस्तावयुक्ताः';
+
+  @override
+  String get dishPriceSection => 'व्यञ्जनमूल्यम्';
+
+  @override
+  String costUnder(String amount) {
+    return '$amount तः न्यूनम्';
+  }
+
+  @override
+  String costBetween(String min, String max) {
+    return '$min – $max';
+  }
+
+  @override
+  String costOver(String amount) {
+    return '$amount+';
+  }
+
+  @override
+  String get moreSection => 'अधिकम्';
+
+  @override
+  String get noPackagingCharges => 'वेष्टनशुल्कं नास्ति';
+
+  @override
+  String get allRestaurantsTitle => 'सर्वे भोजनालयाः';
+
+  @override
+  String get whatsOnYourMind => 'किं भोक्तुम् इच्छा?';
+
+  @override
+  String get listeningNow => 'शृण्मः…';
+
+  @override
+  String get speakNowHint => 'किमपि व्यञ्जनं भोजनालयं वा वदतु';
+
+  @override
+  String get voiceUnavailable => 'ध्वनिअन्वेषणं न उपलभ्यते';
+
+  @override
+  String get voiceUnavailableBody => 'भवान् टङ्कयित्वा अपि अन्वेष्टुं शक्नोति।';
+
+  @override
+  String get microphoneDenied => 'ध्वनिग्राहकस्य अनुमतिः नास्ति';
+
+  @override
+  String get voiceSearchLabel => 'ध्वनिना अन्विष्यतु';
+
+  @override
+  String get ratingsAndReviews => 'मूल्याङ्कनानि समीक्षाश्च';
+
+  @override
+  String get reviewsWithTextOnly => 'समीक्षायुक्तानि';
+
+  @override
+  String get noReviewsTitle => 'अद्यापि किमपि मूल्याङ्कनं नास्ति';
+
+  @override
+  String get noReviewsSubtitle => 'आदेशानन्तरं प्रथमं मूल्याङ्कनं भवान् ददातु।';
+
+  @override
+  String get rateOrderTitle => 'स्वस्य आदेशस्य मूल्याङ्कनं करोतु';
+
+  @override
+  String get rateDishesTitle => 'व्यञ्जनानां मूल्याङ्कनं करोतु';
+
+  @override
+  String get reviewHint => 'अन्यत् किमपि वक्तुम् इच्छति? (वैकल्पिकम्)';
+
+  @override
+  String get submitRating => 'मूल्याङ्कनं प्रेषयतु';
+
+  @override
+  String get reviewThanks => 'धन्यवादः — भवतः मूल्याङ्कनं प्राप्तम्।';
+
+  @override
+  String get rateThisOrder => 'अस्य आदेशस्य मूल्याङ्कनं करोतु';
 }

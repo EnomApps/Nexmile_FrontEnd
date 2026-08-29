@@ -71,12 +71,12 @@
   "cravingTitle": "આજે શું ખાવાનું મન છે?",
   "offersTitle": "તમારા માટે ઓફર",
   "restaurantsNearby": "તમારી નજીકની રેસ્ટોરન્ટ",
-  "restaurantsCount": "{count} રેસ્ટોરન્ટ",
+  "restaurantsCount": "{count, plural, =1{1 રેસ્ટોરાં} other{{count} રેસ્ટોરાં}}",
   "noRestaurantsTitle": "અહીં હજી કંઈ નથી",
   "noRestaurantsSubtitle": "બીજી શ્રેણી જુઓ અથવા ફિલ્ટર હટાવો.",
   "minutesAway": "{minutes} મિનિટ",
   "kilometresAway": "{distance} કિમી",
-  "ratingsCount": "{count}+ રેટિંગ",
+  "ratingsCount": "{count, plural, =1{1 રેટિંગ} other{{count} રેટિંગ}}",
   "priceForTwo": "બે માટે ₹{amount}",
   "freeDelivery": "મફત ડિલિવરી",
   "percentOff": "{percent}% છૂટ",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "તમારી કાર્ટ ખાલી છે",
   "cartEmptySubtitle": "શરૂ કરવા કોઈ રેસ્ટોરન્ટમાંથી વાનગી ઉમેરો.",
   "browseRestaurants": "રેસ્ટોરન્ટ જુઓ",
-  "itemsInCart": "{count} વસ્તુઓ",
+  "itemsInCart": "{count, plural, =1{1 વસ્તુ} other{{count} વસ્તુઓ}}",
   "viewCart": "કાર્ટ જુઓ",
   "itemTotal": "વસ્તુઓનો કુલ",
   "deliveryFeeLabel": "ડિલિવરી ફી",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "ઓર્ડર રદ થયો",
 
-  "currentLocationLabel": "વર્તમાન સ્થાન"
+  "currentLocationLabel": "વર્તમાન સ્થાન",
+
+  "editProfileTitle": "પ્રોફાઇલ સંપાદિત કરો",
+
+  "editProfileSubtitle": "રેસ્ટોરાં અને ડિલિવરી પાર્ટનરને તમારું નામ જ દેખાય છે.",
+
+  "saveChanges": "ફેરફારો સાચવો",
+
+  "profileUpdated": "પ્રોફાઇલ અપડેટ થઈ",
+
+  "deleteAccount": "ખાતું કાઢી નાખો",
+
+  "deleteAccountTitle": "તમારું ખાતું કાઢી નાખવું છે?",
+
+  "deleteAccountMessage": "બધા ઉપકરણોમાંથી સાઇન આઉટ થઈ જશો. જૂના ઓર્ડર અને બિલ કર રેકોર્ડ માટે રાખવામાં આવે છે.",
+
+  "accountDeleted": "તમારું ખાતું કાઢી નાખવામાં આવ્યું",
+
+  "devicesTitle": "સાઇન-ઇન ઉપકરણો",
+
+  "devicesSubtitle": "તમે ક્યાં સાઇન ઇન છો",
+
+  "devicesEmptyTitle": "બીજું કોઈ ઉપકરણ નથી",
+
+  "devicesEmptySubtitle": "તમે ફક્ત આ જ ઉપકરણ પર સાઇન ઇન છો.",
+
+  "signOutDevice": "સાઇન આઉટ",
+
+  "signOutDeviceTitle": "આ ઉપકરણ સાઇન આઉટ કરવું છે?",
+
+  "signOutDeviceMessage": "જો તમે આ જ ઉપકરણ વાપરતા હો તો ફરી સાઇન ઇન કરવું પડશે.",
+
+  "deviceSignedOut": "ઉપકરણ સાઇન આઉટ થયું",
+
+  "signOutEverywhere": "બધે સાઇન આઉટ",
+
+  "signOutEverywhereTitle": "બધે સાઇન આઉટ કરવું છે?",
+
+  "signOutEverywhereMessage": "આ ઉપકરણ સહિત દરેક ઉપકરણ સાઇન આઉટ થઈ જશે.",
+
+  "unknownDevice": "અજાણ્યું ઉપકરણ",
+
+  "activeNow": "હમણાં સક્રિય",
+
+  "minutesAgo": "{count} મિનિટ પહેલાં",
+
+  "hoursAgo": "{count} કલાક પહેલાં",
+
+  "daysAgo": "{count} દિવસ પહેલાં",
+
+  "filtersAndSorting": "ફિલ્ટર અને ક્રમ",
+
+  "clearAll": "બધું દૂર કરો",
+
+  "showResults": "પરિણામો બતાવો",
+
+  "closeLabel": "બંધ કરો",
+
+  "sortByTitle": "ક્રમમાં ગોઠવો",
+
+  "sortRelevance": "સુસંગતતા",
+
+  "sortRating": "રેટિંગ",
+
+  "sortDeliveryTime": "ડિલિવરી સમય",
+
+  "sortCostLowHigh": "કિંમત: ઓછીથી વધુ",
+
+  "sortCostHighLow": "કિંમત: વધુથી ઓછી",
+
+  "timeSection": "સમય",
+
+  "nearAndFast": "નજીક અને ઝડપી",
+
+  "openNow": "હમણાં ખુલ્લું",
+
+  "ratingSection": "રેસ્ટોરાં રેટિંગ",
+
+  "ratedAbove": "{rating}+ રેટિંગ",
+
+  "offersSection": "ઓફર",
+
+  "hasOffersLabel": "ઓફર વાળા",
+
+  "dishPriceSection": "વાનગીની કિંમત",
+
+  "costUnder": "{amount} થી ઓછું",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "વધુ",
+
+  "noPackagingCharges": "પેકિંગ ચાર્જ નથી",
+
+  "allRestaurantsTitle": "બધા રેસ્ટોરાં",
+
+  "whatsOnYourMind": "શું ખાવાનું મન છે?",
+
+  "listeningNow": "સાંભળી રહ્યા છીએ…",
+
+  "speakNowHint": "વાનગી કે રેસ્ટોરાં બોલો",
+
+  "voiceUnavailable": "વોઇસ સર્ચ ઉપલબ્ધ નથી",
+
+  "voiceUnavailableBody": "તમે ટાઇપ કરીને પણ શોધી શકો છો.",
+
+  "microphoneDenied": "માઇક્રોફોન પરવાનગી બંધ",
+
+  "voiceSearchLabel": "અવાજથી શોધો",
+
+  "ratingsAndReviews": "રેટિંગ અને સમીક્ષાઓ",
+
+  "reviewsWithTextOnly": "સમીક્ષાવાળા",
+
+  "noReviewsTitle": "હજી કોઈ રેટિંગ નથી",
+
+  "noReviewsSubtitle": "ઓર્ડર પછી પહેલું રેટિંગ તમે આપો.",
+
+  "rateOrderTitle": "તમારા ઓર્ડરને રેટ કરો",
+
+  "rateDishesTitle": "વાનગીઓને રેટ કરો",
+
+  "reviewHint": "બીજું કંઈ કહેવું છે? (વૈકલ્પિક)",
+
+  "submitRating": "રેટિંગ મોકલો",
+
+  "reviewThanks": "આભાર — તમારું રેટિંગ મળી ગયું.",
+
+  "rateThisOrder": "આ ઓર્ડરને રેટ કરો"
 }

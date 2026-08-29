@@ -71,12 +71,12 @@
   "cravingTitle": "ਅੱਜ ਕੀ ਖਾਣ ਦਾ ਮਨ ਹੈ?",
   "offersTitle": "ਤੁਹਾਡੇ ਲਈ ਆਫ਼ਰ",
   "restaurantsNearby": "ਤੁਹਾਡੇ ਨੇੜੇ ਦੇ ਰੈਸਟੋਰੈਂਟ",
-  "restaurantsCount": "{count} ਰੈਸਟੋਰੈਂਟ",
+  "restaurantsCount": "{count, plural, =1{1 ਰੈਸਟੋਰੈਂਟ} other{{count} ਰੈਸਟੋਰੈਂਟ}}",
   "noRestaurantsTitle": "ਇੱਥੇ ਅਜੇ ਕੁਝ ਨਹੀਂ ਹੈ",
   "noRestaurantsSubtitle": "ਕੋਈ ਹੋਰ ਸ਼੍ਰੇਣੀ ਦੇਖੋ ਜਾਂ ਫਿਲਟਰ ਹਟਾਓ।",
   "minutesAway": "{minutes} ਮਿੰਟ",
   "kilometresAway": "{distance} ਕਿਮੀ",
-  "ratingsCount": "{count}+ ਰੇਟਿੰਗ",
+  "ratingsCount": "{count, plural, =1{1 ਰੇਟਿੰਗ} other{{count} ਰੇਟਿੰਗਾਂ}}",
   "priceForTwo": "ਦੋ ਲਈ ₹{amount}",
   "freeDelivery": "ਮੁਫ਼ਤ ਡਿਲੀਵਰੀ",
   "percentOff": "{percent}% ਛੋਟ",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "ਤੁਹਾਡੀ ਕਾਰਟ ਖਾਲੀ ਹੈ",
   "cartEmptySubtitle": "ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕਿਸੇ ਰੈਸਟੋਰੈਂਟ ਤੋਂ ਪਕਵਾਨ ਸ਼ਾਮਲ ਕਰੋ।",
   "browseRestaurants": "ਰੈਸਟੋਰੈਂਟ ਦੇਖੋ",
-  "itemsInCart": "{count} ਚੀਜ਼ਾਂ",
+  "itemsInCart": "{count, plural, =1{1 ਚੀਜ਼} other{{count} ਚੀਜ਼ਾਂ}}",
   "viewCart": "ਕਾਰਟ ਦੇਖੋ",
   "itemTotal": "ਚੀਜ਼ਾਂ ਦਾ ਕੁੱਲ",
   "deliveryFeeLabel": "ਡਿਲੀਵਰੀ ਫ਼ੀਸ",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "ਆਰਡਰ ਰੱਦ ਹੋ ਗਿਆ",
 
-  "currentLocationLabel": "ਮੌਜੂਦਾ ਟਿਕਾਣਾ"
+  "currentLocationLabel": "ਮੌਜੂਦਾ ਟਿਕਾਣਾ",
+
+  "editProfileTitle": "ਪ੍ਰੋਫਾਈਲ ਸੋਧੋ",
+
+  "editProfileSubtitle": "ਰੈਸਟੋਰੈਂਟ ਅਤੇ ਡਿਲੀਵਰੀ ਪਾਰਟਨਰ ਨੂੰ ਤੁਹਾਡਾ ਨਾਂ ਹੀ ਦਿਸਦਾ ਹੈ।",
+
+  "saveChanges": "ਤਬਦੀਲੀਆਂ ਸੰਭਾਲੋ",
+
+  "profileUpdated": "ਪ੍ਰੋਫਾਈਲ ਅੱਪਡੇਟ ਹੋ ਗਈ",
+
+  "deleteAccount": "ਖਾਤਾ ਮਿਟਾਓ",
+
+  "deleteAccountTitle": "ਆਪਣਾ ਖਾਤਾ ਮਿਟਾਉਣਾ ਹੈ?",
+
+  "deleteAccountMessage": "ਹਰ ਡੀਵਾਈਸ ਤੋਂ ਸਾਈਨ ਆਊਟ ਹੋ ਜਾਓਗੇ। ਪੁਰਾਣੇ ਆਰਡਰ ਤੇ ਬਿੱਲ ਟੈਕਸ ਰਿਕਾਰਡ ਲਈ ਰੱਖੇ ਜਾਂਦੇ ਹਨ।",
+
+  "accountDeleted": "ਤੁਹਾਡਾ ਖਾਤਾ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ",
+
+  "devicesTitle": "ਸਾਈਨ-ਇਨ ਡੀਵਾਈਸ",
+
+  "devicesSubtitle": "ਤੁਸੀਂ ਕਿੱਥੇ ਸਾਈਨ ਇਨ ਹੋ",
+
+  "devicesEmptyTitle": "ਕੋਈ ਹੋਰ ਡੀਵਾਈਸ ਨਹੀਂ",
+
+  "devicesEmptySubtitle": "ਤੁਸੀਂ ਸਿਰਫ਼ ਇਸੇ ਡੀਵਾਈਸ ਉੱਤੇ ਸਾਈਨ ਇਨ ਹੋ।",
+
+  "signOutDevice": "ਸਾਈਨ ਆਊਟ",
+
+  "signOutDeviceTitle": "ਇਹ ਡੀਵਾਈਸ ਸਾਈਨ ਆਊਟ ਕਰਨੀ ਹੈ?",
+
+  "signOutDeviceMessage": "ਜੇ ਤੁਸੀਂ ਇਹੀ ਡੀਵਾਈਸ ਵਰਤ ਰਹੇ ਹੋ ਤਾਂ ਮੁੜ ਸਾਈਨ ਇਨ ਕਰਨਾ ਪਵੇਗਾ।",
+
+  "deviceSignedOut": "ਡੀਵਾਈਸ ਸਾਈਨ ਆਊਟ ਹੋ ਗਈ",
+
+  "signOutEverywhere": "ਹਰ ਥਾਂ ਤੋਂ ਸਾਈਨ ਆਊਟ",
+
+  "signOutEverywhereTitle": "ਹਰ ਥਾਂ ਤੋਂ ਸਾਈਨ ਆਊਟ ਕਰਨਾ ਹੈ?",
+
+  "signOutEverywhereMessage": "ਇਸ ਡੀਵਾਈਸ ਸਮੇਤ ਹਰ ਡੀਵਾਈਸ ਸਾਈਨ ਆਊਟ ਹੋ ਜਾਵੇਗੀ।",
+
+  "unknownDevice": "ਅਣਜਾਣ ਡੀਵਾਈਸ",
+
+  "activeNow": "ਹੁਣੇ ਸਰਗਰਮ",
+
+  "minutesAgo": "{count} ਮਿੰਟ ਪਹਿਲਾਂ",
+
+  "hoursAgo": "{count} ਘੰਟੇ ਪਹਿਲਾਂ",
+
+  "daysAgo": "{count} ਦਿਨ ਪਹਿਲਾਂ",
+
+  "filtersAndSorting": "ਫਿਲਟਰ ਤੇ ਕ੍ਰਮ",
+
+  "clearAll": "ਸਭ ਹਟਾਓ",
+
+  "showResults": "ਨਤੀਜੇ ਵੇਖੋ",
+
+  "closeLabel": "ਬੰਦ ਕਰੋ",
+
+  "sortByTitle": "ਕ੍ਰਮ",
+
+  "sortRelevance": "ਸੰਬੰਧਿਤਤਾ",
+
+  "sortRating": "ਰੇਟਿੰਗ",
+
+  "sortDeliveryTime": "ਡਿਲੀਵਰੀ ਸਮਾਂ",
+
+  "sortCostLowHigh": "ਕੀਮਤ: ਘੱਟ ਤੋਂ ਵੱਧ",
+
+  "sortCostHighLow": "ਕੀਮਤ: ਵੱਧ ਤੋਂ ਘੱਟ",
+
+  "timeSection": "ਸਮਾਂ",
+
+  "nearAndFast": "ਨੇੜੇ ਤੇ ਤੇਜ਼",
+
+  "openNow": "ਹੁਣ ਖੁੱਲ੍ਹਾ",
+
+  "ratingSection": "ਰੈਸਟੋਰੈਂਟ ਰੇਟਿੰਗ",
+
+  "ratedAbove": "{rating}+ ਰੇਟਿੰਗ",
+
+  "offersSection": "ਆਫ਼ਰ",
+
+  "hasOffersLabel": "ਆਫ਼ਰ ਵਾਲੇ",
+
+  "dishPriceSection": "ਪਕਵਾਨ ਦੀ ਕੀਮਤ",
+
+  "costUnder": "{amount} ਤੋਂ ਘੱਟ",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "ਹੋਰ",
+
+  "noPackagingCharges": "ਪੈਕਿੰਗ ਖ਼ਰਚ ਨਹੀਂ",
+
+  "allRestaurantsTitle": "ਸਾਰੇ ਰੈਸਟੋਰੈਂਟ",
+
+  "whatsOnYourMind": "ਕੀ ਖਾਣ ਨੂੰ ਦਿਲ ਕਰਦਾ ਹੈ?",
+
+  "listeningNow": "ਸੁਣ ਰਹੇ ਹਾਂ…",
+
+  "speakNowHint": "ਕੋਈ ਪਕਵਾਨ ਜਾਂ ਰੈਸਟੋਰੈਂਟ ਬੋਲੋ",
+
+  "voiceUnavailable": "ਵੌਇਸ ਖੋਜ ਉਪਲਬਧ ਨਹੀਂ",
+
+  "voiceUnavailableBody": "ਤੁਸੀਂ ਟਾਈਪ ਕਰਕੇ ਵੀ ਖੋਜ ਸਕਦੇ ਹੋ।",
+
+  "microphoneDenied": "ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਇਜਾਜ਼ਤ ਬੰਦ",
+
+  "voiceSearchLabel": "ਬੋਲ ਕੇ ਖੋਜੋ",
+
+  "ratingsAndReviews": "ਰੇਟਿੰਗ ਅਤੇ ਸਮੀਖਿਆਵਾਂ",
+
+  "reviewsWithTextOnly": "ਸਮੀਖਿਆ ਵਾਲੇ",
+
+  "noReviewsTitle": "ਹਾਲੇ ਕੋਈ ਰੇਟਿੰਗ ਨਹੀਂ",
+
+  "noReviewsSubtitle": "ਆਰਡਰ ਤੋਂ ਬਾਅਦ ਪਹਿਲੀ ਰੇਟਿੰਗ ਤੁਸੀਂ ਦਿਓ।",
+
+  "rateOrderTitle": "ਆਪਣੇ ਆਰਡਰ ਨੂੰ ਰੇਟ ਕਰੋ",
+
+  "rateDishesTitle": "ਪਕਵਾਨਾਂ ਨੂੰ ਰੇਟ ਕਰੋ",
+
+  "reviewHint": "ਕੁਝ ਹੋਰ ਕਹਿਣਾ ਹੈ? (ਵਿਕਲਪਿਕ)",
+
+  "submitRating": "ਰੇਟਿੰਗ ਭੇਜੋ",
+
+  "reviewThanks": "ਧੰਨਵਾਦ — ਤੁਹਾਡੀ ਰੇਟਿੰਗ ਮਿਲ ਗਈ।",
+
+  "rateThisOrder": "ਇਸ ਆਰਡਰ ਨੂੰ ਰੇਟ ਕਰੋ"
 }

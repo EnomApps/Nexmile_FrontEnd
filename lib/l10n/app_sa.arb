@@ -71,12 +71,12 @@
   "cravingTitle": "अद्य किं खादितुम् इच्छति?",
   "offersTitle": "भवदर्थं विशेषप्रस्तावाः",
   "restaurantsNearby": "समीपस्थानि भोजनालयानि",
-  "restaurantsCount": "{count} भोजनालयानि",
+  "restaurantsCount": "{count, plural, =1{1 भोजनालयः} other{{count} भोजनालयाः}}",
   "noRestaurantsTitle": "अत्र अद्यापि किमपि नास्ति",
   "noRestaurantsSubtitle": "अन्यं वर्गं पश्यतु अथवा छाननं निष्कासयतु।",
   "minutesAway": "{minutes} निमेषाः",
   "kilometresAway": "{distance} किमी",
-  "ratingsCount": "{count}+ मूल्याङ्कनानि",
+  "ratingsCount": "{count, plural, =1{1 मूल्याङ्कनम्} other{{count} मूल्याङ्कनानि}}",
   "priceForTwo": "द्वयोः कृते ₹{amount}",
   "freeDelivery": "निःशुल्कं वितरणम्",
   "percentOff": "{percent}% छूटः",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "भवतः शकटं रिक्तम् अस्ति",
   "cartEmptySubtitle": "आरम्भार्थं कस्मादपि भोजनालयात् व्यञ्जनानि योजयतु।",
   "browseRestaurants": "भोजनालयानि पश्यतु",
-  "itemsInCart": "{count} वस्तूनि",
+  "itemsInCart": "{count, plural, =1{1 वस्तु} other{{count} वस्तूनि}}",
   "viewCart": "शकटं पश्यतु",
   "itemTotal": "वस्तूनां योगः",
   "deliveryFeeLabel": "वितरणशुल्कम्",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "आदेशः निरस्तः",
 
-  "currentLocationLabel": "वर्तमानस्थानम्"
+  "currentLocationLabel": "वर्तमानस्थानम्",
+
+  "editProfileTitle": "विवरणं परिवर्तयतु",
+
+  "editProfileSubtitle": "भोजनालयः प्रापणसहभागी च भवतः नाम एव पश्यतः।",
+
+  "saveChanges": "परिवर्तनानि रक्षतु",
+
+  "profileUpdated": "विवरणं नवीकृतम्",
+
+  "deleteAccount": "खातं लोपयतु",
+
+  "deleteAccountTitle": "भवतः खातं लोप्यताम्?",
+
+  "deleteAccountMessage": "सर्वेभ्यः उपकरणेभ्यः निर्गमनं भविष्यति। प्राक्तनाः आदेशाः पत्राणि च करलेखार्थं रक्ष्यन्ते।",
+
+  "accountDeleted": "भवतः खातं लोपितम्",
+
+  "devicesTitle": "प्रविष्टानि उपकरणानि",
+
+  "devicesSubtitle": "भवान् कुत्र प्रविष्टः",
+
+  "devicesEmptyTitle": "अन्यत् किमपि उपकरणं नास्ति",
+
+  "devicesEmptySubtitle": "भवान् अस्मिन् एव उपकरणे प्रविष्टः।",
+
+  "signOutDevice": "निर्गच्छतु",
+
+  "signOutDeviceTitle": "इदम् उपकरणं निष्कास्यताम्?",
+
+  "signOutDeviceMessage": "यदि भवान् इदमेव उपकरणं प्रयुङ्क्ते तर्हि पुनः प्रवेशः करणीयः।",
+
+  "deviceSignedOut": "उपकरणं निष्कासितम्",
+
+  "signOutEverywhere": "सर्वत्र निर्गमनम्",
+
+  "signOutEverywhereTitle": "सर्वत्र निर्गम्यताम्?",
+
+  "signOutEverywhereMessage": "अनेन उपकरणेन सह सर्वाणि उपकरणानि निष्कासितानि भविष्यन्ति।",
+
+  "unknownDevice": "अज्ञातम् उपकरणम्",
+
+  "activeNow": "इदानीं सक्रियम्",
+
+  "minutesAgo": "{count} निमेषेभ्यः पूर्वम्",
+
+  "hoursAgo": "{count} होरेभ्यः पूर्वम्",
+
+  "daysAgo": "{count} दिनेभ्यः पूर्वम्",
+
+  "filtersAndSorting": "चयनं क्रमश्च",
+
+  "clearAll": "सर्वं निष्कासयतु",
+
+  "showResults": "फलानि दर्शयतु",
+
+  "closeLabel": "पिदधातु",
+
+  "sortByTitle": "क्रमः",
+
+  "sortRelevance": "सम्बद्धता",
+
+  "sortRating": "मूल्याङ्कनम्",
+
+  "sortDeliveryTime": "प्रापणकालः",
+
+  "sortCostLowHigh": "मूल्यम्: अल्पात् अधिकम्",
+
+  "sortCostHighLow": "मूल्यम्: अधिकात् अल्पम्",
+
+  "timeSection": "कालः",
+
+  "nearAndFast": "समीपं शीघ्रं च",
+
+  "openNow": "अधुना उद्घाटितम्",
+
+  "ratingSection": "भोजनालयमूल्याङ्कनम्",
+
+  "ratedAbove": "{rating}+ मूल्याङ्कनम्",
+
+  "offersSection": "प्रस्तावाः",
+
+  "hasOffersLabel": "प्रस्तावयुक्ताः",
+
+  "dishPriceSection": "व्यञ्जनमूल्यम्",
+
+  "costUnder": "{amount} तः न्यूनम्",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "अधिकम्",
+
+  "noPackagingCharges": "वेष्टनशुल्कं नास्ति",
+
+  "allRestaurantsTitle": "सर्वे भोजनालयाः",
+
+  "whatsOnYourMind": "किं भोक्तुम् इच्छा?",
+
+  "listeningNow": "शृण्मः…",
+
+  "speakNowHint": "किमपि व्यञ्जनं भोजनालयं वा वदतु",
+
+  "voiceUnavailable": "ध्वनिअन्वेषणं न उपलभ्यते",
+
+  "voiceUnavailableBody": "भवान् टङ्कयित्वा अपि अन्वेष्टुं शक्नोति।",
+
+  "microphoneDenied": "ध्वनिग्राहकस्य अनुमतिः नास्ति",
+
+  "voiceSearchLabel": "ध्वनिना अन्विष्यतु",
+
+  "ratingsAndReviews": "मूल्याङ्कनानि समीक्षाश्च",
+
+  "reviewsWithTextOnly": "समीक्षायुक्तानि",
+
+  "noReviewsTitle": "अद्यापि किमपि मूल्याङ्कनं नास्ति",
+
+  "noReviewsSubtitle": "आदेशानन्तरं प्रथमं मूल्याङ्कनं भवान् ददातु।",
+
+  "rateOrderTitle": "स्वस्य आदेशस्य मूल्याङ्कनं करोतु",
+
+  "rateDishesTitle": "व्यञ्जनानां मूल्याङ्कनं करोतु",
+
+  "reviewHint": "अन्यत् किमपि वक्तुम् इच्छति? (वैकल्पिकम्)",
+
+  "submitRating": "मूल्याङ्कनं प्रेषयतु",
+
+  "reviewThanks": "धन्यवादः — भवतः मूल्याङ्कनं प्राप्तम्।",
+
+  "rateThisOrder": "अस्य आदेशस्य मूल्याङ्कनं करोतु"
 }

@@ -71,12 +71,12 @@
   "cravingTitle": "अज्ज कीह् खाने दा मन ऐ?",
   "offersTitle": "तुंदे आस्तै ऑफर",
   "restaurantsNearby": "तुंदे नेड़ले रेस्टोरेंट",
-  "restaurantsCount": "{count} रेस्टोरेंट",
+  "restaurantsCount": "{count, plural, =1{1 रेस्टोरेंट} other{{count} रेस्टोरेंट}}",
   "noRestaurantsTitle": "इत्थै हाल्ली किश नेईं ऐ",
   "noRestaurantsSubtitle": "कोई होर श्रेणी दिक्खो जां फिल्टर हटाओ।",
   "minutesAway": "{minutes} मिनट",
   "kilometresAway": "{distance} किमी",
-  "ratingsCount": "{count}+ रेटिंग",
+  "ratingsCount": "{count, plural, =1{1 रेटिंग} other{{count} रेटिंग}}",
   "priceForTwo": "दो जनें आस्तै ₹{amount}",
   "freeDelivery": "मुफ्त डिलीवरी",
   "percentOff": "{percent}% छूट",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "तुंदी कार्ट खाली ऐ",
   "cartEmptySubtitle": "शुरू करने आस्तै कुसै रेस्टोरेंट थमां खाना जोड़ो।",
   "browseRestaurants": "रेस्टोरेंट दिक्खो",
-  "itemsInCart": "{count} चीजां",
+  "itemsInCart": "{count, plural, =1{1 चीज़} other{{count} चीज़ां}}",
   "viewCart": "कार्ट दिक्खो",
   "itemTotal": "चीजें दा कुल",
   "deliveryFeeLabel": "डिलीवरी फीस",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "ऑर्डर रद्द होई गेआ",
 
-  "currentLocationLabel": "हुनका थाहर"
+  "currentLocationLabel": "हुनका थाहर",
+
+  "editProfileTitle": "प्रोफाइल बदलो",
+
+  "editProfileSubtitle": "रेस्टोरेंट ते डिलीवरी पार्टनर गी तुंदा नां गै दिक्खदा ऐ।",
+
+  "saveChanges": "बदलाव सम्भालो",
+
+  "profileUpdated": "प्रोफाइल अपडेट होई गेई",
+
+  "deleteAccount": "खाता मताओ",
+
+  "deleteAccountTitle": "अपना खाता मताना ऐ?",
+
+  "deleteAccountMessage": "सब्भै डिवाइसें थमां साइन आउट होई जाओगे। पुराने ऑर्डर ते बिल टैक्स रिकार्ड आस्तै रक्खे जंदे न।",
+
+  "accountDeleted": "तुंदा खाता मताई दित्ता गेआ",
+
+  "devicesTitle": "साइन-इन डिवाइस",
+
+  "devicesSubtitle": "तुस कुत्थै साइन इन ओ",
+
+  "devicesEmptyTitle": "होर कोई डिवाइस नेईं",
+
+  "devicesEmptySubtitle": "तुस सिर्फ इस्सै डिवाइस उप्पर साइन इन ओ।",
+
+  "signOutDevice": "साइन आउट",
+
+  "signOutDeviceTitle": "ऐ डिवाइस साइन आउट करनी ऐ?",
+
+  "signOutDeviceMessage": "जेकर तुस इस्सै डिवाइस गी बरत करदे ओ तां फ्ही साइन इन करना पौग।",
+
+  "deviceSignedOut": "डिवाइस साइन आउट होई गेई",
+
+  "signOutEverywhere": "हर थाहर थमां साइन आउट",
+
+  "signOutEverywhereTitle": "हर थाहर थमां साइन आउट करना ऐ?",
+
+  "signOutEverywhereMessage": "इस डिवाइस समेत हर डिवाइस साइन आउट होई जाग।",
+
+  "unknownDevice": "अनजान डिवाइस",
+
+  "activeNow": "हुन सक्रिय",
+
+  "minutesAgo": "{count} मिंट पैहलैं",
+
+  "hoursAgo": "{count} घैंटे पैहलैं",
+
+  "daysAgo": "{count} दिन पैहलैं",
+
+  "filtersAndSorting": "फिल्टर ते क्रम",
+
+  "clearAll": "सब हटाओ",
+
+  "showResults": "नतीजे दिक्खो",
+
+  "closeLabel": "बंद करो",
+
+  "sortByTitle": "क्रम",
+
+  "sortRelevance": "सरबंधतता",
+
+  "sortRating": "रेटिंग",
+
+  "sortDeliveryTime": "डिलीवरी समां",
+
+  "sortCostLowHigh": "कीमत: घट्ट थमां मता",
+
+  "sortCostHighLow": "कीमत: मते थमां घट्ट",
+
+  "timeSection": "समां",
+
+  "nearAndFast": "नेड़े ते तेज़",
+
+  "openNow": "हुन खुल्ला",
+
+  "ratingSection": "रेस्टोरेंट रेटिंग",
+
+  "ratedAbove": "{rating}+ रेटिंग",
+
+  "offersSection": "ऑफर",
+
+  "hasOffersLabel": "ऑफर आले",
+
+  "dishPriceSection": "पकवान दी कीमत",
+
+  "costUnder": "{amount} थमां घट्ट",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "होर",
+
+  "noPackagingCharges": "पैकिंग खर्च नेईं",
+
+  "allRestaurantsTitle": "सब्भै रेस्टोरेंट",
+
+  "whatsOnYourMind": "की खाने दा मन ऐ?",
+
+  "listeningNow": "सुनदे आं…",
+
+  "speakNowHint": "कोई पकवान जां रेस्टोरेंट बोलो",
+
+  "voiceUnavailable": "वॉइस खोज नेईं मिलदी",
+
+  "voiceUnavailableBody": "तुस टाइप करियै बी तुप्पी सकदे ओ।",
+
+  "microphoneDenied": "माइक्रोफोन इजाजत बंद",
+
+  "voiceSearchLabel": "बोली गी तुप्पो",
+
+  "ratingsAndReviews": "रेटिंग ते समीक्षा",
+
+  "reviewsWithTextOnly": "समीक्षा आह्ले",
+
+  "noReviewsTitle": "हाल्ली कोई रेटिंग नेईं",
+
+  "noReviewsSubtitle": "ऑर्डर दे बाद पैहली रेटिंग तुस देओ।",
+
+  "rateOrderTitle": "अपने ऑर्डर गी रेट करो",
+
+  "rateDishesTitle": "पकवानें गी रेट करो",
+
+  "reviewHint": "होर कुछ आखना ऐ? (मर्जी)",
+
+  "submitRating": "रेटिंग भेजो",
+
+  "reviewThanks": "धन्यवाद — तुंदी रेटिंग मिली गेई।",
+
+  "rateThisOrder": "इस ऑर्डर गी रेट करो"
 }

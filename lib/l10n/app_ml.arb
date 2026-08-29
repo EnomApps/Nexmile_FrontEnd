@@ -71,12 +71,12 @@
   "cravingTitle": "ഇന്ന് എന്ത് കഴിക്കാൻ തോന്നുന്നു?",
   "offersTitle": "നിങ്ങൾക്കുള്ള ഓഫറുകൾ",
   "restaurantsNearby": "അടുത്തുള്ള റെസ്റ്റോറന്റുകൾ",
-  "restaurantsCount": "{count} റെസ്റ്റോറന്റുകൾ",
+  "restaurantsCount": "{count, plural, =1{1 റെസ്റ്റോറന്റ്} other{{count} റെസ്റ്റോറന്റുകൾ}}",
   "noRestaurantsTitle": "ഇവിടെ ഇതുവരെ ഒന്നുമില്ല",
   "noRestaurantsSubtitle": "മറ്റൊരു വിഭാഗം നോക്കുക അല്ലെങ്കിൽ ഫിൽട്ടർ നീക്കുക.",
   "minutesAway": "{minutes} മിനിറ്റ്",
   "kilometresAway": "{distance} കിമീ",
-  "ratingsCount": "{count}+ റേറ്റിംഗുകൾ",
+  "ratingsCount": "{count, plural, =1{1 റേറ്റിംഗ്} other{{count} റേറ്റിംഗുകൾ}}",
   "priceForTwo": "രണ്ടുപേർക്ക് ₹{amount}",
   "freeDelivery": "സൗജന്യ ഡെലിവറി",
   "percentOff": "{percent}% കിഴിവ്",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "നിങ്ങളുടെ കാർട്ട് ശൂന്യമാണ്",
   "cartEmptySubtitle": "തുടങ്ങാൻ ഏതെങ്കിലും റെസ്റ്റോറന്റിൽ നിന്ന് വിഭവങ്ങൾ ചേർക്കുക.",
   "browseRestaurants": "റെസ്റ്റോറന്റുകൾ കാണുക",
-  "itemsInCart": "{count} സാധനങ്ങൾ",
+  "itemsInCart": "{count, plural, =1{1 ഇനം} other{{count} ഇനങ്ങൾ}}",
   "viewCart": "കാർട്ട് കാണുക",
   "itemTotal": "സാധനങ്ങളുടെ ആകെ",
   "deliveryFeeLabel": "ഡെലിവറി ഫീസ്",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "ഓർഡർ റദ്ദാക്കി",
 
-  "currentLocationLabel": "നിലവിലെ സ്ഥലം"
+  "currentLocationLabel": "നിലവിലെ സ്ഥലം",
+
+  "editProfileTitle": "പ്രൊഫൈൽ തിരുത്തുക",
+
+  "editProfileSubtitle": "റെസ്റ്റോറന്റും ഡെലിവറി പങ്കാളിയും കാണുന്നത് നിങ്ങളുടെ പേരാണ്.",
+
+  "saveChanges": "മാറ്റങ്ങൾ സൂക്ഷിക്കുക",
+
+  "profileUpdated": "പ്രൊഫൈൽ പുതുക്കി",
+
+  "deleteAccount": "അക്കൗണ്ട് ഇല്ലാതാക്കുക",
+
+  "deleteAccountTitle": "നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കണോ?",
+
+  "deleteAccountMessage": "എല്ലാ ഉപകരണങ്ങളിൽ നിന്നും സൈൻ ഔട്ട് ആകും. പഴയ ഓർഡറുകളും ബില്ലുകളും നികുതി രേഖയ്ക്കായി സൂക്ഷിക്കും.",
+
+  "accountDeleted": "നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കി",
+
+  "devicesTitle": "സൈൻ-ഇൻ ഉപകരണങ്ങൾ",
+
+  "devicesSubtitle": "നിങ്ങൾ എവിടെ സൈൻ ഇൻ ചെയ്തിരിക്കുന്നു",
+
+  "devicesEmptyTitle": "മറ്റ് ഉപകരണങ്ങളില്ല",
+
+  "devicesEmptySubtitle": "ഈ ഉപകരണത്തിൽ മാത്രമേ നിങ്ങൾ സൈൻ ഇൻ ചെയ്തിട്ടുള്ളൂ.",
+
+  "signOutDevice": "സൈൻ ഔട്ട്",
+
+  "signOutDeviceTitle": "ഈ ഉപകരണം സൈൻ ഔട്ട് ചെയ്യണോ?",
+
+  "signOutDeviceMessage": "നിങ്ങൾ ഉപയോഗിക്കുന്നത് ഇതാണെങ്കിൽ വീണ്ടും സൈൻ ഇൻ ചെയ്യേണ്ടിവരും.",
+
+  "deviceSignedOut": "ഉപകരണം സൈൻ ഔട്ട് ചെയ്തു",
+
+  "signOutEverywhere": "എല്ലായിടത്തും സൈൻ ഔട്ട്",
+
+  "signOutEverywhereTitle": "എല്ലായിടത്തും സൈൻ ഔട്ട് ചെയ്യണോ?",
+
+  "signOutEverywhereMessage": "ഈ ഉപകരണം ഉൾപ്പെടെ എല്ലാ ഉപകരണങ്ങളും സൈൻ ഔട്ട് ആകും.",
+
+  "unknownDevice": "അജ്ഞാത ഉപകരണം",
+
+  "activeNow": "ഇപ്പോൾ സജീവം",
+
+  "minutesAgo": "{count} മിനിറ്റ് മുൻപ്",
+
+  "hoursAgo": "{count} മണിക്കൂർ മുൻപ്",
+
+  "daysAgo": "{count} ദിവസം മുൻപ്",
+
+  "filtersAndSorting": "ഫിൽട്ടറും ക്രമവും",
+
+  "clearAll": "എല്ലാം മായ്ക്കുക",
+
+  "showResults": "ഫലങ്ങൾ കാണിക്കുക",
+
+  "closeLabel": "അടയ്ക്കുക",
+
+  "sortByTitle": "ക്രമീകരിക്കുക",
+
+  "sortRelevance": "പ്രസക്തി",
+
+  "sortRating": "റേറ്റിംഗ്",
+
+  "sortDeliveryTime": "ഡെലിവറി സമയം",
+
+  "sortCostLowHigh": "വില: കുറഞ്ഞത് മുതൽ",
+
+  "sortCostHighLow": "വില: കൂടിയത് മുതൽ",
+
+  "timeSection": "സമയം",
+
+  "nearAndFast": "അടുത്തും വേഗവും",
+
+  "openNow": "ഇപ്പോൾ തുറന്നിരിക്കുന്നു",
+
+  "ratingSection": "റെസ്റ്റോറന്റ് റേറ്റിംഗ്",
+
+  "ratedAbove": "{rating}+ റേറ്റിംഗ്",
+
+  "offersSection": "ഓഫറുകൾ",
+
+  "hasOffersLabel": "ഓഫർ ഉള്ളവ",
+
+  "dishPriceSection": "വിഭവ വില",
+
+  "costUnder": "{amount} യിൽ താഴെ",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "കൂടുതൽ",
+
+  "noPackagingCharges": "പാക്കിംഗ് ചാർജ് ഇല്ല",
+
+  "allRestaurantsTitle": "എല്ലാ റെസ്റ്റോറന്റുകളും",
+
+  "whatsOnYourMind": "എന്ത് കഴിക്കാൻ തോന്നുന്നു?",
+
+  "listeningNow": "കേൾക്കുന്നു…",
+
+  "speakNowHint": "ഒരു വിഭവമോ റെസ്റ്റോറന്റോ പറയൂ",
+
+  "voiceUnavailable": "വോയ്‌സ് സെർച്ച് ലഭ്യമല്ല",
+
+  "voiceUnavailableBody": "ടൈപ്പ് ചെയ്തും തിരയാം.",
+
+  "microphoneDenied": "മൈക്രോഫോൺ അനുമതിയില്ല",
+
+  "voiceSearchLabel": "ശബ്ദത്തിൽ തിരയുക",
+
+  "ratingsAndReviews": "റേറ്റിംഗുകളും അവലോകനങ്ങളും",
+
+  "reviewsWithTextOnly": "അവലോകനമുള്ളവ",
+
+  "noReviewsTitle": "ഇതുവരെ റേറ്റിംഗ് ഇല്ല",
+
+  "noReviewsSubtitle": "ഓർഡറിന് ശേഷം ആദ്യ റേറ്റിംഗ് നിങ്ങൾ നൽകൂ.",
+
+  "rateOrderTitle": "നിങ്ങളുടെ ഓർഡർ റേറ്റ് ചെയ്യൂ",
+
+  "rateDishesTitle": "വിഭവങ്ങൾ റേറ്റ് ചെയ്യൂ",
+
+  "reviewHint": "മറ്റെന്തെങ്കിലും പറയാനുണ്ടോ? (ഐച്ഛികം)",
+
+  "submitRating": "റേറ്റിംഗ് അയയ്ക്കുക",
+
+  "reviewThanks": "നന്ദി — നിങ്ങളുടെ റേറ്റിംഗ് ലഭിച്ചു.",
+
+  "rateThisOrder": "ഈ ഓർഡർ റേറ്റ് ചെയ്യൂ"
 }

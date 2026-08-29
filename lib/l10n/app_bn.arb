@@ -71,12 +71,12 @@
   "cravingTitle": "আজ কী খেতে ইচ্ছে করছে?",
   "offersTitle": "আপনার জন্য অফার",
   "restaurantsNearby": "আপনার কাছের রেস্তোরাঁ",
-  "restaurantsCount": "{count}টি রেস্তোরাঁ",
+  "restaurantsCount": "{count, plural, =1{1টি রেস্তোরাঁ} other{{count}টি রেস্তোরাঁ}}",
   "noRestaurantsTitle": "এখানে এখনো কিছু নেই",
   "noRestaurantsSubtitle": "অন্য বিভাগ দেখুন বা ফিল্টার সরান।",
   "minutesAway": "{minutes} মিনিট",
   "kilometresAway": "{distance} কিমি",
-  "ratingsCount": "{count}+ রেটিং",
+  "ratingsCount": "{count, plural, =1{1 রেটিং} other{{count} রেটিং}}",
   "priceForTwo": "দুজনের জন্য ₹{amount}",
   "freeDelivery": "ফ্রি ডেলিভারি",
   "percentOff": "{percent}% ছাড়",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "আপনার কার্ট খালি",
   "cartEmptySubtitle": "শুরু করতে কোনো রেস্তোরাঁ থেকে খাবার যোগ করুন।",
   "browseRestaurants": "রেস্তোরাঁ দেখুন",
-  "itemsInCart": "{count}টি জিনিস",
+  "itemsInCart": "{count, plural, =1{1টি জিনিস} other{{count}টি জিনিস}}",
   "viewCart": "কার্ট দেখুন",
   "itemTotal": "জিনিসের মোট",
   "deliveryFeeLabel": "ডেলিভারি ফি",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "অর্ডার বাতিল হয়েছে",
 
-  "currentLocationLabel": "বর্তমান অবস্থান"
+  "currentLocationLabel": "বর্তমান অবস্থান",
+
+  "editProfileTitle": "প্রোফাইল সম্পাদনা",
+
+  "editProfileSubtitle": "রেস্তোরাঁ ও ডেলিভারি পার্টনার আপনার নামই দেখেন।",
+
+  "saveChanges": "পরিবর্তন সংরক্ষণ",
+
+  "profileUpdated": "প্রোফাইল হালনাগাদ হয়েছে",
+
+  "deleteAccount": "অ্যাকাউন্ট মুছুন",
+
+  "deleteAccountTitle": "আপনার অ্যাকাউন্ট মুছবেন?",
+
+  "deleteAccountMessage": "সব ডিভাইস থেকে সাইন আউট হয়ে যাবেন। পুরনো অর্ডার ও চালান কর নথির জন্য রাখা হয়।",
+
+  "accountDeleted": "আপনার অ্যাকাউন্ট মুছে ফেলা হয়েছে",
+
+  "devicesTitle": "সাইন-ইন করা ডিভাইস",
+
+  "devicesSubtitle": "আপনি কোথায় সাইন ইন আছেন",
+
+  "devicesEmptyTitle": "অন্য কোনো ডিভাইস নেই",
+
+  "devicesEmptySubtitle": "আপনি শুধু এই ডিভাইসেই সাইন ইন আছেন।",
+
+  "signOutDevice": "সাইন আউট",
+
+  "signOutDeviceTitle": "এই ডিভাইস সাইন আউট করবেন?",
+
+  "signOutDeviceMessage": "আপনি যদি এই ডিভাইসটিই ব্যবহার করেন তবে আবার সাইন ইন করতে হবে।",
+
+  "deviceSignedOut": "ডিভাইস সাইন আউট হয়েছে",
+
+  "signOutEverywhere": "সব জায়গা থেকে সাইন আউট",
+
+  "signOutEverywhereTitle": "সব জায়গা থেকে সাইন আউট করবেন?",
+
+  "signOutEverywhereMessage": "এই ডিভাইস সহ সব ডিভাইস সাইন আউট হয়ে যাবে।",
+
+  "unknownDevice": "অজানা ডিভাইস",
+
+  "activeNow": "এখন সক্রিয়",
+
+  "minutesAgo": "{count} মিনিট আগে",
+
+  "hoursAgo": "{count} ঘণ্টা আগে",
+
+  "daysAgo": "{count} দিন আগে",
+
+  "filtersAndSorting": "ফিল্টার ও সাজানো",
+
+  "clearAll": "সব মুছুন",
+
+  "showResults": "ফলাফল দেখুন",
+
+  "closeLabel": "বন্ধ করুন",
+
+  "sortByTitle": "সাজান",
+
+  "sortRelevance": "প্রাসঙ্গিকতা",
+
+  "sortRating": "রেটিং",
+
+  "sortDeliveryTime": "ডেলিভারি সময়",
+
+  "sortCostLowHigh": "দাম: কম থেকে বেশি",
+
+  "sortCostHighLow": "দাম: বেশি থেকে কম",
+
+  "timeSection": "সময়",
+
+  "nearAndFast": "কাছে ও দ্রুত",
+
+  "openNow": "এখন খোলা",
+
+  "ratingSection": "রেস্তোরাঁর রেটিং",
+
+  "ratedAbove": "{rating}+ রেটিং",
+
+  "offersSection": "অফার",
+
+  "hasOffersLabel": "অফার আছে",
+
+  "dishPriceSection": "পদের দাম",
+
+  "costUnder": "{amount} এর কম",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "আরও",
+
+  "noPackagingCharges": "প্যাকেজিং চার্জ নেই",
+
+  "allRestaurantsTitle": "সব রেস্তোরাঁ",
+
+  "whatsOnYourMind": "কী খেতে ইচ্ছে করছে?",
+
+  "listeningNow": "শুনছি…",
+
+  "speakNowHint": "একটি পদ বা রেস্তোরাঁর নাম বলুন",
+
+  "voiceUnavailable": "ভয়েস সার্চ পাওয়া যাচ্ছে না",
+
+  "voiceUnavailableBody": "আপনি টাইপ করেও খুঁজতে পারেন।",
+
+  "microphoneDenied": "মাইক্রোফোনের অনুমতি বন্ধ",
+
+  "voiceSearchLabel": "কণ্ঠে খুঁজুন",
+
+  "ratingsAndReviews": "রেটিং ও পর্যালোচনা",
+
+  "reviewsWithTextOnly": "পর্যালোচনা সহ",
+
+  "noReviewsTitle": "এখনও কোনো রেটিং নেই",
+
+  "noReviewsSubtitle": "অর্ডারের পরে প্রথম রেটিংটি আপনিই দিন।",
+
+  "rateOrderTitle": "আপনার অর্ডার রেট করুন",
+
+  "rateDishesTitle": "খাবারগুলি রেট করুন",
+
+  "reviewHint": "আর কিছু বলতে চান? (ঐচ্ছিক)",
+
+  "submitRating": "রেটিং পাঠান",
+
+  "reviewThanks": "ধন্যবাদ — আপনার রেটিং জমা হয়েছে।",
+
+  "rateThisOrder": "এই অর্ডার রেট করুন"
 }

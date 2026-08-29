@@ -19,9 +19,10 @@ class ApiLog {
 
   static const String _tag = 'nexmile.api';
 
-  /// Bodies longer than this are truncated — a menu response is thousands of
-  /// lines and Logcat drops long lines rather than wrapping them.
-  static const int _maxBody = 2000;
+  /// Bodies longer than this are truncated. Generous on purpose: the home
+  /// payload is ~20 KB, and a cap that cuts it off hides exactly the sections
+  /// worth inspecting. `debugPrint` chunks long output rather than dropping it.
+  static const int _maxBody = 14000;
 
   /// Header and body fields that must never reach a log, even in debug: a
   /// bearer token pasted into a bug report is a working session.
@@ -110,6 +111,11 @@ class ApiLog {
     }
   }
 
+  /// A single value long enough to push the rest of the payload past the cap.
+  /// The presigned S3 URLs the API returns are ~1.5 KB each, so half a dozen
+  /// banners were burying every section below them.
+  static const int _maxValue = 180;
+
   static Object? _redact(Object? value) {
     if (value is Map) {
       return <String, Object?>{
@@ -120,6 +126,11 @@ class ApiLog {
       };
     }
     if (value is List) return value.map(_redact).toList();
+    if (value is String && value.length > _maxValue) {
+      // Keep the head: enough to tell an S3 banner from an S3 logo, and to
+      // paste into a browser after finding the rest in the network tab.
+      return '${value.substring(0, _maxValue)}… (${value.length} chars)';
+    }
     return value;
   }
 

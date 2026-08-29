@@ -71,12 +71,12 @@
   "cravingTitle": "ঙসি করি চাবা পাম্বগে?",
   "offersTitle": "নহাক্কীদমক ওফর",
   "restaurantsNearby": "নহাক্কী নকপা রেস্তোরান্তশিং",
-  "restaurantsCount": "রেস্তোরান্ত {count}",
+  "restaurantsCount": "{count, plural, =1{1 ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ} other{{count} ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ}}",
   "noRestaurantsTitle": "মফম অসিদা হৌজিক করিসু লৈতে",
   "noRestaurantsSubtitle": "অতোপ্পা কেতেগোরি য়েংউ নত্ত্রগা ফিল্তর লৌথোকউ।",
   "minutesAway": "মিনিট {minutes}",
   "kilometresAway": "কিমি {distance}",
-  "ratingsCount": "রেটিং {count}+",
+  "ratingsCount": "{count, plural, =1{1 রেটিং} other{{count} রেটিং}}",
   "priceForTwo": "অনিগীদমক ₹{amount}",
   "freeDelivery": "ফ্রি দেলিভরি",
   "percentOff": "{percent}% হন্থবা",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "নহাক্কী কার্ত অহাংবনি",
   "cartEmptySubtitle": "হৌনবা রেস্তোরান্ত অমদগী চিঞ্জাক হাপচিল্লু।",
   "browseRestaurants": "রেস্তোরান্ত য়েংউ",
-  "itemsInCart": "পোৎলম {count}",
+  "itemsInCart": "{count, plural, =1{1 ꯄꯣꯠ} other{{count} ꯄꯣꯠ}}",
   "viewCart": "কার্ত য়েংউ",
   "itemTotal": "পোৎলমগী অপুনবা",
   "deliveryFeeLabel": "দেলিভরি ফী",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "ꯑꯣꯔꯗꯔ ꯀꯛꯊꯠꯂꯦ",
 
-  "currentLocationLabel": "ꯍꯧꯖꯤꯛꯀꯤ ꯃꯐꯝ"
+  "currentLocationLabel": "ꯍꯧꯖꯤꯛꯀꯤ ꯃꯐꯝ",
+
+  "editProfileTitle": "ꯄ꯭ꯔꯣꯐꯥꯏꯜ ꯁꯦꯝꯗꯣꯛꯎ",
+
+  "editProfileSubtitle": "ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ ꯑꯃꯁꯨꯡ ꯗꯦꯂꯤꯚꯔꯤ ꯄꯥꯔꯠꯅꯔꯅ ꯑꯗꯣꯝꯒꯤ ꯃꯃꯤꯡ ꯑꯗꯨ ꯎꯏ꯫",
+
+  "saveChanges": "ꯑꯍꯣꯡꯕ ꯊꯝꯃꯨ",
+
+  "profileUpdated": "ꯄ꯭ꯔꯣꯐꯥꯏꯜ ꯑꯅꯧꯕ ꯑꯣꯏꯔꯦ",
+
+  "deleteAccount": "ꯑꯦꯀꯥꯎꯟꯠ ꯃꯨꯠꯊꯠꯂꯨ",
+
+  "deleteAccountTitle": "ꯑꯗꯣꯝꯒꯤ ꯑꯦꯀꯥꯎꯟꯠ ꯃꯨꯠꯊꯠꯀꯗ꯭ꯔꯥ?",
+
+  "deleteAccountMessage": "ꯗꯤꯚꯥꯏꯁ ꯄꯨꯝꯅꯃꯛꯇꯒꯤ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯑꯣꯏꯒꯅꯤ꯫ ꯃꯃꯥꯡꯒꯤ ꯑꯣꯔꯗꯔ ꯑꯃꯁꯨꯡ ꯕꯤꯜ ꯑꯗꯨ ꯇꯦꯛꯁ ꯔꯦꯀꯣꯔꯗꯀꯤꯗꯃꯛ ꯊꯝꯃꯤ꯫",
+
+  "accountDeleted": "ꯑꯗꯣꯝꯒꯤ ꯑꯦꯀꯥꯎꯟꯠ ꯃꯨꯠꯊꯠꯂꯦ",
+
+  "devicesTitle": "ꯁꯥꯏꯟ ꯏꯟ ꯗꯤꯚꯥꯏꯁ",
+
+  "devicesSubtitle": "ꯑꯗꯣꯝ ꯀꯗꯥꯏꯗ ꯁꯥꯏꯟ ꯏꯟ ꯇꯧꯔꯤ",
+
+  "devicesEmptyTitle": "ꯑꯇꯣꯞꯄ ꯗꯤꯚꯥꯏꯁ ꯂꯩꯇꯦ",
+
+  "devicesEmptySubtitle": "ꯑꯗꯣꯝ ꯗꯤꯚꯥꯏꯁ ꯑꯁꯤꯗ ꯈꯛꯇ ꯁꯥꯏꯟ ꯏꯟ ꯇꯧꯔꯤ꯫",
+
+  "signOutDevice": "ꯁꯥꯏꯟ ꯑꯥꯎꯠ",
+
+  "signOutDeviceTitle": "ꯗꯤꯚꯥꯏꯁ ꯑꯁꯤ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯇꯧꯒꯗ꯭ꯔꯥ?",
+
+  "signOutDeviceMessage": "ꯑꯗꯣꯝꯅ ꯁꯤꯖꯤꯟꯅꯔꯤꯕ ꯗꯤꯚꯥꯏꯁ ꯑꯁꯤ ꯑꯣꯏꯔꯕꯗꯤ ꯑꯃꯨꯛ ꯁꯥꯏꯟ ꯏꯟ ꯇꯧꯒꯗꯕꯅꯤ꯫",
+
+  "deviceSignedOut": "ꯗꯤꯚꯥꯏꯁ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯇꯧꯔꯦ",
+
+  "signOutEverywhere": "ꯃꯐꯝ ꯄꯨꯝꯅꯃꯛꯇꯒꯤ ꯁꯥꯏꯟ ꯑꯥꯎꯠ",
+
+  "signOutEverywhereTitle": "ꯃꯐꯝ ꯄꯨꯝꯅꯃꯛꯇꯒꯤ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯇꯧꯒꯗ꯭ꯔꯥ?",
+
+  "signOutEverywhereMessage": "ꯗꯤꯚꯥꯏꯁ ꯑꯁꯤ ꯌꯥꯑꯣꯅ ꯗꯤꯚꯥꯏꯁ ꯈꯨꯗꯤꯡꯃꯛ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯑꯣꯏꯒꯅꯤ꯫",
+
+  "unknownDevice": "ꯃꯁꯛ ꯈꯉꯗꯕ ꯗꯤꯚꯥꯏꯁ",
+
+  "activeNow": "ꯍꯧꯖꯤꯛ ꯁꯛꯇꯤꯅ ꯂꯩꯔꯤ",
+
+  "minutesAgo": "{count} ꯃꯤꯅꯤꯠ ꯃꯃꯥꯡꯗ",
+
+  "hoursAgo": "{count} ꯄꯨꯡ ꯃꯃꯥꯡꯗ",
+
+  "daysAgo": "{count} ꯅꯨꯃꯤꯠ ꯃꯃꯥꯡꯗ",
+
+  "filtersAndSorting": "ꯐꯤꯜꯇꯔ ꯑꯃꯁꯨꯡ ꯑꯣꯏꯅ ꯊꯝꯕ",
+
+  "clearAll": "ꯄꯨꯝꯅꯃꯛ ꯂꯧꯊꯣꯛꯎ",
+
+  "showResults": "ꯐꯜ ꯎꯠꯂꯨ",
+
+  "closeLabel": "ꯂꯣꯅꯁꯤꯜꯂꯨ",
+
+  "sortByTitle": "ꯑꯣꯏꯅ ꯊꯝꯕ",
+
+  "sortRelevance": "ꯃꯔꯤ ꯂꯩꯅꯕ",
+
+  "sortRating": "ꯔꯦꯇꯤꯡ",
+
+  "sortDeliveryTime": "ꯗꯦꯂꯤꯚꯔꯤ ꯃꯇꯝ",
+
+  "sortCostLowHigh": "ꯃꯃꯜ: ꯍꯟꯊꯕꯗꯒꯤ ꯌꯥꯝꯕ",
+
+  "sortCostHighLow": "ꯃꯃꯜ: ꯌꯥꯝꯕꯗꯒꯤ ꯍꯟꯊꯕ",
+
+  "timeSection": "ꯃꯇꯝ",
+
+  "nearAndFast": "ꯅꯛꯅ ꯑꯃꯁꯨꯡ ꯌꯥꯡꯅ",
+
+  "openNow": "ꯍꯧꯖꯤꯛ ꯍꯥꯡꯗꯣꯛꯂꯤ",
+
+  "ratingSection": "ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ ꯔꯦꯇꯤꯡ",
+
+  "ratedAbove": "{rating}+ ꯔꯦꯇꯤꯡ",
+
+  "offersSection": "ꯑꯣꯐꯔ",
+
+  "hasOffersLabel": "ꯑꯣꯐꯔ ꯂꯩꯕ",
+
+  "dishPriceSection": "ꯆꯥꯅꯕꯒꯤ ꯃꯃꯜ",
+
+  "costUnder": "{amount} ꯗꯒꯤ ꯍꯟꯊꯕ",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "ꯑꯍꯦꯟꯕ",
+
+  "noPackagingCharges": "ꯄꯦꯛꯀꯤꯡ ꯆꯥꯔꯖ ꯂꯩꯇꯦ",
+
+  "allRestaurantsTitle": "ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ ꯄꯨꯝꯅꯃꯛ",
+
+  "whatsOnYourMind": "ꯀꯔꯤ ꯆꯥꯅꯤꯡꯏ?",
+
+  "listeningNow": "ꯇꯥꯔꯤ…",
+
+  "speakNowHint": "ꯆꯥꯅꯕ ꯅꯠꯔꯒ ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ ꯍꯥꯌꯕꯤꯌꯨ",
+
+  "voiceUnavailable": "ꯈꯣꯟꯗ ꯊꯤꯕ ꯐꯪꯗꯦ",
+
+  "voiceUnavailableBody": "ꯑꯗꯣꯝꯅ ꯇꯥꯏꯞ ꯇꯧꯗꯨꯅꯥ ꯊꯤꯕ ꯌꯥꯏ꯫",
+
+  "microphoneDenied": "ꯃꯥꯏꯀ꯭ꯔꯣꯐꯣꯟ ꯑꯌꯥꯕ ꯂꯩꯇꯦ",
+
+  "voiceSearchLabel": "ꯈꯣꯟꯗ ꯊꯤꯌꯨ",
+
+  "ratingsAndReviews": "রেটিং অমসুং রিভিয়ু",
+
+  "reviewsWithTextOnly": "রিভিয়ু লৈবা",
+
+  "noReviewsTitle": "হৌজিক ফাওবা রেটিং লৈতে",
+
+  "noReviewsSubtitle": "অর্দর তৌরবা মতুংদা অহানবা রেটিং অদু নহাক্না পীয়ু।",
+
+  "rateOrderTitle": "নহাক্কী অর্দর অসি রেট তৌবিয়ু",
+
+  "rateDishesTitle": "চাক্লোনশিং রেট তৌবিয়ু",
+
+  "reviewHint": "অতোপ্পা করিগুম্বা হায়নিংবা লৈব্রা? (য়াদবা)",
+
+  "submitRating": "রেটিং থাবিয়ু",
+
+  "reviewThanks": "থাগৎচরি — নহাক্কী রেটিং ফংলে।",
+
+  "rateThisOrder": "অর্দর অসি রেট তৌবিয়ু"
 }

@@ -12,6 +12,7 @@ import '../address/state/address_controller.dart';
 import '../auth/data/auth_failure.dart';
 import '../auth/data/auth_user.dart';
 import '../auth/state/auth_controller.dart';
+import 'edit_profile_sheet.dart';
 
 /// Customer profile, backed by `GET /v1/profile`.
 ///
@@ -119,6 +120,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               label: l10n.nameLabel,
               value: user.name.trim().isEmpty ? l10n.notProvided : user.name,
               emphasise: user.name.trim().isNotEmpty,
+              // Every account is created as "Nexmile user", so this is where a
+              // customer first gets a real name.
+              onTap: () => _edit(context),
             ),
             const SizedBox(height: 12),
             InfoTile(
@@ -174,6 +178,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 arguments: false,
               ),
             ),
+            const SizedBox(height: 12),
+            InfoTile(
+              icon: Icons.devices_other_rounded,
+              label: l10n.devicesTitle,
+              value: l10n.devicesSubtitle,
+              onTap: () => Navigator.of(context).pushNamed(AppRoutes.devices),
+            ),
             const SizedBox(height: 28),
             OutlinedButton.icon(
               onPressed: () => _signOut(context),
@@ -190,10 +201,76 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
             ),
+            const SizedBox(height: 12),
+            // Kept plain and last: a destructive action should not compete
+            // with sign-out for attention.
+            TextButton(
+              onPressed: () => _deleteAccount(context),
+              style: TextButton.styleFrom(
+                foregroundColor: theme.colorScheme.error,
+                minimumSize: const Size.fromHeight(48),
+              ),
+              child: Text(l10n.deleteAccount),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  Future<void> _edit(BuildContext context) async {
+    final bool saved = await showEditProfileSheet(context);
+    // The controller already holds the updated user, so this only refreshes
+    // anything the server changed that the response did not carry.
+    if (saved && mounted) await _load();
+  }
+
+  /// Irreversible for the customer, though the server keeps a soft-deleted
+  /// record so past orders and invoices survive for tax purposes.
+  Future<void> _deleteAccount(BuildContext context) async {
+    final AppLocalizations l10n = AppLocalizations.of(context);
+    final AuthController auth = context.read<AuthController>();
+    final NavigatorState navigator = Navigator.of(context);
+    final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
+
+    final bool confirmed = await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+            title: Text(l10n.deleteAccountTitle),
+            content: Text(l10n.deleteAccountMessage),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(l10n.cancelLabel),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                style: FilledButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.error,
+                ),
+                child: Text(l10n.deleteAccount),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+    if (!confirmed || !mounted) return;
+
+    final AuthFailure? failure = await auth.deleteAccount();
+    if (!mounted) return;
+    if (failure != null) {
+      messenger
+        ..clearSnackBars()
+        ..showSnackBar(SnackBar(content: Text(failure.message(l10n))));
+      return;
+    }
+    navigator.pushNamedAndRemoveUntil(
+      AppRoutes.login,
+      (Route<void> route) => false,
+    );
+    messenger
+      ..clearSnackBars()
+      ..showSnackBar(SnackBar(content: Text(l10n.accountDeleted)));
   }
 
   Future<void> _signOut(BuildContext context) async {

@@ -210,7 +210,13 @@ class AppLocalizationsBrx extends AppLocalizations {
 
   @override
   String restaurantsCount(int count) {
-    return '$count रेस्टुरेन्ट';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count रेस्टुरेन्ट',
+      one: '1 रेस्टुरेन्ट',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -231,7 +237,13 @@ class AppLocalizationsBrx extends AppLocalizations {
 
   @override
   String ratingsCount(int count) {
-    return '$count+ रेटिं';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count रेटिं',
+      one: '1 रेटिं',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -292,7 +304,13 @@ class AppLocalizationsBrx extends AppLocalizations {
 
   @override
   String itemsInCart(int count) {
-    return '$count बेसाद';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count बेसाद',
+      one: '1 बेसाद',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -721,4 +739,213 @@ class AppLocalizationsBrx extends AppLocalizations {
 
   @override
   String get currentLocationLabel => 'दानिनि जायगा';
+
+  @override
+  String get editProfileTitle => 'प्रफाइल सुद्रायहो';
+
+  @override
+  String get editProfileSubtitle => 'रेस्टुरेन्ट आरो डेलिभारि पार्टनारा नोंथांनि मुंखौलो नुयो।';
+
+  @override
+  String get saveChanges => 'सोलायनायखौ थिना दोन';
+
+  @override
+  String get profileUpdated => 'प्रफाइल आपडेट जाबाय';
+
+  @override
+  String get deleteAccount => 'एकाउन्ट खोमोर';
+
+  @override
+  String get deleteAccountTitle => 'नोंथांनि एकाउन्टखौ खोमोरनो नामा?';
+
+  @override
+  String get deleteAccountMessage => 'गासै डिभाइसनिफ्राय साइन आउट जागोन। गागैनि अर्डार आरो बिलखौ ट्याक्स रेकर्डनि थाखाय दोनो।';
+
+  @override
+  String get accountDeleted => 'नोंथांनि एकाउन्ट खोमोरबाय';
+
+  @override
+  String get devicesTitle => 'साइन-इन डिभाइस';
+
+  @override
+  String get devicesSubtitle => 'नोंथाङा बबेयाव साइन इन दंब्ला';
+
+  @override
+  String get devicesEmptyTitle => 'गुबुन जेबो डिभाइस गैया';
+
+  @override
+  String get devicesEmptySubtitle => 'नोंथाङा बे डिभाइसावलो साइन इन दङ।';
+
+  @override
+  String get signOutDevice => 'साइन आउट';
+
+  @override
+  String get signOutDeviceTitle => 'बे डिभाइसखौ साइन आउट खालामनो नामा?';
+
+  @override
+  String get signOutDeviceMessage => 'नोंथाङा बे डिभाइसखौबो बाहायगासिनो दङब्ला फिन साइन इन खालामनांगोन।';
+
+  @override
+  String get deviceSignedOut => 'डिभाइस साइन आउट जाबाय';
+
+  @override
+  String get signOutEverywhere => 'गासै जायगानिफ्राय साइन आउट';
+
+  @override
+  String get signOutEverywhereTitle => 'गासै जायगानिफ्राय साइन आउट खालामनो नामा?';
+
+  @override
+  String get signOutEverywhereMessage => 'बे डिभाइस लोगोसे मोनफ्रोम डिभाइसआ साइन आउट जागोन।';
+
+  @override
+  String get unknownDevice => 'मिथिमोनै डिभाइस';
+
+  @override
+  String get activeNow => 'दानो सोलिगासिनो';
+
+  @override
+  String minutesAgo(int count) {
+    return '$count मिनिट सिगां';
+  }
+
+  @override
+  String hoursAgo(int count) {
+    return '$count घन्टा सिगां';
+  }
+
+  @override
+  String daysAgo(int count) {
+    return '$count सान सिगां';
+  }
+
+  @override
+  String get filtersAndSorting => 'फिल्टार आरो थाखो';
+
+  @override
+  String get clearAll => 'गासैखौ खोमोर';
+
+  @override
+  String get showResults => 'फिथाइ दिन्थि';
+
+  @override
+  String get closeLabel => 'बन्द खालाम';
+
+  @override
+  String get sortByTitle => 'थाखो';
+
+  @override
+  String get sortRelevance => 'सोमोन्दो';
+
+  @override
+  String get sortRating => 'रेटिं';
+
+  @override
+  String get sortDeliveryTime => 'डेलिभारि सम';
+
+  @override
+  String get sortCostLowHigh => 'बेसेन: खमनिफ्राय बांसिन';
+
+  @override
+  String get sortCostHighLow => 'बेसेन: बांसिननिफ्राय खम';
+
+  @override
+  String get timeSection => 'सम';
+
+  @override
+  String get nearAndFast => 'खाथि आरो गोख्रों';
+
+  @override
+  String get openNow => 'दानो खेवनाय';
+
+  @override
+  String get ratingSection => 'रेस्टुरेन्ट रेटिं';
+
+  @override
+  String ratedAbove(String rating) {
+    return '$rating+ रेटिं';
+  }
+
+  @override
+  String get offersSection => 'अफार';
+
+  @override
+  String get hasOffersLabel => 'अफार दङ';
+
+  @override
+  String get dishPriceSection => 'जानायनि बेसेन';
+
+  @override
+  String costUnder(String amount) {
+    return '$amount निख्रुइ खम';
+  }
+
+  @override
+  String costBetween(String min, String max) {
+    return '$min – $max';
+  }
+
+  @override
+  String costOver(String amount) {
+    return '$amount+';
+  }
+
+  @override
+  String get moreSection => 'गोबां';
+
+  @override
+  String get noPackagingCharges => 'पेकिं खम गैया';
+
+  @override
+  String get allRestaurantsTitle => 'गासै रेस्टुरेन्ट';
+
+  @override
+  String get whatsOnYourMind => 'मा जानो मोन दङ?';
+
+  @override
+  String get listeningNow => 'खोनासंनो दङ…';
+
+  @override
+  String get speakNowHint => 'मोनसे जानाय एबा रेस्टुरेन्ट बुं';
+
+  @override
+  String get voiceUnavailable => 'सोदोब नागिरनाय मोनाकै';
+
+  @override
+  String get voiceUnavailableBody => 'नोंथाङा टाइप खालामनानै नागिरनो हागौ।';
+
+  @override
+  String get microphoneDenied => 'माइक्रफन गनायथि गैया';
+
+  @override
+  String get voiceSearchLabel => 'सोदोबजों नागिर';
+
+  @override
+  String get ratingsAndReviews => 'रेटिं आरो सिमांथि';
+
+  @override
+  String get reviewsWithTextOnly => 'सिमांथि दङब्ला';
+
+  @override
+  String get noReviewsTitle => 'दासिम जेबो रेटिं गैया';
+
+  @override
+  String get noReviewsSubtitle => 'अर्दार खालामनायनि उनाव गिबि रेटिं नोंथाङा हो।';
+
+  @override
+  String get rateOrderTitle => 'नोंथांनि अर्दारखौ रेट खालाम';
+
+  @override
+  String get rateDishesTitle => 'आवगोदांफोरखौ रेट खालाम';
+
+  @override
+  String get reviewHint => 'गुबुन जेबो बुङनो लुबैयो ना? (इच्छा)';
+
+  @override
+  String get submitRating => 'रेटिं दैथाय';
+
+  @override
+  String get reviewThanks => 'साबायखर — नोंथांनि रेटिं मोनबाय।';
+
+  @override
+  String get rateThisOrder => 'बे अर्दारखौ रेट खालाम';
 }

@@ -71,12 +71,12 @@
   "cravingTitle": "ಏನು ತಿನ್ನಬೇಕು ಅನಿಸುತ್ತಿದೆ?",
   "offersTitle": "ನಿಮಗಾಗಿ ಆಫರ್‌ಗಳು",
   "restaurantsNearby": "ನಿಮ್ಮ ಹತ್ತಿರದ ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು",
-  "restaurantsCount": "{count} ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು",
+  "restaurantsCount": "{count, plural, =1{1 ರೆಸ್ಟೋರೆಂಟ್} other{{count} ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು}}",
   "noRestaurantsTitle": "ಇಲ್ಲಿ ಇನ್ನೂ ಏನೂ ಇಲ್ಲ",
   "noRestaurantsSubtitle": "ಬೇರೆ ವಿಭಾಗ ನೋಡಿ ಅಥವಾ ಫಿಲ್ಟರ್ ತೆಗೆಯಿರಿ.",
   "minutesAway": "{minutes} ನಿಮಿ",
   "kilometresAway": "{distance} ಕಿಮೀ",
-  "ratingsCount": "{count}+ ರೇಟಿಂಗ್‌ಗಳು",
+  "ratingsCount": "{count, plural, =1{1 ರೇಟಿಂಗ್} other{{count} ರೇಟಿಂಗ್‌ಗಳು}}",
   "priceForTwo": "ಇಬ್ಬರಿಗೆ ₹{amount}",
   "freeDelivery": "ಉಚಿತ ಡೆಲಿವರಿ",
   "percentOff": "{percent}% ರಿಯಾಯಿತಿ",
@@ -93,7 +93,7 @@
   "cartEmptyTitle": "ನಿಮ್ಮ ಕಾರ್ಟ್ ಖಾಲಿಯಿದೆ",
   "cartEmptySubtitle": "ಶುರುಮಾಡಲು ಯಾವುದಾದರೂ ರೆಸ್ಟೋರೆಂಟ್‌ನಿಂದ ಖಾದ್ಯ ಸೇರಿಸಿ.",
   "browseRestaurants": "ರೆಸ್ಟೋರೆಂಟ್‌ಗಳನ್ನು ನೋಡಿ",
-  "itemsInCart": "{count} ವಸ್ತುಗಳು",
+  "itemsInCart": "{count, plural, =1{1 ವಸ್ತು} other{{count} ವಸ್ತುಗಳು}}",
   "viewCart": "ಕಾರ್ಟ್ ನೋಡಿ",
   "itemTotal": "ವಸ್ತುಗಳ ಒಟ್ಟು",
   "deliveryFeeLabel": "ಡೆಲಿವರಿ ಶುಲ್ಕ",
@@ -286,5 +286,135 @@
 
   "orderCancelled": "ಆರ್ಡರ್ ರದ್ದಾಗಿದೆ",
 
-  "currentLocationLabel": "ಪ್ರಸ್ತುತ ಸ್ಥಳ"
+  "currentLocationLabel": "ಪ್ರಸ್ತುತ ಸ್ಥಳ",
+
+  "editProfileTitle": "ಪ್ರೊಫೈಲ್ ಸಂಪಾದಿಸಿ",
+
+  "editProfileSubtitle": "ರೆಸ್ಟೋರೆಂಟ್ ಮತ್ತು ಡೆಲಿವರಿ ಪಾರ್ಟನರ್‌ಗೆ ನಿಮ್ಮ ಹೆಸರೇ ಕಾಣಿಸುತ್ತದೆ.",
+
+  "saveChanges": "ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಿ",
+
+  "profileUpdated": "ಪ್ರೊಫೈಲ್ ನವೀಕರಿಸಲಾಗಿದೆ",
+
+  "deleteAccount": "ಖಾತೆ ಅಳಿಸಿ",
+
+  "deleteAccountTitle": "ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸಬೇಕೆ?",
+
+  "deleteAccountMessage": "ಎಲ್ಲಾ ಸಾಧನಗಳಿಂದ ಸೈನ್ ಔಟ್ ಆಗುತ್ತೀರಿ. ಹಳೆಯ ಆರ್ಡರ್ ಮತ್ತು ಬಿಲ್‌ಗಳನ್ನು ತೆರಿಗೆ ದಾಖಲೆಗಾಗಿ ಇಡಲಾಗುತ್ತದೆ.",
+
+  "accountDeleted": "ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸಲಾಗಿದೆ",
+
+  "devicesTitle": "ಸೈನ್-ಇನ್ ಸಾಧನಗಳು",
+
+  "devicesSubtitle": "ನೀವು ಎಲ್ಲಿ ಸೈನ್ ಇನ್ ಆಗಿದ್ದೀರಿ",
+
+  "devicesEmptyTitle": "ಬೇರೆ ಸಾಧನಗಳಿಲ್ಲ",
+
+  "devicesEmptySubtitle": "ನೀವು ಈ ಸಾಧನದಲ್ಲಿ ಮಾತ್ರ ಸೈನ್ ಇನ್ ಆಗಿದ್ದೀರಿ.",
+
+  "signOutDevice": "ಸೈನ್ ಔಟ್",
+
+  "signOutDeviceTitle": "ಈ ಸಾಧನವನ್ನು ಸೈನ್ ಔಟ್ ಮಾಡಬೇಕೆ?",
+
+  "signOutDeviceMessage": "ನೀವು ಬಳಸುತ್ತಿರುವುದು ಇದೇ ಆದರೆ ಮತ್ತೆ ಸೈನ್ ಇನ್ ಮಾಡಬೇಕಾಗುತ್ತದೆ.",
+
+  "deviceSignedOut": "ಸಾಧನ ಸೈನ್ ಔಟ್ ಆಗಿದೆ",
+
+  "signOutEverywhere": "ಎಲ್ಲೆಡೆ ಸೈನ್ ಔಟ್",
+
+  "signOutEverywhereTitle": "ಎಲ್ಲೆಡೆ ಸೈನ್ ಔಟ್ ಮಾಡಬೇಕೆ?",
+
+  "signOutEverywhereMessage": "ಈ ಸಾಧನ ಸೇರಿದಂತೆ ಎಲ್ಲಾ ಸಾಧನಗಳು ಸೈನ್ ಔಟ್ ಆಗುತ್ತವೆ.",
+
+  "unknownDevice": "ಅಜ್ಞಾತ ಸಾಧನ",
+
+  "activeNow": "ಈಗ ಸಕ್ರಿಯ",
+
+  "minutesAgo": "{count} ನಿಮಿಷಗಳ ಹಿಂದೆ",
+
+  "hoursAgo": "{count} ಗಂಟೆಗಳ ಹಿಂದೆ",
+
+  "daysAgo": "{count} ದಿನಗಳ ಹಿಂದೆ",
+
+  "filtersAndSorting": "ಫಿಲ್ಟರ್ ಮತ್ತು ಕ್ರಮ",
+
+  "clearAll": "ಎಲ್ಲವನ್ನೂ ತೆಗೆ",
+
+  "showResults": "ಫಲಿತಾಂಶ ತೋರಿಸು",
+
+  "closeLabel": "ಮುಚ್ಚು",
+
+  "sortByTitle": "ಕ್ರಮ",
+
+  "sortRelevance": "ಪ್ರಸ್ತುತತೆ",
+
+  "sortRating": "ರೇಟಿಂಗ್",
+
+  "sortDeliveryTime": "ಡೆಲಿವರಿ ಸಮಯ",
+
+  "sortCostLowHigh": "ಬೆಲೆ: ಕಡಿಮೆಯಿಂದ ಹೆಚ್ಚು",
+
+  "sortCostHighLow": "ಬೆಲೆ: ಹೆಚ್ಚಿನಿಂದ ಕಡಿಮೆ",
+
+  "timeSection": "ಸಮಯ",
+
+  "nearAndFast": "ಹತ್ತಿರ ಮತ್ತು ವೇಗ",
+
+  "openNow": "ಈಗ ತೆರೆದಿದೆ",
+
+  "ratingSection": "ರೆಸ್ಟೋರೆಂಟ್ ರೇಟಿಂಗ್",
+
+  "ratedAbove": "{rating}+ ರೇಟಿಂಗ್",
+
+  "offersSection": "ಆಫರ್",
+
+  "hasOffersLabel": "ಆಫರ್ ಇರುವವು",
+
+  "dishPriceSection": "ಖಾದ್ಯದ ಬೆಲೆ",
+
+  "costUnder": "{amount} ಕ್ಕಿಂತ ಕಡಿಮೆ",
+
+  "costBetween": "{min} – {max}",
+
+  "costOver": "{amount}+",
+
+  "moreSection": "ಇನ್ನಷ್ಟು",
+
+  "noPackagingCharges": "ಪ್ಯಾಕಿಂಗ್ ಶುಲ್ಕವಿಲ್ಲ",
+
+  "allRestaurantsTitle": "ಎಲ್ಲಾ ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು",
+
+  "whatsOnYourMind": "ಏನು ತಿನ್ನಬೇಕು?",
+
+  "listeningNow": "ಕೇಳುತ್ತಿದ್ದೇವೆ…",
+
+  "speakNowHint": "ಖಾದ್ಯ ಅಥವಾ ರೆಸ್ಟೋರೆಂಟ್ ಹೇಳಿ",
+
+  "voiceUnavailable": "ಧ್ವನಿ ಹುಡುಕಾಟ ಲಭ್ಯವಿಲ್ಲ",
+
+  "voiceUnavailableBody": "ನೀವು ಟೈಪ್ ಮಾಡಿಯೂ ಹುಡುಕಬಹುದು.",
+
+  "microphoneDenied": "ಮೈಕ್ರೋಫೋನ್ ಅನುಮತಿ ಇಲ್ಲ",
+
+  "voiceSearchLabel": "ಧ್ವನಿಯಿಂದ ಹುಡುಕಿ",
+
+  "ratingsAndReviews": "ರೇಟಿಂಗ್‌ಗಳು ಮತ್ತು ವಿಮರ್ಶೆಗಳು",
+
+  "reviewsWithTextOnly": "ವಿಮರ್ಶೆ ಇರುವವು",
+
+  "noReviewsTitle": "ಇನ್ನೂ ರೇಟಿಂಗ್ ಇಲ್ಲ",
+
+  "noReviewsSubtitle": "ಆರ್ಡರ್ ನಂತರ ಮೊದಲ ರೇಟಿಂಗ್ ನೀವೇ ನೀಡಿ.",
+
+  "rateOrderTitle": "ನಿಮ್ಮ ಆರ್ಡರ್‌ಗೆ ರೇಟಿಂಗ್ ನೀಡಿ",
+
+  "rateDishesTitle": "ಖಾದ್ಯಗಳಿಗೆ ರೇಟಿಂಗ್ ನೀಡಿ",
+
+  "reviewHint": "ಇನ್ನೇನಾದರೂ ಹೇಳಬೇಕೆ? (ಐಚ್ಛಿಕ)",
+
+  "submitRating": "ರೇಟಿಂಗ್ ಕಳುಹಿಸಿ",
+
+  "reviewThanks": "ಧನ್ಯವಾದ — ನಿಮ್ಮ ರೇಟಿಂಗ್ ಸೇರಿದೆ.",
+
+  "rateThisOrder": "ಈ ಆರ್ಡರ್‌ಗೆ ರೇಟಿಂಗ್ ನೀಡಿ"
 }

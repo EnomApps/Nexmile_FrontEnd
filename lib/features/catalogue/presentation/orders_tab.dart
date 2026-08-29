@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/motion/pressable.dart';
+import '../../../core/motion/reveal.dart';
 import '../../../core/router/app_router.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../generated/l10n/app_localizations.dart';
@@ -78,18 +80,24 @@ class _OrdersTabState extends State<OrdersTab> {
               children: <Widget>[
                 if (active.isNotEmpty) ...<Widget>[
                   SectionHeader(title: l10n.activeOrdersTitle),
-                  for (final Order order in active)
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
-                      child: _OrderCard(order: order),
+                  for (int i = 0; i < active.length; i++)
+                    Reveal(
+                      index: i,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                        child: _OrderCard(order: active[i]),
+                      ),
                     ),
                 ],
                 if (past.isNotEmpty) ...<Widget>[
                   SectionHeader(title: l10n.pastOrdersTitle),
-                  for (final Order order in past)
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
-                      child: _OrderCard(order: order),
+                  for (int i = 0; i < past.length; i++)
+                    Reveal(
+                      index: i,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                        child: _OrderCard(order: past[i]),
+                      ),
                     ),
                 ],
               ],
@@ -112,22 +120,28 @@ class _OrderCard extends StatelessWidget {
     final AppLocalizations l10n = AppLocalizations.of(context);
     final BorderRadius radius = BorderRadius.circular(16);
 
-    return Material(
-      color: theme.colorScheme.surfaceContainerLow,
-      borderRadius: radius,
-      child: InkWell(
-        borderRadius: radius,
-        onTap: () => Navigator.of(context).pushNamed(
-          AppRoutes.orderStatus,
-          arguments: OrderArgs(orderId: order.id),
+    return Pressable(
+      onTap: () => Navigator.of(context).pushNamed(
+        AppRoutes.orderStatus,
+        arguments: OrderArgs(orderId: order.id),
+      ),
+      child: Container(
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surfaceContainerLow,
+          borderRadius: radius,
+          border: Border.all(color: theme.colorScheme.outline),
         ),
-        child: Ink(
-          decoration: BoxDecoration(
-            borderRadius: radius,
-            border: Border.all(color: theme.colorScheme.outline),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(14),
+        // A Stack rather than a stretched Row: inside a ListView the height is
+        // unbounded, and CrossAxisAlignment.stretch would force the stripe to
+        // be infinitely tall. The Stack takes its size from the content and
+        // the positioned stripe then matches it.
+        child: Stack(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsetsDirectional.only(start: 4),
+              child: Padding(
+                padding: const EdgeInsets.all(14),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -180,13 +194,36 @@ class _OrderCard extends StatelessWidget {
                     ),
                   ],
                 ),
-              ],
+                  ],
+                ),
+              ),
             ),
-          ),
+            // A stripe in the status colour, so an in-progress order is
+            // findable down a long history without reading a single word.
+            PositionedDirectional(
+              start: 0,
+              top: 0,
+              bottom: 0,
+              width: 4,
+              child: ColoredBox(color: statusColour(context, order.status)),
+            ),
+          ],
         ),
       ),
     );
   }
+}
+
+/// Colour for an order state. Shared by the stripe and the pill, so the two
+/// can never disagree about what "in progress" looks like.
+Color statusColour(BuildContext context, OrderStatus status) {
+  final ThemeData theme = Theme.of(context);
+  return switch (status) {
+    OrderStatus.delivered => const Color(0xFF0F8A0F),
+    OrderStatus.cancelled || OrderStatus.rejected => theme.colorScheme.error,
+    OrderStatus.unknown => theme.colorScheme.onSurfaceVariant,
+    _ => AppColors.orangeDeep,
+  };
 }
 
 /// Status pill. The label is the server's — it knows about statuses this build
@@ -204,14 +241,7 @@ class OrderStatusChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final Color color = switch (status) {
-      OrderStatus.delivered => const Color(0xFF0F8A0F),
-      OrderStatus.cancelled ||
-      OrderStatus.rejected =>
-        theme.colorScheme.error,
-      OrderStatus.unknown => theme.colorScheme.onSurfaceVariant,
-      _ => AppColors.orangeDeep,
-    };
+    final Color color = statusColour(context, status);
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),

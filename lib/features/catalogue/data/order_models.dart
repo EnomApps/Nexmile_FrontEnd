@@ -105,9 +105,17 @@ class OrderItem {
     required this.isVeg,
     required this.options,
     this.notes,
+    this.menuItemId,
   });
 
   final int id;
+
+  /// The dish this line was ordered from, which is what a rating is keyed by.
+  ///
+  /// Null when the API omits it — `GET /v1/orders` sends only the line id
+  /// today, where the cart sends both. A line without one simply cannot be
+  /// rated, rather than being rated against the wrong dish.
+  final int? menuItemId;
 
   /// The snapshot, not the live menu item — a renamed dish must not change
   /// what the kitchen reads off an existing ticket.
@@ -123,6 +131,8 @@ class OrderItem {
 
   static OrderItem fromJson(Map<String, dynamic> json) => OrderItem(
         id: asInt(json['id']),
+        menuItemId:
+            json['menu_item_id'] == null ? null : asInt(json['menu_item_id']),
         name: asString(json['name']),
         quantity: asInt(json['quantity'], 1),
         unitPrice: asDouble(json['unit_price']),
