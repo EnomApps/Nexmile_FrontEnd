@@ -744,6 +744,16 @@ class AppLocalizationsDoi extends AppLocalizations {
   String get callRider => 'कॉल करो';
 
   @override
+  String get trackRider => 'राइडर ट्रैक करो';
+
+  @override
+  String get riderLocationSoon =>
+      'ऑर्डर चुक्कने पिच्छें राइडर दी लोकेशन इत्थै दिक्खग।';
+
+  @override
+  String get recentreOnRider => 'राइडर पर केंद्रित करो';
+
+  @override
   String get viewInvoice => 'टैक्स रसीद';
 
   @override

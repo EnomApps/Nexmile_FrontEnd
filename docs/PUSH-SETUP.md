@@ -83,8 +83,30 @@ link needs a **data** payload, because a console notification alone carries no
 { "type": "order.accepted", "order_id": "123" }
 ```
 
-Types the server sends: `order.placed`, `order.accepted`, `order.rejected`,
-`order.ready`, `order.offer`, `order.rider_assigned`, `order.picked_up`,
-`order.delivered`, `order.cancelled`. All of them carry `order_id` and all of
-them open the order screen; `order.offer` is a rider-app notification and a
-customer build should never receive one.
+## Which app receives which type
+
+There are nine types, and **a customer device only ever receives seven of
+them**. Confirmed by the backend on 2026-09-23, after a test that waited for an
+`order.placed` that was never addressed to a customer in the first place.
+
+| Type | Customer | Merchant | Rider |
+|---|:--:|:--:|:--:|
+| `order.placed` | | ✅ | |
+| `order.accepted` | ✅ | | |
+| `order.rejected` | ✅ | | |
+| `order.ready` | ✅ | | |
+| `order.offer` | | | ✅ |
+| `order.rider_assigned` | ✅ | ✅ | |
+| `order.picked_up` | ✅ | | |
+| `order.delivered` | ✅ | | |
+| `order.cancelled` | ✅ | | |
+
+`order.placed` is the merchant's "new order in your kitchen" alert. Waiting for
+one on a customer phone will show nothing, correctly — **to test the customer
+app end to end, place an order and then accept it from the merchant portal**,
+which fires `order.accepted`.
+
+Routing still accepts all nine (`push_destination.dart`), and that is
+deliberate: the two it will never be sent are one server-side addressing change
+away from arriving, and an order screen is the right destination for any of
+them.

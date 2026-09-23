@@ -743,6 +743,16 @@ class AppLocalizationsOr extends AppLocalizations {
   String get callRider => 'କଲ୍ କରନ୍ତୁ';
 
   @override
+  String get trackRider => 'ରାଇଡର ଟ୍ରାକ୍ କରନ୍ତୁ';
+
+  @override
+  String get riderLocationSoon =>
+      'ଅର୍ଡର ଉଠାଇବା ପରେ ରାଇଡରଙ୍କ ଅବସ୍ଥାନ ଏଠାରେ ଦେଖାଯିବ।';
+
+  @override
+  String get recentreOnRider => 'ରାଇଡରରେ କେନ୍ଦ୍ରିତ କରନ୍ତୁ';
+
+  @override
   String get viewInvoice => 'ଟିକସ ଇନଭଏସ';
 
   @override

@@ -744,6 +744,16 @@ class AppLocalizationsPa extends AppLocalizations {
   String get callRider => 'ਕਾਲ ਕਰੋ';
 
   @override
+  String get trackRider => 'ਰਾਈਡਰ ਟਰੈਕ ਕਰੋ';
+
+  @override
+  String get riderLocationSoon =>
+      'ਆਰਡਰ ਚੁੱਕਣ ਤੋਂ ਬਾਅਦ ਰਾਈਡਰ ਦੀ ਥਾਂ ਇੱਥੇ ਦਿਖੇਗੀ।';
+
+  @override
+  String get recentreOnRider => 'ਰਾਈਡਰ ’ਤੇ ਕੇਂਦਰਿਤ ਕਰੋ';
+
+  @override
   String get viewInvoice => 'ਟੈਕਸ ਇਨਵੌਇਸ';
 
   @override

@@ -743,6 +743,16 @@ class AppLocalizationsSd extends AppLocalizations {
   String get callRider => 'ڪال ڪريو';
 
   @override
+  String get trackRider => 'رائيڊر ٽريڪ ڪريو';
+
+  @override
+  String get riderLocationSoon =>
+      'آرڊر کڻڻ کان پوءِ رائيڊر جو مقام هتي ڏيکاريو ويندو.';
+
+  @override
+  String get recentreOnRider => 'رائيڊر تي مرڪوز ڪريو';
+
+  @override
   String get viewInvoice => 'ٽيڪس انوائس';
 
   @override

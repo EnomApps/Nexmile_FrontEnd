@@ -789,6 +789,15 @@
   "@riderLabel": {"description":"Label over the delivery partner’s name."},
 
   "callRider": "Call",
+
+  "trackRider": "Track rider",
+  "@trackRider": {"description":"Title and button for the full-screen rider map."},
+
+  "riderLocationSoon": "Your rider's location will appear here once they pick up your order.",
+  "@riderLocationSoon": {"description":"Shown on the tracking map before a rider has picked the order up."},
+
+  "recentreOnRider": "Recentre on rider",
+  "@recentreOnRider": {"description":"Tooltip on the button that snaps the map back to the rider."},
   "@callRider": {"description":"Tooltip on the button that dials the delivery partner."},
 
   "viewInvoice": "Tax invoice",

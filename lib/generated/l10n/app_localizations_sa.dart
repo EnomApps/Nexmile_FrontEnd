@@ -744,6 +744,16 @@ class AppLocalizationsSa extends AppLocalizations {
   String get callRider => 'आह्वयतु';
 
   @override
+  String get trackRider => 'वाहकं अनुसरतु';
+
+  @override
+  String get riderLocationSoon =>
+      'आदेशं गृहीत्वा वाहकस्य स्थानम् अत्र दृश्यते।';
+
+  @override
+  String get recentreOnRider => 'वाहके केन्द्रीकरणम्';
+
+  @override
   String get viewInvoice => 'करपत्रम्';
 
   @override

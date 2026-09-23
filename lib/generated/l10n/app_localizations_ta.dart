@@ -747,6 +747,16 @@ class AppLocalizationsTa extends AppLocalizations {
   String get callRider => 'அழை';
 
   @override
+  String get trackRider => 'ரைடரைக் கண்காணி';
+
+  @override
+  String get riderLocationSoon =>
+      'உங்கள் ஆர்டரை எடுத்ததும் ரைடரின் இருப்பிடம் இங்கே தெரியும்.';
+
+  @override
+  String get recentreOnRider => 'ரைடர் மையமாக';
+
+  @override
   String get viewInvoice => 'வரி விலைப்பட்டியல்';
 
   @override

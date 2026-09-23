@@ -742,6 +742,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get callRider => 'कॉल करें';
 
   @override
+  String get trackRider => 'राइडर ट्रैक करें';
+
+  @override
+  String get riderLocationSoon =>
+      'ऑर्डर उठाते ही आपके राइडर की लोकेशन यहाँ दिखेगी।';
+
+  @override
+  String get recentreOnRider => 'राइडर पर केंद्रित करें';
+
+  @override
   String get viewInvoice => 'टैक्स इनवॉइस';
 
   @override

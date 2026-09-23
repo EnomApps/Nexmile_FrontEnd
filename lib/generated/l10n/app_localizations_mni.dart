@@ -741,6 +741,15 @@ class AppLocalizationsMni extends AppLocalizations {
   String get callRider => 'ꯀꯣꯜ ꯇꯧ';
 
   @override
+  String get trackRider => 'ꯔꯥꯏꯗꯔ ꯇ꯭ꯔꯦꯛ ꯇꯧ';
+
+  @override
+  String get riderLocationSoon => 'ꯑꯣꯔꯗꯔ ꯂꯧꯔꯕꯥ ꯃꯇꯨꯡꯗ ꯔꯥꯏꯗꯔꯒꯤ ꯃꯐꯝ ꯃꯁꯤꯗ ꯎꯒꯅꯤ꯫';
+
+  @override
+  String get recentreOnRider => 'ꯔꯥꯏꯗꯔꯗ ꯃꯌꯥꯏ ꯊꯝꯃꯨ';
+
+  @override
   String get viewInvoice => 'ꯇꯦꯛꯁ ꯏꯅꯚꯣꯏꯁ';
 
   @override

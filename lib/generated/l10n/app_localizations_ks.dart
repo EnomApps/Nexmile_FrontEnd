@@ -745,6 +745,16 @@ class AppLocalizationsKs extends AppLocalizations {
   String get callRider => 'کال کریو';
 
   @override
+  String get trackRider => 'رائِڈر ٹریک کریو';
+
+  @override
+  String get riderLocationSoon =>
+      'آرڈر ہیتھ پتہٕ رائِڈرُک مقام یَتہِ ہیکہِ ظاہر گژھِتھ۔';
+
+  @override
+  String get recentreOnRider => 'رائِڈرَس پؠٹھ مرکوز کریو';
+
+  @override
   String get viewInvoice => 'ٹیکس انوائس';
 
   @override

@@ -746,6 +746,16 @@ class AppLocalizationsSat extends AppLocalizations {
   String get callRider => 'ᱠᱚᱞ ᱢᱮ';
 
   @override
+  String get trackRider => 'ᱨᱟᱭᱰᱟᱨ ᱴᱽᱨᱮᱠ ᱢᱮ';
+
+  @override
+  String get riderLocationSoon =>
+      'ᱚᱨᱰᱟᱨ ᱤᱫᱤ ᱛᱟᱭᱚᱢ ᱨᱟᱭᱰᱟᱨ ᱨᱮᱭᱟᱜ ᱡᱟᱭᱜᱟ ᱱᱚᱰᱮ ᱧᱮᱞᱚᱜᱼᱟ᱾';
+
+  @override
+  String get recentreOnRider => 'ᱨᱟᱭᱰᱟᱨ ᱨᱮ ᱛᱟᱞᱟ ᱢᱮ';
+
+  @override
   String get viewInvoice => 'ᱴᱮᱠᱥ ᱤᱱᱵᱷᱚᱭᱥ';
 
   @override

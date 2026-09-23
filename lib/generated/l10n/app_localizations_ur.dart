@@ -742,6 +742,16 @@ class AppLocalizationsUr extends AppLocalizations {
   String get callRider => 'کال کریں';
 
   @override
+  String get trackRider => 'رائیڈر ٹریک کریں';
+
+  @override
+  String get riderLocationSoon =>
+      'آرڈر اٹھانے کے بعد رائیڈر کا مقام یہاں دکھائی دے گا۔';
+
+  @override
+  String get recentreOnRider => 'رائیڈر پر مرکوز کریں';
+
+  @override
   String get viewInvoice => 'ٹیکس انوائس';
 
   @override

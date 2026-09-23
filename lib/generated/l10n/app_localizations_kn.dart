@@ -743,6 +743,16 @@ class AppLocalizationsKn extends AppLocalizations {
   String get callRider => 'ಕರೆ ಮಾಡಿ';
 
   @override
+  String get trackRider => 'ರೈಡರ್ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ';
+
+  @override
+  String get riderLocationSoon =>
+      'ನಿಮ್ಮ ಆರ್ಡರ್ ಪಡೆದ ನಂತರ ರೈಡರ್ ಸ್ಥಳ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.';
+
+  @override
+  String get recentreOnRider => 'ರೈಡರ್ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸಿ';
+
+  @override
   String get viewInvoice => 'ತೆರಿಗೆ ಇನ್‌ವಾಯ್ಸ್';
 
   @override

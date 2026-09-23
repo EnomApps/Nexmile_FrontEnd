@@ -740,6 +740,15 @@ class AppLocalizationsMai extends AppLocalizations {
   String get callRider => 'कॉल करू';
 
   @override
+  String get trackRider => 'राइडर ट्रैक करू';
+
+  @override
+  String get riderLocationSoon => 'ऑर्डर उठौलाक बाद राइडरक लोकेशन एतय देखाएत।';
+
+  @override
+  String get recentreOnRider => 'राइडर पर केंद्रित करू';
+
+  @override
   String get viewInvoice => 'कर रसीद';
 
   @override

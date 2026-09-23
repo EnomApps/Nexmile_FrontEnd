@@ -743,6 +743,16 @@ class AppLocalizationsTe extends AppLocalizations {
   String get callRider => 'కాల్ చేయి';
 
   @override
+  String get trackRider => 'రైడర్‌ను ట్రాక్ చేయండి';
+
+  @override
+  String get riderLocationSoon =>
+      'మీ ఆర్డర్‌ను తీసుకున్న తర్వాత రైడర్ స్థానం ఇక్కడ కనిపిస్తుంది.';
+
+  @override
+  String get recentreOnRider => 'రైడర్‌పై కేంద్రీకరించు';
+
+  @override
   String get viewInvoice => 'పన్ను ఇన్‌వాయిస్';
 
   @override

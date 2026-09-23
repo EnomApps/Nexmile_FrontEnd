@@ -745,6 +745,15 @@ class AppLocalizationsNe extends AppLocalizations {
   String get callRider => 'कल गर्नुहोस्';
 
   @override
+  String get trackRider => 'राइडर ट्र्याक गर्नुहोस्';
+
+  @override
+  String get riderLocationSoon => 'अर्डर उठाएपछि राइडरको स्थान यहाँ देखिनेछ।';
+
+  @override
+  String get recentreOnRider => 'राइडरमा केन्द्रित गर्नुहोस्';
+
+  @override
   String get viewInvoice => 'कर बिजक';
 
   @override

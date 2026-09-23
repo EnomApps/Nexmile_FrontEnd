@@ -742,6 +742,16 @@ class AppLocalizationsBn extends AppLocalizations {
   String get callRider => 'কল করুন';
 
   @override
+  String get trackRider => 'রাইডার ট্র্যাক করুন';
+
+  @override
+  String get riderLocationSoon =>
+      'অর্ডার তুলে নেওয়ার পরে রাইডারের অবস্থান এখানে দেখা যাবে।';
+
+  @override
+  String get recentreOnRider => 'রাইডারে কেন্দ্র করুন';
+
+  @override
   String get viewInvoice => 'ট্যাক্স ইনভয়েস';
 
   @override

@@ -744,6 +744,16 @@ class AppLocalizationsKok extends AppLocalizations {
   String get callRider => 'कॉल करात';
 
   @override
+  String get trackRider => 'रायडर ट्रॅक करात';
+
+  @override
+  String get riderLocationSoon =>
+      'ऑर्डर घेतल्या उपरांत रायडराचें थळ हांगा दिसतलें.';
+
+  @override
+  String get recentreOnRider => 'रायडरावर केंद्रित करात';
+
+  @override
   String get viewInvoice => 'कर पावती';
 
   @override

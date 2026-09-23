@@ -747,6 +747,16 @@ class AppLocalizationsMl extends AppLocalizations {
   String get callRider => 'വിളിക്കുക';
 
   @override
+  String get trackRider => 'റൈഡറെ ട്രാക്ക് ചെയ്യുക';
+
+  @override
+  String get riderLocationSoon =>
+      'ഓർഡർ എടുത്തുകഴിഞ്ഞാൽ റൈഡറുടെ സ്ഥാനം ഇവിടെ കാണാം.';
+
+  @override
+  String get recentreOnRider => 'റൈഡറിൽ കേന്ദ്രീകരിക്കുക';
+
+  @override
   String get viewInvoice => 'ടാക്സ് ഇൻവോയ്സ്';
 
   @override

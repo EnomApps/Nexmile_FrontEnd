@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -14,6 +13,7 @@ import '../data/order_models.dart';
 import '../state/orders_controller.dart';
 import 'orders_tab.dart' show OrderStatusChip;
 import 'widgets/catalogue_widgets.dart';
+import 'widgets/rider_map.dart';
 
 /// One order: where it is, what is in it, and what it cost.
 ///
@@ -253,6 +253,7 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
             const SizedBox(height: 16),
             _RiderCard(
               tracking: tracking,
+              orderId: order.id,
               onCall: (String phone) => _open(Uri.parse('tel:$phone')),
             ),
           ],
@@ -420,9 +421,14 @@ class _HighlightState extends State<_Highlight>
 
 /// The rider, with their live position when the API is sending one.
 class _RiderCard extends StatelessWidget {
-  const _RiderCard({required this.tracking, required this.onCall});
+  const _RiderCard({
+    required this.tracking,
+    required this.orderId,
+    required this.onCall,
+  });
 
   final OrderTracking tracking;
+  final int orderId;
   final ValueChanged<String> onCall;
 
   @override
@@ -477,52 +483,63 @@ class _RiderCard extends StatelessWidget {
         ),
         if (tracking.hasRiderPosition) ...<Widget>[
           const SizedBox(height: 12),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(14),
-            child: SizedBox(
-              height: 180,
-              child: FlutterMap(
-                options: MapOptions(
-                  initialCenter: LatLng(
-                    tracking.riderLatitude!,
-                    tracking.riderLongitude!,
-                  ),
-                  initialZoom: 15.5,
-                  // A tracking map is for looking at, not for driving.
-                  interactionOptions: const InteractionOptions(
-                    flags: InteractiveFlag.none,
-                  ),
-                ),
-                children: <Widget>[
-                  TileLayer(
-                    urlTemplate:
-                        'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                    userAgentPackageName: 'com.nexmile.app',
-                    maxNativeZoom: 19,
-                  ),
-                  MarkerLayer(
-                    markers: <Marker>[
-                      Marker(
-                        point: LatLng(
-                          tracking.riderLatitude!,
-                          tracking.riderLongitude!,
+          // A preview rather than a map to use: it follows the rider and
+          // nothing else, and a tap hands over to the full-screen one. Pinching
+          // a 180px map inside a scrolling list is a fight with the list.
+          Semantics(
+            button: true,
+            label: l10n.trackRider,
+            child: InkWell(
+              onTap: () => Navigator.of(context).pushNamed(
+                AppRoutes.liveTracking,
+                arguments: OrderArgs(orderId: orderId),
+              ),
+              borderRadius: BorderRadius.circular(14),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(14),
+                child: SizedBox(
+                  height: 180,
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned.fill(
+                        child: RiderMap(
+                          rider: LatLng(
+                            tracking.riderLatitude!,
+                            tracking.riderLongitude!,
+                          ),
                         ),
-                        width: 40,
-                        height: 40,
-                        child: const Icon(
-                          Icons.pedal_bike_rounded,
-                          color: AppColors.orangeDeep,
-                          size: 32,
+                      ),
+                      Positioned(
+                        right: 10,
+                        bottom: 10,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.surface,
+                            borderRadius: BorderRadius.circular(999),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 6,
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                const Icon(Icons.open_in_full_rounded,
+                                    size: 14),
+                                const SizedBox(width: 6),
+                                Text(
+                                  l10n.trackRider,
+                                  style: theme.textTheme.labelMedium,
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  const RichAttributionWidget(
-                    attributions: <SourceAttribution>[
-                      TextSourceAttribution('OpenStreetMap contributors'),
-                    ],
-                  ),
-                ],
+                ),
               ),
             ),
           ),

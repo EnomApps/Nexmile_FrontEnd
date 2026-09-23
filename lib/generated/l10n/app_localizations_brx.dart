@@ -738,6 +738,16 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get callRider => 'कल खालाम';
 
   @override
+  String get trackRider => 'राइडारखौ ट्रेक खालाम';
+
+  @override
+  String get riderLocationSoon =>
+      'अर्डार लाबनाय उनाव राइडारनि जायगा बेयाव नुथारगोन।';
+
+  @override
+  String get recentreOnRider => 'राइडारआव केन्द्र खालाम';
+
+  @override
   String get viewInvoice => 'ट्याक्स इनभइस';
 
   @override

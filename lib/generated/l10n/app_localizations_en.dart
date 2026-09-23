@@ -744,6 +744,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get callRider => 'Call';
 
   @override
+  String get trackRider => 'Track rider';
+
+  @override
+  String get riderLocationSoon =>
+      'Your rider\'s location will appear here once they pick up your order.';
+
+  @override
+  String get recentreOnRider => 'Recentre on rider';
+
+  @override
   String get viewInvoice => 'Tax invoice';
 
   @override

@@ -11,6 +11,7 @@ import '../../features/auth/presentation/login_screen.dart';
 import '../../features/auth/presentation/otp_verification_screen.dart';
 import '../../features/catalogue/presentation/cart_screen.dart';
 import '../../features/catalogue/data/order_models.dart';
+import '../../features/catalogue/presentation/live_tracking_screen.dart';
 import '../../features/catalogue/presentation/order_status_screen.dart';
 import '../../features/catalogue/presentation/rate_order_screen.dart';
 import '../../features/catalogue/presentation/reviews_screen.dart';
@@ -48,6 +49,10 @@ class AppRoutes {
   static const String restaurant = '/restaurant';
   static const String cart = '/cart';
   static const String orderStatus = '/order';
+
+  /// The rider, full screen. Pushed from the order screen, which owns the
+  /// poll both of them read.
+  static const String liveTracking = '/order/track';
 
   /// Ratings and reviews for one restaurant, and the screen that leaves one.
   static const String reviews = '/reviews';
@@ -256,6 +261,14 @@ class AppRouter {
         final Object? args = settings.arguments;
         if (args is! OrderArgs) return _misroute(settings);
         return _slideRoute(OrderStatusScreen(args: args), settings);
+
+      case AppRoutes.liveTracking:
+        final Object? args = settings.arguments;
+        if (args is! OrderArgs) return _misroute(settings);
+        return _slideRoute(
+          LiveTrackingScreen(orderId: args.orderId),
+          settings,
+        );
 
       case AppRoutes.reviews:
         final Object? args = settings.arguments;

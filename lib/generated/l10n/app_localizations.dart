@@ -1424,6 +1424,24 @@ abstract class AppLocalizations {
   /// **'Call'**
   String get callRider;
 
+  /// Title and button for the full-screen rider map.
+  ///
+  /// In en, this message translates to:
+  /// **'Track rider'**
+  String get trackRider;
+
+  /// Shown on the tracking map before a rider has picked the order up.
+  ///
+  /// In en, this message translates to:
+  /// **'Your rider\'s location will appear here once they pick up your order.'**
+  String get riderLocationSoon;
+
+  /// Tooltip on the button that snaps the map back to the rider.
+  ///
+  /// In en, this message translates to:
+  /// **'Recentre on rider'**
+  String get recentreOnRider;
+
   /// Opens the printable tax invoice in a browser.
   ///
   /// In en, this message translates to:

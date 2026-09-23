@@ -740,6 +740,15 @@ class AppLocalizationsGu extends AppLocalizations {
   String get callRider => 'કૉલ કરો';
 
   @override
+  String get trackRider => 'રાઇડર ટ્રૅક કરો';
+
+  @override
+  String get riderLocationSoon => 'ઓર્ડર લીધા પછી રાઇડરનું સ્થાન અહીં દેખાશે.';
+
+  @override
+  String get recentreOnRider => 'રાઇડર પર કેન્દ્રિત કરો';
+
+  @override
   String get viewInvoice => 'ટેક્સ ઇન્વોઇસ';
 
   @override
