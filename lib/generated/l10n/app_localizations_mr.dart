@@ -21,7 +21,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get chooseLanguageTitle => 'तुमची भाषा निवडा';
 
   @override
-  String get chooseLanguageSubtitle => 'तुम्हाला सोयीची वाटेल ती भाषा निवडा. तुम्ही ती कधीही सेटिंग्जमध्ये बदलू शकता.';
+  String get chooseLanguageSubtitle =>
+      'तुम्हाला सोयीची वाटेल ती भाषा निवडा. तुम्ही ती कधीही सेटिंग्जमध्ये बदलू शकता.';
 
   @override
   String get searchLanguageHint => 'भाषा शोधा';
@@ -47,7 +48,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get homeTitle => 'Nexmile मध्ये आपले स्वागत आहे';
 
   @override
-  String get homeSubtitle => 'ताजा किराणा, गरम जेवण आणि दैनंदिन गरजा तुमच्या जवळच्या दुकानांमधून.';
+  String get homeSubtitle =>
+      'ताजा किराणा, गरम जेवण आणि दैनंदिन गरजा तुमच्या जवळच्या दुकानांमधून.';
 
   @override
   String get changeLanguage => 'भाषा बदला';
@@ -67,7 +69,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get loginTitle => 'Nexmile मध्ये साइन इन करा';
 
   @override
-  String get loginSubtitle => 'तुमचा ईमेल किंवा मोबाइल क्रमांक टाका, आम्ही पडताळणी कोड पाठवू.';
+  String get loginSubtitle =>
+      'तुमचा ईमेल किंवा मोबाइल क्रमांक टाका, आम्ही पडताळणी कोड पाठवू.';
 
   @override
   String get emailOrPhoneLabel => 'ईमेल किंवा मोबाइल क्रमांक';
@@ -76,13 +79,15 @@ class AppLocalizationsMr extends AppLocalizations {
   String get emailOrPhoneHint => 'name@example.com किंवा 9876543210';
 
   @override
-  String get invalidEmailOrPhone => 'वैध ईमेल पत्ता किंवा 10 अंकी मोबाइल क्रमांक टाका';
+  String get invalidEmailOrPhone =>
+      'वैध ईमेल पत्ता किंवा 10 अंकी मोबाइल क्रमांक टाका';
 
   @override
   String get sendCode => 'कोड पाठवा';
 
   @override
-  String get agreeToTermsOnContinue => 'पुढे जाऊन तुम्ही आमच्या सेवा अटी आणि गोपनीयता धोरणाशी सहमत होता.';
+  String get agreeToTermsOnContinue =>
+      'पुढे जाऊन तुम्ही आमच्या सेवा अटी आणि गोपनीयता धोरणाशी सहमत होता.';
 
   @override
   String get otpTitle => 'तुम्हीच आहात याची खात्री करा';
@@ -107,22 +112,27 @@ class AppLocalizationsMr extends AppLocalizations {
   String get codeResent => 'नवीन कोड पाठवला आहे';
 
   @override
-  String get incorrectCode => 'हा कोड चुकीचा आहे किंवा त्याची मुदत संपली आहे. नवीन कोड मागवा.';
+  String get incorrectCode =>
+      'हा कोड चुकीचा आहे किंवा त्याची मुदत संपली आहे. नवीन कोड मागवा.';
 
   @override
   String get enterFullCode => 'पूर्ण 6 अंक टाका';
 
   @override
-  String get accountSuspended => 'हे खाते निलंबित करण्यात आले आहे. कृपया सहाय्यताशी संपर्क साधा.';
+  String get accountSuspended =>
+      'हे खाते निलंबित करण्यात आले आहे. कृपया सहाय्यताशी संपर्क साधा.';
 
   @override
-  String get tooManyAttempts => 'खूप वेळा प्रयत्न झाले. कृपया थोड्या वेळाने पुन्हा प्रयत्न करा.';
+  String get tooManyAttempts =>
+      'खूप वेळा प्रयत्न झाले. कृपया थोड्या वेळाने पुन्हा प्रयत्न करा.';
 
   @override
-  String get sessionExpired => 'तुमचे सत्र संपले आहे. कृपया पुन्हा साइन इन करा.';
+  String get sessionExpired =>
+      'तुमचे सत्र संपले आहे. कृपया पुन्हा साइन इन करा.';
 
   @override
-  String get networkError => 'इंटरनेट कनेक्शन नाही. तुमचे कनेक्शन तपासा आणि पुन्हा प्रयत्न करा.';
+  String get networkError =>
+      'इंटरनेट कनेक्शन नाही. तुमचे कनेक्शन तपासा आणि पुन्हा प्रयत्न करा.';
 
   @override
   String get developmentCode => 'डेव्हलपमेंट कोड';
@@ -197,7 +207,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get searchNoResultsTitle => 'काहीही सापडले नाही';
 
   @override
-  String get searchNoResultsSubtitle => 'दुसरा पदार्थ, पाककृती किंवा रेस्टॉरंटचे नाव वापरून पहा.';
+  String get searchNoResultsSubtitle =>
+      'दुसरा पदार्थ, पाककृती किंवा रेस्टॉरंटचे नाव वापरून पहा.';
 
   @override
   String get cravingTitle => 'आज काय खावंसं वाटतंय?';
@@ -277,7 +288,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get noVegDishesTitle => 'इथे शाकाहारी पदार्थ नाहीत';
 
   @override
-  String get noVegDishesSubtitle => 'पूर्ण मेन्यू पाहण्यासाठी शाकाहारी फिल्टर बंद करा.';
+  String get noVegDishesSubtitle =>
+      'पूर्ण मेन्यू पाहण्यासाठी शाकाहारी फिल्टर बंद करा.';
 
   @override
   String get replaceCartTitle => 'नवीन कार्ट सुरू करायची?';
@@ -297,7 +309,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get cartEmptyTitle => 'तुमची कार्ट रिकामी आहे';
 
   @override
-  String get cartEmptySubtitle => 'सुरू करण्यासाठी एखाद्या रेस्टॉरंटमधून पदार्थ जोडा.';
+  String get cartEmptySubtitle =>
+      'सुरू करण्यासाठी एखाद्या रेस्टॉरंटमधून पदार्थ जोडा.';
 
   @override
   String get browseRestaurants => 'रेस्टॉरंट पहा';
@@ -386,10 +399,12 @@ class AppLocalizationsMr extends AppLocalizations {
   String get backToHome => 'होमवर परत';
 
   @override
-  String get prototypeNotice => 'नमुना स्टोअरफ्रंट — खरी दुकाने कॅटलॉग API सोबत येतील.';
+  String get prototypeNotice =>
+      'नमुना स्टोअरफ्रंट — खरी दुकाने कॅटलॉग API सोबत येतील.';
 
   @override
-  String get prototypeCheckoutNotice => 'हा एक प्रोटोटाइप आहे. कोणतेही पैसे घेतले जात नाहीत आणि खरी ऑर्डरही होत नाही.';
+  String get prototypeCheckoutNotice =>
+      'हा एक प्रोटोटाइप आहे. कोणतेही पैसे घेतले जात नाहीत आणि खरी ऑर्डरही होत नाही.';
 
   @override
   String get prototypeTrackingNotice => 'प्रोटोटाइपसाठी ट्रॅकिंग कृत्रिम आहे.';
@@ -398,25 +413,29 @@ class AppLocalizationsMr extends AppLocalizations {
   String get locationTitle => 'डिलिव्हरी कुठे करायची?';
 
   @override
-  String get locationSubtitle => 'Nexmile फक्त 1 किमीच्या आतल्या दुकानांमधून डिलिव्हरी करते, म्हणून तुमचे नेमके ठिकाण हवे.';
+  String get locationSubtitle =>
+      'Nexmile फक्त 1 किमीच्या आतल्या दुकानांमधून डिलिव्हरी करते, म्हणून तुमचे नेमके ठिकाण हवे.';
 
   @override
   String get locationReasonRadiusTitle => '1 किमीच्या आतली दुकाने';
 
   @override
-  String get locationReasonRadiusBody => 'जिथून जेवण गरम पोहोचेल तीच स्वयंपाकघरे आम्ही दाखवतो.';
+  String get locationReasonRadiusBody =>
+      'जिथून जेवण गरम पोहोचेल तीच स्वयंपाकघरे आम्ही दाखवतो.';
 
   @override
   String get locationReasonAccuracyTitle => 'अगदी योग्य दारापर्यंत';
 
   @override
-  String get locationReasonAccuracyBody => 'अचूक पिन असल्यास डिलिव्हरी पार्टनर फोन न करता तुम्हाला शोधतो.';
+  String get locationReasonAccuracyBody =>
+      'अचूक पिन असल्यास डिलिव्हरी पार्टनर फोन न करता तुम्हाला शोधतो.';
 
   @override
   String get locationReasonPrivacyTitle => 'फक्त ॲप वापरताना';
 
   @override
-  String get locationReasonPrivacyBody => 'आम्ही पार्श्वभूमीत तुमचा माग काढत नाही, आणि पत्ता तुम्ही स्वतःही लिहू शकता.';
+  String get locationReasonPrivacyBody =>
+      'आम्ही पार्श्वभूमीत तुमचा माग काढत नाही, आणि पत्ता तुम्ही स्वतःही लिहू शकता.';
 
   @override
   String get allowLocation => 'लोकेशनला परवानगी द्या';
@@ -425,10 +444,12 @@ class AppLocalizationsMr extends AppLocalizations {
   String get enterAddressManually => 'मी पत्ता स्वतः लिहीन';
 
   @override
-  String get locationDenied => 'लोकेशनची परवानगी नाकारली. तुम्ही पिन स्वतः ठेवू शकता.';
+  String get locationDenied =>
+      'लोकेशनची परवानगी नाकारली. तुम्ही पिन स्वतः ठेवू शकता.';
 
   @override
-  String get locationDeniedForever => 'Nexmile साठी लोकेशन बंद आहे. सेटिंग्जमध्ये चालू करा किंवा पिन स्वतः ठेवा.';
+  String get locationDeniedForever =>
+      'Nexmile साठी लोकेशन बंद आहे. सेटिंग्जमध्ये चालू करा किंवा पिन स्वतः ठेवा.';
 
   @override
   String get locationServiceOff => 'या डिव्हाइसवर लोकेशन बंद आहे.';
@@ -443,7 +464,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get pinLocationTitle => 'तुमचा डिलिव्हरी पिन ठेवा';
 
   @override
-  String get deliveryRadiusHint => 'वर्तुळ Nexmile डिलिव्हरी करत असलेली 1 किमी दाखवते.';
+  String get deliveryRadiusHint =>
+      'वर्तुळ Nexmile डिलिव्हरी करत असलेली 1 किमी दाखवते.';
 
   @override
   String get useMyLocation => 'माझे लोकेशन वापरा';
@@ -461,7 +483,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get addressDetailsTitle => 'पत्त्याचा तपशील';
 
   @override
-  String get addressDetailsSubtitle => 'योग्य दारापर्यंत पोहोचण्यासाठी घर क्रमांक आणि खूण द्या.';
+  String get addressDetailsSubtitle =>
+      'योग्य दारापर्यंत पोहोचण्यासाठी घर क्रमांक आणि खूण द्या.';
 
   @override
   String get pinnedLocation => 'निवडलेले ठिकाण';
@@ -539,7 +562,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get noAddressesTitle => 'अजून पत्ता नाही';
 
   @override
-  String get noAddressesSubtitle => 'तुमच्यापर्यंत डिलिव्हरी करणारी दुकाने दाखवण्यासाठी एक पत्ता जोडा.';
+  String get noAddressesSubtitle =>
+      'तुमच्यापर्यंत डिलिव्हरी करणारी दुकाने दाखवण्यासाठी एक पत्ता जोडा.';
 
   @override
   String get addAddress => 'पत्ता जोडा';
@@ -726,7 +750,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get cancelOrderTitle => 'ही ऑर्डर रद्द करायची?';
 
   @override
-  String get cancelOrderMessage => 'रेस्टॉरंटने स्वीकारण्यापूर्वीच रद्द करता येते.';
+  String get cancelOrderMessage =>
+      'रेस्टॉरंटने स्वीकारण्यापूर्वीच रद्द करता येते.';
 
   @override
   String get cancelReasonLabel => 'कारण';
@@ -744,7 +769,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get editProfileTitle => 'प्रोफाइल संपादित करा';
 
   @override
-  String get editProfileSubtitle => 'रेस्टॉरंट आणि डिलिव्हरी पार्टनरला तुमचे नावच दिसते.';
+  String get editProfileSubtitle =>
+      'रेस्टॉरंट आणि डिलिव्हरी पार्टनरला तुमचे नावच दिसते.';
 
   @override
   String get saveChanges => 'बदल जतन करा';
@@ -759,7 +785,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get deleteAccountTitle => 'तुमचे खाते हटवायचे?';
 
   @override
-  String get deleteAccountMessage => 'सर्व उपकरणांवरून साइन आउट व्हाल. जुन्या ऑर्डर आणि पावत्या कर नोंदींसाठी ठेवल्या जातात.';
+  String get deleteAccountMessage =>
+      'सर्व उपकरणांवरून साइन आउट व्हाल. जुन्या ऑर्डर आणि पावत्या कर नोंदींसाठी ठेवल्या जातात.';
 
   @override
   String get accountDeleted => 'तुमचे खाते हटवले गेले';
@@ -783,7 +810,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get signOutDeviceTitle => 'हे उपकरण साइन आउट करायचे?';
 
   @override
-  String get signOutDeviceMessage => 'तुम्ही हेच उपकरण वापरत असाल तर पुन्हा साइन इन करावे लागेल.';
+  String get signOutDeviceMessage =>
+      'तुम्ही हेच उपकरण वापरत असाल तर पुन्हा साइन इन करावे लागेल.';
 
   @override
   String get deviceSignedOut => 'उपकरण साइन आउट झाले';
@@ -795,7 +823,8 @@ class AppLocalizationsMr extends AppLocalizations {
   String get signOutEverywhereTitle => 'सर्वत्र साइन आउट करायचे?';
 
   @override
-  String get signOutEverywhereMessage => 'या उपकरणासह प्रत्येक उपकरण साइन आउट होईल.';
+  String get signOutEverywhereMessage =>
+      'या उपकरणासह प्रत्येक उपकरण साइन आउट होईल.';
 
   @override
   String get unknownDevice => 'अज्ञात उपकरण';

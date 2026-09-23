@@ -16,6 +16,11 @@
         android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission
         android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- Order updates. Android 13 and later need the customer to say yes;
+         earlier versions grant it at install with no dialog. Asked for at the
+         point there is an order to notify about, not at launch. -->
+    <uses-permission
+        android:name="android.permission.POST_NOTIFICATIONS"/>
     <application
         android:label="Nexmile"
         android:name="${applicationName}"
@@ -42,6 +47,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <!-- The channel a notification lands in when the server sends one
+             without naming a channel. Must match kOrdersChannelId in
+             lib/core/push/push_service.dart — a mismatch is silent: Android
+             drops the notification with no log line. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="nexmile_orders"/>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data

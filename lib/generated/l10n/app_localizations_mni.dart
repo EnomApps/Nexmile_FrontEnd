@@ -21,7 +21,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get chooseLanguageTitle => 'নহাক্কী লোল খল্লু';
 
   @override
-  String get chooseLanguageSubtitle => 'নহাক্না লাইনা খংবা লোল অদু খল্লু। মসিবু মতম খুদিংদা সেটিংস্তা হোংদোকপা য়াই।';
+  String get chooseLanguageSubtitle =>
+      'নহাক্না লাইনা খংবা লোল অদু খল্লু। মসিবু মতম খুদিংদা সেটিংস্তা হোংদোকপা য়াই।';
 
   @override
   String get searchLanguageHint => 'লোল থিয়ু';
@@ -47,7 +48,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get homeTitle => 'Nexmile-দা তরাম্না ওকচরি';
 
   @override
-  String get homeSubtitle => 'অনৌবা কিরানা, অসাবা চাক অমসুং নুমিৎ খুদিংগী দরকার ওইবা পোৎলমশিং নহাক্কী নকপা দোকানশিংদগী।';
+  String get homeSubtitle =>
+      'অনৌবা কিরানা, অসাবা চাক অমসুং নুমিৎ খুদিংগী দরকার ওইবা পোৎলমশিং নহাক্কী নকপা দোকানশিংদগী।';
 
   @override
   String get changeLanguage => 'লোল হোংদোকউ';
@@ -67,7 +69,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get loginTitle => 'Nexmile-দা সাইন ইন তৌবিয়ু';
 
   @override
-  String get loginSubtitle => 'নহাক্কী ইমেল নত্ত্রগা মোবাইল নম্বর হাপচিল্লু, ঐখোয়না ভেরিফিকেসন কোদ থারগনি।';
+  String get loginSubtitle =>
+      'নহাক্কী ইমেল নত্ত্রগা মোবাইল নম্বর হাপচিল্লু, ঐখোয়না ভেরিফিকেসন কোদ থারগনি।';
 
   @override
   String get emailOrPhoneLabel => 'ইমেল নত্ত্রগা মোবাইল নম্বর';
@@ -76,13 +79,15 @@ class AppLocalizationsMni extends AppLocalizations {
   String get emailOrPhoneHint => 'name@example.com নত্ত্রগা 9876543210';
 
   @override
-  String get invalidEmailOrPhone => 'অচুম্বা ইমেল এদ্রেস নত্ত্রগা মশিং ১০ গী মোবাইল নম্বর হাপচিল্লু';
+  String get invalidEmailOrPhone =>
+      'অচুম্বা ইমেল এদ্রেস নত্ত্রগা মশিং ১০ গী মোবাইল নম্বর হাপচিল্লু';
 
   @override
   String get sendCode => 'কোদ থাবিয়ু';
 
   @override
-  String get agreeToTermsOnContinue => 'মখা চত্থবা অসিনা নহাক্না ঐখোয়গী সর্ভিসকী ৱায়েল য়াথং অমসুং প্রাইভেসি পোলিসিদা য়াজরি।';
+  String get agreeToTermsOnContinue =>
+      'মখা চত্থবা অসিনা নহাক্না ঐখোয়গী সর্ভিসকী ৱায়েল য়াথং অমসুং প্রাইভেসি পোলিসিদা য়াজরি।';
 
   @override
   String get otpTitle => 'মসি নহাক্নি হায়বদু শোয়দনা য়েংউ';
@@ -107,7 +112,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get codeResent => 'অনৌবা কোদ থারে';
 
   @override
-  String get incorrectCode => 'কোদ অসি চুমদে নত্ত্রগা মতম লোইরে। অনৌবা কোদ নিজবিয়ু।';
+  String get incorrectCode =>
+      'কোদ অসি চুমদে নত্ত্রগা মতম লোইরে। অনৌবা কোদ নিজবিয়ু।';
 
   @override
   String get enterFullCode => 'মশিং ৬ মক্তা হাপচিল্লু';
@@ -116,13 +122,16 @@ class AppLocalizationsMni extends AppLocalizations {
   String get accountSuspended => 'একাউন্ট অসি থিংলে। সপোর্ততা পাউ পীবিয়ু।';
 
   @override
-  String get tooManyAttempts => 'য়াম্না হোৎনখ্রে। মতম খরা লৈরগা অমুক হন্না হোৎনবিয়ু।';
+  String get tooManyAttempts =>
+      'য়াম্না হোৎনখ্রে। মতম খরা লৈরগা অমুক হন্না হোৎনবিয়ু।';
 
   @override
-  String get sessionExpired => 'নহাক্কী সেসনগী মতম লোইরে। অমুক হন্না সাইন ইন তৌবিয়ু।';
+  String get sessionExpired =>
+      'নহাক্কী সেসনগী মতম লোইরে। অমুক হন্না সাইন ইন তৌবিয়ু।';
 
   @override
-  String get networkError => 'ইন্টরনেৎ কনেক্সন লৈতে। কনেক্সন য়েংলগা অমুক হন্না হোৎনবিয়ু।';
+  String get networkError =>
+      'ইন্টরনেৎ কনেক্সন লৈতে। কনেক্সন য়েংলগা অমুক হন্না হোৎনবিয়ু।';
 
   @override
   String get developmentCode => 'দিভেলপমেন্ত কোদ';
@@ -134,7 +143,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get signedOut => 'নহাক সাইন আউট তৌরে';
 
   @override
-  String get somethingWentWrong => 'করিগুম্বা অরানবা থোকখ্রে। অমুক হন্না হোৎনবিয়ু।';
+  String get somethingWentWrong =>
+      'করিগুম্বা অরানবা থোকখ্রে। অমুক হন্না হোৎনবিয়ু।';
 
   @override
   String get profileTitle => 'প্রোফাইল';
@@ -197,7 +207,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get searchNoResultsTitle => 'করিসু ফংদে';
 
   @override
-  String get searchNoResultsSubtitle => 'অতোপ্পা চিঞ্জাক, থোংবগী মওং নত্ত্রগা রেস্তোরান্তকী মিং হোৎনবিয়ু।';
+  String get searchNoResultsSubtitle =>
+      'অতোপ্পা চিঞ্জাক, থোংবগী মওং নত্ত্রগা রেস্তোরান্তকী মিং হোৎনবিয়ু।';
 
   @override
   String get cravingTitle => 'ঙসি করি চাবা পাম্বগে?';
@@ -223,7 +234,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get noRestaurantsTitle => 'মফম অসিদা হৌজিক করিসু লৈতে';
 
   @override
-  String get noRestaurantsSubtitle => 'অতোপ্পা কেতেগোরি য়েংউ নত্ত্রগা ফিল্তর লৌথোকউ।';
+  String get noRestaurantsSubtitle =>
+      'অতোপ্পা কেতেগোরি য়েংউ নত্ত্রগা ফিল্তর লৌথোকউ।';
 
   @override
   String minutesAway(int minutes) {
@@ -386,37 +398,44 @@ class AppLocalizationsMni extends AppLocalizations {
   String get backToHome => 'হোমদা হল্লকউ';
 
   @override
-  String get prototypeNotice => 'খুদম ওইবা স্তোরফ্রন্ত — অচুম্বা দোকানশিং কেতালোগ API-গা লোয়ননা লাক্কনি।';
+  String get prototypeNotice =>
+      'খুদম ওইবা স্তোরফ্রন্ত — অচুম্বা দোকানশিং কেতালোগ API-গা লোয়ননা লাক্কনি।';
 
   @override
-  String get prototypeCheckoutNotice => 'মসি প্রোতোতাইপনি। সেন্ফম অমত্তা লৌদে অমসুং অচুম্বা ওর্দরসু তৌদে।';
+  String get prototypeCheckoutNotice =>
+      'মসি প্রোতোতাইপনি। সেন্ফম অমত্তা লৌদে অমসুং অচুম্বা ওর্দরসু তৌদে।';
 
   @override
-  String get prototypeTrackingNotice => 'প্রোতোতাইপকীদমক ত্রেকিং অসি খুদম ওইনা শেম্বনি।';
+  String get prototypeTrackingNotice =>
+      'প্রোতোতাইপকীদমক ত্রেকিং অসি খুদম ওইনা শেম্বনি।';
 
   @override
   String get locationTitle => 'কদাইদা দেলিভরি তৌগদগে?';
 
   @override
-  String get locationSubtitle => 'Nexmile না কিমি ১ গী মনুংদা লৈবা দোকানশিংদগীখক্তা দেলিভরি তৌই, মরমদুনা নহাক্কী চুম্বা মফম চঙই।';
+  String get locationSubtitle =>
+      'Nexmile না কিমি ১ গী মনুংদা লৈবা দোকানশিংদগীখক্তা দেলিভরি তৌই, মরমদুনা নহাক্কী চুম্বা মফম চঙই।';
 
   @override
   String get locationReasonRadiusTitle => 'কিমি ১ গী মনুংগী দোকানশিং';
 
   @override
-  String get locationReasonRadiusBody => 'চিঞ্জাক অসাবা ওইনা য়ৌরকপা ঙম্বা থোংফমশিংখক্তা উৎচরি।';
+  String get locationReasonRadiusBody =>
+      'চিঞ্জাক অসাবা ওইনা য়ৌরকপা ঙম্বা থোংফমশিংখক্তা উৎচরি।';
 
   @override
   String get locationReasonAccuracyTitle => 'চুম্বা থোংদা';
 
   @override
-  String get locationReasonAccuracyBody => 'চুম্বা পিন লৈরবদি দেলিভরি পার্তনরনা ফোন তৌদনা নহাক্কী মনাক্তা য়ৌরক্কনি।';
+  String get locationReasonAccuracyBody =>
+      'চুম্বা পিন লৈরবদি দেলিভরি পার্তনরনা ফোন তৌদনা নহাক্কী মনাক্তা য়ৌরক্কনি।';
 
   @override
   String get locationReasonPrivacyTitle => 'এপ শিজিন্নরিঙৈ খক্তা';
 
   @override
-  String get locationReasonPrivacyBody => 'ঐখোয়না মতুংদা নহাক্কী মফম থিদে, অমসুং এদ্রেস নহাক্না নশাসু ইবা য়াই।';
+  String get locationReasonPrivacyBody =>
+      'ঐখোয়না মতুংদা নহাক্কী মফম থিদে, অমসুং এদ্রেস নহাক্না নশাসু ইবা য়াই।';
 
   @override
   String get allowLocation => 'মফমগী অয়াবা পীয়ু';
@@ -425,10 +444,12 @@ class AppLocalizationsMni extends AppLocalizations {
   String get enterAddressManually => 'ঐনা এদ্রেস ইশাগী মখুৎনা ইগনি';
 
   @override
-  String get locationDenied => 'মফমগী অয়াবা পীদে। নহাক্না পিন ইশানা থম্বা য়াই।';
+  String get locationDenied =>
+      'মফমগী অয়াবা পীদে। নহাক্না পিন ইশানা থম্বা য়াই।';
 
   @override
-  String get locationDeniedForever => 'Nexmile গীদমক মফম থিংলে। সেটিংস্তা হৌদোকউ নত্ত্রগা পিন ইশানা থম্মু।';
+  String get locationDeniedForever =>
+      'Nexmile গীদমক মফম থিংলে। সেটিংস্তা হৌদোকউ নত্ত্রগা পিন ইশানা থম্মু।';
 
   @override
   String get locationServiceOff => 'দিভাইস অসিদা মফম থিংলি।';
@@ -443,7 +464,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get pinLocationTitle => 'নহাক্কী দেলিভরি পিন থম্মু';
 
   @override
-  String get deliveryRadiusHint => 'কোইল অসিনা Nexmile না দেলিভরি তৌবা কিমি ১ অদু উৎলি।';
+  String get deliveryRadiusHint =>
+      'কোইল অসিনা Nexmile না দেলিভরি তৌবা কিমি ১ অদু উৎলি।';
 
   @override
   String get useMyLocation => 'ঐগী মফম শিজিন্নৌ';
@@ -461,7 +483,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get addressDetailsTitle => 'এদ্রেসকী অকুপ্পা';
 
   @override
-  String get addressDetailsSubtitle => 'চুম্বা থোংদা য়ৌনবা য়ুমগী মশিং অমসুং খুদম হাপচিল্লু।';
+  String get addressDetailsSubtitle =>
+      'চুম্বা থোংদা য়ৌনবা য়ুমগী মশিং অমসুং খুদম হাপচিল্লু।';
 
   @override
   String get pinnedLocation => 'খল্লবা মফম';
@@ -539,7 +562,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get noAddressesTitle => 'হৌজিক ফাওবা এদ্রেস লৈতে';
 
   @override
-  String get noAddressesSubtitle => 'নহাক্কী মনাক্তা দেলিভরি তৌবা দোকানশিং উৎনবা এদ্রেস অমা হাপচিল্লু।';
+  String get noAddressesSubtitle =>
+      'নহাক্কী মনাক্তা দেলিভরি তৌবা দোকানশিং উৎনবা এদ্রেস অমা হাপচিল্লু।';
 
   @override
   String get addAddress => 'এদ্রেস হাপচিল্লু';
@@ -744,7 +768,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get editProfileTitle => 'ꯄ꯭ꯔꯣꯐꯥꯏꯜ ꯁꯦꯝꯗꯣꯛꯎ';
 
   @override
-  String get editProfileSubtitle => 'ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ ꯑꯃꯁꯨꯡ ꯗꯦꯂꯤꯚꯔꯤ ꯄꯥꯔꯠꯅꯔꯅ ꯑꯗꯣꯝꯒꯤ ꯃꯃꯤꯡ ꯑꯗꯨ ꯎꯏ꯫';
+  String get editProfileSubtitle =>
+      'ꯔꯦꯁ꯭ꯇꯨꯔꯦꯟꯠ ꯑꯃꯁꯨꯡ ꯗꯦꯂꯤꯚꯔꯤ ꯄꯥꯔꯠꯅꯔꯅ ꯑꯗꯣꯝꯒꯤ ꯃꯃꯤꯡ ꯑꯗꯨ ꯎꯏ꯫';
 
   @override
   String get saveChanges => 'ꯑꯍꯣꯡꯕ ꯊꯝꯃꯨ';
@@ -759,7 +784,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get deleteAccountTitle => 'ꯑꯗꯣꯝꯒꯤ ꯑꯦꯀꯥꯎꯟꯠ ꯃꯨꯠꯊꯠꯀꯗ꯭ꯔꯥ?';
 
   @override
-  String get deleteAccountMessage => 'ꯗꯤꯚꯥꯏꯁ ꯄꯨꯝꯅꯃꯛꯇꯒꯤ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯑꯣꯏꯒꯅꯤ꯫ ꯃꯃꯥꯡꯒꯤ ꯑꯣꯔꯗꯔ ꯑꯃꯁꯨꯡ ꯕꯤꯜ ꯑꯗꯨ ꯇꯦꯛꯁ ꯔꯦꯀꯣꯔꯗꯀꯤꯗꯃꯛ ꯊꯝꯃꯤ꯫';
+  String get deleteAccountMessage =>
+      'ꯗꯤꯚꯥꯏꯁ ꯄꯨꯝꯅꯃꯛꯇꯒꯤ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯑꯣꯏꯒꯅꯤ꯫ ꯃꯃꯥꯡꯒꯤ ꯑꯣꯔꯗꯔ ꯑꯃꯁꯨꯡ ꯕꯤꯜ ꯑꯗꯨ ꯇꯦꯛꯁ ꯔꯦꯀꯣꯔꯗꯀꯤꯗꯃꯛ ꯊꯝꯃꯤ꯫';
 
   @override
   String get accountDeleted => 'ꯑꯗꯣꯝꯒꯤ ꯑꯦꯀꯥꯎꯟꯠ ꯃꯨꯠꯊꯠꯂꯦ';
@@ -783,7 +809,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get signOutDeviceTitle => 'ꯗꯤꯚꯥꯏꯁ ꯑꯁꯤ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯇꯧꯒꯗ꯭ꯔꯥ?';
 
   @override
-  String get signOutDeviceMessage => 'ꯑꯗꯣꯝꯅ ꯁꯤꯖꯤꯟꯅꯔꯤꯕ ꯗꯤꯚꯥꯏꯁ ꯑꯁꯤ ꯑꯣꯏꯔꯕꯗꯤ ꯑꯃꯨꯛ ꯁꯥꯏꯟ ꯏꯟ ꯇꯧꯒꯗꯕꯅꯤ꯫';
+  String get signOutDeviceMessage =>
+      'ꯑꯗꯣꯝꯅ ꯁꯤꯖꯤꯟꯅꯔꯤꯕ ꯗꯤꯚꯥꯏꯁ ꯑꯁꯤ ꯑꯣꯏꯔꯕꯗꯤ ꯑꯃꯨꯛ ꯁꯥꯏꯟ ꯏꯟ ꯇꯧꯒꯗꯕꯅꯤ꯫';
 
   @override
   String get deviceSignedOut => 'ꯗꯤꯚꯥꯏꯁ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯇꯧꯔꯦ';
@@ -795,7 +822,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get signOutEverywhereTitle => 'ꯃꯐꯝ ꯄꯨꯝꯅꯃꯛꯇꯒꯤ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯇꯧꯒꯗ꯭ꯔꯥ?';
 
   @override
-  String get signOutEverywhereMessage => 'ꯗꯤꯚꯥꯏꯁ ꯑꯁꯤ ꯌꯥꯑꯣꯅ ꯗꯤꯚꯥꯏꯁ ꯈꯨꯗꯤꯡꯃꯛ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯑꯣꯏꯒꯅꯤ꯫';
+  String get signOutEverywhereMessage =>
+      'ꯗꯤꯚꯥꯏꯁ ꯑꯁꯤ ꯌꯥꯑꯣꯅ ꯗꯤꯚꯥꯏꯁ ꯈꯨꯗꯤꯡꯃꯛ ꯁꯥꯏꯟ ꯑꯥꯎꯠ ꯑꯣꯏꯒꯅꯤ꯫';
 
   @override
   String get unknownDevice => 'ꯃꯁꯛ ꯈꯉꯗꯕ ꯗꯤꯚꯥꯏꯁ';
@@ -929,7 +957,8 @@ class AppLocalizationsMni extends AppLocalizations {
   String get noReviewsTitle => 'হৌজিক ফাওবা রেটিং লৈতে';
 
   @override
-  String get noReviewsSubtitle => 'অর্দর তৌরবা মতুংদা অহানবা রেটিং অদু নহাক্না পীয়ু।';
+  String get noReviewsSubtitle =>
+      'অর্দর তৌরবা মতুংদা অহানবা রেটিং অদু নহাক্না পীয়ু।';
 
   @override
   String get rateOrderTitle => 'নহাক্কী অর্দর অসি রেট তৌবিয়ু';

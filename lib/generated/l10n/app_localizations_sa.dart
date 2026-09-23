@@ -21,7 +21,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get chooseLanguageTitle => 'स्वभाषां चिनोतु';
 
   @override
-  String get chooseLanguageSubtitle => 'यस्यां भाषायां भवान् सुखं अनुभवति तां चिनोतु। कदापि सेटिंग्स् इत्यत्र परिवर्तयितुं शक्नोति।';
+  String get chooseLanguageSubtitle =>
+      'यस्यां भाषायां भवान् सुखं अनुभवति तां चिनोतु। कदापि सेटिंग्स् इत्यत्र परिवर्तयितुं शक्नोति।';
 
   @override
   String get searchLanguageHint => 'भाषाम् अन्विष्यतु';
@@ -47,7 +48,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get homeTitle => 'Nexmile इत्यत्र स्वागतम्';
 
   @override
-  String get homeSubtitle => 'नवीनं किराणं, उष्णम् अन्नं, दैनन्दिनानि आवश्यकवस्तूनि च समीपस्थेभ्यः आपणेभ्यः।';
+  String get homeSubtitle =>
+      'नवीनं किराणं, उष्णम् अन्नं, दैनन्दिनानि आवश्यकवस्तूनि च समीपस्थेभ्यः आपणेभ्यः।';
 
   @override
   String get changeLanguage => 'भाषां परिवर्तयतु';
@@ -67,7 +69,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get loginTitle => 'Nexmile इत्यत्र प्रविशतु';
 
   @override
-  String get loginSubtitle => 'स्वस्य विद्युत्पत्रं चलभाषसङ्ख्यां वा लिखतु, वयं सत्यापनसङ्केतं प्रेषयिष्यामः।';
+  String get loginSubtitle =>
+      'स्वस्य विद्युत्पत्रं चलभाषसङ्ख्यां वा लिखतु, वयं सत्यापनसङ्केतं प्रेषयिष्यामः।';
 
   @override
   String get emailOrPhoneLabel => 'विद्युत्पत्रं चलभाषसङ्ख्या वा';
@@ -76,13 +79,15 @@ class AppLocalizationsSa extends AppLocalizations {
   String get emailOrPhoneHint => 'name@example.com अथवा 9876543210';
 
   @override
-  String get invalidEmailOrPhone => 'सम्यक् विद्युत्पत्रसङ्केतं दशाङ्कीयां चलभाषसङ्ख्यां वा लिखतु';
+  String get invalidEmailOrPhone =>
+      'सम्यक् विद्युत्पत्रसङ्केतं दशाङ्कीयां चलभाषसङ्ख्यां वा लिखतु';
 
   @override
   String get sendCode => 'सङ्केतं प्रेषयतु';
 
   @override
-  String get agreeToTermsOnContinue => 'अग्रे गच्छन् भवान् अस्माकं सेवानियमान् गोपनीयतानीतिं च स्वीकरोति।';
+  String get agreeToTermsOnContinue =>
+      'अग्रे गच्छन् भवान् अस्माकं सेवानियमान् गोपनीयतानीतिं च स्वीकरोति।';
 
   @override
   String get otpTitle => 'भवान् एव इति निश्चिनोतु';
@@ -107,22 +112,26 @@ class AppLocalizationsSa extends AppLocalizations {
   String get codeResent => 'नवीनः सङ्केतः प्रेषितः';
 
   @override
-  String get incorrectCode => 'अयं सङ्केतः अशुद्धः कालातीतो वा। नवीनं सङ्केतं याचतु।';
+  String get incorrectCode =>
+      'अयं सङ्केतः अशुद्धः कालातीतो वा। नवीनं सङ्केतं याचतु।';
 
   @override
   String get enterFullCode => 'सर्वाणि षट् अङ्कानि लिखतु';
 
   @override
-  String get accountSuspended => 'इयं लेखा स्थगिता। कृपया सहायकैः सह सम्पर्कं करोतु।';
+  String get accountSuspended =>
+      'इयं लेखा स्थगिता। कृपया सहायकैः सह सम्पर्कं करोतु।';
 
   @override
-  String get tooManyAttempts => 'अतीव प्रयत्नाः कृताः। कृपया किञ्चित्कालानन्तरं पुनः प्रयत्नं करोतु।';
+  String get tooManyAttempts =>
+      'अतीव प्रयत्नाः कृताः। कृपया किञ्चित्कालानन्तरं पुनः प्रयत्नं करोतु।';
 
   @override
   String get sessionExpired => 'भवतः सत्रं समाप्तम्। कृपया पुनः प्रविशतु।';
 
   @override
-  String get networkError => 'अन्तर्जालसम्बन्धः नास्ति। सम्बन्धं परीक्ष्य पुनः प्रयत्नं करोतु।';
+  String get networkError =>
+      'अन्तर्जालसम्बन्धः नास्ति। सम्बन्धं परीक्ष्य पुनः प्रयत्नं करोतु।';
 
   @override
   String get developmentCode => 'विकाससङ्केतः';
@@ -134,7 +143,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get signedOut => 'भवान् निर्गतः';
 
   @override
-  String get somethingWentWrong => 'किमपि दोषः अभवत्। कृपया पुनः प्रयत्नं करोतु।';
+  String get somethingWentWrong =>
+      'किमपि दोषः अभवत्। कृपया पुनः प्रयत्नं करोतु।';
 
   @override
   String get profileTitle => 'परिचयपत्रम्';
@@ -197,7 +207,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get searchNoResultsTitle => 'किमपि न प्राप्तम्';
 
   @override
-  String get searchNoResultsSubtitle => 'अन्यत् व्यञ्जनं, पाकशैलीं वा भोजनालयनाम प्रयत्नं करोतु।';
+  String get searchNoResultsSubtitle =>
+      'अन्यत् व्यञ्जनं, पाकशैलीं वा भोजनालयनाम प्रयत्नं करोतु।';
 
   @override
   String get cravingTitle => 'अद्य किं खादितुम् इच्छति?';
@@ -223,7 +234,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get noRestaurantsTitle => 'अत्र अद्यापि किमपि नास्ति';
 
   @override
-  String get noRestaurantsSubtitle => 'अन्यं वर्गं पश्यतु अथवा छाननं निष्कासयतु।';
+  String get noRestaurantsSubtitle =>
+      'अन्यं वर्गं पश्यतु अथवा छाननं निष्कासयतु।';
 
   @override
   String minutesAway(int minutes) {
@@ -277,7 +289,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get noVegDishesTitle => 'अत्र शाकाहारव्यञ्जनानि न सन्ति';
 
   @override
-  String get noVegDishesSubtitle => 'पूर्णं सूचीपत्रं द्रष्टुं शाकाहारछाननं निष्क्रियं करोतु।';
+  String get noVegDishesSubtitle =>
+      'पूर्णं सूचीपत्रं द्रष्टुं शाकाहारछाननं निष्क्रियं करोतु।';
 
   @override
   String get replaceCartTitle => 'नवीनं शकटं आरभताम्?';
@@ -297,7 +310,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get cartEmptyTitle => 'भवतः शकटं रिक्तम् अस्ति';
 
   @override
-  String get cartEmptySubtitle => 'आरम्भार्थं कस्मादपि भोजनालयात् व्यञ्जनानि योजयतु।';
+  String get cartEmptySubtitle =>
+      'आरम्भार्थं कस्मादपि भोजनालयात् व्यञ्जनानि योजयतु।';
 
   @override
   String get browseRestaurants => 'भोजनालयानि पश्यतु';
@@ -386,37 +400,44 @@ class AppLocalizationsSa extends AppLocalizations {
   String get backToHome => 'गृहं प्रत्यागच्छतु';
 
   @override
-  String get prototypeNotice => 'नमूनासङ्ग्रहः — वास्तविकापणाः सूचीपत्र-API सह आगमिष्यन्ति।';
+  String get prototypeNotice =>
+      'नमूनासङ्ग्रहः — वास्तविकापणाः सूचीपत्र-API सह आगमिष्यन्ति।';
 
   @override
-  String get prototypeCheckoutNotice => 'इदं प्रतिरूपम् अस्ति। किमपि धनं न गृह्यते, वास्तविकः आदेशः अपि न भवति।';
+  String get prototypeCheckoutNotice =>
+      'इदं प्रतिरूपम् अस्ति। किमपि धनं न गृह्यते, वास्तविकः आदेशः अपि न भवति।';
 
   @override
-  String get prototypeTrackingNotice => 'प्रतिरूपार्थं अनुसरणं कृत्रिमम् अस्ति।';
+  String get prototypeTrackingNotice =>
+      'प्रतिरूपार्थं अनुसरणं कृत्रिमम् अस्ति।';
 
   @override
   String get locationTitle => 'कुत्र वितरणं करणीयम्?';
 
   @override
-  String get locationSubtitle => 'Nexmile एककिलोमीटर-अन्तः स्थितेभ्यः आपणेभ्यः एव वितरणं करोति, अतः भवतः सम्यक् स्थानम् आवश्यकम्।';
+  String get locationSubtitle =>
+      'Nexmile एककिलोमीटर-अन्तः स्थितेभ्यः आपणेभ्यः एव वितरणं करोति, अतः भवतः सम्यक् स्थानम् आवश्यकम्।';
 
   @override
   String get locationReasonRadiusTitle => 'एककिलोमीटर-अन्तः आपणाः';
 
   @override
-  String get locationReasonRadiusBody => 'यतः अन्नम् उष्णं प्राप्नोति, तानि एव पाकशालानि दर्शयामः।';
+  String get locationReasonRadiusBody =>
+      'यतः अन्नम् उष्णं प्राप्नोति, तानि एव पाकशालानि दर्शयामः।';
 
   @override
   String get locationReasonAccuracyTitle => 'सम्यक् द्वारपर्यन्तम्';
 
   @override
-  String get locationReasonAccuracyBody => 'यथार्थस्थानेन वितरकः दूरवाणीं विना एव भवन्तं प्राप्नोति।';
+  String get locationReasonAccuracyBody =>
+      'यथार्थस्थानेन वितरकः दूरवाणीं विना एव भवन्तं प्राप्नोति।';
 
   @override
   String get locationReasonPrivacyTitle => 'अनुप्रयोगप्रयोगकाले एव';
 
   @override
-  String get locationReasonPrivacyBody => 'वयं पृष्ठभूमौ भवन्तं न अनुसरामः, सङ्केतं भवान् स्वयम् अपि लिखितुं शक्नोति।';
+  String get locationReasonPrivacyBody =>
+      'वयं पृष्ठभूमौ भवन्तं न अनुसरामः, सङ्केतं भवान् स्वयम् अपि लिखितुं शक्नोति।';
 
   @override
   String get allowLocation => 'स्थानानुमतिं ददातु';
@@ -425,16 +446,19 @@ class AppLocalizationsSa extends AppLocalizations {
   String get enterAddressManually => 'अहं स्वयं सङ्केतं लिखामि';
 
   @override
-  String get locationDenied => 'स्थानानुमतिः निराकृता। भवान् स्वयं चिह्नं स्थापयितुं शक्नोति।';
+  String get locationDenied =>
+      'स्थानानुमतिः निराकृता। भवान् स्वयं चिह्नं स्थापयितुं शक्नोति।';
 
   @override
-  String get locationDeniedForever => 'Nexmile कृते स्थानं निषिद्धम्। सेटिंग्स् इत्यत्र सक्रियं करोतु अथवा चिह्नं स्वयं स्थापयतु।';
+  String get locationDeniedForever =>
+      'Nexmile कृते स्थानं निषिद्धम्। सेटिंग्स् इत्यत्र सक्रियं करोतु अथवा चिह्नं स्वयं स्थापयतु।';
 
   @override
   String get locationServiceOff => 'अस्मिन् यन्त्रे स्थानं निष्क्रियम् अस्ति।';
 
   @override
-  String get locationUnavailable => 'स्थानं न प्राप्तम्। कृपया चिह्नं स्वयं स्थापयतु।';
+  String get locationUnavailable =>
+      'स्थानं न प्राप्तम्। कृपया चिह्नं स्वयं स्थापयतु।';
 
   @override
   String get openSettings => 'सेटिंग्स्';
@@ -443,7 +467,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get pinLocationTitle => 'स्ववितरणचिह्नं स्थापयतु';
 
   @override
-  String get deliveryRadiusHint => 'वृत्तं तत् एकं किलोमीटरं दर्शयति यस्मिन् Nexmile वितरणं करोति।';
+  String get deliveryRadiusHint =>
+      'वृत्तं तत् एकं किलोमीटरं दर्शयति यस्मिन् Nexmile वितरणं करोति।';
 
   @override
   String get useMyLocation => 'मम स्थानं प्रयुङ्क्ताम्';
@@ -461,7 +486,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get addressDetailsTitle => 'सङ्केतविवरणम्';
 
   @override
-  String get addressDetailsSubtitle => 'सम्यक् द्वारं प्राप्तुं गृहसङ्ख्यां चिह्नं च योजयतु।';
+  String get addressDetailsSubtitle =>
+      'सम्यक् द्वारं प्राप्तुं गृहसङ्ख्यां चिह्नं च योजयतु।';
 
   @override
   String get pinnedLocation => 'चिह्नितं स्थानम्';
@@ -539,7 +565,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get noAddressesTitle => 'अद्यापि सङ्केताः न सन्ति';
 
   @override
-  String get noAddressesSubtitle => 'भवतः समीपं वितरणं कुर्वतः आपणान् दर्शयितुम् एकं सङ्केतं योजयतु।';
+  String get noAddressesSubtitle =>
+      'भवतः समीपं वितरणं कुर्वतः आपणान् दर्शयितुम् एकं सङ्केतं योजयतु।';
 
   @override
   String get addAddress => 'सङ्केतं योजयतु';
@@ -726,7 +753,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get cancelOrderTitle => 'अयम् आदेशः निरस्यताम्?';
 
   @override
-  String get cancelOrderMessage => 'भोजनालयस्य स्वीकारात् पूर्वमेव निरसनं शक्यते।';
+  String get cancelOrderMessage =>
+      'भोजनालयस्य स्वीकारात् पूर्वमेव निरसनं शक्यते।';
 
   @override
   String get cancelReasonLabel => 'कारणम्';
@@ -744,7 +772,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get editProfileTitle => 'विवरणं परिवर्तयतु';
 
   @override
-  String get editProfileSubtitle => 'भोजनालयः प्रापणसहभागी च भवतः नाम एव पश्यतः।';
+  String get editProfileSubtitle =>
+      'भोजनालयः प्रापणसहभागी च भवतः नाम एव पश्यतः।';
 
   @override
   String get saveChanges => 'परिवर्तनानि रक्षतु';
@@ -759,7 +788,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get deleteAccountTitle => 'भवतः खातं लोप्यताम्?';
 
   @override
-  String get deleteAccountMessage => 'सर्वेभ्यः उपकरणेभ्यः निर्गमनं भविष्यति। प्राक्तनाः आदेशाः पत्राणि च करलेखार्थं रक्ष्यन्ते।';
+  String get deleteAccountMessage =>
+      'सर्वेभ्यः उपकरणेभ्यः निर्गमनं भविष्यति। प्राक्तनाः आदेशाः पत्राणि च करलेखार्थं रक्ष्यन्ते।';
 
   @override
   String get accountDeleted => 'भवतः खातं लोपितम्';
@@ -783,7 +813,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get signOutDeviceTitle => 'इदम् उपकरणं निष्कास्यताम्?';
 
   @override
-  String get signOutDeviceMessage => 'यदि भवान् इदमेव उपकरणं प्रयुङ्क्ते तर्हि पुनः प्रवेशः करणीयः।';
+  String get signOutDeviceMessage =>
+      'यदि भवान् इदमेव उपकरणं प्रयुङ्क्ते तर्हि पुनः प्रवेशः करणीयः।';
 
   @override
   String get deviceSignedOut => 'उपकरणं निष्कासितम्';
@@ -795,7 +826,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get signOutEverywhereTitle => 'सर्वत्र निर्गम्यताम्?';
 
   @override
-  String get signOutEverywhereMessage => 'अनेन उपकरणेन सह सर्वाणि उपकरणानि निष्कासितानि भविष्यन्ति।';
+  String get signOutEverywhereMessage =>
+      'अनेन उपकरणेन सह सर्वाणि उपकरणानि निष्कासितानि भविष्यन्ति।';
 
   @override
   String get unknownDevice => 'अज्ञातम् उपकरणम्';

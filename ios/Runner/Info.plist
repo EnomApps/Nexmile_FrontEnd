@@ -1,88 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-	<dict>
-		<key>CFBundleDevelopmentRegion</key>
+<dict>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Nexmile</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
 		<string>en</string>
-		<key>CFBundleDisplayName</key>
-		<string>Nexmile</string>
-		<key>CFBundleExecutable</key>
-		<string>$(EXECUTABLE_NAME)</string>
-		<key>CFBundleIdentifier</key>
-		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-		<key>CFBundleInfoDictionaryVersion</key>
-		<string>6.0</string>
-		<key>CFBundleName</key>
-		<string>Nexmile</string>
-		<key>CFBundlePackageType</key>
-		<string>APPL</string>
-		<key>CFBundleShortVersionString</key>
-		<string>$(FLUTTER_BUILD_NAME)</string>
-		<key>CFBundleSignature</key>
-		<string>????</string>
-		<key>CFBundleVersion</key>
-		<string>$(FLUTTER_BUILD_NUMBER)</string>
-		<!-- Declares every language Nexmile ships. Without this list iOS reports
-	     only the development region in Locale.preferredLanguages, and the App
-	     Store page would not list the app as localised. -->
-		<key>CFBundleLocalizations</key>
-		<array>
-			<string>en</string>
-			<string>ta</string>
-			<string>hi</string>
-			<string>as</string>
-			<string>bn</string>
-			<string>brx</string>
-			<string>doi</string>
-			<string>gu</string>
-			<string>kn</string>
-			<string>ks</string>
-			<string>kok</string>
-			<string>mai</string>
-			<string>ml</string>
-			<string>mni</string>
-			<string>mr</string>
-			<string>ne</string>
-			<string>or</string>
-			<string>pa</string>
-			<string>sa</string>
-			<string>sat</string>
-			<string>sd</string>
-			<string>te</string>
-			<string>ur</string>
-		</array>
-		<!-- Shown verbatim in the iOS permission dialog, so it has to say why.
-		     Delivery is limited to a 1 km radius and an address without
-		     coordinates cannot be matched to a merchant. Foreground only —
-		     Nexmile never requests "always" location. -->
-		<key>NSLocationWhenInUseUsageDescription</key>
-		<string>Nexmile uses your location to find shops within 1 km and to place your delivery pin accurately. You can also drag the pin or type the address yourself.</string>
-		<key>LSRequiresIPhoneOS</key>
-		<true/>
-		<key>UILaunchStoryboardName</key>
-		<string>LaunchScreen</string>
-		<key>UIMainStoryboardFile</key>
-		<string>Main</string>
-		<!-- Portrait only, matching SystemChrome.setPreferredOrientations in
-	     lib/main.dart. -->
-		<key>UISupportedInterfaceOrientations</key>
-		<array>
-			<string>UIInterfaceOrientationPortrait</string>
-		</array>
-		<key>UISupportedInterfaceOrientations~ipad</key>
-		<array>
-			<string>UIInterfaceOrientationPortrait</string>
-			<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		</array>
-		<key>UIStatusBarStyle</key>
-		<string>UIStatusBarStyleLightContent</string>
-		<key>UIViewControllerBasedStatusBarAppearance</key>
-		<true/>
-		<key>CADisableMinimumFrameDurationOnPhone</key>
-		<true/>
-		<key>UIApplicationSupportsIndirectInputEvents</key>
-		<true/>
-		<key>UIStatusBarHidden</key>
+		<string>ta</string>
+		<string>hi</string>
+		<string>as</string>
+		<string>bn</string>
+		<string>brx</string>
+		<string>doi</string>
+		<string>gu</string>
+		<string>kn</string>
+		<string>ks</string>
+		<string>kok</string>
+		<string>mai</string>
+		<string>ml</string>
+		<string>mni</string>
+		<string>mr</string>
+		<string>ne</string>
+		<string>or</string>
+		<string>pa</string>
+		<string>sa</string>
+		<string>sat</string>
+		<string>sd</string>
+		<string>te</string>
+		<string>ur</string>
+	</array>
+	<key>CFBundleName</key>
+	<string>Nexmile</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(FLUTTER_BUILD_NAME)</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Nexmile uses your location to find shops within 1 km and to place your delivery pin accurately. You can also drag the pin or type the address yourself.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Nexmile uses the microphone so you can search for restaurants and dishes by voice.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Nexmile turns your voice into search text so you can find restaurants and dishes hands-free.</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneClassName</key>
+					<string>UIWindowScene</string>
+					<key>UISceneConfigurationName</key>
+					<string>flutter</string>
+					<key>UISceneDelegateClassName</key>
+					<string>FlutterSceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Main</string>
+				</dict>
+			</array>
+		</dict>
 	</dict>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UIStatusBarHidden</key>
+	<false/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+</dict>
 </plist>

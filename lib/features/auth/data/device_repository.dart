@@ -1,5 +1,11 @@
 import '../../../core/network/api_client.dart';
 
+/// Which of the two Nexmile apps this token belongs to.
+///
+/// The server routes on it: a rider's shift notifications must not land on a
+/// customer's phone, and the same person may well be signed into both.
+const String kPushAppName = 'customer';
+
 /// The push registration endpoints.
 ///
 /// Separate from [AuthRepository] on purpose: a device row belongs to the
@@ -33,7 +39,11 @@ class ApiDeviceRepository implements DeviceRepository {
   }) {
     return _client.post(
       '/v1/devices',
-      body: <String, dynamic>{'token': token, 'platform': platform},
+      body: <String, dynamic>{
+        'token': token,
+        'platform': platform,
+        'app': kPushAppName,
+      },
     );
   }
 

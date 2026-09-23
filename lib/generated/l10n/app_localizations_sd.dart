@@ -21,7 +21,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get chooseLanguageTitle => 'پنهنجي ٻولي چونڊيو';
 
   @override
-  String get chooseLanguageSubtitle => 'اها ٻولي چونڊيو جنهن ۾ توهان کي آساني ٿئي. توهان ان کي ڪنهن به وقت سيٽنگون ۾ تبديل ڪري سگهو ٿا.';
+  String get chooseLanguageSubtitle =>
+      'اها ٻولي چونڊيو جنهن ۾ توهان کي آساني ٿئي. توهان ان کي ڪنهن به وقت سيٽنگون ۾ تبديل ڪري سگهو ٿا.';
 
   @override
   String get searchLanguageHint => 'ٻولي ڳوليو';
@@ -47,7 +48,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get homeTitle => 'Nexmile ۾ ڀلي ڪري آيا';
 
   @override
-  String get homeSubtitle => 'تازو راشن، گرم کاڌو ۽ روزمره جون ضرورتون توهان جي ويجهن دڪانن مان.';
+  String get homeSubtitle =>
+      'تازو راشن، گرم کاڌو ۽ روزمره جون ضرورتون توهان جي ويجهن دڪانن مان.';
 
   @override
   String get changeLanguage => 'ٻولي تبديل ڪريو';
@@ -67,7 +69,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get loginTitle => 'Nexmile ۾ سائن ان ڪريو';
 
   @override
-  String get loginSubtitle => 'پنهنجو اي ميل يا موبائل نمبر داخل ڪريو، اسان توهان کي تصديقي ڪوڊ موڪلينداسين.';
+  String get loginSubtitle =>
+      'پنهنجو اي ميل يا موبائل نمبر داخل ڪريو، اسان توهان کي تصديقي ڪوڊ موڪلينداسين.';
 
   @override
   String get emailOrPhoneLabel => 'اي ميل يا موبائل نمبر';
@@ -76,13 +79,15 @@ class AppLocalizationsSd extends AppLocalizations {
   String get emailOrPhoneHint => 'name@example.com يا 9876543210';
 
   @override
-  String get invalidEmailOrPhone => 'صحيح اي ميل پتو يا 10 عددن جو موبائل نمبر داخل ڪريو';
+  String get invalidEmailOrPhone =>
+      'صحيح اي ميل پتو يا 10 عددن جو موبائل نمبر داخل ڪريو';
 
   @override
   String get sendCode => 'ڪوڊ موڪليو';
 
   @override
-  String get agreeToTermsOnContinue => 'اڳتي وڌڻ سان توهان اسان جي خدمت جي شرطن ۽ رازداري پاليسي سان متفق ٿيو ٿا.';
+  String get agreeToTermsOnContinue =>
+      'اڳتي وڌڻ سان توهان اسان جي خدمت جي شرطن ۽ رازداري پاليسي سان متفق ٿيو ٿا.';
 
   @override
   String get otpTitle => 'تصديق ڪريو ته هي توهان ئي آهيو';
@@ -107,22 +112,27 @@ class AppLocalizationsSd extends AppLocalizations {
   String get codeResent => 'نئون ڪوڊ موڪليو ويو آهي';
 
   @override
-  String get incorrectCode => 'هي ڪوڊ غلط آهي يا ان جي مدت ختم ٿي وئي. نئون ڪوڊ گهرو.';
+  String get incorrectCode =>
+      'هي ڪوڊ غلط آهي يا ان جي مدت ختم ٿي وئي. نئون ڪوڊ گهرو.';
 
   @override
   String get enterFullCode => 'پورا 6 عدد داخل ڪريو';
 
   @override
-  String get accountSuspended => 'هي اڪائونٽ معطل ڪيو ويو آهي. مهرباني ڪري سپورٽ سان رابطو ڪريو.';
+  String get accountSuspended =>
+      'هي اڪائونٽ معطل ڪيو ويو آهي. مهرباني ڪري سپورٽ سان رابطو ڪريو.';
 
   @override
-  String get tooManyAttempts => 'تمام گهڻيون ڪوششون ٿي ويون. مهرباني ڪري ٿوري دير کان پوءِ ٻيهر ڪوشش ڪريو.';
+  String get tooManyAttempts =>
+      'تمام گهڻيون ڪوششون ٿي ويون. مهرباني ڪري ٿوري دير کان پوءِ ٻيهر ڪوشش ڪريو.';
 
   @override
-  String get sessionExpired => 'توهان جو سيشن ختم ٿي ويو آهي. مهرباني ڪري ٻيهر سائن ان ڪريو.';
+  String get sessionExpired =>
+      'توهان جو سيشن ختم ٿي ويو آهي. مهرباني ڪري ٻيهر سائن ان ڪريو.';
 
   @override
-  String get networkError => 'انٽرنيٽ ڪنيڪشن ناهي. پنهنجو ڪنيڪشن چيڪ ڪري ٻيهر ڪوشش ڪريو.';
+  String get networkError =>
+      'انٽرنيٽ ڪنيڪشن ناهي. پنهنجو ڪنيڪشن چيڪ ڪري ٻيهر ڪوشش ڪريو.';
 
   @override
   String get developmentCode => 'ڊولپمينٽ ڪوڊ';
@@ -134,7 +144,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get signedOut => 'توهان سائن آئوٽ ٿي ويا آهيو';
 
   @override
-  String get somethingWentWrong => 'ڪجهه غلط ٿي ويو. مهرباني ڪري ٻيهر ڪوشش ڪريو.';
+  String get somethingWentWrong =>
+      'ڪجهه غلط ٿي ويو. مهرباني ڪري ٻيهر ڪوشش ڪريو.';
 
   @override
   String get profileTitle => 'پروفائل';
@@ -197,7 +208,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get searchNoResultsTitle => 'ڪجهه نه مليو';
 
   @override
-  String get searchNoResultsSubtitle => 'ٻيو ڪو کاڌو، پچائڻ جو انداز يا ريسٽورنٽ جو نالو آزمايو.';
+  String get searchNoResultsSubtitle =>
+      'ٻيو ڪو کاڌو، پچائڻ جو انداز يا ريسٽورنٽ جو نالو آزمايو.';
 
   @override
   String get cravingTitle => 'اڄ ڇا کائڻ جو دل آهي؟';
@@ -277,7 +289,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get noVegDishesTitle => 'هتي ڀاڄين وارو کاڌو ناهي';
 
   @override
-  String get noVegDishesSubtitle => 'پورو مينيو ڏسڻ لاءِ ڀاڄين وارو فلٽر بند ڪريو.';
+  String get noVegDishesSubtitle =>
+      'پورو مينيو ڏسڻ لاءِ ڀاڄين وارو فلٽر بند ڪريو.';
 
   @override
   String get replaceCartTitle => 'نئين ڪارٽ شروع ڪجي؟';
@@ -297,7 +310,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get cartEmptyTitle => 'توهان جي ڪارٽ خالي آهي';
 
   @override
-  String get cartEmptySubtitle => 'شروع ڪرڻ لاءِ ڪنهن ريسٽورنٽ مان کاڌو شامل ڪريو.';
+  String get cartEmptySubtitle =>
+      'شروع ڪرڻ لاءِ ڪنهن ريسٽورنٽ مان کاڌو شامل ڪريو.';
 
   @override
   String get browseRestaurants => 'ريسٽورنٽ ڏسو';
@@ -386,10 +400,12 @@ class AppLocalizationsSd extends AppLocalizations {
   String get backToHome => 'هوم تي واپس';
 
   @override
-  String get prototypeNotice => 'نمونو اسٽور فرنٽ — اصل دڪان ڪيٽلاگ API سان گڏ ايندا.';
+  String get prototypeNotice =>
+      'نمونو اسٽور فرنٽ — اصل دڪان ڪيٽلاگ API سان گڏ ايندا.';
 
   @override
-  String get prototypeCheckoutNotice => 'هي هڪ پروٽوٽائپ آهي. ڪا ادائگي نه ورتي ويندي آهي ۽ نه ئي ڪو حقيقي آرڊر ٿيندو آهي.';
+  String get prototypeCheckoutNotice =>
+      'هي هڪ پروٽوٽائپ آهي. ڪا ادائگي نه ورتي ويندي آهي ۽ نه ئي ڪو حقيقي آرڊر ٿيندو آهي.';
 
   @override
   String get prototypeTrackingNotice => 'پروٽوٽائپ لاءِ ٽريڪنگ مصنوعي آهي.';
@@ -398,25 +414,29 @@ class AppLocalizationsSd extends AppLocalizations {
   String get locationTitle => 'ڊليوري ڪٿي ڪجي؟';
 
   @override
-  String get locationSubtitle => 'Nexmile رڳو 1 ڪلوميٽر اندر جي دڪانن مان ڊليوري ڪري ٿو، تنهنڪري اسان کي توهان جي صحيح جاءِ گهرجي.';
+  String get locationSubtitle =>
+      'Nexmile رڳو 1 ڪلوميٽر اندر جي دڪانن مان ڊليوري ڪري ٿو، تنهنڪري اسان کي توهان جي صحيح جاءِ گهرجي.';
 
   @override
   String get locationReasonRadiusTitle => '1 ڪلوميٽر اندر جا دڪان';
 
   @override
-  String get locationReasonRadiusBody => 'اسان رڳو اهي باورچي خانا ڏيکاريون ٿا جتان کاڌو گرم پهچي.';
+  String get locationReasonRadiusBody =>
+      'اسان رڳو اهي باورچي خانا ڏيکاريون ٿا جتان کاڌو گرم پهچي.';
 
   @override
   String get locationReasonAccuracyTitle => 'بلڪل صحيح دروازي تائين';
 
   @override
-  String get locationReasonAccuracyBody => 'صحيح پن هجي ته ڊليوري پارٽنر فون ڪرڻ کان سواءِ توهان تائين پهچي وڃي ٿو.';
+  String get locationReasonAccuracyBody =>
+      'صحيح پن هجي ته ڊليوري پارٽنر فون ڪرڻ کان سواءِ توهان تائين پهچي وڃي ٿو.';
 
   @override
   String get locationReasonPrivacyTitle => 'رڳو ايپ استعمال ڪرڻ وقت';
 
   @override
-  String get locationReasonPrivacyBody => 'اسان پس منظر ۾ توهان کي ٽريڪ نه ڪندا آهيون، ۽ پتو توهان پاڻ به لکي سگهو ٿا.';
+  String get locationReasonPrivacyBody =>
+      'اسان پس منظر ۾ توهان کي ٽريڪ نه ڪندا آهيون، ۽ پتو توهان پاڻ به لکي سگهو ٿا.';
 
   @override
   String get allowLocation => 'مقام جي اجازت ڏيو';
@@ -425,16 +445,19 @@ class AppLocalizationsSd extends AppLocalizations {
   String get enterAddressManually => 'مان پتو پاڻ لکندس';
 
   @override
-  String get locationDenied => 'مقام جي اجازت نه ملي. توهان پن پاڻ رکي سگهو ٿا.';
+  String get locationDenied =>
+      'مقام جي اجازت نه ملي. توهان پن پاڻ رکي سگهو ٿا.';
 
   @override
-  String get locationDeniedForever => 'Nexmile لاءِ مقام بند آهي. سيٽنگن ۾ آن ڪريو يا پن پاڻ رکو.';
+  String get locationDeniedForever =>
+      'Nexmile لاءِ مقام بند آهي. سيٽنگن ۾ آن ڪريو يا پن پاڻ رکو.';
 
   @override
   String get locationServiceOff => 'هن ڊوائيس تي مقام بند آهي.';
 
   @override
-  String get locationUnavailable => 'مقام حاصل نه ٿي سگهيو. مهرباني ڪري پن پاڻ رکو.';
+  String get locationUnavailable =>
+      'مقام حاصل نه ٿي سگهيو. مهرباني ڪري پن پاڻ رکو.';
 
   @override
   String get openSettings => 'سيٽنگون';
@@ -443,7 +466,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get pinLocationTitle => 'پنهنجو ڊليوري پن رکو';
 
   @override
-  String get deliveryRadiusHint => 'دائرو اهو 1 ڪلوميٽر ڏيکاري ٿو جنهن ۾ Nexmile ڊليوري ڪري ٿو.';
+  String get deliveryRadiusHint =>
+      'دائرو اهو 1 ڪلوميٽر ڏيکاري ٿو جنهن ۾ Nexmile ڊليوري ڪري ٿو.';
 
   @override
   String get useMyLocation => 'منهنجو مقام استعمال ڪريو';
@@ -461,7 +485,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get addressDetailsTitle => 'پتي جا تفصيل';
 
   @override
-  String get addressDetailsSubtitle => 'صحيح دروازي تائين پهچڻ لاءِ گهر نمبر ۽ نشاني شامل ڪريو.';
+  String get addressDetailsSubtitle =>
+      'صحيح دروازي تائين پهچڻ لاءِ گهر نمبر ۽ نشاني شامل ڪريو.';
 
   @override
   String get pinnedLocation => 'چونڊيل جاءِ';
@@ -539,7 +564,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get noAddressesTitle => 'اڃا ڪو پتو ناهي';
 
   @override
-  String get noAddressesSubtitle => 'هڪ پتو شامل ڪريو ته جيئن اسان توهان تائين ڊليوري ڪندڙ دڪان ڏيکاري سگهون.';
+  String get noAddressesSubtitle =>
+      'هڪ پتو شامل ڪريو ته جيئن اسان توهان تائين ڊليوري ڪندڙ دڪان ڏيکاري سگهون.';
 
   @override
   String get addAddress => 'پتو شامل ڪريو';
@@ -726,7 +752,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get cancelOrderTitle => 'هي آرڊر رد ڪجي؟';
 
   @override
-  String get cancelOrderMessage => 'ريسٽورنٽ قبول ڪرڻ کان اڳ ئي رد ڪري سگهجي ٿو.';
+  String get cancelOrderMessage =>
+      'ريسٽورنٽ قبول ڪرڻ کان اڳ ئي رد ڪري سگهجي ٿو.';
 
   @override
   String get cancelReasonLabel => 'سبب';
@@ -744,7 +771,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get editProfileTitle => 'پروفائل تبديل ڪريو';
 
   @override
-  String get editProfileSubtitle => 'ريسٽورنٽ ۽ ڊليوري پارٽنر کي توهانجو نالو ئي نظر ايندو آهي.';
+  String get editProfileSubtitle =>
+      'ريسٽورنٽ ۽ ڊليوري پارٽنر کي توهانجو نالو ئي نظر ايندو آهي.';
 
   @override
   String get saveChanges => 'تبديليون محفوظ ڪريو';
@@ -759,7 +787,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get deleteAccountTitle => 'پنهنجو کاتو ختم ڪجي؟';
 
   @override
-  String get deleteAccountMessage => 'هر ڊوائس تان سائن آئوٽ ٿي ويندؤ. پراڻا آرڊر ۽ بل ٽيڪس رڪارڊ لاءِ رکيا ويندا آهن.';
+  String get deleteAccountMessage =>
+      'هر ڊوائس تان سائن آئوٽ ٿي ويندؤ. پراڻا آرڊر ۽ بل ٽيڪس رڪارڊ لاءِ رکيا ويندا آهن.';
 
   @override
   String get accountDeleted => 'توهانجو کاتو ختم ڪيو ويو';
@@ -783,7 +812,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get signOutDeviceTitle => 'هيءَ ڊوائس سائن آئوٽ ڪجي؟';
 
   @override
-  String get signOutDeviceMessage => 'جيڪڏهن توهان اها ئي ڊوائس استعمال ڪري رهيا آهيو ته وري سائن ان ڪرڻو پوندو.';
+  String get signOutDeviceMessage =>
+      'جيڪڏهن توهان اها ئي ڊوائس استعمال ڪري رهيا آهيو ته وري سائن ان ڪرڻو پوندو.';
 
   @override
   String get deviceSignedOut => 'ڊوائس سائن آئوٽ ٿي وئي';
@@ -795,7 +825,8 @@ class AppLocalizationsSd extends AppLocalizations {
   String get signOutEverywhereTitle => 'هر هنڌ کان سائن آئوٽ ڪجي؟';
 
   @override
-  String get signOutEverywhereMessage => 'هن ڊوائس سميت هر ڊوائس سائن آئوٽ ٿي ويندي.';
+  String get signOutEverywhereMessage =>
+      'هن ڊوائس سميت هر ڊوائس سائن آئوٽ ٿي ويندي.';
 
   @override
   String get unknownDevice => 'اڻڄاتل ڊوائس';

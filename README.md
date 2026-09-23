@@ -399,7 +399,7 @@ keyAlias=nexmile
 keyPassword=...
 ```
 
-**iOS** — `com.nexmile.app`, deployment target 12.0, portrait only.
+**iOS** — `com.nexmile.app`, deployment target 15.0, portrait only.
 `CFBundleLocalizations` lists all 23 languages; without it iOS reports only the
 development region and the App Store page would not show the app as localised.
 

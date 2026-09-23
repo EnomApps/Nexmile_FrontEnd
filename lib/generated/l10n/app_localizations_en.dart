@@ -21,7 +21,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chooseLanguageTitle => 'Choose your language';
 
   @override
-  String get chooseLanguageSubtitle => 'Pick the language you are most comfortable with. You can change it anytime from Settings.';
+  String get chooseLanguageSubtitle =>
+      'Pick the language you are most comfortable with. You can change it anytime from Settings.';
 
   @override
   String get searchLanguageHint => 'Search language';
@@ -47,7 +48,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeTitle => 'Welcome to Nexmile';
 
   @override
-  String get homeSubtitle => 'Fresh groceries, hot food and daily essentials delivered from shops near you.';
+  String get homeSubtitle =>
+      'Fresh groceries, hot food and daily essentials delivered from shops near you.';
 
   @override
   String get changeLanguage => 'Change language';
@@ -67,7 +69,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loginTitle => 'Sign in to Nexmile';
 
   @override
-  String get loginSubtitle => 'Enter your email or mobile number and we will send you a verification code.';
+  String get loginSubtitle =>
+      'Enter your email or mobile number and we will send you a verification code.';
 
   @override
   String get emailOrPhoneLabel => 'Email or mobile number';
@@ -76,13 +79,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get emailOrPhoneHint => 'name@example.com or 9876543210';
 
   @override
-  String get invalidEmailOrPhone => 'Enter a valid email address or 10-digit mobile number';
+  String get invalidEmailOrPhone =>
+      'Enter a valid email address or 10-digit mobile number';
 
   @override
   String get sendCode => 'Send code';
 
   @override
-  String get agreeToTermsOnContinue => 'By continuing you agree to our Terms of Service and Privacy Policy.';
+  String get agreeToTermsOnContinue =>
+      'By continuing you agree to our Terms of Service and Privacy Policy.';
 
   @override
   String get otpTitle => 'Verify it is you';
@@ -107,22 +112,27 @@ class AppLocalizationsEn extends AppLocalizations {
   String get codeResent => 'A new code has been sent';
 
   @override
-  String get incorrectCode => 'That code is not correct or has expired. Request a new one.';
+  String get incorrectCode =>
+      'That code is not correct or has expired. Request a new one.';
 
   @override
   String get enterFullCode => 'Enter all 6 digits';
 
   @override
-  String get accountSuspended => 'This account has been suspended. Please contact support.';
+  String get accountSuspended =>
+      'This account has been suspended. Please contact support.';
 
   @override
-  String get tooManyAttempts => 'Too many attempts. Please wait a while and try again.';
+  String get tooManyAttempts =>
+      'Too many attempts. Please wait a while and try again.';
 
   @override
-  String get sessionExpired => 'Your session has expired. Please sign in again.';
+  String get sessionExpired =>
+      'Your session has expired. Please sign in again.';
 
   @override
-  String get networkError => 'No internet connection. Check your connection and try again.';
+  String get networkError =>
+      'No internet connection. Check your connection and try again.';
 
   @override
   String get developmentCode => 'Development code';
@@ -197,7 +207,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get searchNoResultsTitle => 'Nothing matched';
 
   @override
-  String get searchNoResultsSubtitle => 'Try a different dish, cuisine or restaurant name.';
+  String get searchNoResultsSubtitle =>
+      'Try a different dish, cuisine or restaurant name.';
 
   @override
   String get cravingTitle => 'What are you craving?';
@@ -223,7 +234,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noRestaurantsTitle => 'Nothing here yet';
 
   @override
-  String get noRestaurantsSubtitle => 'Try another category, or clear the filter.';
+  String get noRestaurantsSubtitle =>
+      'Try another category, or clear the filter.';
 
   @override
   String minutesAway(int minutes) {
@@ -277,7 +289,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noVegDishesTitle => 'No veg dishes here';
 
   @override
-  String get noVegDishesSubtitle => 'Turn off the veg filter to see the full menu.';
+  String get noVegDishesSubtitle =>
+      'Turn off the veg filter to see the full menu.';
 
   @override
   String get replaceCartTitle => 'Start a new cart?';
@@ -297,7 +310,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cartEmptyTitle => 'Your cart is empty';
 
   @override
-  String get cartEmptySubtitle => 'Add dishes from a restaurant to get started.';
+  String get cartEmptySubtitle =>
+      'Add dishes from a restaurant to get started.';
 
   @override
   String get browseRestaurants => 'Browse restaurants';
@@ -386,37 +400,44 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backToHome => 'Back to home';
 
   @override
-  String get prototypeNotice => 'Sample storefront — real shops arrive with the catalogue API.';
+  String get prototypeNotice =>
+      'Sample storefront — real shops arrive with the catalogue API.';
 
   @override
-  String get prototypeCheckoutNotice => 'This is a prototype. No payment is taken and no order is really placed.';
+  String get prototypeCheckoutNotice =>
+      'This is a prototype. No payment is taken and no order is really placed.';
 
   @override
-  String get prototypeTrackingNotice => 'Tracking is simulated for the prototype.';
+  String get prototypeTrackingNotice =>
+      'Tracking is simulated for the prototype.';
 
   @override
   String get locationTitle => 'Where should we deliver?';
 
   @override
-  String get locationSubtitle => 'Nexmile delivers from shops within 1 km, so we need your exact spot to show what can reach you.';
+  String get locationSubtitle =>
+      'Nexmile delivers from shops within 1 km, so we need your exact spot to show what can reach you.';
 
   @override
   String get locationReasonRadiusTitle => 'Shops within 1 km';
 
   @override
-  String get locationReasonRadiusBody => 'We only list kitchens close enough to arrive hot.';
+  String get locationReasonRadiusBody =>
+      'We only list kitchens close enough to arrive hot.';
 
   @override
   String get locationReasonAccuracyTitle => 'No missed doorsteps';
 
   @override
-  String get locationReasonAccuracyBody => 'An exact pin means your rider finds you without calling.';
+  String get locationReasonAccuracyBody =>
+      'An exact pin means your rider finds you without calling.';
 
   @override
   String get locationReasonPrivacyTitle => 'Only while you use the app';
 
   @override
-  String get locationReasonPrivacyBody => 'We never track you in the background, and you can type the address instead.';
+  String get locationReasonPrivacyBody =>
+      'We never track you in the background, and you can type the address instead.';
 
   @override
   String get allowLocation => 'Allow location';
@@ -425,16 +446,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterAddressManually => 'I\'ll enter my address instead';
 
   @override
-  String get locationDenied => 'Location permission was declined. You can still drop the pin yourself.';
+  String get locationDenied =>
+      'Location permission was declined. You can still drop the pin yourself.';
 
   @override
-  String get locationDeniedForever => 'Location is blocked for Nexmile. Turn it on in Settings, or place the pin by hand.';
+  String get locationDeniedForever =>
+      'Location is blocked for Nexmile. Turn it on in Settings, or place the pin by hand.';
 
   @override
   String get locationServiceOff => 'Location is switched off on this device.';
 
   @override
-  String get locationUnavailable => 'We could not get a location fix. Please place the pin yourself.';
+  String get locationUnavailable =>
+      'We could not get a location fix. Please place the pin yourself.';
 
   @override
   String get openSettings => 'Settings';
@@ -443,7 +467,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pinLocationTitle => 'Set your delivery pin';
 
   @override
-  String get deliveryRadiusHint => 'The circle shows the 1 km Nexmile delivers within.';
+  String get deliveryRadiusHint =>
+      'The circle shows the 1 km Nexmile delivers within.';
 
   @override
   String get useMyLocation => 'Use my location';
@@ -461,7 +486,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addressDetailsTitle => 'Address details';
 
   @override
-  String get addressDetailsSubtitle => 'Add the flat and landmark so your rider reaches the right door.';
+  String get addressDetailsSubtitle =>
+      'Add the flat and landmark so your rider reaches the right door.';
 
   @override
   String get pinnedLocation => 'Pinned location';
@@ -539,7 +565,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noAddressesTitle => 'No addresses yet';
 
   @override
-  String get noAddressesSubtitle => 'Add one so we can show the shops that deliver to you.';
+  String get noAddressesSubtitle =>
+      'Add one so we can show the shops that deliver to you.';
 
   @override
   String get addAddress => 'Add address';
@@ -726,7 +753,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cancelOrderTitle => 'Cancel this order?';
 
   @override
-  String get cancelOrderMessage => 'You can only cancel before the restaurant accepts it.';
+  String get cancelOrderMessage =>
+      'You can only cancel before the restaurant accepts it.';
 
   @override
   String get cancelReasonLabel => 'Reason';
@@ -744,7 +772,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get editProfileTitle => 'Edit profile';
 
   @override
-  String get editProfileSubtitle => 'Your name is what the restaurant and the delivery partner see.';
+  String get editProfileSubtitle =>
+      'Your name is what the restaurant and the delivery partner see.';
 
   @override
   String get saveChanges => 'Save changes';
@@ -759,7 +788,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteAccountTitle => 'Delete your account?';
 
   @override
-  String get deleteAccountMessage => 'You will be signed out everywhere. Past orders and invoices are kept for tax records.';
+  String get deleteAccountMessage =>
+      'You will be signed out everywhere. Past orders and invoices are kept for tax records.';
 
   @override
   String get accountDeleted => 'Your account has been deleted';
@@ -783,7 +813,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get signOutDeviceTitle => 'Sign out this device?';
 
   @override
-  String get signOutDeviceMessage => 'If this is the device you are using, you will have to sign in again.';
+  String get signOutDeviceMessage =>
+      'If this is the device you are using, you will have to sign in again.';
 
   @override
   String get deviceSignedOut => 'Device signed out';
@@ -795,7 +826,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get signOutEverywhereTitle => 'Sign out everywhere?';
 
   @override
-  String get signOutEverywhereMessage => 'Every device, including this one, will be signed out.';
+  String get signOutEverywhereMessage =>
+      'Every device, including this one, will be signed out.';
 
   @override
   String get unknownDevice => 'Unknown device';
@@ -929,7 +961,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noReviewsTitle => 'No ratings yet';
 
   @override
-  String get noReviewsSubtitle => 'Be the first to rate this place after your order.';
+  String get noReviewsSubtitle =>
+      'Be the first to rate this place after your order.';
 
   @override
   String get rateOrderTitle => 'Rate your order';

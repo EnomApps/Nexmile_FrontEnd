@@ -21,7 +21,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get chooseLanguageTitle => 'ᱟᱢᱟᱜ ᱯᱟᱹᱨᱥᱤ ᱵᱟᱪᱷᱟᱣ ᱢᱮ';
 
   @override
-  String get chooseLanguageSubtitle => 'ᱟᱢ ᱡᱟᱦᱟᱸ ᱯᱟᱹᱨᱥᱤ ᱨᱮ ᱥᱩᱦᱩᱞ ᱟᱢ ᱚᱱᱟ ᱵᱟᱪᱷᱟᱣ ᱢᱮ᱾ ᱟᱢ ᱱᱚᱶᱟ ᱡᱟᱦᱟᱸ ᱚᱠᱛᱚ ᱥᱮᱴᱤᱝᱥ ᱨᱮ ᱵᱚᱫᱚᱞ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾';
+  String get chooseLanguageSubtitle =>
+      'ᱟᱢ ᱡᱟᱦᱟᱸ ᱯᱟᱹᱨᱥᱤ ᱨᱮ ᱥᱩᱦᱩᱞ ᱟᱢ ᱚᱱᱟ ᱵᱟᱪᱷᱟᱣ ᱢᱮ᱾ ᱟᱢ ᱱᱚᱶᱟ ᱡᱟᱦᱟᱸ ᱚᱠᱛᱚ ᱥᱮᱴᱤᱝᱥ ᱨᱮ ᱵᱚᱫᱚᱞ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾';
 
   @override
   String get searchLanguageHint => 'ᱯᱟᱹᱨᱥᱤ ᱯᱟᱱᱛᱮ ᱢᱮ';
@@ -47,7 +48,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get homeTitle => 'Nexmile ᱨᱮ ᱡᱚᱦᱟᱨ';
 
   @override
-  String get homeSubtitle => 'ᱱᱟᱶᱟ ᱠᱤᱨᱟᱱᱟ, ᱨᱟᱹᱲᱟᱹ ᱡᱚᱢᱟᱜ ᱟᱨ ᱫᱤᱱ ᱫᱤᱱᱟᱜ ᱡᱤᱱᱤᱥ ᱟᱢᱟᱜ ᱡᱟᱹᱛᱤᱭᱟᱹᱨ ᱫᱳᱠᱟᱱ ᱠᱷᱚᱱ᱾';
+  String get homeSubtitle =>
+      'ᱱᱟᱶᱟ ᱠᱤᱨᱟᱱᱟ, ᱨᱟᱹᱲᱟᱹ ᱡᱚᱢᱟᱜ ᱟᱨ ᱫᱤᱱ ᱫᱤᱱᱟᱜ ᱡᱤᱱᱤᱥ ᱟᱢᱟᱜ ᱡᱟᱹᱛᱤᱭᱟᱹᱨ ᱫᱳᱠᱟᱱ ᱠᱷᱚᱱ᱾';
 
   @override
   String get changeLanguage => 'ᱯᱟᱹᱨᱥᱤ ᱵᱚᱫᱚᱞ ᱢᱮ';
@@ -67,7 +69,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get loginTitle => 'Nexmile ᱨᱮ ᱥᱟᱭᱤᱱ ᱤᱱ ᱢᱮ';
 
   @override
-  String get loginSubtitle => 'ᱟᱢᱟᱜ ᱤᱢᱮᱞ ᱵᱟᱝᱠᱷᱟᱱ ᱢᱚᱵᱟᱭᱤᱞ ᱱᱟᱢᱵᱟᱨ ᱚᱞ ᱢᱮ, ᱟᱞᱮ ᱡᱟᱸᱪ ᱠᱳᱰ ᱠᱩᱞ ᱟᱞᱮᱭᱟ᱾';
+  String get loginSubtitle =>
+      'ᱟᱢᱟᱜ ᱤᱢᱮᱞ ᱵᱟᱝᱠᱷᱟᱱ ᱢᱚᱵᱟᱭᱤᱞ ᱱᱟᱢᱵᱟᱨ ᱚᱞ ᱢᱮ, ᱟᱞᱮ ᱡᱟᱸᱪ ᱠᱳᱰ ᱠᱩᱞ ᱟᱞᱮᱭᱟ᱾';
 
   @override
   String get emailOrPhoneLabel => 'ᱤᱢᱮᱞ ᱵᱟᱝᱠᱷᱟᱱ ᱢᱚᱵᱟᱭᱤᱞ ᱱᱟᱢᱵᱟᱨ';
@@ -76,13 +79,15 @@ class AppLocalizationsSat extends AppLocalizations {
   String get emailOrPhoneHint => 'name@example.com ᱵᱟᱝᱠᱷᱟᱱ 9876543210';
 
   @override
-  String get invalidEmailOrPhone => 'ᱴᱷᱤᱠ ᱤᱢᱮᱞ ᱴᱷᱤᱠᱱᱟ ᱵᱟᱝᱠᱷᱟᱱ 10 ᱮᱞ ᱢᱚᱵᱟᱭᱤᱞ ᱱᱟᱢᱵᱟᱨ ᱚᱞ ᱢᱮ';
+  String get invalidEmailOrPhone =>
+      'ᱴᱷᱤᱠ ᱤᱢᱮᱞ ᱴᱷᱤᱠᱱᱟ ᱵᱟᱝᱠᱷᱟᱱ 10 ᱮᱞ ᱢᱚᱵᱟᱭᱤᱞ ᱱᱟᱢᱵᱟᱨ ᱚᱞ ᱢᱮ';
 
   @override
   String get sendCode => 'ᱠᱳᱰ ᱠᱩᱞ ᱢᱮ';
 
   @override
-  String get agreeToTermsOnContinue => 'ᱞᱟᱦᱟ ᱪᱟᱞᱟᱣ ᱠᱟᱛᱮ ᱟᱢ ᱟᱞᱮᱭᱟᱜ ᱥᱮᱵᱟ ᱱᱮᱢ ᱟᱨ ᱩᱠᱩ ᱱᱤᱛᱤ ᱨᱮ ᱨᱟᱡᱤ ᱠᱟᱱᱟᱢ᱾';
+  String get agreeToTermsOnContinue =>
+      'ᱞᱟᱦᱟ ᱪᱟᱞᱟᱣ ᱠᱟᱛᱮ ᱟᱢ ᱟᱞᱮᱭᱟᱜ ᱥᱮᱵᱟ ᱱᱮᱢ ᱟᱨ ᱩᱠᱩ ᱱᱤᱛᱤ ᱨᱮ ᱨᱟᱡᱤ ᱠᱟᱱᱟᱢ᱾';
 
   @override
   String get otpTitle => 'ᱱᱚᱶᱟ ᱟᱢᱜᱮ ᱠᱟᱱᱟ ᱡᱟᱸᱪ ᱢᱮ';
@@ -107,22 +112,27 @@ class AppLocalizationsSat extends AppLocalizations {
   String get codeResent => 'ᱱᱟᱶᱟ ᱠᱳᱰ ᱠᱩᱞ ᱮᱱᱟ';
 
   @override
-  String get incorrectCode => 'ᱱᱚᱶᱟ ᱠᱳᱰ ᱵᱟᱝ ᱴᱷᱤᱠᱟ ᱵᱟᱝᱠᱷᱟᱱ ᱚᱠᱛᱚ ᱪᱟᱵᱟ ᱮᱱᱟ᱾ ᱱᱟᱶᱟ ᱠᱳᱰ ᱢᱟᱹᱜ ᱢᱮ᱾';
+  String get incorrectCode =>
+      'ᱱᱚᱶᱟ ᱠᱳᱰ ᱵᱟᱝ ᱴᱷᱤᱠᱟ ᱵᱟᱝᱠᱷᱟᱱ ᱚᱠᱛᱚ ᱪᱟᱵᱟ ᱮᱱᱟ᱾ ᱱᱟᱶᱟ ᱠᱳᱰ ᱢᱟᱹᱜ ᱢᱮ᱾';
 
   @override
   String get enterFullCode => 'ᱯᱩᱨᱟᱹ 6 ᱮᱞ ᱚᱞ ᱢᱮ';
 
   @override
-  String get accountSuspended => 'ᱱᱚᱶᱟ ᱠᱷᱟᱛᱟ ᱵᱚᱸᱫ ᱠᱟᱱᱟ᱾ ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱜᱚᱲᱚ ᱥᱟᱶ ᱡᱚᱲᱟᱣ ᱢᱮ᱾';
+  String get accountSuspended =>
+      'ᱱᱚᱶᱟ ᱠᱷᱟᱛᱟ ᱵᱚᱸᱫ ᱠᱟᱱᱟ᱾ ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱜᱚᱲᱚ ᱥᱟᱶ ᱡᱚᱲᱟᱣ ᱢᱮ᱾';
 
   @override
-  String get tooManyAttempts => 'ᱟᱫᱚᱢ ᱛᱟᱞᱟᱛᱮ ᱠᱩᱨᱩᱢᱩᱴᱩ ᱮᱱᱟ᱾ ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱛᱤᱸᱜᱩ ᱚᱠᱛᱚ ᱛᱟᱭᱚᱢ ᱫᱩᱦᱲᱟᱹ ᱠᱩᱨᱩᱢᱩᱴᱩ ᱢᱮ᱾';
+  String get tooManyAttempts =>
+      'ᱟᱫᱚᱢ ᱛᱟᱞᱟᱛᱮ ᱠᱩᱨᱩᱢᱩᱴᱩ ᱮᱱᱟ᱾ ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱛᱤᱸᱜᱩ ᱚᱠᱛᱚ ᱛᱟᱭᱚᱢ ᱫᱩᱦᱲᱟᱹ ᱠᱩᱨᱩᱢᱩᱴᱩ ᱢᱮ᱾';
 
   @override
-  String get sessionExpired => 'ᱟᱢᱟᱜ ᱥᱮᱥᱚᱱ ᱪᱟᱵᱟ ᱮᱱᱟ᱾ ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱫᱩᱦᱲᱟᱹ ᱥᱟᱭᱤᱱ ᱤᱱ ᱢᱮ᱾';
+  String get sessionExpired =>
+      'ᱟᱢᱟᱜ ᱥᱮᱥᱚᱱ ᱪᱟᱵᱟ ᱮᱱᱟ᱾ ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱫᱩᱦᱲᱟᱹ ᱥᱟᱭᱤᱱ ᱤᱱ ᱢᱮ᱾';
 
   @override
-  String get networkError => 'ᱤᱱᱴᱟᱨᱱᱮᱴ ᱡᱚᱲᱟᱣ ᱵᱟᱹᱱᱩᱜ-ᱟ᱾ ᱡᱚᱲᱟᱣ ᱧᱮᱞ ᱠᱟᱛᱮ ᱫᱩᱦᱲᱟᱹ ᱠᱩᱨᱩᱢᱩᱴᱩ ᱢᱮ᱾';
+  String get networkError =>
+      'ᱤᱱᱴᱟᱨᱱᱮᱴ ᱡᱚᱲᱟᱣ ᱵᱟᱹᱱᱩᱜ-ᱟ᱾ ᱡᱚᱲᱟᱣ ᱧᱮᱞ ᱠᱟᱛᱮ ᱫᱩᱦᱲᱟᱹ ᱠᱩᱨᱩᱢᱩᱴᱩ ᱢᱮ᱾';
 
   @override
   String get developmentCode => 'ᱰᱮᱵᱷᱞᱚᱯᱢᱮᱱᱴ ᱠᱳᱰ';
@@ -134,7 +144,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get signedOut => 'ᱟᱢ ᱥᱟᱭᱤᱱ ᱟᱣᱴ ᱮᱱᱟᱢ';
 
   @override
-  String get somethingWentWrong => 'ᱚᱠᱟ ᱦᱚᱸ ᱵᱷᱩᱞ ᱮᱱᱟ᱾ ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱫᱩᱦᱲᱟᱹ ᱠᱩᱨᱩᱢᱩᱴᱩ ᱢᱮ᱾';
+  String get somethingWentWrong =>
+      'ᱚᱠᱟ ᱦᱚᱸ ᱵᱷᱩᱞ ᱮᱱᱟ᱾ ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱫᱩᱦᱲᱟᱹ ᱠᱩᱨᱩᱢᱩᱴᱩ ᱢᱮ᱾';
 
   @override
   String get profileTitle => 'ᱯᱨᱚᱯᱷᱟᱭᱤᱞ';
@@ -197,7 +208,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get searchNoResultsTitle => 'ᱡᱟᱦᱟᱸ ᱵᱟᱝ ᱧᱟᱢ ᱞᱮᱱᱟ';
 
   @override
-  String get searchNoResultsSubtitle => 'ᱮᱴᱟᱜ ᱡᱚᱢᱟᱜ, ᱡᱚᱢᱟᱜ ᱛᱮᱭᱟᱨ ᱨᱮᱭᱟᱜ ᱞᱮᱠᱟᱱ ᱵᱟᱝᱠᱷᱟᱱ ᱦᱚᱴᱮᱞ ᱧᱩᱛᱩᱢ ᱠᱩᱨᱩᱢᱩᱴᱩ ᱢᱮ᱾';
+  String get searchNoResultsSubtitle =>
+      'ᱮᱴᱟᱜ ᱡᱚᱢᱟᱜ, ᱡᱚᱢᱟᱜ ᱛᱮᱭᱟᱨ ᱨᱮᱭᱟᱜ ᱞᱮᱠᱟᱱ ᱵᱟᱝᱠᱷᱟᱱ ᱦᱚᱴᱮᱞ ᱧᱩᱛᱩᱢ ᱠᱩᱨᱩᱢᱩᱴᱩ ᱢᱮ᱾';
 
   @override
   String get cravingTitle => 'ᱛᱮᱦᱮᱧ ᱪᱮᱫ ᱡᱚᱢ ᱥᱟᱱᱟᱢ?';
@@ -223,7 +235,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get noRestaurantsTitle => 'ᱱᱚᱰᱮ ᱦᱟᱲᱮ ᱡᱟᱦᱟᱸ ᱵᱟᱝᱟ';
 
   @override
-  String get noRestaurantsSubtitle => 'ᱮᱴᱟᱜ ᱦᱟᱹᱴᱤᱧ ᱧᱮᱞ ᱢᱮ ᱵᱟᱝᱠᱷᱟᱱ ᱯᱷᱤᱞᱴᱟᱨ ᱚᱪᱚᱜ ᱢᱮ᱾';
+  String get noRestaurantsSubtitle =>
+      'ᱮᱴᱟᱜ ᱦᱟᱹᱴᱤᱧ ᱧᱮᱞ ᱢᱮ ᱵᱟᱝᱠᱷᱟᱱ ᱯᱷᱤᱞᱴᱟᱨ ᱚᱪᱚᱜ ᱢᱮ᱾';
 
   @override
   String minutesAway(int minutes) {
@@ -277,7 +290,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get noVegDishesTitle => 'ᱱᱚᱰᱮ ᱥᱟᱠᱟᱢ ᱡᱚᱢᱟᱜ ᱵᱟᱝᱟ';
 
   @override
-  String get noVegDishesSubtitle => 'ᱯᱩᱨᱟᱹ ᱢᱮᱱᱩ ᱧᱮᱞ ᱞᱟᱹᱜᱤᱫ ᱥᱟᱠᱟᱢ ᱯᱷᱤᱞᱴᱟᱨ ᱵᱚᱸᱫ ᱢᱮ᱾';
+  String get noVegDishesSubtitle =>
+      'ᱯᱩᱨᱟᱹ ᱢᱮᱱᱩ ᱧᱮᱞ ᱞᱟᱹᱜᱤᱫ ᱥᱟᱠᱟᱢ ᱯᱷᱤᱞᱴᱟᱨ ᱵᱚᱸᱫ ᱢᱮ᱾';
 
   @override
   String get replaceCartTitle => 'ᱱᱟᱶᱟ ᱠᱟᱨᱴ ᱮᱦᱚᱵ?';
@@ -297,7 +311,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get cartEmptyTitle => 'ᱟᱢᱟᱜ ᱠᱟᱨᱴ ᱠᱷᱟᱹᱞᱤ ᱢᱮᱱᱟᱜ-ᱟ';
 
   @override
-  String get cartEmptySubtitle => 'ᱮᱦᱚᱵ ᱞᱟᱹᱜᱤᱫ ᱡᱟᱦᱟᱸ ᱦᱚᱴᱮᱞ ᱠᱷᱚᱱ ᱡᱚᱢᱟᱜ ᱥᱮᱞᱮᱫ ᱢᱮ᱾';
+  String get cartEmptySubtitle =>
+      'ᱮᱦᱚᱵ ᱞᱟᱹᱜᱤᱫ ᱡᱟᱦᱟᱸ ᱦᱚᱴᱮᱞ ᱠᱷᱚᱱ ᱡᱚᱢᱟᱜ ᱥᱮᱞᱮᱫ ᱢᱮ᱾';
 
   @override
   String get browseRestaurants => 'ᱦᱚᱴᱮᱞ ᱧᱮᱞ ᱢᱮ';
@@ -386,10 +401,12 @@ class AppLocalizationsSat extends AppLocalizations {
   String get backToHome => 'ᱚᱲᱟᱜ ᱛᱮ ᱨᱩᱣᱟᱲ';
 
   @override
-  String get prototypeNotice => 'ᱱᱟᱡᱩᱱᱟ ᱦᱚᱴᱮᱞ ᱞᱤᱥᱴᱤ — ᱴᱷᱤᱠ ᱫᱳᱠᱟᱱ ᱠᱚ ᱠᱮᱴᱟᱞᱚᱜ API ᱥᱟᱶ ᱦᱮᱡᱚᱜ-ᱟ᱾';
+  String get prototypeNotice =>
+      'ᱱᱟᱡᱩᱱᱟ ᱦᱚᱴᱮᱞ ᱞᱤᱥᱴᱤ — ᱴᱷᱤᱠ ᱫᱳᱠᱟᱱ ᱠᱚ ᱠᱮᱴᱟᱞᱚᱜ API ᱥᱟᱶ ᱦᱮᱡᱚᱜ-ᱟ᱾';
 
   @override
-  String get prototypeCheckoutNotice => 'ᱱᱚᱶᱟ ᱢᱤᱫ ᱯᱨᱚᱴᱚᱴᱟᱭᱤᱯ ᱠᱟᱱᱟ᱾ ᱡᱟᱦᱟᱸ ᱴᱟᱠᱟ ᱵᱟᱝ ᱦᱟᱛᱟᱣᱚᱜ-ᱟ ᱟᱨ ᱴᱷᱤᱠ ᱚᱰᱟᱨ ᱦᱚᱸ ᱵᱟᱝ ᱦᱩᱭᱩᱜ-ᱟ᱾';
+  String get prototypeCheckoutNotice =>
+      'ᱱᱚᱶᱟ ᱢᱤᱫ ᱯᱨᱚᱴᱚᱴᱟᱭᱤᱯ ᱠᱟᱱᱟ᱾ ᱡᱟᱦᱟᱸ ᱴᱟᱠᱟ ᱵᱟᱝ ᱦᱟᱛᱟᱣᱚᱜ-ᱟ ᱟᱨ ᱴᱷᱤᱠ ᱚᱰᱟᱨ ᱦᱚᱸ ᱵᱟᱝ ᱦᱩᱭᱩᱜ-ᱟ᱾';
 
   @override
   String get prototypeTrackingNotice => 'ᱯᱨᱚᱴᱚᱴᱟᱭᱤᱯ ᱞᱟᱹᱜᱤᱫ ᱴᱨᱮᱠᱤᱝ ᱵᱟᱱᱟᱣ ᱟᱠᱟᱱᱟ᱾';
@@ -398,25 +415,29 @@ class AppLocalizationsSat extends AppLocalizations {
   String get locationTitle => 'ᱚᱠᱟᱨᱮ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱦᱩᱭᱩᱜ-ᱟ?';
 
   @override
-  String get locationSubtitle => 'Nexmile ᱫᱚ 1 ᱠᱤᱢᱤ ᱵᱷᱤᱛᱨᱤ ᱨᱮᱭᱟᱜ ᱫᱳᱠᱟᱱ ᱠᱷᱚᱱ ᱮᱰᱮ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱮᱢᱚᱜ-ᱟ, ᱚᱱᱟᱛᱮ ᱟᱢᱟᱜ ᱴᱷᱤᱠ ᱡᱟᱭᱜᱟ ᱞᱟᱹᱠᱛᱤᱭᱟ᱾';
+  String get locationSubtitle =>
+      'Nexmile ᱫᱚ 1 ᱠᱤᱢᱤ ᱵᱷᱤᱛᱨᱤ ᱨᱮᱭᱟᱜ ᱫᱳᱠᱟᱱ ᱠᱷᱚᱱ ᱮᱰᱮ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱮᱢᱚᱜ-ᱟ, ᱚᱱᱟᱛᱮ ᱟᱢᱟᱜ ᱴᱷᱤᱠ ᱡᱟᱭᱜᱟ ᱞᱟᱹᱠᱛᱤᱭᱟ᱾';
 
   @override
   String get locationReasonRadiusTitle => '1 ᱠᱤᱢᱤ ᱵᱷᱤᱛᱨᱤ ᱫᱳᱠᱟᱱ';
 
   @override
-  String get locationReasonRadiusBody => 'ᱚᱠᱟ ᱠᱷᱚᱱ ᱡᱚᱢᱟᱜ ᱨᱟᱹᱲᱟᱹ ᱛᱮ ᱥᱮᱴᱮᱨᱚᱜ-ᱟ, ᱚᱱᱟ ᱨᱚᱥᱚᱭᱜᱷᱚᱨ ᱮᱰᱮ ᱩᱫᱩᱜᱟᱜ-ᱟ᱾';
+  String get locationReasonRadiusBody =>
+      'ᱚᱠᱟ ᱠᱷᱚᱱ ᱡᱚᱢᱟᱜ ᱨᱟᱹᱲᱟᱹ ᱛᱮ ᱥᱮᱴᱮᱨᱚᱜ-ᱟ, ᱚᱱᱟ ᱨᱚᱥᱚᱭᱜᱷᱚᱨ ᱮᱰᱮ ᱩᱫᱩᱜᱟᱜ-ᱟ᱾';
 
   @override
   String get locationReasonAccuracyTitle => 'ᱴᱷᱤᱠ ᱫᱩᱣᱟᱹᱨ ᱦᱟᱹᱵᱤᱡ';
 
   @override
-  String get locationReasonAccuracyBody => 'ᱴᱷᱤᱠ ᱯᱤᱱ ᱛᱟᱦᱮᱸᱱ ᱠᱷᱟᱱ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱦᱚᱲ ᱯᱷᱳᱱ ᱵᱟᱝ ᱠᱟᱛᱮ ᱦᱚᱸ ᱟᱢ ᱛᱟᱞᱟ ᱥᱮᱴᱮᱨᱚᱜ-ᱟᱭ᱾';
+  String get locationReasonAccuracyBody =>
+      'ᱴᱷᱤᱠ ᱯᱤᱱ ᱛᱟᱦᱮᱸᱱ ᱠᱷᱟᱱ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱦᱚᱲ ᱯᱷᱳᱱ ᱵᱟᱝ ᱠᱟᱛᱮ ᱦᱚᱸ ᱟᱢ ᱛᱟᱞᱟ ᱥᱮᱴᱮᱨᱚᱜ-ᱟᱭ᱾';
 
   @override
   String get locationReasonPrivacyTitle => 'ᱮᱯ ᱵᱮᱵᱷᱟᱨ ᱡᱚᱠᱷᱚᱱ ᱮᱰᱮ';
 
   @override
-  String get locationReasonPrivacyBody => 'ᱟᱞᱮ ᱫᱚ ᱛᱟᱭᱚᱢ ᱛᱮ ᱟᱢᱟᱜ ᱴᱨᱮᱠ ᱵᱟᱝ ᱮᱫᱟᱞᱮᱭᱟ, ᱟᱨ ᱴᱷᱤᱠᱱᱟ ᱟᱢ ᱟᱡ ᱛᱮ ᱦᱚᱸ ᱚᱞ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾';
+  String get locationReasonPrivacyBody =>
+      'ᱟᱞᱮ ᱫᱚ ᱛᱟᱭᱚᱢ ᱛᱮ ᱟᱢᱟᱜ ᱴᱨᱮᱠ ᱵᱟᱝ ᱮᱫᱟᱞᱮᱭᱟ, ᱟᱨ ᱴᱷᱤᱠᱱᱟ ᱟᱢ ᱟᱡ ᱛᱮ ᱦᱚᱸ ᱚᱞ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾';
 
   @override
   String get allowLocation => 'ᱡᱟᱭᱜᱟ ᱨᱮᱭᱟᱜ ᱦᱩᱠᱩᱢ ᱮᱢ ᱢᱮ';
@@ -425,16 +446,19 @@ class AppLocalizationsSat extends AppLocalizations {
   String get enterAddressManually => 'ᱤᱧ ᱴᱷᱤᱠᱱᱟ ᱟᱡ ᱛᱮ ᱚᱞᱟᱹ';
 
   @override
-  String get locationDenied => 'ᱡᱟᱭᱜᱟ ᱨᱮᱭᱟᱜ ᱦᱩᱠᱩᱢ ᱵᱟᱝ ᱮᱢ ᱞᱮᱱᱟ᱾ ᱟᱢ ᱯᱤᱱ ᱟᱡ ᱛᱮ ᱫᱚᱦᱚ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾';
+  String get locationDenied =>
+      'ᱡᱟᱭᱜᱟ ᱨᱮᱭᱟᱜ ᱦᱩᱠᱩᱢ ᱵᱟᱝ ᱮᱢ ᱞᱮᱱᱟ᱾ ᱟᱢ ᱯᱤᱱ ᱟᱡ ᱛᱮ ᱫᱚᱦᱚ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾';
 
   @override
-  String get locationDeniedForever => 'Nexmile ᱞᱟᱹᱜᱤᱫ ᱡᱟᱭᱜᱟ ᱵᱚᱸᱫ ᱟᱠᱟᱱᱟ᱾ ᱥᱮᱴᱤᱝᱥ ᱨᱮ ᱡᱟᱹᱨᱩᱭ ᱢᱮ ᱵᱟᱝᱠᱷᱟᱱ ᱯᱤᱱ ᱟᱡ ᱛᱮ ᱫᱚᱦᱚ ᱢᱮ᱾';
+  String get locationDeniedForever =>
+      'Nexmile ᱞᱟᱹᱜᱤᱫ ᱡᱟᱭᱜᱟ ᱵᱚᱸᱫ ᱟᱠᱟᱱᱟ᱾ ᱥᱮᱴᱤᱝᱥ ᱨᱮ ᱡᱟᱹᱨᱩᱭ ᱢᱮ ᱵᱟᱝᱠᱷᱟᱱ ᱯᱤᱱ ᱟᱡ ᱛᱮ ᱫᱚᱦᱚ ᱢᱮ᱾';
 
   @override
   String get locationServiceOff => 'ᱱᱚᱶᱟ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱨᱮ ᱡᱟᱭᱜᱟ ᱵᱚᱸᱫ ᱢᱮᱱᱟᱜ-ᱟ᱾';
 
   @override
-  String get locationUnavailable => 'ᱡᱟᱭᱜᱟ ᱵᱟᱝ ᱧᱟᱢ ᱞᱮᱱᱟ᱾ ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱯᱤᱱ ᱟᱡ ᱛᱮ ᱫᱚᱦᱚ ᱢᱮ᱾';
+  String get locationUnavailable =>
+      'ᱡᱟᱭᱜᱟ ᱵᱟᱝ ᱧᱟᱢ ᱞᱮᱱᱟ᱾ ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱯᱤᱱ ᱟᱡ ᱛᱮ ᱫᱚᱦᱚ ᱢᱮ᱾';
 
   @override
   String get openSettings => 'ᱥᱮᱴᱤᱝᱥ';
@@ -443,7 +467,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get pinLocationTitle => 'ᱟᱢᱟᱜ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱯᱤᱱ ᱫᱚᱦᱚ ᱢᱮ';
 
   @override
-  String get deliveryRadiusHint => 'ᱜᱟᱸᱴ ᱫᱚ Nexmile ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱮᱢᱚᱜ 1 ᱠᱤᱢᱤ ᱩᱫᱩᱜ ᱠᱟᱱᱟ᱾';
+  String get deliveryRadiusHint =>
+      'ᱜᱟᱸᱴ ᱫᱚ Nexmile ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱮᱢᱚᱜ 1 ᱠᱤᱢᱤ ᱩᱫᱩᱜ ᱠᱟᱱᱟ᱾';
 
   @override
   String get useMyLocation => 'ᱤᱧᱟᱜ ᱡᱟᱭᱜᱟ ᱵᱮᱵᱷᱟᱨ ᱢᱮ';
@@ -461,7 +486,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get addressDetailsTitle => 'ᱴᱷᱤᱠᱱᱟ ᱨᱮᱭᱟᱜ ᱠᱷᱚᱵᱚᱨ';
 
   @override
-  String get addressDetailsSubtitle => 'ᱴᱷᱤᱠ ᱫᱩᱣᱟᱹᱨ ᱦᱟᱹᱵᱤᱡ ᱥᱮᱴᱮᱨ ᱞᱟᱹᱜᱤᱫ ᱚᱲᱟᱜ ᱱᱟᱢᱵᱟᱨ ᱟᱨ ᱪᱤᱱᱦᱟᱹ ᱥᱮᱞᱮᱫ ᱢᱮ᱾';
+  String get addressDetailsSubtitle =>
+      'ᱴᱷᱤᱠ ᱫᱩᱣᱟᱹᱨ ᱦᱟᱹᱵᱤᱡ ᱥᱮᱴᱮᱨ ᱞᱟᱹᱜᱤᱫ ᱚᱲᱟᱜ ᱱᱟᱢᱵᱟᱨ ᱟᱨ ᱪᱤᱱᱦᱟᱹ ᱥᱮᱞᱮᱫ ᱢᱮ᱾';
 
   @override
   String get pinnedLocation => 'ᱵᱟᱪᱷᱟᱣ ᱟᱠᱟᱱ ᱡᱟᱭᱜᱟ';
@@ -539,7 +565,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get noAddressesTitle => 'ᱦᱟᱲᱮ ᱡᱟᱦᱟᱸ ᱴᱷᱤᱠᱱᱟ ᱵᱟᱝᱟ';
 
   @override
-  String get noAddressesSubtitle => 'ᱟᱢ ᱛᱟᱞᱟ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱮᱢᱚᱜ ᱫᱳᱠᱟᱱ ᱩᱫᱩᱜ ᱞᱟᱹᱜᱤᱫ ᱢᱤᱫ ᱴᱷᱤᱠᱱᱟ ᱥᱮᱞᱮᱫ ᱢᱮ᱾';
+  String get noAddressesSubtitle =>
+      'ᱟᱢ ᱛᱟᱞᱟ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱮᱢᱚᱜ ᱫᱳᱠᱟᱱ ᱩᱫᱩᱜ ᱞᱟᱹᱜᱤᱫ ᱢᱤᱫ ᱴᱷᱤᱠᱱᱟ ᱥᱮᱞᱮᱫ ᱢᱮ᱾';
 
   @override
   String get addAddress => 'ᱴᱷᱤᱠᱱᱟ ᱥᱮᱞᱮᱫ ᱢᱮ';
@@ -560,7 +587,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get deleteAddressTitle => 'ᱱᱚᱶᱟ ᱴᱷᱤᱠᱱᱟ ᱢᱮᱴᱟᱣᱟ?';
 
   @override
-  String get deleteAddressMessage => 'ᱟᱢ ᱱᱚᱶᱟ ᱛᱟᱭᱚᱢ ᱛᱮ ᱫᱩᱦᱲᱟᱹ ᱥᱮᱞᱮᱫ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾';
+  String get deleteAddressMessage =>
+      'ᱟᱢ ᱱᱚᱶᱟ ᱛᱟᱭᱚᱢ ᱛᱮ ᱫᱩᱦᱲᱟᱹ ᱥᱮᱞᱮᱫ ᱫᱟᱲᱮᱭᱟᱜ-ᱟᱢ᱾';
 
   @override
   String get rescueDealsTitle => 'ᱡᱚᱢ ᱨᱮᱥᱠᱭᱩ';
@@ -588,7 +616,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get menuEmptyTitle => 'ᱛᱮᱦᱮᱧ ᱫᱷᱟᱹᱵᱤᱡ ᱡᱚᱢᱟᱜ ᱵᱟᱹᱱᱩᱜᱼᱟ';
 
   @override
-  String get menuEmptySubtitle => 'ᱱᱚᱶᱟ ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱟᱡ ᱨᱮᱭᱟᱜ ᱢᱮᱱᱩ ᱵᱟᱝ ᱥᱮᱞᱮᱫ ᱟᱠᱟᱫᱟ ᱾';
+  String get menuEmptySubtitle =>
+      'ᱱᱚᱶᱟ ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱟᱡ ᱨᱮᱭᱟᱜ ᱢᱮᱱᱩ ᱵᱟᱝ ᱥᱮᱞᱮᱫ ᱟᱠᱟᱫᱟ ᱾';
 
   @override
   String get moreDishesTitle => 'ᱟᱨᱦᱚᱸ ᱡᱚᱢᱟᱜ';
@@ -726,7 +755,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get cancelOrderTitle => 'ᱱᱚᱶᱟ ᱚᱰᱟᱨ ᱵᱟᱹᱰᱨᱟᱹᱭᱟ?';
 
   @override
-  String get cancelOrderMessage => 'ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱦᱟᱛᱟᱣ ᱞᱟᱦᱟ ᱜᱮ ᱵᱟᱹᱰᱨᱟᱹ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾';
+  String get cancelOrderMessage =>
+      'ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱦᱟᱛᱟᱣ ᱞᱟᱦᱟ ᱜᱮ ᱵᱟᱹᱰᱨᱟᱹ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾';
 
   @override
   String get cancelReasonLabel => 'ᱠᱟᱨᱚᱱ';
@@ -744,7 +774,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get editProfileTitle => 'ᱯᱨᱚᱯᱷᱟᱭᱤᱞ ᱵᱚᱫᱚᱞ ᱢᱮ';
 
   @override
-  String get editProfileSubtitle => 'ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱟᱨ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱥᱟᱣᱛᱟ ᱟᱢᱟᱜ ᱧᱩᱛᱩᱢ ᱜᱮ ᱧᱮᱞᱚᱜᱼᱟ ᱾';
+  String get editProfileSubtitle =>
+      'ᱨᱮᱥᱴᱚᱨᱮᱱᱴ ᱟᱨ ᱰᱮᱞᱤᱵᱷᱟᱨᱤ ᱥᱟᱣᱛᱟ ᱟᱢᱟᱜ ᱧᱩᱛᱩᱢ ᱜᱮ ᱧᱮᱞᱚᱜᱼᱟ ᱾';
 
   @override
   String get saveChanges => 'ᱵᱚᱫᱚᱞ ᱠᱚ ᱥᱟᱺᱪᱟᱣ ᱢᱮ';
@@ -759,7 +790,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get deleteAccountTitle => 'ᱟᱢᱟᱜ ᱠᱷᱟᱛᱟ ᱢᱮᱴᱟᱣᱟ?';
 
   @override
-  String get deleteAccountMessage => 'ᱡᱚᱛᱚ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱠᱷᱚᱱ ᱥᱟᱭᱤᱱ ᱟᱩᱴ ᱦᱩᱭᱩᱜᱼᱟᱢ ᱾ ᱢᱟᱲᱟᱝ ᱚᱰᱟᱨ ᱟᱨ ᱵᱤᱞ ᱠᱚ ᱴᱮᱠᱥ ᱨᱮᱠᱚᱰ ᱞᱟᱹᱜᱤᱫ ᱫᱚᱦᱚᱭᱟ ᱾';
+  String get deleteAccountMessage =>
+      'ᱡᱚᱛᱚ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱠᱷᱚᱱ ᱥᱟᱭᱤᱱ ᱟᱩᱴ ᱦᱩᱭᱩᱜᱼᱟᱢ ᱾ ᱢᱟᱲᱟᱝ ᱚᱰᱟᱨ ᱟᱨ ᱵᱤᱞ ᱠᱚ ᱴᱮᱠᱥ ᱨᱮᱠᱚᱰ ᱞᱟᱹᱜᱤᱫ ᱫᱚᱦᱚᱭᱟ ᱾';
 
   @override
   String get accountDeleted => 'ᱟᱢᱟᱜ ᱠᱷᱟᱛᱟ ᱢᱮᱴᱟᱣ ᱮᱱᱟ';
@@ -774,7 +806,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get devicesEmptyTitle => 'ᱮᱴᱟᱜ ᱡᱟᱦᱟᱸ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱵᱟᱹᱱᱩᱜᱼᱟ';
 
   @override
-  String get devicesEmptySubtitle => 'ᱟᱢ ᱱᱚᱶᱟ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱨᱮ ᱮᱥᱠᱟᱨ ᱥᱟᱭᱤᱱ ᱤᱱ ᱢᱮᱱᱟᱢᱟ ᱾';
+  String get devicesEmptySubtitle =>
+      'ᱟᱢ ᱱᱚᱶᱟ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱨᱮ ᱮᱥᱠᱟᱨ ᱥᱟᱭᱤᱱ ᱤᱱ ᱢᱮᱱᱟᱢᱟ ᱾';
 
   @override
   String get signOutDevice => 'ᱥᱟᱭᱤᱱ ᱟᱩᱴ';
@@ -783,7 +816,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get signOutDeviceTitle => 'ᱱᱚᱶᱟ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱥᱟᱭᱤᱱ ᱟᱩᱴᱟ?';
 
   @override
-  String get signOutDeviceMessage => 'ᱟᱢ ᱱᱚᱶᱟ ᱜᱮ ᱵᱮᱵᱷᱟᱨ ᱠᱟᱱᱟᱢ ᱠᱷᱟᱱ ᱫᱚ ᱫᱚᱦᱲᱟ ᱥᱟᱭᱤᱱ ᱤᱱ ᱞᱟᱹᱠᱛᱤᱭᱟ ᱾';
+  String get signOutDeviceMessage =>
+      'ᱟᱢ ᱱᱚᱶᱟ ᱜᱮ ᱵᱮᱵᱷᱟᱨ ᱠᱟᱱᱟᱢ ᱠᱷᱟᱱ ᱫᱚ ᱫᱚᱦᱲᱟ ᱥᱟᱭᱤᱱ ᱤᱱ ᱞᱟᱹᱠᱛᱤᱭᱟ ᱾';
 
   @override
   String get deviceSignedOut => 'ᱰᱤᱵᱷᱟᱭᱤᱥ ᱥᱟᱭᱤᱱ ᱟᱩᱴ ᱮᱱᱟ';
@@ -795,7 +829,8 @@ class AppLocalizationsSat extends AppLocalizations {
   String get signOutEverywhereTitle => 'ᱡᱚᱛᱚ ᱡᱟᱭᱜᱟ ᱠᱷᱚᱱ ᱥᱟᱭᱤᱱ ᱟᱩᱴᱟ?';
 
   @override
-  String get signOutEverywhereMessage => 'ᱱᱚᱶᱟ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱥᱟᱶᱛᱮ ᱡᱚᱛᱚ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱥᱟᱭᱤᱱ ᱟᱩᱴ ᱦᱩᱭᱩᱜᱼᱟ ᱾';
+  String get signOutEverywhereMessage =>
+      'ᱱᱚᱶᱟ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱥᱟᱶᱛᱮ ᱡᱚᱛᱚ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱥᱟᱭᱤᱱ ᱟᱩᱴ ᱦᱩᱭᱩᱜᱼᱟ ᱾';
 
   @override
   String get unknownDevice => 'ᱵᱟᱝ ᱩᱲᱩᱜ ᱰᱤᱵᱷᱟᱭᱤᱥ';

@@ -123,8 +123,10 @@ class GeolocatorLocationService implements LocationService {
   @override
   Future<ResolvedPlace> describe(double latitude, double longitude) async {
     try {
+      // geocoding 5 replaced the top-level functions with an instance; the
+      // instance is cheap and holds no platform resources between calls.
       final List<geo.Placemark> marks =
-          await geo.placemarkFromCoordinates(latitude, longitude);
+          await geo.Geocoding().placemarkFromCoordinates(latitude, longitude);
       if (marks.isEmpty) return const ResolvedPlace();
 
       final geo.Placemark mark = marks.first;

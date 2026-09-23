@@ -21,7 +21,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get chooseLanguageTitle => 'നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക';
 
   @override
-  String get chooseLanguageSubtitle => 'നിങ്ങൾക്ക് സൗകര്യപ്രദമായ ഭാഷ തിരഞ്ഞെടുക്കുക. ഇത് എപ്പോൾ വേണമെങ്കിലും ക്രമീകരണങ്ങളിൽ മാറ്റാം.';
+  String get chooseLanguageSubtitle =>
+      'നിങ്ങൾക്ക് സൗകര്യപ്രദമായ ഭാഷ തിരഞ്ഞെടുക്കുക. ഇത് എപ്പോൾ വേണമെങ്കിലും ക്രമീകരണങ്ങളിൽ മാറ്റാം.';
 
   @override
   String get searchLanguageHint => 'ഭാഷ തിരയുക';
@@ -47,7 +48,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get homeTitle => 'Nexmile ലേക്ക് സ്വാഗതം';
 
   @override
-  String get homeSubtitle => 'പുതിയ പലവ്യഞ്ജനങ്ങൾ, ചൂടുള്ള ഭക്ഷണം, ദൈനംദിന ആവശ്യസാധനങ്ങൾ എന്നിവ അടുത്തുള്ള കടകളിൽ നിന്ന്.';
+  String get homeSubtitle =>
+      'പുതിയ പലവ്യഞ്ജനങ്ങൾ, ചൂടുള്ള ഭക്ഷണം, ദൈനംദിന ആവശ്യസാധനങ്ങൾ എന്നിവ അടുത്തുള്ള കടകളിൽ നിന്ന്.';
 
   @override
   String get changeLanguage => 'ഭാഷ മാറ്റുക';
@@ -67,7 +69,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get loginTitle => 'Nexmile ൽ സൈൻ ഇൻ ചെയ്യുക';
 
   @override
-  String get loginSubtitle => 'നിങ്ങളുടെ ഇമെയിലോ മൊബൈൽ നമ്പറോ നൽകുക, ഞങ്ങൾ പരിശോധനാ കോഡ് അയയ്ക്കും.';
+  String get loginSubtitle =>
+      'നിങ്ങളുടെ ഇമെയിലോ മൊബൈൽ നമ്പറോ നൽകുക, ഞങ്ങൾ പരിശോധനാ കോഡ് അയയ്ക്കും.';
 
   @override
   String get emailOrPhoneLabel => 'ഇമെയിൽ അല്ലെങ്കിൽ മൊബൈൽ നമ്പർ';
@@ -76,13 +79,15 @@ class AppLocalizationsMl extends AppLocalizations {
   String get emailOrPhoneHint => 'name@example.com അല്ലെങ്കിൽ 9876543210';
 
   @override
-  String get invalidEmailOrPhone => 'സാധുവായ ഇമെയിൽ വിലാസമോ 10 അക്ക മൊബൈൽ നമ്പറോ നൽകുക';
+  String get invalidEmailOrPhone =>
+      'സാധുവായ ഇമെയിൽ വിലാസമോ 10 അക്ക മൊബൈൽ നമ്പറോ നൽകുക';
 
   @override
   String get sendCode => 'കോഡ് അയയ്ക്കുക';
 
   @override
-  String get agreeToTermsOnContinue => 'തുടരുന്നതിലൂടെ ഞങ്ങളുടെ സേവന നിബന്ധനകളും സ്വകാര്യതാ നയവും നിങ്ങൾ അംഗീകരിക്കുന്നു.';
+  String get agreeToTermsOnContinue =>
+      'തുടരുന്നതിലൂടെ ഞങ്ങളുടെ സേവന നിബന്ധനകളും സ്വകാര്യതാ നയവും നിങ്ങൾ അംഗീകരിക്കുന്നു.';
 
   @override
   String get otpTitle => 'ഇത് നിങ്ങൾ തന്നെയെന്ന് ഉറപ്പാക്കുക';
@@ -107,22 +112,27 @@ class AppLocalizationsMl extends AppLocalizations {
   String get codeResent => 'പുതിയ കോഡ് അയച്ചിട്ടുണ്ട്';
 
   @override
-  String get incorrectCode => 'ഈ കോഡ് തെറ്റാണ് അല്ലെങ്കിൽ കാലഹരണപ്പെട്ടു. പുതിയത് ആവശ്യപ്പെടുക.';
+  String get incorrectCode =>
+      'ഈ കോഡ് തെറ്റാണ് അല്ലെങ്കിൽ കാലഹരണപ്പെട്ടു. പുതിയത് ആവശ്യപ്പെടുക.';
 
   @override
   String get enterFullCode => '6 അക്കങ്ങളും നൽകുക';
 
   @override
-  String get accountSuspended => 'ഈ അക്കൗണ്ട് താൽക്കാലികമായി നിർത്തിവച്ചിരിക്കുന്നു. സപ്പോർട്ടുമായി ബന്ധപ്പെടുക.';
+  String get accountSuspended =>
+      'ഈ അക്കൗണ്ട് താൽക്കാലികമായി നിർത്തിവച്ചിരിക്കുന്നു. സപ്പോർട്ടുമായി ബന്ധപ്പെടുക.';
 
   @override
-  String get tooManyAttempts => 'വളരെയധികം ശ്രമങ്ങൾ. കുറച്ച് സമയത്തിന് ശേഷം വീണ്ടും ശ്രമിക്കുക.';
+  String get tooManyAttempts =>
+      'വളരെയധികം ശ്രമങ്ങൾ. കുറച്ച് സമയത്തിന് ശേഷം വീണ്ടും ശ്രമിക്കുക.';
 
   @override
-  String get sessionExpired => 'നിങ്ങളുടെ സെഷൻ കാലഹരണപ്പെട്ടു. വീണ്ടും സൈൻ ഇൻ ചെയ്യുക.';
+  String get sessionExpired =>
+      'നിങ്ങളുടെ സെഷൻ കാലഹരണപ്പെട്ടു. വീണ്ടും സൈൻ ഇൻ ചെയ്യുക.';
 
   @override
-  String get networkError => 'ഇന്റർനെറ്റ് കണക്ഷൻ ഇല്ല. കണക്ഷൻ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.';
+  String get networkError =>
+      'ഇന്റർനെറ്റ് കണക്ഷൻ ഇല്ല. കണക്ഷൻ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.';
 
   @override
   String get developmentCode => 'ഡെവലപ്പ്മെന്റ് കോഡ്';
@@ -134,7 +144,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get signedOut => 'നിങ്ങൾ സൈൻ ഔട്ട് ചെയ്തു';
 
   @override
-  String get somethingWentWrong => 'എന്തോ കുഴപ്പം സംഭവിച്ചു. വീണ്ടും ശ്രമിക്കുക.';
+  String get somethingWentWrong =>
+      'എന്തോ കുഴപ്പം സംഭവിച്ചു. വീണ്ടും ശ്രമിക്കുക.';
 
   @override
   String get profileTitle => 'പ്രൊഫൈൽ';
@@ -197,7 +208,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get searchNoResultsTitle => 'ഒന്നും കണ്ടെത്തിയില്ല';
 
   @override
-  String get searchNoResultsSubtitle => 'മറ്റൊരു വിഭവം, പാചകരീതി അല്ലെങ്കിൽ റെസ്റ്റോറന്റ് പേര് പരീക്ഷിക്കുക.';
+  String get searchNoResultsSubtitle =>
+      'മറ്റൊരു വിഭവം, പാചകരീതി അല്ലെങ്കിൽ റെസ്റ്റോറന്റ് പേര് പരീക്ഷിക്കുക.';
 
   @override
   String get cravingTitle => 'ഇന്ന് എന്ത് കഴിക്കാൻ തോന്നുന്നു?';
@@ -223,7 +235,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get noRestaurantsTitle => 'ഇവിടെ ഇതുവരെ ഒന്നുമില്ല';
 
   @override
-  String get noRestaurantsSubtitle => 'മറ്റൊരു വിഭാഗം നോക്കുക അല്ലെങ്കിൽ ഫിൽട്ടർ നീക്കുക.';
+  String get noRestaurantsSubtitle =>
+      'മറ്റൊരു വിഭാഗം നോക്കുക അല്ലെങ്കിൽ ഫിൽട്ടർ നീക്കുക.';
 
   @override
   String minutesAway(int minutes) {
@@ -277,7 +290,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get noVegDishesTitle => 'ഇവിടെ വെജ് വിഭവങ്ങളില്ല';
 
   @override
-  String get noVegDishesSubtitle => 'മുഴുവൻ മെനു കാണാൻ വെജ് ഫിൽട്ടർ ഓഫ് ചെയ്യുക.';
+  String get noVegDishesSubtitle =>
+      'മുഴുവൻ മെനു കാണാൻ വെജ് ഫിൽട്ടർ ഓഫ് ചെയ്യുക.';
 
   @override
   String get replaceCartTitle => 'പുതിയ കാർട്ട് തുടങ്ങണോ?';
@@ -297,7 +311,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get cartEmptyTitle => 'നിങ്ങളുടെ കാർട്ട് ശൂന്യമാണ്';
 
   @override
-  String get cartEmptySubtitle => 'തുടങ്ങാൻ ഏതെങ്കിലും റെസ്റ്റോറന്റിൽ നിന്ന് വിഭവങ്ങൾ ചേർക്കുക.';
+  String get cartEmptySubtitle =>
+      'തുടങ്ങാൻ ഏതെങ്കിലും റെസ്റ്റോറന്റിൽ നിന്ന് വിഭവങ്ങൾ ചേർക്കുക.';
 
   @override
   String get browseRestaurants => 'റെസ്റ്റോറന്റുകൾ കാണുക';
@@ -386,37 +401,44 @@ class AppLocalizationsMl extends AppLocalizations {
   String get backToHome => 'ഹോമിലേക്ക് മടങ്ങുക';
 
   @override
-  String get prototypeNotice => 'മാതൃകാ സ്റ്റോർഫ്രണ്ട് — യഥാർത്ഥ കടകൾ കാറ്റലോഗ് API യോടൊപ്പം വരും.';
+  String get prototypeNotice =>
+      'മാതൃകാ സ്റ്റോർഫ്രണ്ട് — യഥാർത്ഥ കടകൾ കാറ്റലോഗ് API യോടൊപ്പം വരും.';
 
   @override
-  String get prototypeCheckoutNotice => 'ഇതൊരു പ്രോട്ടോടൈപ്പാണ്. പണം ഈടാക്കുന്നില്ല, യഥാർത്ഥ ഓർഡറും നടക്കുന്നില്ല.';
+  String get prototypeCheckoutNotice =>
+      'ഇതൊരു പ്രോട്ടോടൈപ്പാണ്. പണം ഈടാക്കുന്നില്ല, യഥാർത്ഥ ഓർഡറും നടക്കുന്നില്ല.';
 
   @override
-  String get prototypeTrackingNotice => 'പ്രോട്ടോടൈപ്പിനായി ട്രാക്കിംഗ് കൃത്രിമമാണ്.';
+  String get prototypeTrackingNotice =>
+      'പ്രോട്ടോടൈപ്പിനായി ട്രാക്കിംഗ് കൃത്രിമമാണ്.';
 
   @override
   String get locationTitle => 'എവിടെ ഡെലിവർ ചെയ്യണം?';
 
   @override
-  String get locationSubtitle => 'Nexmile 1 കിമീ പരിധിയിലുള്ള കടകളിൽ നിന്ന് മാത്രമേ ഡെലിവർ ചെയ്യൂ, അതിനാൽ നിങ്ങളുടെ കൃത്യമായ സ്ഥലം വേണം.';
+  String get locationSubtitle =>
+      'Nexmile 1 കിമീ പരിധിയിലുള്ള കടകളിൽ നിന്ന് മാത്രമേ ഡെലിവർ ചെയ്യൂ, അതിനാൽ നിങ്ങളുടെ കൃത്യമായ സ്ഥലം വേണം.';
 
   @override
   String get locationReasonRadiusTitle => '1 കിമീയ്ക്കുള്ളിലെ കടകൾ';
 
   @override
-  String get locationReasonRadiusBody => 'ചൂടോടെ എത്താൻ കഴിയുന്ന അടുക്കളകൾ മാത്രമേ കാണിക്കൂ.';
+  String get locationReasonRadiusBody =>
+      'ചൂടോടെ എത്താൻ കഴിയുന്ന അടുക്കളകൾ മാത്രമേ കാണിക്കൂ.';
 
   @override
   String get locationReasonAccuracyTitle => 'ശരിയായ വാതിൽക്കൽ';
 
   @override
-  String get locationReasonAccuracyBody => 'കൃത്യമായ പിൻ ഉണ്ടെങ്കിൽ ഡെലിവറി പങ്കാളി വിളിക്കാതെ തന്നെ നിങ്ങളെ കണ്ടെത്തും.';
+  String get locationReasonAccuracyBody =>
+      'കൃത്യമായ പിൻ ഉണ്ടെങ്കിൽ ഡെലിവറി പങ്കാളി വിളിക്കാതെ തന്നെ നിങ്ങളെ കണ്ടെത്തും.';
 
   @override
   String get locationReasonPrivacyTitle => 'ആപ്പ് ഉപയോഗിക്കുമ്പോൾ മാത്രം';
 
   @override
-  String get locationReasonPrivacyBody => 'പശ്ചാത്തലത്തിൽ ഞങ്ങൾ നിങ്ങളെ ട്രാക്ക് ചെയ്യില്ല, വിലാസം സ്വയം ടൈപ്പ് ചെയ്യാം.';
+  String get locationReasonPrivacyBody =>
+      'പശ്ചാത്തലത്തിൽ ഞങ്ങൾ നിങ്ങളെ ട്രാക്ക് ചെയ്യില്ല, വിലാസം സ്വയം ടൈപ്പ് ചെയ്യാം.';
 
   @override
   String get allowLocation => 'ലൊക്കേഷൻ അനുവദിക്കുക';
@@ -425,16 +447,19 @@ class AppLocalizationsMl extends AppLocalizations {
   String get enterAddressManually => 'ഞാൻ വിലാസം സ്വയം എഴുതാം';
 
   @override
-  String get locationDenied => 'ലൊക്കേഷൻ അനുമതി നിരസിച്ചു. നിങ്ങൾക്ക് പിൻ സ്വയം വയ്ക്കാം.';
+  String get locationDenied =>
+      'ലൊക്കേഷൻ അനുമതി നിരസിച്ചു. നിങ്ങൾക്ക് പിൻ സ്വയം വയ്ക്കാം.';
 
   @override
-  String get locationDeniedForever => 'Nexmile നായി ലൊക്കേഷൻ തടഞ്ഞിരിക്കുന്നു. ക്രമീകരണങ്ങളിൽ ഓണാക്കുക അല്ലെങ്കിൽ പിൻ സ്വയം വയ്ക്കുക.';
+  String get locationDeniedForever =>
+      'Nexmile നായി ലൊക്കേഷൻ തടഞ്ഞിരിക്കുന്നു. ക്രമീകരണങ്ങളിൽ ഓണാക്കുക അല്ലെങ്കിൽ പിൻ സ്വയം വയ്ക്കുക.';
 
   @override
   String get locationServiceOff => 'ഈ ഉപകരണത്തിൽ ലൊക്കേഷൻ ഓഫാണ്.';
 
   @override
-  String get locationUnavailable => 'ലൊക്കേഷൻ ലഭിച്ചില്ല. ദയവായി പിൻ സ്വയം വയ്ക്കുക.';
+  String get locationUnavailable =>
+      'ലൊക്കേഷൻ ലഭിച്ചില്ല. ദയവായി പിൻ സ്വയം വയ്ക്കുക.';
 
   @override
   String get openSettings => 'ക്രമീകരണങ്ങൾ';
@@ -443,7 +468,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get pinLocationTitle => 'നിങ്ങളുടെ ഡെലിവറി പിൻ വയ്ക്കുക';
 
   @override
-  String get deliveryRadiusHint => 'Nexmile ഡെലിവർ ചെയ്യുന്ന 1 കിമീ വൃത്തം കാണിക്കുന്നു.';
+  String get deliveryRadiusHint =>
+      'Nexmile ഡെലിവർ ചെയ്യുന്ന 1 കിമീ വൃത്തം കാണിക്കുന്നു.';
 
   @override
   String get useMyLocation => 'എന്റെ ലൊക്കേഷൻ ഉപയോഗിക്കുക';
@@ -461,7 +487,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get addressDetailsTitle => 'വിലാസ വിവരങ്ങൾ';
 
   @override
-  String get addressDetailsSubtitle => 'ശരിയായ വാതിലിൽ എത്താൻ വീട്ടുനമ്പറും അടയാളവും ചേർക്കുക.';
+  String get addressDetailsSubtitle =>
+      'ശരിയായ വാതിലിൽ എത്താൻ വീട്ടുനമ്പറും അടയാളവും ചേർക്കുക.';
 
   @override
   String get pinnedLocation => 'അടയാളപ്പെടുത്തിയ സ്ഥലം';
@@ -539,7 +566,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get noAddressesTitle => 'ഇതുവരെ വിലാസങ്ങളില്ല';
 
   @override
-  String get noAddressesSubtitle => 'നിങ്ങൾക്ക് ഡെലിവർ ചെയ്യുന്ന കടകൾ കാണിക്കാൻ ഒരു വിലാസം ചേർക്കുക.';
+  String get noAddressesSubtitle =>
+      'നിങ്ങൾക്ക് ഡെലിവർ ചെയ്യുന്ന കടകൾ കാണിക്കാൻ ഒരു വിലാസം ചേർക്കുക.';
 
   @override
   String get addAddress => 'വിലാസം ചേർക്കുക';
@@ -560,7 +588,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get deleteAddressTitle => 'ഈ വിലാസം ഇല്ലാതാക്കണോ?';
 
   @override
-  String get deleteAddressMessage => 'പിന്നീട് എപ്പോൾ വേണമെങ്കിലും വീണ്ടും ചേർക്കാം.';
+  String get deleteAddressMessage =>
+      'പിന്നീട് എപ്പോൾ വേണമെങ്കിലും വീണ്ടും ചേർക്കാം.';
 
   @override
   String get rescueDealsTitle => 'ഫുഡ് റെസ്ക്യൂ';
@@ -588,7 +617,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get menuEmptyTitle => 'ഇതുവരെ വിഭവങ്ങളില്ല';
 
   @override
-  String get menuEmptySubtitle => 'ഈ റെസ്റ്റോറന്റ് അതിന്റെ മെനു ചേർത്തിട്ടില്ല.';
+  String get menuEmptySubtitle =>
+      'ഈ റെസ്റ്റോറന്റ് അതിന്റെ മെനു ചേർത്തിട്ടില്ല.';
 
   @override
   String get moreDishesTitle => 'കൂടുതൽ വിഭവങ്ങൾ';
@@ -726,7 +756,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get cancelOrderTitle => 'ഈ ഓർഡർ റദ്ദാക്കണോ?';
 
   @override
-  String get cancelOrderMessage => 'റെസ്റ്റോറന്റ് സ്വീകരിക്കുന്നതിനു മുൻപ് മാത്രമേ റദ്ദാക്കാനാകൂ.';
+  String get cancelOrderMessage =>
+      'റെസ്റ്റോറന്റ് സ്വീകരിക്കുന്നതിനു മുൻപ് മാത്രമേ റദ്ദാക്കാനാകൂ.';
 
   @override
   String get cancelReasonLabel => 'കാരണം';
@@ -744,7 +775,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get editProfileTitle => 'പ്രൊഫൈൽ തിരുത്തുക';
 
   @override
-  String get editProfileSubtitle => 'റെസ്റ്റോറന്റും ഡെലിവറി പങ്കാളിയും കാണുന്നത് നിങ്ങളുടെ പേരാണ്.';
+  String get editProfileSubtitle =>
+      'റെസ്റ്റോറന്റും ഡെലിവറി പങ്കാളിയും കാണുന്നത് നിങ്ങളുടെ പേരാണ്.';
 
   @override
   String get saveChanges => 'മാറ്റങ്ങൾ സൂക്ഷിക്കുക';
@@ -759,7 +791,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get deleteAccountTitle => 'നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കണോ?';
 
   @override
-  String get deleteAccountMessage => 'എല്ലാ ഉപകരണങ്ങളിൽ നിന്നും സൈൻ ഔട്ട് ആകും. പഴയ ഓർഡറുകളും ബില്ലുകളും നികുതി രേഖയ്ക്കായി സൂക്ഷിക്കും.';
+  String get deleteAccountMessage =>
+      'എല്ലാ ഉപകരണങ്ങളിൽ നിന്നും സൈൻ ഔട്ട് ആകും. പഴയ ഓർഡറുകളും ബില്ലുകളും നികുതി രേഖയ്ക്കായി സൂക്ഷിക്കും.';
 
   @override
   String get accountDeleted => 'നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കി';
@@ -774,7 +807,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get devicesEmptyTitle => 'മറ്റ് ഉപകരണങ്ങളില്ല';
 
   @override
-  String get devicesEmptySubtitle => 'ഈ ഉപകരണത്തിൽ മാത്രമേ നിങ്ങൾ സൈൻ ഇൻ ചെയ്തിട്ടുള്ളൂ.';
+  String get devicesEmptySubtitle =>
+      'ഈ ഉപകരണത്തിൽ മാത്രമേ നിങ്ങൾ സൈൻ ഇൻ ചെയ്തിട്ടുള്ളൂ.';
 
   @override
   String get signOutDevice => 'സൈൻ ഔട്ട്';
@@ -783,7 +817,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get signOutDeviceTitle => 'ഈ ഉപകരണം സൈൻ ഔട്ട് ചെയ്യണോ?';
 
   @override
-  String get signOutDeviceMessage => 'നിങ്ങൾ ഉപയോഗിക്കുന്നത് ഇതാണെങ്കിൽ വീണ്ടും സൈൻ ഇൻ ചെയ്യേണ്ടിവരും.';
+  String get signOutDeviceMessage =>
+      'നിങ്ങൾ ഉപയോഗിക്കുന്നത് ഇതാണെങ്കിൽ വീണ്ടും സൈൻ ഇൻ ചെയ്യേണ്ടിവരും.';
 
   @override
   String get deviceSignedOut => 'ഉപകരണം സൈൻ ഔട്ട് ചെയ്തു';
@@ -795,7 +830,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String get signOutEverywhereTitle => 'എല്ലായിടത്തും സൈൻ ഔട്ട് ചെയ്യണോ?';
 
   @override
-  String get signOutEverywhereMessage => 'ഈ ഉപകരണം ഉൾപ്പെടെ എല്ലാ ഉപകരണങ്ങളും സൈൻ ഔട്ട് ആകും.';
+  String get signOutEverywhereMessage =>
+      'ഈ ഉപകരണം ഉൾപ്പെടെ എല്ലാ ഉപകരണങ്ങളും സൈൻ ഔട്ട് ആകും.';
 
   @override
   String get unknownDevice => 'അജ്ഞാത ഉപകരണം';

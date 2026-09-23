@@ -21,7 +21,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get chooseLanguageTitle => 'नोंथांनि राव सायख';
 
   @override
-  String get chooseLanguageSubtitle => 'नोंथांनो गोसो जायो एरै रावखौ सायख। नोंथाङो बेखौ जेब्लाबाबो सेटिंसआव सोलायनो हागोन।';
+  String get chooseLanguageSubtitle =>
+      'नोंथांनो गोसो जायो एरै रावखौ सायख। नोंथाङो बेखौ जेब्लाबाबो सेटिंसआव सोलायनो हागोन।';
 
   @override
   String get searchLanguageHint => 'राव नागिर';
@@ -47,7 +48,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get homeTitle => 'Nexmile आव आजादा';
 
   @override
-  String get homeSubtitle => 'गोदान किराना, गोदै आहार आरो सानफ्रोमबो नांगौ बेसादफोर नोंथांनि खात्रिनि दुखानिफ्राय।';
+  String get homeSubtitle =>
+      'गोदान किराना, गोदै आहार आरो सानफ्रोमबो नांगौ बेसादफोर नोंथांनि खात्रिनि दुखानिफ्राय।';
 
   @override
   String get changeLanguage => 'राव सोलाय';
@@ -67,7 +69,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get loginTitle => 'Nexmile आव साइन इन खालाम';
 
   @override
-  String get loginSubtitle => 'नोंथांनि इमेइल एबा मबाइल नामबार दा, जों थि खालामनाय कड दैथाय होगोन।';
+  String get loginSubtitle =>
+      'नोंथांनि इमेइल एबा मबाइल नामबार दा, जों थि खालामनाय कड दैथाय होगोन।';
 
   @override
   String get emailOrPhoneLabel => 'इमेइल एबा मबाइल नामबार';
@@ -82,7 +85,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get sendCode => 'कड दैथाय हो';
 
   @override
-  String get agreeToTermsOnContinue => 'लाबोबाय थानाय जों नोंथाङो जोंनि सिबिथाइनि नेमखान्थि आरो गुबैथि नीति जों रोंगौ।';
+  String get agreeToTermsOnContinue =>
+      'लाबोबाय थानाय जों नोंथाङो जोंनि सिबिथाइनि नेमखान्थि आरो गुबैथि नीति जों रोंगौ।';
 
   @override
   String get otpTitle => 'बेयो नोंथाङ नामा थि खालाम';
@@ -113,13 +117,16 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get enterFullCode => 'आबुं 6 अंक दा';
 
   @override
-  String get accountSuspended => 'बे एकाउन्टखौ थाबाय होनाय जाबाय। अन्नानै मददनि जों सोंख्रीमा खालाम।';
+  String get accountSuspended =>
+      'बे एकाउन्टखौ थाबाय होनाय जाबाय। अन्नानै मददनि जों सोंख्रीमा खालाम।';
 
   @override
-  String get tooManyAttempts => 'गोबां बार नाजानाय जाबाय। अन्नानै मोनसे सम उनाव फिन नाजा।';
+  String get tooManyAttempts =>
+      'गोबां बार नाजानाय जाबाय। अन्नानै मोनसे सम उनाव फिन नाजा।';
 
   @override
-  String get sessionExpired => 'नोंथांनि सेसननि समआ जोबबाय। अन्नानै फिन साइन इन खालाम।';
+  String get sessionExpired =>
+      'नोंथांनि सेसननि समआ जोबबाय। अन्नानै फिन साइन इन खालाम।';
 
   @override
   String get networkError => 'इन्टारनेट जोनाय गैया। जोनायखौ नाय आरो फिन नाजा।';
@@ -197,7 +204,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get searchNoResultsTitle => 'जेबो मोनाखै';
 
   @override
-  String get searchNoResultsSubtitle => 'गुबुन आहार, आहार बानायनाय एबा रेस्टुरेन्टनि मुं नाजा।';
+  String get searchNoResultsSubtitle =>
+      'गुबुन आहार, आहार बानायनाय एबा रेस्टुरेन्टनि मुं नाजा।';
 
   @override
   String get cravingTitle => 'दिनै मा जानो गोसो?';
@@ -277,7 +285,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get noVegDishesTitle => 'बेयाव बेदा आहार गैया';
 
   @override
-  String get noVegDishesSubtitle => 'गासैबो मेनु नायनो बेदा फिल्टार बन्द खालाम।';
+  String get noVegDishesSubtitle =>
+      'गासैबो मेनु नायनो बेदा फिल्टार बन्द खालाम।';
 
   @override
   String get replaceCartTitle => 'गोदान कार्ट जागाय?';
@@ -297,7 +306,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get cartEmptyTitle => 'नोंथांनि कार्टआ लांदां';
 
   @override
-  String get cartEmptySubtitle => 'जागायनो जायखिजाया रेस्टुरेन्टनिफ्राय आहार दाजाबदेर।';
+  String get cartEmptySubtitle =>
+      'जागायनो जायखिजाया रेस्टुरेन्टनिफ्राय आहार दाजाबदेर।';
 
   @override
   String get browseRestaurants => 'रेस्टुरेन्ट नाय';
@@ -386,10 +396,12 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get backToHome => 'हों आव फैफिन';
 
   @override
-  String get prototypeNotice => 'नमुना स्टरफ्रन्ट — थार दुखानिफोरा केटालग API जों फैगोन।';
+  String get prototypeNotice =>
+      'नमुना स्टरफ्रन्ट — थार दुखानिफोरा केटालग API जों फैगोन।';
 
   @override
-  String get prototypeCheckoutNotice => 'बेयो मोनसे प्रटटाइप। जेबो रांखान्थि लानाय जाया आरो थार अर्डारबो जाया।';
+  String get prototypeCheckoutNotice =>
+      'बेयो मोनसे प्रटटाइप। जेबो रांखान्थि लानाय जाया आरो थार अर्डारबो जाया।';
 
   @override
   String get prototypeTrackingNotice => 'प्रटटाइपनि थाखाय ट्रेकिं आ थार नङा।';
@@ -398,25 +410,29 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get locationTitle => 'बबेयाव डेलिभारि खालामनांगौ?';
 
   @override
-  String get locationSubtitle => 'Nexmile आ 1 किमि सिङाव थानाय दुखानिफ्रायल\' डेलिभारि खालामो, बेनि थाखाय नोंथांनि थार जायगा नांगौ।';
+  String get locationSubtitle =>
+      'Nexmile आ 1 किमि सिङाव थानाय दुखानिफ्रायल\' डेलिभारि खालामो, बेनि थाखाय नोंथांनि थार जायगा नांगौ।';
 
   @override
   String get locationReasonRadiusTitle => '1 किमि सिङनि दुखान';
 
   @override
-  String get locationReasonRadiusBody => 'बबेनिफ्राय आहारा गोदै जानानै सोसनगोन, बेफोर रान्नाशालखौल\' दिन्थियो।';
+  String get locationReasonRadiusBody =>
+      'बबेनिफ्राय आहारा गोदै जानानै सोसनगोन, बेफोर रान्नाशालखौल\' दिन्थियो।';
 
   @override
   String get locationReasonAccuracyTitle => 'थार दरजायाव';
 
   @override
-  String get locationReasonAccuracyBody => 'थार पिन दङब्ला डेलिभारि पार्टनारा फन खालामै नोंथांखौ मोनो।';
+  String get locationReasonAccuracyBody =>
+      'थार पिन दङब्ला डेलिभारि पार्टनारा फन खालामै नोंथांखौ मोनो।';
 
   @override
   String get locationReasonPrivacyTitle => 'एप बाहायनाय समावल\'';
 
   @override
-  String get locationReasonPrivacyBody => 'जों उनथिं नोंथांखौ ट्रेक खालामा, आरो थंखौ नोंथाङो निजिनो लिरनो हागोन।';
+  String get locationReasonPrivacyBody =>
+      'जों उनथिं नोंथांखौ ट्रेक खालामा, आरो थंखौ नोंथाङो निजिनो लिरनो हागोन।';
 
   @override
   String get allowLocation => 'जायगानि गनायथि हो';
@@ -425,10 +441,12 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get enterAddressManually => 'आं निजिनो थं लिरगोन';
 
   @override
-  String get locationDenied => 'जायगानि गनायथि मोनाखै। नोंथाङो पिनखौ निजिनो दोननो हागोन।';
+  String get locationDenied =>
+      'जायगानि गनायथि मोनाखै। नोंथाङो पिनखौ निजिनो दोननो हागोन।';
 
   @override
-  String get locationDeniedForever => 'Nexmile नि थाखाय जायगाया बन्द दङ। सेटिंसआव खेव एबा पिनखौ निजिनो दोन।';
+  String get locationDeniedForever =>
+      'Nexmile नि थाखाय जायगाया बन्द दङ। सेटिंसआव खेव एबा पिनखौ निजिनो दोन।';
 
   @override
   String get locationServiceOff => 'बे डिभाइसआव जायगाया बन्द दङ।';
@@ -443,7 +461,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get pinLocationTitle => 'नोंथांनि डेलिभारि पिन दोन';
 
   @override
-  String get deliveryRadiusHint => 'गोलावथिया Nexmile डेलिभारि खालामनाय 1 किमिखौ दिन्थियो।';
+  String get deliveryRadiusHint =>
+      'गोलावथिया Nexmile डेलिभारि खालामनाय 1 किमिखौ दिन्थियो।';
 
   @override
   String get useMyLocation => 'आंनि जायगा बाहाय';
@@ -461,7 +480,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get addressDetailsTitle => 'थंनि फोरमायथिहोग्रा';
 
   @override
-  String get addressDetailsSubtitle => 'थार दरजायाव सोसननो नोनि नामबार आरो सिन दाजाबदेर।';
+  String get addressDetailsSubtitle =>
+      'थार दरजायाव सोसननो नोनि नामबार आरो सिन दाजाबदेर।';
 
   @override
   String get pinnedLocation => 'सायखनाय जायगा';
@@ -539,7 +559,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get noAddressesTitle => 'दासिम जेबो थं गैया';
 
   @override
-  String get noAddressesSubtitle => 'नोंथांसो डेलिभारि खालामनाय दुखानफोरखौ दिन्थिनो मोनसे थं दाजाबदेर।';
+  String get noAddressesSubtitle =>
+      'नोंथांसो डेलिभारि खालामनाय दुखानफोरखौ दिन्थिनो मोनसे थं दाजाबदेर।';
 
   @override
   String get addAddress => 'थं दाजाबदेर';
@@ -726,7 +747,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get cancelOrderTitle => 'बे अर्डारखौ बातिल खालामनो नामा?';
 
   @override
-  String get cancelOrderMessage => 'रेस्टुरेन्टा आजावनि सिगां सिनोबो बातिल खालामनो हागौ।';
+  String get cancelOrderMessage =>
+      'रेस्टुरेन्टा आजावनि सिगां सिनोबो बातिल खालामनो हागौ।';
 
   @override
   String get cancelReasonLabel => 'जाहोन';
@@ -744,7 +766,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get editProfileTitle => 'प्रफाइल सुद्रायहो';
 
   @override
-  String get editProfileSubtitle => 'रेस्टुरेन्ट आरो डेलिभारि पार्टनारा नोंथांनि मुंखौलो नुयो।';
+  String get editProfileSubtitle =>
+      'रेस्टुरेन्ट आरो डेलिभारि पार्टनारा नोंथांनि मुंखौलो नुयो।';
 
   @override
   String get saveChanges => 'सोलायनायखौ थिना दोन';
@@ -759,7 +782,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get deleteAccountTitle => 'नोंथांनि एकाउन्टखौ खोमोरनो नामा?';
 
   @override
-  String get deleteAccountMessage => 'गासै डिभाइसनिफ्राय साइन आउट जागोन। गागैनि अर्डार आरो बिलखौ ट्याक्स रेकर्डनि थाखाय दोनो।';
+  String get deleteAccountMessage =>
+      'गासै डिभाइसनिफ्राय साइन आउट जागोन। गागैनि अर्डार आरो बिलखौ ट्याक्स रेकर्डनि थाखाय दोनो।';
 
   @override
   String get accountDeleted => 'नोंथांनि एकाउन्ट खोमोरबाय';
@@ -783,7 +807,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get signOutDeviceTitle => 'बे डिभाइसखौ साइन आउट खालामनो नामा?';
 
   @override
-  String get signOutDeviceMessage => 'नोंथाङा बे डिभाइसखौबो बाहायगासिनो दङब्ला फिन साइन इन खालामनांगोन।';
+  String get signOutDeviceMessage =>
+      'नोंथाङा बे डिभाइसखौबो बाहायगासिनो दङब्ला फिन साइन इन खालामनांगोन।';
 
   @override
   String get deviceSignedOut => 'डिभाइस साइन आउट जाबाय';
@@ -792,10 +817,12 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get signOutEverywhere => 'गासै जायगानिफ्राय साइन आउट';
 
   @override
-  String get signOutEverywhereTitle => 'गासै जायगानिफ्राय साइन आउट खालामनो नामा?';
+  String get signOutEverywhereTitle =>
+      'गासै जायगानिफ्राय साइन आउट खालामनो नामा?';
 
   @override
-  String get signOutEverywhereMessage => 'बे डिभाइस लोगोसे मोनफ्रोम डिभाइसआ साइन आउट जागोन।';
+  String get signOutEverywhereMessage =>
+      'बे डिभाइस लोगोसे मोनफ्रोम डिभाइसआ साइन आउट जागोन।';
 
   @override
   String get unknownDevice => 'मिथिमोनै डिभाइस';
@@ -929,7 +956,8 @@ class AppLocalizationsBrx extends AppLocalizations {
   String get noReviewsTitle => 'दासिम जेबो रेटिं गैया';
 
   @override
-  String get noReviewsSubtitle => 'अर्दार खालामनायनि उनाव गिबि रेटिं नोंथाङा हो।';
+  String get noReviewsSubtitle =>
+      'अर्दार खालामनायनि उनाव गिबि रेटिं नोंथाङा हो।';
 
   @override
   String get rateOrderTitle => 'नोंथांनि अर्दारखौ रेट खालाम';

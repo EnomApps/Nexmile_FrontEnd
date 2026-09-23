@@ -21,7 +21,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get chooseLanguageTitle => 'तुमची भास वेंचात';
 
   @override
-  String get chooseLanguageSubtitle => 'तुमकां सोंपी दिसता ती भास वेंचात. तुमी ती केन्नाय सेटिंग्जांत बदलूं येता.';
+  String get chooseLanguageSubtitle =>
+      'तुमकां सोंपी दिसता ती भास वेंचात. तुमी ती केन्नाय सेटिंग्जांत बदलूं येता.';
 
   @override
   String get searchLanguageHint => 'भास सोदात';
@@ -47,7 +48,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get homeTitle => 'Nexmile हांगा येवकार';
 
   @override
-  String get homeSubtitle => 'ताजो किराणो, गरम जेवण आनी दिसपट्ट्यो गरजेच्यो वस्तू तुमच्या लागसारच्या दुकानांतल्यान.';
+  String get homeSubtitle =>
+      'ताजो किराणो, गरम जेवण आनी दिसपट्ट्यो गरजेच्यो वस्तू तुमच्या लागसारच्या दुकानांतल्यान.';
 
   @override
   String get changeLanguage => 'भास बदलात';
@@ -67,7 +69,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get loginTitle => 'Nexmile हांगा साइन इन करात';
 
   @override
-  String get loginSubtitle => 'तुमचो ईमेल वा मोबायल क्रमांक घालात, आमी सत्यापन कोड धाडटले.';
+  String get loginSubtitle =>
+      'तुमचो ईमेल वा मोबायल क्रमांक घालात, आमी सत्यापन कोड धाडटले.';
 
   @override
   String get emailOrPhoneLabel => 'ईमेल वा मोबायल क्रमांक';
@@ -76,13 +79,15 @@ class AppLocalizationsKok extends AppLocalizations {
   String get emailOrPhoneHint => 'name@example.com वा 9876543210';
 
   @override
-  String get invalidEmailOrPhone => 'योग्य ईमेल नामो वा 10 आंकड्यांचो मोबायल क्रमांक घालात';
+  String get invalidEmailOrPhone =>
+      'योग्य ईमेल नामो वा 10 आंकड्यांचो मोबायल क्रमांक घालात';
 
   @override
   String get sendCode => 'कोड धाडात';
 
   @override
-  String get agreeToTermsOnContinue => 'फुडें वचून तुमी आमच्यो सेवा अटी आनी गुपीतपण धोरण मान्य करतात.';
+  String get agreeToTermsOnContinue =>
+      'फुडें वचून तुमी आमच्यो सेवा अटी आनी गुपीतपण धोरण मान्य करतात.';
 
   @override
   String get otpTitle => 'हो तुमीच अशें सत्यापित करात';
@@ -107,22 +112,27 @@ class AppLocalizationsKok extends AppLocalizations {
   String get codeResent => 'नवो कोड धाडला';
 
   @override
-  String get incorrectCode => 'हो कोड चुकीचो आसा वा ताची मुजत सोंपली. नवो कोड मागात.';
+  String get incorrectCode =>
+      'हो कोड चुकीचो आसा वा ताची मुजत सोंपली. नवो कोड मागात.';
 
   @override
   String get enterFullCode => 'पुराय 6 आंकडे घालात';
 
   @override
-  String get accountSuspended => 'हें खातें निलंबित केलां. उपकार करून आदाराक संपर्क करात.';
+  String get accountSuspended =>
+      'हें खातें निलंबित केलां. उपकार करून आदाराक संपर्क करात.';
 
   @override
-  String get tooManyAttempts => 'खूब फावटीं यत्न जाले. उपकार करून थोड्या वेळान परत यत्न करात.';
+  String get tooManyAttempts =>
+      'खूब फावटीं यत्न जाले. उपकार करून थोड्या वेळान परत यत्न करात.';
 
   @override
-  String get sessionExpired => 'तुमचें सत्र सोंपलां. उपकार करून परत साइन इन करात.';
+  String get sessionExpired =>
+      'तुमचें सत्र सोंपलां. उपकार करून परत साइन इन करात.';
 
   @override
-  String get networkError => 'इंटरनॅट जोडणी ना. जोडणी तपासात आनी परत यत्न करात.';
+  String get networkError =>
+      'इंटरनॅट जोडणी ना. जोडणी तपासात आनी परत यत्न करात.';
 
   @override
   String get developmentCode => 'डेव्हलपमेंट कोड';
@@ -134,7 +144,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get signedOut => 'तुमी साइन आवट जाल्यात';
 
   @override
-  String get somethingWentWrong => 'कितें तरी चुकलें. उपकार करून परत यत्न करात.';
+  String get somethingWentWrong =>
+      'कितें तरी चुकलें. उपकार करून परत यत्न करात.';
 
   @override
   String get profileTitle => 'प्रोफायल';
@@ -197,7 +208,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get searchNoResultsTitle => 'कितेंच मेळूंक ना';
 
   @override
-  String get searchNoResultsSubtitle => 'हेर जेवण, पाकशैली वा रेस्टॉरंटाचें नांव यत्न करात.';
+  String get searchNoResultsSubtitle =>
+      'हेर जेवण, पाकशैली वा रेस्टॉरंटाचें नांव यत्न करात.';
 
   @override
   String get cravingTitle => 'आयज कितें खावंक जाय?';
@@ -277,7 +289,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get noVegDishesTitle => 'हांगा शाकाहारी जेवण ना';
 
   @override
-  String get noVegDishesSubtitle => 'आख्खो मेनू पळोवंक शाकाहारी फिल्टर बंद करात.';
+  String get noVegDishesSubtitle =>
+      'आख्खो मेनू पळोवंक शाकाहारी फिल्टर बंद करात.';
 
   @override
   String get replaceCartTitle => 'नवी कार्ट सुरू करूंया?';
@@ -297,7 +310,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get cartEmptyTitle => 'तुमची कार्ट रिकामी आसा';
 
   @override
-  String get cartEmptySubtitle => 'सुरू करुंक खंयच्याय रेस्टॉरंटांतल्यान जेवण जोडात.';
+  String get cartEmptySubtitle =>
+      'सुरू करुंक खंयच्याय रेस्टॉरंटांतल्यान जेवण जोडात.';
 
   @override
   String get browseRestaurants => 'रेस्टॉरंटां पळयात';
@@ -386,37 +400,44 @@ class AppLocalizationsKok extends AppLocalizations {
   String get backToHome => 'होमाचेर परत';
 
   @override
-  String get prototypeNotice => 'नमुनो स्टोरफ्रंट — खरीं दुकानां कॅटलॉग API वांगडा येतलीं.';
+  String get prototypeNotice =>
+      'नमुनो स्टोरफ्रंट — खरीं दुकानां कॅटलॉग API वांगडा येतलीं.';
 
   @override
-  String get prototypeCheckoutNotice => 'हो एक प्रोटोटायप. खंयचेंच पैशे घेनात आनी खरी ऑर्डरय जायना.';
+  String get prototypeCheckoutNotice =>
+      'हो एक प्रोटोटायप. खंयचेंच पैशे घेनात आनी खरी ऑर्डरय जायना.';
 
   @override
-  String get prototypeTrackingNotice => 'प्रोटोटायपा खातीर ट्रॅकिंग कृत्रिम आसा.';
+  String get prototypeTrackingNotice =>
+      'प्रोटोटायपा खातीर ट्रॅकिंग कृत्रिम आसा.';
 
   @override
   String get locationTitle => 'डिलिव्हरी खंय करची?';
 
   @override
-  String get locationSubtitle => 'Nexmile फकत 1 किमी भितरल्या दुकानांतल्यान डिलिव्हरी करता, देखून तुमचें नेमकें सुवात जाय.';
+  String get locationSubtitle =>
+      'Nexmile फकत 1 किमी भितरल्या दुकानांतल्यान डिलिव्हरी करता, देखून तुमचें नेमकें सुवात जाय.';
 
   @override
   String get locationReasonRadiusTitle => '1 किमी भितरलीं दुकानां';
 
   @override
-  String get locationReasonRadiusBody => 'खंयच्यान जेवण गरम पावतलें, तीच रांदपाघरां आमी दाखयतांव.';
+  String get locationReasonRadiusBody =>
+      'खंयच्यान जेवण गरम पावतलें, तीच रांदपाघरां आमी दाखयतांव.';
 
   @override
   String get locationReasonAccuracyTitle => 'बरोबर दारा मेरेन';
 
   @override
-  String get locationReasonAccuracyBody => 'अचूक पिन आसल्यार डिलिव्हरी पार्टनर फोन करिनासतना तुमकां सोदता.';
+  String get locationReasonAccuracyBody =>
+      'अचूक पिन आसल्यार डिलिव्हरी पार्टनर फोन करिनासतना तुमकां सोदता.';
 
   @override
   String get locationReasonPrivacyTitle => 'फकत ॲप वापरतना';
 
   @override
-  String get locationReasonPrivacyBody => 'आमी फाटभुंयेर तुमचो माग काडिनांव, आनी नामो तुमी स्वता लेगीत बरोवंक शकतात.';
+  String get locationReasonPrivacyBody =>
+      'आमी फाटभुंयेर तुमचो माग काडिनांव, आनी नामो तुमी स्वता लेगीत बरोवंक शकतात.';
 
   @override
   String get allowLocation => 'सुवातेची परवानगी दियात';
@@ -425,16 +446,19 @@ class AppLocalizationsKok extends AppLocalizations {
   String get enterAddressManually => 'हांव नामो स्वता बरयतलों';
 
   @override
-  String get locationDenied => 'सुवातेची परवानगी मेळूंक ना. तुमी पिन स्वता दवरूंक शकतात.';
+  String get locationDenied =>
+      'सुवातेची परवानगी मेळूंक ना. तुमी पिन स्वता दवरूंक शकतात.';
 
   @override
-  String get locationDeniedForever => 'Nexmile खातीर सुवात बंद आसा. सेटिंग्जांत सुरू करात वा पिन स्वता दवरात.';
+  String get locationDeniedForever =>
+      'Nexmile खातीर सुवात बंद आसा. सेटिंग्जांत सुरू करात वा पिन स्वता दवरात.';
 
   @override
   String get locationServiceOff => 'ह्या उपकरणाचेर सुवात बंद आसा.';
 
   @override
-  String get locationUnavailable => 'सुवात मेळूंक ना. उपकार करून पिन स्वता दवरात.';
+  String get locationUnavailable =>
+      'सुवात मेळूंक ना. उपकार करून पिन स्वता दवरात.';
 
   @override
   String get openSettings => 'सेटिंग्ज';
@@ -443,7 +467,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get pinLocationTitle => 'तुमचो डिलिव्हरी पिन दवरात';
 
   @override
-  String get deliveryRadiusHint => 'वर्तूळ Nexmile डिलिव्हरी करता ती 1 किमी दाखयता.';
+  String get deliveryRadiusHint =>
+      'वर्तूळ Nexmile डिलिव्हरी करता ती 1 किमी दाखयता.';
 
   @override
   String get useMyLocation => 'म्हजी सुवात वापरात';
@@ -461,7 +486,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get addressDetailsTitle => 'नाम्याचो तपशील';
 
   @override
-  String get addressDetailsSubtitle => 'बरोबर दारा मेरेन पावपाक घर क्रमांक आनी खूण जोडात.';
+  String get addressDetailsSubtitle =>
+      'बरोबर दारा मेरेन पावपाक घर क्रमांक आनी खूण जोडात.';
 
   @override
   String get pinnedLocation => 'वेंचिल्ली सुवात';
@@ -539,7 +565,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get noAddressesTitle => 'अजून नामो ना';
 
   @override
-  String get noAddressesSubtitle => 'तुमकां डिलिव्हरी करपी दुकानां दाखोवपाक एक नामो जोडात.';
+  String get noAddressesSubtitle =>
+      'तुमकां डिलिव्हरी करपी दुकानां दाखोवपाक एक नामो जोडात.';
 
   @override
   String get addAddress => 'नामो जोडात';
@@ -726,7 +753,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get cancelOrderTitle => 'ही ऑर्डर रद्द करूं?';
 
   @override
-  String get cancelOrderMessage => 'रेस्टॉरंटान मान्य करचे आदींच रद्द करूं येता.';
+  String get cancelOrderMessage =>
+      'रेस्टॉरंटान मान्य करचे आदींच रद्द करूं येता.';
 
   @override
   String get cancelReasonLabel => 'कारण';
@@ -744,7 +772,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get editProfileTitle => 'प्रोफायल बदलात';
 
   @override
-  String get editProfileSubtitle => 'रेस्टॉरंट आनी डिलिव्हरी पार्टनराक तुमचें नांवच दिसता.';
+  String get editProfileSubtitle =>
+      'रेस्टॉरंट आनी डिलिव्हरी पार्टनराक तुमचें नांवच दिसता.';
 
   @override
   String get saveChanges => 'बदल जतनाय करात';
@@ -759,7 +788,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get deleteAccountTitle => 'तुमचें खातें काडूं?';
 
   @override
-  String get deleteAccountMessage => 'सगळ्या उपकरणांतल्यान सायन आवट जातले. पोरन्यो ऑर्डरी आनी बिलां कर नोंदींखातीर दवरतात.';
+  String get deleteAccountMessage =>
+      'सगळ्या उपकरणांतल्यान सायन आवट जातले. पोरन्यो ऑर्डरी आनी बिलां कर नोंदींखातीर दवरतात.';
 
   @override
   String get accountDeleted => 'तुमचें खातें काडलें';
@@ -783,7 +813,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get signOutDeviceTitle => 'हें उपकरण सायन आवट करूं?';
 
   @override
-  String get signOutDeviceMessage => 'तुमी हेंच उपकरण वापरता जाल्यार परतून सायन इन करचें पडटलें.';
+  String get signOutDeviceMessage =>
+      'तुमी हेंच उपकरण वापरता जाल्यार परतून सायन इन करचें पडटलें.';
 
   @override
   String get deviceSignedOut => 'उपकरण सायन आवट जालें';
@@ -795,7 +826,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get signOutEverywhereTitle => 'सगळेकडेन सायन आवट करूं?';
 
   @override
-  String get signOutEverywhereMessage => 'ह्या उपकरणासयत दर एक उपकरण सायन आवट जातलें.';
+  String get signOutEverywhereMessage =>
+      'ह्या उपकरणासयत दर एक उपकरण सायन आवट जातलें.';
 
   @override
   String get unknownDevice => 'अज्ञात उपकरण';
@@ -929,7 +961,8 @@ class AppLocalizationsKok extends AppLocalizations {
   String get noReviewsTitle => 'अजून एकूय रेटिंग ना';
 
   @override
-  String get noReviewsSubtitle => 'ऑर्डर केल्या उपरांत पयलें रेटिंग तुमीच दियात.';
+  String get noReviewsSubtitle =>
+      'ऑर्डर केल्या उपरांत पयलें रेटिंग तुमीच दियात.';
 
   @override
   String get rateOrderTitle => 'तुमच्या ऑर्डराक रेटिंग दियात';

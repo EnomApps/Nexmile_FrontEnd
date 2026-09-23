@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'app.dart';
 import 'core/network/api_client.dart';
 import 'core/push/device_registrar.dart';
+import 'core/push/firebase_push_service.dart';
 import 'core/push/push_service.dart';
 import 'core/services/preferences_service.dart';
 import 'features/address/data/address_repository.dart';
@@ -47,10 +48,12 @@ Future<void> main() async {
   // token provider.
   final ApiClient apiClient = ApiClient();
 
-  // The no-op transport until Firebase is wired in: the app builds, signs in
-  // and takes orders exactly as it does now, with nothing to register and no
-  // tap to route. See docs/PUSH-SETUP.md for the one-file swap.
-  const PushService pushService = NoopPushService();
+  // Firebase when the project credentials are in the build, and the no-op
+  // transport when they are not: a checkout with no `google-services.json`
+  // still builds, signs in and takes orders, with nothing to register and no
+  // tap to route. See docs/PUSH-SETUP.md.
+  final PushService pushService =
+      await FirebasePushService.start() ?? const NoopPushService();
   final DeviceRegistrar deviceRegistrar = DeviceRegistrar(
     push: pushService,
     repository: ApiDeviceRepository(apiClient),

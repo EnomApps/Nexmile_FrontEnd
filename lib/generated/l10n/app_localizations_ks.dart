@@ -21,7 +21,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get chooseLanguageTitle => 'پنُن زبان ژارٕو';
 
   @override
-  String get chooseLanguageSubtitle => 'یِم زبان چھِوٕ آسان محسوس کران سُہ ژارٕو۔ توہہِ ہیٚکِو یہ کُنہِ وقتہٕ سیٹِنگز منٛز بدلاوِتھ۔';
+  String get chooseLanguageSubtitle =>
+      'یِم زبان چھِوٕ آسان محسوس کران سُہ ژارٕو۔ توہہِ ہیٚکِو یہ کُنہِ وقتہٕ سیٹِنگز منٛز بدلاوِتھ۔';
 
   @override
   String get searchLanguageHint => 'زبان ژھانڈٕو';
@@ -47,7 +48,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get homeTitle => 'Nexmile منٛز خوش آمدید';
 
   @override
-  String get homeSubtitle => 'تازٕ گروسری، گرٕم کھَنہٕ تہٕ روزمرٕ ضرورتہٕ توہنٛدِن نزدیٚکی دُکانن پؠٹھٕ۔';
+  String get homeSubtitle =>
+      'تازٕ گروسری، گرٕم کھَنہٕ تہٕ روزمرٕ ضرورتہٕ توہنٛدِن نزدیٚکی دُکانن پؠٹھٕ۔';
 
   @override
   String get changeLanguage => 'زبان بدلاوٕو';
@@ -67,7 +69,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get loginTitle => 'Nexmile منٛز سائن اِن کرِو';
 
   @override
-  String get loginSubtitle => 'پنُن ای میل یا موبائل نمبر لیٚکھِو، اسہٕ سوزو توہہِ تصدیقی کوڈ۔';
+  String get loginSubtitle =>
+      'پنُن ای میل یا موبائل نمبر لیٚکھِو، اسہٕ سوزو توہہِ تصدیقی کوڈ۔';
 
   @override
   String get emailOrPhoneLabel => 'ای میل یا موبائل نمبر';
@@ -76,13 +79,15 @@ class AppLocalizationsKs extends AppLocalizations {
   String get emailOrPhoneHint => 'name@example.com یا 9876543210';
 
   @override
-  String get invalidEmailOrPhone => 'صحیح ای میل پتہٕ یا 10 ہندسن ہُند موبائل نمبر لیٚکھِو';
+  String get invalidEmailOrPhone =>
+      'صحیح ای میل پتہٕ یا 10 ہندسن ہُند موبائل نمبر لیٚکھِو';
 
   @override
   String get sendCode => 'کوڈ سوزِو';
 
   @override
-  String get agreeToTermsOnContinue => 'برونہہ گژھِتھ چھِوٕ توہہِ ساني سروس شرطن تہٕ پرائیویسی پالیسی سٕتؠ رٲضی گژھان۔';
+  String get agreeToTermsOnContinue =>
+      'برونہہ گژھِتھ چھِوٕ توہہِ ساني سروس شرطن تہٕ پرائیویسی پالیسی سٕتؠ رٲضی گژھان۔';
 
   @override
   String get otpTitle => 'تصدیق کرِو زِ یہ چھِوٕ توہہِ';
@@ -107,22 +112,27 @@ class AppLocalizationsKs extends AppLocalizations {
   String get codeResent => 'نوٚو کوڈ آو سوزنہٕ';
 
   @override
-  String get incorrectCode => 'یہ کوڈ چھُ غلط یا اَمِ ہُند وقت چھُ گۆمُت۔ نوٚو کوڈ ژھۆنڈِو۔';
+  String get incorrectCode =>
+      'یہ کوڈ چھُ غلط یا اَمِ ہُند وقت چھُ گۆمُت۔ نوٚو کوڈ ژھۆنڈِو۔';
 
   @override
   String get enterFullCode => 'پورٕ 6 ہندسہٕ لیٚکھِو';
 
   @override
-  String get accountSuspended => 'یہ کھاتہٕ چھُ معطل کرنہٕ آمُت۔ مہربٲنی کٔرِتھ سپورٹ سٕتؠ رٲبطہٕ کرِو۔';
+  String get accountSuspended =>
+      'یہ کھاتہٕ چھُ معطل کرنہٕ آمُت۔ مہربٲنی کٔرِتھ سپورٹ سٕتؠ رٲبطہٕ کرِو۔';
 
   @override
-  String get tooManyAttempts => 'زیادٕ کوششہٕ آیہ کرنہٕ۔ مہربٲنی کٔرِتھ کینٛہہ وقتہٕ پتہٕ دوبارٕ کوشش کرِو۔';
+  String get tooManyAttempts =>
+      'زیادٕ کوششہٕ آیہ کرنہٕ۔ مہربٲنی کٔرِتھ کینٛہہ وقتہٕ پتہٕ دوبارٕ کوشش کرِو۔';
 
   @override
-  String get sessionExpired => 'توہنٛد سیشن چھُ ختم گۆمُت۔ مہربٲنی کٔرِتھ دوبارٕ سائن اِن کرِو۔';
+  String get sessionExpired =>
+      'توہنٛد سیشن چھُ ختم گۆمُت۔ مہربٲنی کٔرِتھ دوبارٕ سائن اِن کرِو۔';
 
   @override
-  String get networkError => 'انٹرنیٹ کنکشن چھُ نہ۔ پنُن کنکشن چیک کٔرِتھ دوبارٕ کوشش کرِو۔';
+  String get networkError =>
+      'انٹرنیٹ کنکشن چھُ نہ۔ پنُن کنکشن چیک کٔرِتھ دوبارٕ کوشش کرِو۔';
 
   @override
   String get developmentCode => 'ڈیویلپمنٹ کوڈ';
@@ -134,7 +144,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get signedOut => 'توہہِ چھِوٕ سائن آوٹ گژھمٕتؠ';
 
   @override
-  String get somethingWentWrong => 'کینٛہہ غلط گو۔ مہربٲنی کٔرِتھ دوبارٕ کوشش کرِو۔';
+  String get somethingWentWrong =>
+      'کینٛہہ غلط گو۔ مہربٲنی کٔرِتھ دوبارٕ کوشش کرِو۔';
 
   @override
   String get profileTitle => 'پروفائل';
@@ -197,7 +208,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get searchNoResultsTitle => 'کینٛہہ نہ لبنہٕ آو';
 
   @override
-  String get searchNoResultsSubtitle => 'بیٚاکھ کھَنہٕ، پکاونُک طریقہٕ یا ریسٹورنٹ ناو آزماوِو۔';
+  String get searchNoResultsSubtitle =>
+      'بیٚاکھ کھَنہٕ، پکاونُک طریقہٕ یا ریسٹورنٹ ناو آزماوِو۔';
 
   @override
   String get cravingTitle => 'اَز کیٚاہ کھیٚنُک دِل چھُ؟';
@@ -277,7 +289,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get noVegDishesTitle => 'یَتہِ چھِ نہ سبزی کھَنہٕ';
 
   @override
-  String get noVegDishesSubtitle => 'پورٕ مینو وُچھنہٕ خٲطرٕ سبزی فلٹر بند کرِو۔';
+  String get noVegDishesSubtitle =>
+      'پورٕ مینو وُچھنہٕ خٲطرٕ سبزی فلٹر بند کرِو۔';
 
   @override
   String get replaceCartTitle => 'نوٚو کارٹ شُروع کرٕو؟';
@@ -297,7 +310,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get cartEmptyTitle => 'توہنٛد کارٹ چھُ خٲلی';
 
   @override
-  String get cartEmptySubtitle => 'شُروع کرنہٕ خٲطرٕ کُنہِ ریسٹورنٹ پؠٹھٕ کھَنہٕ شٲمِل کرِو۔';
+  String get cartEmptySubtitle =>
+      'شُروع کرنہٕ خٲطرٕ کُنہِ ریسٹورنٹ پؠٹھٕ کھَنہٕ شٲمِل کرِو۔';
 
   @override
   String get browseRestaurants => 'ریسٹورنٹ وُچھِو';
@@ -343,7 +357,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get ordersEmptyTitle => 'ناوُ کانہہ آرڈر نہ';
 
   @override
-  String get ordersEmptySubtitle => 'توہنٛدؠ برونہہ کٕنؠ آرڈر ییٚنہٕ یَتہِ ہاونہٕ۔';
+  String get ordersEmptySubtitle =>
+      'توہنٛدؠ برونہہ کٕنؠ آرڈر ییٚنہٕ یَتہِ ہاونہٕ۔';
 
   @override
   String get reorder => 'دوبارٕ آرڈر';
@@ -386,10 +401,12 @@ class AppLocalizationsKs extends AppLocalizations {
   String get backToHome => 'ہوم کُن واپس';
 
   @override
-  String get prototypeNotice => 'نمونہٕ سٹور فرنٹ — اصلی دُکان ییٚنہٕ کیٹلاگ API سٕتؠ۔';
+  String get prototypeNotice =>
+      'نمونہٕ سٹور فرنٹ — اصلی دُکان ییٚنہٕ کیٹلاگ API سٕتؠ۔';
 
   @override
-  String get prototypeCheckoutNotice => 'یہ چھُ اکھ پروٹوٹائپ۔ کانہہ أدایگی چھِ نہ ییٚنہٕ ہیٚنہٕ تہٕ نہ کانہہ اصلی آرڈر چھُ گژھان۔';
+  String get prototypeCheckoutNotice =>
+      'یہ چھُ اکھ پروٹوٹائپ۔ کانہہ أدایگی چھِ نہ ییٚنہٕ ہیٚنہٕ تہٕ نہ کانہہ اصلی آرڈر چھُ گژھان۔';
 
   @override
   String get prototypeTrackingNotice => 'پروٹوٹائپ خٲطرٕ چھُ ٹریکِنگ مصنوعی۔';
@@ -398,25 +415,29 @@ class AppLocalizationsKs extends AppLocalizations {
   String get locationTitle => 'ڈیلیوری کۄتہٕ کرٕو؟';
 
   @override
-  String get locationSubtitle => 'Nexmile کران چھُ صرف 1 کِلومیٹر اندر ہٕنٛدین دُکانن پؠٹھٕ ڈیلیوری، تہٕ امہِ خٲطرٕ چھُ توہنٛد صحیح جاے ضروری۔';
+  String get locationSubtitle =>
+      'Nexmile کران چھُ صرف 1 کِلومیٹر اندر ہٕنٛدین دُکانن پؠٹھٕ ڈیلیوری، تہٕ امہِ خٲطرٕ چھُ توہنٛد صحیح جاے ضروری۔';
 
   @override
   String get locationReasonRadiusTitle => '1 کِلومیٹر اندر ہٕنٛدؠ دُکان';
 
   @override
-  String get locationReasonRadiusBody => 'أسؠ چھِ صرف تِم باورچی خانہٕ ہاوان یَتہِ پؠٹھٕ کھَنہٕ گرٕم پکھِ۔';
+  String get locationReasonRadiusBody =>
+      'أسؠ چھِ صرف تِم باورچی خانہٕ ہاوان یَتہِ پؠٹھٕ کھَنہٕ گرٕم پکھِ۔';
 
   @override
   String get locationReasonAccuracyTitle => 'بالکل صحیح دَروازس تام';
 
   @override
-  String get locationReasonAccuracyBody => 'صحیح پِن آسِتھ چھُ ڈیلیوری پارٹنر فون کٔرِتھ بغٲر توہہِ تام واتان۔';
+  String get locationReasonAccuracyBody =>
+      'صحیح پِن آسِتھ چھُ ڈیلیوری پارٹنر فون کٔرِتھ بغٲر توہہِ تام واتان۔';
 
   @override
   String get locationReasonPrivacyTitle => 'صرف ایپ استعمال کران وقتہٕ';
 
   @override
-  String get locationReasonPrivacyBody => 'أسؠ چھِ نہ پس منظرس منٛز توہہِ ٹریک کران، تہٕ پتہٕ ہیٚکِو توہہِ پانہٕ تہِ لیٚکھِتھ۔';
+  String get locationReasonPrivacyBody =>
+      'أسؠ چھِ نہ پس منظرس منٛز توہہِ ٹریک کران، تہٕ پتہٕ ہیٚکِو توہہِ پانہٕ تہِ لیٚکھِتھ۔';
 
   @override
   String get allowLocation => 'جاے ہٕنٛز اجازت دِیِو';
@@ -425,16 +446,19 @@ class AppLocalizationsKs extends AppLocalizations {
   String get enterAddressManually => 'بہٕ لیٚکھہٕ پتہٕ پانہٕ';
 
   @override
-  String get locationDenied => 'جاے ہٕنٛز اجازت نہ میٚلہ۔ توہہِ ہیٚکِو پِن پانہٕ ٹھٲوِتھ۔';
+  String get locationDenied =>
+      'جاے ہٕنٛز اجازت نہ میٚلہ۔ توہہِ ہیٚکِو پِن پانہٕ ٹھٲوِتھ۔';
 
   @override
-  String get locationDeniedForever => 'Nexmile خٲطرٕ چھُ جاے بند۔ سیٹِنگز منٛز کھولٕو یا پِن پانہٕ ٹھٲوِو۔';
+  String get locationDeniedForever =>
+      'Nexmile خٲطرٕ چھُ جاے بند۔ سیٹِنگز منٛز کھولٕو یا پِن پانہٕ ٹھٲوِو۔';
 
   @override
   String get locationServiceOff => 'امہِ ڈیوائسس پؠٹھٕ چھُ جاے بند۔';
 
   @override
-  String get locationUnavailable => 'جاے نہ لبنہٕ آیہ۔ مہربٲنی کٔرِتھ پِن پانہٕ ٹھٲوِو۔';
+  String get locationUnavailable =>
+      'جاے نہ لبنہٕ آیہ۔ مہربٲنی کٔرِتھ پِن پانہٕ ٹھٲوِو۔';
 
   @override
   String get openSettings => 'سیٹِنگز';
@@ -443,7 +467,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get pinLocationTitle => 'پنُن ڈیلیوری پِن ٹھٲوِو';
 
   @override
-  String get deliveryRadiusHint => 'دٲیرٕ چھُ سُہ 1 کِلومیٹر ہاوان یَتہِ منٛز Nexmile ڈیلیوری کران چھُ۔';
+  String get deliveryRadiusHint =>
+      'دٲیرٕ چھُ سُہ 1 کِلومیٹر ہاوان یَتہِ منٛز Nexmile ڈیلیوری کران چھُ۔';
 
   @override
   String get useMyLocation => 'میٚون جاے استعمال کرِو';
@@ -461,7 +486,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get addressDetailsTitle => 'پتہٕ تفصیل';
 
   @override
-  String get addressDetailsSubtitle => 'صحیح دَروازس تام واتنہٕ خٲطرٕ گَرٕ نمبر تہٕ نِشٲنی شٲمِل کرِو۔';
+  String get addressDetailsSubtitle =>
+      'صحیح دَروازس تام واتنہٕ خٲطرٕ گَرٕ نمبر تہٕ نِشٲنی شٲمِل کرِو۔';
 
   @override
   String get pinnedLocation => 'ژارنہٕ آمٕژ جاے';
@@ -539,7 +565,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get noAddressesTitle => 'ناوُ کانہہ پتہٕ نہ';
 
   @override
-  String get noAddressesSubtitle => 'اَکھ پتہٕ شٲمِل کرِو تہٕ أسؠ ہیٚکَو توہہِ تام ڈیلیوری کران وٲلؠ دُکان ہٲوِتھ۔';
+  String get noAddressesSubtitle =>
+      'اَکھ پتہٕ شٲمِل کرِو تہٕ أسؠ ہیٚکَو توہہِ تام ڈیلیوری کران وٲلؠ دُکان ہٲوِتھ۔';
 
   @override
   String get addAddress => 'پتہٕ شٲمِل کرِو';
@@ -560,7 +587,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get deleteAddressTitle => 'یہ پتہٕ مِٹاوٕو؟';
 
   @override
-  String get deleteAddressMessage => 'توہہِ ہیٚکِو یہ پتہٕ دوبارٕ شٲمِل کٔرِتھ۔';
+  String get deleteAddressMessage =>
+      'توہہِ ہیٚکِو یہ پتہٕ دوبارٕ شٲمِل کٔرِتھ۔';
 
   @override
   String get rescueDealsTitle => 'فوڈ ریسکیو';
@@ -726,7 +754,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get cancelOrderTitle => 'یہ آرڈر منسوخ کریو؟';
 
   @override
-  String get cancelOrderMessage => 'ریستوران قبول کرنہٕ برونٛہہ ہی ہیکو منسوخ کٕرِتھ۔';
+  String get cancelOrderMessage =>
+      'ریستوران قبول کرنہٕ برونٛہہ ہی ہیکو منسوخ کٕرِتھ۔';
 
   @override
   String get cancelReasonLabel => 'وجہ';
@@ -744,7 +773,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get editProfileTitle => 'پروفائل تبدیل کریو';
 
   @override
-  String get editProfileSubtitle => 'ریستوران تہٕ ڈیلیوری پارٹنرَس چھُ توٚہنٛد ناو ہی بوٚزان۔';
+  String get editProfileSubtitle =>
+      'ریستوران تہٕ ڈیلیوری پارٹنرَس چھُ توٚہنٛد ناو ہی بوٚزان۔';
 
   @override
   String get saveChanges => 'تبدیلی محفوظ کریو';
@@ -759,7 +789,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get deleteAccountTitle => 'پنُن اکاؤنٹ مِٹٲویو؟';
 
   @override
-  String get deleteAccountMessage => 'سٲری ڈیوائسن پؠٹھٕ گژھِو سائن آؤٹ۔ پرانہٕ آرڈر تہٕ بل چھِ ٹیکس ریکارڈ خٲطرٕ رٹنہٕ یِوان۔';
+  String get deleteAccountMessage =>
+      'سٲری ڈیوائسن پؠٹھٕ گژھِو سائن آؤٹ۔ پرانہٕ آرڈر تہٕ بل چھِ ٹیکس ریکارڈ خٲطرٕ رٹنہٕ یِوان۔';
 
   @override
   String get accountDeleted => 'توٚہنٛد اکاؤنٹ آو مِٹاونہٕ';
@@ -774,7 +805,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get devicesEmptyTitle => 'بیٛاکھ کانہہ ڈیوائس چھُنہ';
 
   @override
-  String get devicesEmptySubtitle => 'توہہِ چھِو صرف یَتھ ڈیوائسس پؠٹھ سائن ان۔';
+  String get devicesEmptySubtitle =>
+      'توہہِ چھِو صرف یَتھ ڈیوائسس پؠٹھ سائن ان۔';
 
   @override
   String get signOutDevice => 'سائن آؤٹ';
@@ -783,7 +815,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get signOutDeviceTitle => 'یہ ڈیوائس کریو سائن آؤٹ؟';
 
   @override
-  String get signOutDeviceMessage => 'اگر توہہِ چھِو یہی ڈیوائس استعمال کران تہٕ پھیر گژھِو سائن ان کرُن۔';
+  String get signOutDeviceMessage =>
+      'اگر توہہِ چھِو یہی ڈیوائس استعمال کران تہٕ پھیر گژھِو سائن ان کرُن۔';
 
   @override
   String get deviceSignedOut => 'ڈیوائس گۄ سائن آؤٹ';
@@ -795,7 +828,8 @@ class AppLocalizationsKs extends AppLocalizations {
   String get signOutEverywhereTitle => 'ہر جایہٕ پؠٹھٕ کریو سائن آؤٹ؟';
 
   @override
-  String get signOutEverywhereMessage => 'یَتھ ڈیوائسس سٲتؠ سٲری ڈیوائسہٕ گژھن سائن آؤٹ۔';
+  String get signOutEverywhereMessage =>
+      'یَتھ ڈیوائسس سٲتؠ سٲری ڈیوائسہٕ گژھن سائن آؤٹ۔';
 
   @override
   String get unknownDevice => 'ناواقف ڈیوائس';
