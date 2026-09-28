@@ -10,6 +10,7 @@ import '../../auth/data/auth_failure.dart';
 import '../data/review_models.dart';
 import '../data/storefront_repository.dart';
 import 'widgets/catalogue_widgets.dart';
+import '../../../core/motion/nexmile_loader.dart';
 
 /// Everything customers have said about one restaurant.
 ///
@@ -132,6 +133,9 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
     return Scaffold(
       appBar: AppBar(title: Text(l10n.ratingsAndReviews)),
       body: RefreshIndicator(
+        color: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        displacement: 28,
         onRefresh: _load,
         child: CustomScrollView(
           controller: _scroll,
@@ -156,8 +160,8 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
             if (_isLoading)
               const SliverToBoxAdapter(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 48),
-                  child: Center(child: CircularProgressIndicator()),
+                  padding: EdgeInsets.symmetric(vertical: 40),
+                  child: NexmileLoader(),
                 ),
               )
             else if (_failure != null && _reviews.isEmpty)

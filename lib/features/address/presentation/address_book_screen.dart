@@ -116,6 +116,9 @@ class _AddressBookScreenState extends State<AddressBookScreen> {
               ),
             )
           : RefreshIndicator(
+        color: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        displacement: 28,
               onRefresh: () => context.read<AddressController>().load(),
               child: ListView.separated(
                 physics: const AlwaysScrollableScrollPhysics(),

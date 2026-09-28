@@ -14,6 +14,7 @@ import '../state/orders_controller.dart';
 import 'orders_tab.dart' show OrderStatusChip;
 import 'widgets/catalogue_widgets.dart';
 import 'widgets/rider_map.dart';
+import '../../../core/motion/nexmile_loader.dart';
 
 /// One order: where it is, what is in it, and what it cost.
 ///
@@ -142,7 +143,7 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
       return Scaffold(
         appBar: AppBar(),
         body: controller.isLoading
-            ? const Center(child: CircularProgressIndicator())
+            ? const NexmileLoader()
             : SingleChildScrollView(
                 child: EmptyState(
                   emoji: '📡',
@@ -253,7 +254,7 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
             const SizedBox(height: 16),
             _RiderCard(
               tracking: tracking,
-              orderId: order.id,
+              order: order,
               onCall: (String phone) => _open(Uri.parse('tel:$phone')),
             ),
           ],
@@ -423,12 +424,12 @@ class _HighlightState extends State<_Highlight>
 class _RiderCard extends StatelessWidget {
   const _RiderCard({
     required this.tracking,
-    required this.orderId,
+    required this.order,
     required this.onCall,
   });
 
   final OrderTracking tracking;
-  final int orderId;
+  final Order order;
   final ValueChanged<String> onCall;
 
   @override
@@ -492,7 +493,7 @@ class _RiderCard extends StatelessWidget {
             child: InkWell(
               onTap: () => Navigator.of(context).pushNamed(
                 AppRoutes.liveTracking,
-                arguments: OrderArgs(orderId: orderId),
+                arguments: OrderArgs(orderId: order.id),
               ),
               borderRadius: BorderRadius.circular(14),
               child: ClipRRect(
@@ -507,6 +508,8 @@ class _RiderCard extends StatelessWidget {
                             tracking.riderLatitude!,
                             tracking.riderLongitude!,
                           ),
+                          destination: order.deliveryLocation?.toLatLng(),
+                          restaurant: order.restaurantLocation?.toLatLng(),
                         ),
                       ),
                       Positioned(

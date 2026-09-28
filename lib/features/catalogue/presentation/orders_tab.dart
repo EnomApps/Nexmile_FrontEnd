@@ -10,6 +10,7 @@ import '../../auth/data/auth_failure.dart';
 import '../data/order_models.dart';
 import '../state/orders_controller.dart';
 import 'widgets/catalogue_widgets.dart';
+import '../../../core/motion/nexmile_loader.dart';
 
 /// Order history, newest first, with the in-flight ones lifted to the top.
 class OrdersTab extends StatefulWidget {
@@ -54,11 +55,14 @@ class _OrdersTabState extends State<OrdersTab> {
     return Scaffold(
       appBar: AppBar(title: Text(l10n.ordersTitle)),
       body: RefreshIndicator(
+        color: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        displacement: 28,
         onRefresh: _load,
         child: Builder(
           builder: (BuildContext context) {
             if (controller.isLoading && !controller.hasLoaded) {
-              return const Center(child: CircularProgressIndicator());
+              return const NexmileLoader();
             }
             if (controller.orders.isEmpty) {
               return ListView(

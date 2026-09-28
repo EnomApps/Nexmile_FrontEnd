@@ -45,6 +45,10 @@ class _LiveTrackingScreenState extends State<LiveTrackingScreen> {
     final ThemeData theme = Theme.of(context);
     final OrdersController controller = context.watch<OrdersController>();
     final OrderTracking? tracking = controller.tracking;
+    // The order carries the two fixed ends of the journey; the tracker carries
+    // the one that moves. Null while the order body is still loading, which is
+    // brief and only costs the two pins.
+    final Order? order = controller.current;
 
     return Scaffold(
       appBar: AppBar(title: Text(l10n.trackRider)),
@@ -65,6 +69,8 @@ class _LiveTrackingScreenState extends State<LiveTrackingScreen> {
                           tracking.riderLatitude!,
                           tracking.riderLongitude!,
                         ),
+                        destination: order?.deliveryLocation?.toLatLng(),
+                        restaurant: order?.restaurantLocation?.toLatLng(),
                         interactive: true,
                         follow: _follow,
                       ),

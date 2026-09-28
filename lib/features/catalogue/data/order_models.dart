@@ -171,6 +171,47 @@ class OrderTimelineEntry {
       );
 }
 
+/// A point on the map, as the API gives it.
+///
+/// Plain doubles rather than a `LatLng`: the map package is a presentation
+/// choice — OpenStreetMap today, Google Maps once the keys land — and the
+/// decoding layer should not have to change when that does.
+@immutable
+class GeoPoint {
+  const GeoPoint({required this.latitude, required this.longitude});
+
+  final double latitude;
+  final double longitude;
+
+  /// Null unless **both** halves are present.
+  ///
+  /// The API returns null for either when a merchant has not set their
+  /// location or an address predates the coordinate requirement, and half a
+  /// coordinate is not a place — it is a pin in the Gulf of Guinea.
+  static GeoPoint? fromJson(Map<String, dynamic>? json) {
+    if (json == null) return null;
+    final Object? lat = json['latitude'];
+    final Object? lng = json['longitude'];
+    if (lat == null || lng == null) return null;
+
+    final double latitude = asDouble(lat);
+    final double longitude = asDouble(lng);
+    // A string the parser could not read comes back as zero, which is a real
+    // coordinate off the coast of Africa rather than a missing one.
+    if (latitude == 0 && longitude == 0) return null;
+    return GeoPoint(latitude: latitude, longitude: longitude);
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      other is GeoPoint &&
+      other.latitude == latitude &&
+      other.longitude == longitude;
+
+  @override
+  int get hashCode => Object.hash(latitude, longitude);
+}
+
 @immutable
 class Order {
   const Order({
@@ -188,6 +229,8 @@ class Order {
     required this.items,
     required this.timeline,
     this.restaurantName,
+    this.restaurantLocation,
+    this.deliveryLocation,
     this.customerNote,
     this.pickupCode,
     this.estimatedPrepMinutes,
@@ -208,6 +251,15 @@ class Order {
 
   final FulfilmentType fulfilmentType;
   final String? restaurantName;
+
+  /// Where the food is coming from, and where it is going.
+  ///
+  /// Either can be null — a merchant who never set their location, an address
+  /// saved before coordinates were required. The map draws what it has rather
+  /// than waiting for both.
+  final GeoPoint? restaurantLocation;
+  final GeoPoint? deliveryLocation;
+
   final String? customerNote;
 
   final double itemsTotal;
@@ -246,6 +298,15 @@ class Order {
       statusLabel: asString(json['status_label']),
       fulfilmentType: fulfilmentFrom(json['fulfilment_type']),
       restaurantName: (json['restaurant_name'] ?? r['name']) as String?,
+      restaurantLocation: GeoPoint.fromJson(r),
+      // Taken from the saved address rather than geocoded from its text: the
+      // customer dropped that pin themselves, and reverse-geocoding a narrow
+      // street puts it on the wrong side often enough to matter.
+      deliveryLocation: GeoPoint.fromJson(
+        json['delivery_address'] is Map<String, dynamic>
+            ? json['delivery_address'] as Map<String, dynamic>
+            : null,
+      ),
       customerNote: json['customer_note'] as String?,
       itemsTotal: asDouble(json['items_total']),
       packagingFee: asDouble(json['packaging_fee']),

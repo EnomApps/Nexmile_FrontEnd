@@ -3,6 +3,15 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../../../../core/theme/app_colors.dart';
+import '../../data/order_models.dart';
+
+/// Bridges the decoded coordinate to the map package's own type.
+///
+/// Lives here rather than on [GeoPoint] so that swapping `flutter_map` for
+/// Google Maps touches this folder and nothing in `data/`.
+extension GeoPointToLatLng on GeoPoint {
+  LatLng toLatLng() => LatLng(latitude, longitude);
+}
 
 /// The OpenStreetMap tile server.
 ///
@@ -25,6 +34,7 @@ class RiderMap extends StatefulWidget {
     super.key,
     required this.rider,
     this.destination,
+    this.restaurant,
     this.interactive = false,
     this.follow = true,
     this.zoom = 15.5,
@@ -33,11 +43,16 @@ class RiderMap extends StatefulWidget {
   /// The newest position from the tracker.
   final LatLng rider;
 
-  /// Where the order is going, when the API tells us — it does not yet, so
-  /// this is null in the app today and the map shows the rider alone. The
-  /// moment `delivery_address` carries a latitude and longitude, passing it
-  /// here draws the destination pin and the line to it.
+  /// Where the order is going. Null when the saved address predates the
+  /// coordinate requirement, in which case the rider is drawn alone rather
+  /// than against a guess.
   final LatLng? destination;
+
+  /// Where it came from. Null when the merchant never set a location.
+  ///
+  /// Drawn smaller and quieter than the other two: once a rider is moving, the
+  /// shop is context for the journey rather than part of it.
+  final LatLng? restaurant;
 
   final bool interactive;
 
@@ -135,6 +150,17 @@ class _RiderMapState extends State<RiderMap> with TickerProviderStateMixin {
           ),
         MarkerLayer(
           markers: <Marker>[
+            if (widget.restaurant != null)
+              Marker(
+                point: widget.restaurant!,
+                width: 28,
+                height: 28,
+                child: _Pin(
+                  icon: Icons.storefront_rounded,
+                  colour: theme.colorScheme.onSurfaceVariant,
+                  size: 14,
+                ),
+              ),
             if (destination != null)
               Marker(
                 point: destination,
@@ -159,10 +185,11 @@ class _RiderMapState extends State<RiderMap> with TickerProviderStateMixin {
 }
 
 class _Pin extends StatelessWidget {
-  const _Pin({required this.icon, required this.colour});
+  const _Pin({required this.icon, required this.colour, this.size = 17});
 
   final IconData icon;
   final Color colour;
+  final double size;
 
   @override
   Widget build(BuildContext context) {
@@ -179,7 +206,7 @@ class _Pin extends StatelessWidget {
           ),
         ],
       ),
-      child: Icon(icon, size: 17, color: Colors.white),
+      child: Icon(icon, size: size, color: Colors.white),
     );
   }
 }

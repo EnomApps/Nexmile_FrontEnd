@@ -12,6 +12,7 @@ import '../state/cart_controller.dart';
 import '../state/orders_controller.dart';
 import 'widgets/catalogue_widgets.dart';
 import 'widgets/checkout_sheet.dart';
+import '../../../core/motion/nexmile_loader.dart';
 
 /// One restaurant's basket, and the way out of it.
 class CartScreen extends StatefulWidget {
@@ -133,7 +134,7 @@ class _CartScreenState extends State<CartScreen> {
     if (controller.isLoading && cart == null) {
       return Scaffold(
         appBar: AppBar(title: Text(l10n.cartTitle)),
-        body: const Center(child: CircularProgressIndicator()),
+        body: const NexmileLoader(),
       );
     }
 

@@ -139,6 +139,14 @@ class AppTheme {
         ),
       ),
 
+      // Pull-to-refresh, in one place rather than at each of the seven call
+      // sites. Flutter's default is the framework's blue on white, which is
+      // the one piece of chrome that still looked like a sample app.
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: scheme.primary,
+        linearTrackColor: scheme.surfaceContainerHighest,
+        circularTrackColor: Colors.transparent,
+      ),
       snackBarTheme: SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
         backgroundColor: scheme.inverseSurface,

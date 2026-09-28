@@ -8,6 +8,7 @@ import '../auth/data/auth_failure.dart';
 import '../auth/data/device_session.dart';
 import '../auth/state/auth_controller.dart';
 import '../catalogue/presentation/widgets/catalogue_widgets.dart';
+import '../../core/motion/nexmile_loader.dart';
 
 /// "Where am I signed in" — every device holding a live refresh token.
 ///
@@ -144,11 +145,14 @@ class _DevicesScreenState extends State<DevicesScreen> {
     return Scaffold(
       appBar: AppBar(title: Text(l10n.devicesTitle)),
       body: RefreshIndicator(
+        color: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        displacement: 28,
         onRefresh: _load,
         child: Builder(
           builder: (BuildContext context) {
             if (_isLoading && _sessions.isEmpty) {
-              return const Center(child: CircularProgressIndicator());
+              return const NexmileLoader();
             }
             if (_failure != null && _sessions.isEmpty) {
               return ListView(

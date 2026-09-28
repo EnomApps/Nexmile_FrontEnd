@@ -13,6 +13,7 @@ import '../auth/data/auth_failure.dart';
 import '../auth/data/auth_user.dart';
 import '../auth/state/auth_controller.dart';
 import 'edit_profile_sheet.dart';
+import '../../core/motion/nexmile_loader.dart';
 
 /// Customer profile, backed by `GET /v1/profile`.
 ///
@@ -76,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       // Only reachable for a blink between sign-out and the route swap.
       return Scaffold(
         appBar: AppBar(title: Text(l10n.profileTitle)),
-        body: const Center(child: CircularProgressIndicator()),
+        body: const NexmileLoader(),
       );
     }
 
@@ -99,6 +100,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ],
       ),
       body: RefreshIndicator(
+        color: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        displacement: 28,
         onRefresh: _load,
         child: ListView(
           // Always scrollable so pull-to-refresh works even when the content

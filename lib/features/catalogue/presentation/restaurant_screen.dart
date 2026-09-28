@@ -139,6 +139,9 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
 
     return Scaffold(
       body: RefreshIndicator(
+        color: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        displacement: 28,
         onRefresh: _load,
         child: CustomScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
