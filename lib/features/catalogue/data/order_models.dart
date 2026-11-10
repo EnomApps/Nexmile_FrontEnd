@@ -174,8 +174,7 @@ class OrderTimelineEntry {
 /// A point on the map, as the API gives it.
 ///
 /// Plain doubles rather than a `LatLng`: the map package is a presentation
-/// choice — OpenStreetMap today, Google Maps once the keys land — and the
-/// decoding layer should not have to change when that does.
+/// choice, and the decoding layer should not have to change if it does.
 @immutable
 class GeoPoint {
   const GeoPoint({required this.latitude, required this.longitude});
@@ -226,6 +225,8 @@ class Order {
     required this.discountTotal,
     required this.taxTotal,
     required this.grandTotal,
+    this.walletAmount = 0,
+    this.codAmount,
     required this.items,
     required this.timeline,
     this.restaurantName,
@@ -268,6 +269,13 @@ class Order {
   final double discountTotal;
   final double taxTotal;
   final double grandTotal;
+
+  /// What the wallet paid. Zero for an order paid entirely in cash.
+  final double walletAmount;
+
+  /// What the rider collects at the door. Null from a server that predates
+  /// the wallet, where it is the whole [grandTotal].
+  final double? codAmount;
 
   /// Shown to the customer at the counter on a self-pickup order.
   final String? pickupCode;
@@ -314,6 +322,10 @@ class Order {
       discountTotal: asDouble(json['discount_total']),
       taxTotal: asDouble(json['tax_total']),
       grandTotal: asDouble(json['grand_total']),
+      walletAmount: asDouble(json['wallet_amount']),
+      codAmount: json['cod_amount'] == null
+          ? null
+          : asDouble(json['cod_amount']),
       pickupCode: json['pickup_code'] as String?,
       estimatedPrepMinutes: json['estimated_prep_minutes'] == null
           ? null
@@ -345,8 +357,13 @@ class OrderTracking {
     this.pickupCode,
     this.riderName,
     this.riderPhone,
+    this.riderVehicleNumber,
     this.riderLatitude,
     this.riderLongitude,
+    this.riderHeading,
+    this.riderUpdatedAt,
+    this.route = const <GeoPoint>[],
+    this.staleAfter = const Duration(seconds: 45),
     this.cancellationReason,
   });
 
@@ -358,14 +375,41 @@ class OrderTracking {
   final String? riderName;
   final String? riderPhone;
 
+  /// The plate, so the customer can pick the right bike out of a crowd.
+  final String? riderVehicleNumber;
+
   /// Live position, present only while a rider is carrying the order.
   final double? riderLatitude;
   final double? riderLongitude;
+
+  /// Direction of travel, 0-360 clockwise from north. Null while the rider is
+  /// standing still or the server does not send it yet.
+  final double? riderHeading;
+
+  /// When the rider's phone took the fix, not when we polled for it.
+  final DateTime? riderUpdatedAt;
+
+  /// The road the rider is expected to take, rider first. Empty until the
+  /// server computes one, in which case the map falls back to a dashed line
+  /// of sight.
+  final List<GeoPoint> route;
+
+  /// How old a fix may get before the map says it is updating. Published by
+  /// the server as `stale_after_seconds` so both ends use the same number.
+  final Duration staleAfter;
 
   final String? cancellationReason;
 
   bool get hasRiderPosition =>
       riderLatitude != null && riderLongitude != null;
+
+  /// True when the last fix is older than [staleAfter], which usually means a
+  /// patch of no signal. The rider sends every 10 seconds and we poll every
+  /// 8, so the default of 45 seconds is several misses.
+  bool isStale(DateTime now) {
+    final DateTime? at = riderUpdatedAt;
+    return at != null && now.difference(at) > staleAfter;
+  }
 
   static OrderTracking fromJson(Map<String, dynamic> json) {
     final Object? rider = json['rider'];
@@ -386,11 +430,57 @@ class OrderTracking {
       pickupCode: json['pickup_code'] as String?,
       riderName: r['name'] as String?,
       riderPhone: r['phone'] as String?,
+      riderVehicleNumber: r['vehicle_number'] as String?,
       riderLatitude:
           p['latitude'] == null ? null : asDouble(p['latitude']),
       riderLongitude:
           p['longitude'] == null ? null : asDouble(p['longitude']),
+      riderHeading: p['heading'] == null ? null : asDouble(p['heading']),
+      riderUpdatedAt: DateTime.tryParse(
+        (p['updated_at'] ?? r['updated_at'] ?? '').toString(),
+      ),
+      route: json['route'] is String
+          ? decodePolyline(json['route'] as String)
+          : const <GeoPoint>[],
+      staleAfter: json['stale_after_seconds'] == null
+          ? const Duration(seconds: 45)
+          : Duration(seconds: asInt(json['stale_after_seconds'], 45)),
       cancellationReason: json['cancellation_reason'] as String?,
     );
   }
+}
+
+/// Decodes a Google encoded polyline, the format the Directions API returns
+/// its route in.
+///
+/// A malformed string decodes to as many points as it got through rather than
+/// throwing: half a route line is still better than no tracking screen.
+List<GeoPoint> decodePolyline(String encoded) {
+  final List<GeoPoint> points = <GeoPoint>[];
+  int index = 0;
+  int lat = 0;
+  int lng = 0;
+
+  int? next() {
+    int result = 0;
+    int shift = 0;
+    int byte;
+    do {
+      if (index >= encoded.length) return null;
+      byte = encoded.codeUnitAt(index++) - 63;
+      result |= (byte & 0x1f) << shift;
+      shift += 5;
+    } while (byte >= 0x20);
+    return (result & 1) != 0 ? ~(result >> 1) : result >> 1;
+  }
+
+  while (index < encoded.length) {
+    final int? dLat = next();
+    final int? dLng = next();
+    if (dLat == null || dLng == null) break;
+    lat += dLat;
+    lng += dLng;
+    points.add(GeoPoint(latitude: lat / 1e5, longitude: lng / 1e5));
+  }
+  return points;
 }

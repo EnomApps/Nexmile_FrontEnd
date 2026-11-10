@@ -109,6 +109,7 @@ abstract class StorefrontRepository {
     String restaurantId, {
     required FulfilmentType fulfilmentType,
     required String paymentMethod,
+    bool useWallet = false,
     int? addressId,
     String? note,
   });
@@ -338,6 +339,7 @@ class ApiStorefrontRepository implements StorefrontRepository {
     String restaurantId, {
     required FulfilmentType fulfilmentType,
     required String paymentMethod,
+    bool useWallet = false,
     int? addressId,
     String? note,
   }) async {
@@ -346,6 +348,9 @@ class ApiStorefrontRepository implements StorefrontRepository {
       body: <String, dynamic>{
         'fulfilment_type': fulfilmentType.name,
         'payment_method': paymentMethod,
+        // The server takes as much of the order as the balance covers, and
+        // [paymentMethod] pays whatever is left.
+        if (useWallet) 'use_wallet': true,
         // Pickup carries no address and no delivery fee.
         if (fulfilmentType == FulfilmentType.delivery && addressId != null)
           'address_id': addressId,

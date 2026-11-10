@@ -749,6 +749,9 @@ class AppLocalizationsHi extends AppLocalizations {
       'ऑर्डर उठाते ही आपके राइडर की लोकेशन यहाँ दिखेगी।';
 
   @override
+  String get riderLocationStale => 'Updating rider\'s location…';
+
+  @override
   String get recentreOnRider => 'राइडर पर केंद्रित करें';
 
   @override
@@ -988,4 +991,138 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get rateThisOrder => 'इस ऑर्डर को रेट करें';
+
+  @override
+  String get walletTitle => 'Nexmile Wallet';
+
+  @override
+  String get walletBalance => 'Wallet balance';
+
+  @override
+  String get walletBalanceHint => 'Use it to pay for any order.';
+
+  @override
+  String get walletAddMoney => 'Add money';
+
+  @override
+  String get walletEnterAmount => 'Enter amount';
+
+  @override
+  String walletAmountRange(String min, String max) {
+    return 'Between $min and $max';
+  }
+
+  @override
+  String walletAddAmount(String amount) {
+    return 'Add $amount';
+  }
+
+  @override
+  String get walletSecuredBy => 'Payments are secured by Razorpay';
+
+  @override
+  String get walletHistory => 'History';
+
+  @override
+  String get walletNoHistory =>
+      'No transactions yet. Money you add or spend will show here.';
+
+  @override
+  String get walletEntryTopUp => 'Money added';
+
+  @override
+  String get walletEntryOrder => 'Paid for an order';
+
+  @override
+  String walletEntryOrderNumber(String number) {
+    return 'Paid for order $number';
+  }
+
+  @override
+  String get walletEntryRefund => 'Refund';
+
+  @override
+  String walletMoneyAdded(String amount) {
+    return '$amount added to your wallet';
+  }
+
+  @override
+  String get walletPaymentFailed =>
+      'Payment failed. No money was taken from your account.';
+
+  @override
+  String get walletPaymentConfirming =>
+      'Payment received. Your balance will update in a few minutes.';
+
+  @override
+  String get walletUseBalance => 'Use wallet balance';
+
+  @override
+  String walletAvailable(String amount) {
+    return 'Available: $amount';
+  }
+
+  @override
+  String get walletPaidFromWallet => 'Paid from wallet';
+
+  @override
+  String get walletPayOnDelivery => 'Pay on delivery';
+
+  @override
+  String get walletCoversOrder => 'Paid fully from your wallet';
+
+  @override
+  String walletRestOnDelivery(String wallet, String rest) {
+    return '$wallet from wallet, $rest on delivery';
+  }
+
+  @override
+  String get walletTopUpUnavailable =>
+      'Adding money isn\'t available right now. Please try again later.';
+
+  @override
+  String walletFull(String limit) {
+    return 'Your wallet is at its $limit limit.';
+  }
+
+  @override
+  String get searchAddressHint => 'Search area, street or landmark';
+
+  @override
+  String get searchAddressNoResults =>
+      'No places found. Try a nearby landmark, area name or pincode.';
+
+  @override
+  String get clearLabel => 'Clear';
+
+  @override
+  String trackingArrivingBy(String time) {
+    return 'Arriving by $time';
+  }
+
+  @override
+  String get trackingArrivingNow => 'Arriving now';
+
+  @override
+  String get trackingLive => 'Live';
+
+  @override
+  String get trackingStepConfirmed => 'Confirmed';
+
+  @override
+  String get trackingStepPreparing => 'Preparing';
+
+  @override
+  String get trackingStepOnTheWay => 'On the way';
+
+  @override
+  String get trackingStepDelivered => 'Delivered';
+
+  @override
+  String get trackingFindingRider => 'Assigning a delivery partner…';
+
+  @override
+  String trackingOrderFrom(String restaurant) {
+    return 'From $restaurant';
+  }
 }

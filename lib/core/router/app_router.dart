@@ -22,6 +22,7 @@ import '../../features/profile/devices_screen.dart';
 import '../../features/profile/profile_screen.dart';
 import '../../features/shell/app_shell.dart';
 import '../../features/splash/splash_screen.dart';
+import '../../features/wallet/presentation/wallet_screen.dart';
 
 class AppRoutes {
   const AppRoutes._();
@@ -41,6 +42,9 @@ class AppRoutes {
 
   /// "Where am I signed in" — every device holding a live refresh token.
   static const String devices = '/devices';
+
+  /// Balance, add money, and history.
+  static const String wallet = '/wallet';
 
   /// Pushed from the header search field rather than living in the tab bar.
   static const String search = '/search';
@@ -219,6 +223,9 @@ class AppRouter {
 
       case AppRoutes.devices:
         return _slideRoute(const DevicesScreen(), settings);
+
+      case AppRoutes.wallet:
+        return _slideRoute(const WalletScreen(), settings);
 
       case AppRoutes.search:
         final Object? args = settings.arguments;

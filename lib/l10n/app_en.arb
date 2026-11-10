@@ -796,6 +796,9 @@
   "riderLocationSoon": "Your rider's location will appear here once they pick up your order.",
   "@riderLocationSoon": {"description":"Shown on the tracking map before a rider has picked the order up."},
 
+  "riderLocationStale": "Updating rider's location…",
+  "@riderLocationStale": {"description":"Shown over the tracking map when the rider's last position is old, usually a patch of poor signal."},
+
   "recentreOnRider": "Recentre on rider",
   "@recentreOnRider": {"description":"Tooltip on the button that snaps the map back to the rider."},
   "@callRider": {"description":"Tooltip on the button that dials the delivery partner."},
@@ -1037,5 +1040,115 @@
   "rateThisOrder": "Rate this order",
   "@rateThisOrder": {
     "description": "Call to action on a delivered order."
-  }
+  },
+  "walletTitle": "Nexmile Wallet",
+  "@walletTitle": {"description": "Title of the wallet screen and the profile entry that opens it."},
+
+  "walletBalance": "Wallet balance",
+  "@walletBalance": {"description": "Label above the balance on the wallet card."},
+
+  "walletBalanceHint": "Use it to pay for any order.",
+  "@walletBalanceHint": {"description": "Small line under the balance on the wallet card."},
+
+  "walletAddMoney": "Add money",
+  "@walletAddMoney": {"description": "Heading of the add-money section, and the button before an amount is entered."},
+
+  "walletEnterAmount": "Enter amount",
+  "@walletEnterAmount": {"description": "Hint in the amount field."},
+
+  "walletAmountRange": "Between {min} and {max}",
+  "@walletAmountRange": {"description": "Helper under the amount field. Amounts arrive formatted with ₹.", "placeholders": {"min": {"type": "String", "example": "₹10"}, "max": {"type": "String", "example": "₹10000"}}},
+
+  "walletAddAmount": "Add {amount}",
+  "@walletAddAmount": {"description": "Add-money button once an amount is entered.", "placeholders": {"amount": {"type": "String", "example": "₹500"}}},
+
+  "walletSecuredBy": "Payments are secured by Razorpay",
+  "@walletSecuredBy": {"description": "Reassurance under the add-money button. Razorpay is a brand name."},
+
+  "walletHistory": "History",
+  "@walletHistory": {"description": "Heading of the transaction list."},
+
+  "walletNoHistory": "No transactions yet. Money you add or spend will show here.",
+  "@walletNoHistory": {"description": "Empty state of the transaction list."},
+
+  "walletEntryTopUp": "Money added",
+  "@walletEntryTopUp": {"description": "A top-up in the transaction list."},
+
+  "walletEntryOrder": "Paid for an order",
+  "@walletEntryOrder": {"description": "An order payment whose order number is unknown."},
+
+  "walletEntryOrderNumber": "Paid for order {number}",
+  "@walletEntryOrderNumber": {"description": "An order payment in the transaction list.", "placeholders": {"number": {"type": "String", "example": "NX260923JQQC"}}},
+
+  "walletEntryRefund": "Refund",
+  "@walletEntryRefund": {"description": "Money returned to the wallet from a cancelled order."},
+
+  "walletMoneyAdded": "{amount} added to your wallet",
+  "@walletMoneyAdded": {"description": "Shown after a successful top-up.", "placeholders": {"amount": {"type": "String", "example": "₹500"}}},
+
+  "walletPaymentFailed": "Payment failed. No money was taken from your account.",
+  "@walletPaymentFailed": {"description": "Shown when the gateway declines a top-up."},
+
+  "walletPaymentConfirming": "Payment received. Your balance will update in a few minutes.",
+  "@walletPaymentConfirming": {"description": "Shown when the payment went through but the server has not confirmed it yet."},
+
+  "walletUseBalance": "Use wallet balance",
+  "@walletUseBalance": {"description": "Checkout switch that spends the wallet on this order."},
+
+  "walletAvailable": "Available: {amount}",
+  "@walletAvailable": {"description": "Under the checkout switch, the current balance.", "placeholders": {"amount": {"type": "String", "example": "₹250"}}},
+
+  "walletPaidFromWallet": "Paid from wallet",
+  "@walletPaidFromWallet": {"description": "Bill row for the wallet's share of the order."},
+
+  "walletPayOnDelivery": "Pay on delivery",
+  "@walletPayOnDelivery": {"description": "Bill row for what is left to pay in cash after the wallet."},
+
+  "walletCoversOrder": "Paid fully from your wallet",
+  "@walletCoversOrder": {"description": "Payment line at checkout when the wallet covers the whole order."},
+
+  "walletRestOnDelivery": "{wallet} from wallet, {rest} on delivery",
+  "@walletRestOnDelivery": {"description": "Payment line at checkout when the wallet covers part of the order.", "placeholders": {"wallet": {"type": "String", "example": "₹150"}, "rest": {"type": "String", "example": "₹68"}}},
+
+  "walletTopUpUnavailable": "Adding money isn't available right now. Please try again later.",
+  "@walletTopUpUnavailable": {"description": "Shown when the server's payment gateway is not switched on (503)."},
+
+  "walletFull": "Your wallet is at its {limit} limit.",
+  "@walletFull": {"description": "Shown instead of add money when the balance is at the ceiling. The limit arrives formatted with ₹.", "placeholders": {"limit": {"type": "String", "example": "₹10000"}}},
+
+  "searchAddressHint": "Search area, street or landmark",
+  "@searchAddressHint": {"description": "Search bar on the pin map, and the hint in the search field it opens."},
+
+  "searchAddressNoResults": "No places found. Try a nearby landmark, area name or pincode.",
+  "@searchAddressNoResults": {"description": "Shown when an address search returns nothing."},
+
+  "clearLabel": "Clear",
+  "@clearLabel": {"description": "Tooltip on the button that empties a search field."},
+
+  "trackingArrivingBy": "Arriving by {time}",
+  "@trackingArrivingBy": {"description": "Under the ETA on the tracking sheet. The time arrives formatted for the locale.", "placeholders": {"time": {"type": "String", "example": "8:42 PM"}}},
+
+  "trackingArrivingNow": "Arriving now",
+  "@trackingArrivingNow": {"description": "Tracking sheet headline when the rider is a minute or less away."},
+
+  "trackingLive": "Live",
+  "@trackingLive": {"description": "Small badge on the tracking sheet showing the position is updating live."},
+
+  "trackingStepConfirmed": "Confirmed",
+  "@trackingStepConfirmed": {"description": "Progress step: the restaurant accepted the order."},
+
+  "trackingStepPreparing": "Preparing",
+  "@trackingStepPreparing": {"description": "Progress step: the food is being cooked."},
+
+  "trackingStepOnTheWay": "On the way",
+  "@trackingStepOnTheWay": {"description": "Progress step: the rider has the food."},
+
+  "trackingStepDelivered": "Delivered",
+  "@trackingStepDelivered": {"description": "Progress step: the order arrived."},
+
+  "trackingFindingRider": "Assigning a delivery partner…",
+  "@trackingFindingRider": {"description": "Tracking sheet before a rider is assigned."},
+
+  "trackingOrderFrom": "From {restaurant}",
+  "@trackingOrderFrom": {"description": "Order line on the tracking sheet.", "placeholders": {"restaurant": {"type": "String", "example": "Murugan Idli Shop"}}}
 }

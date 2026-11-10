@@ -12,6 +12,8 @@ import '../address/state/address_controller.dart';
 import '../auth/data/auth_failure.dart';
 import '../auth/data/auth_user.dart';
 import '../auth/state/auth_controller.dart';
+import '../catalogue/presentation/widgets/catalogue_widgets.dart';
+import '../wallet/state/wallet_controller.dart';
 import 'edit_profile_sheet.dart';
 import '../../core/motion/nexmile_loader.dart';
 
@@ -47,7 +49,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     final NavigatorState navigator = Navigator.of(context);
     final AuthController auth = context.read<AuthController>();
+    // The wallet tile's balance. Its failure is the wallet screen's to show,
+    // not this one's, so it is not awaited into [failure].
+    final Future<AuthFailure?> wallet = context.read<WalletController>().load();
     final AuthFailure? failure = await auth.loadProfile();
+    await wallet;
 
     if (!mounted) return;
 
@@ -72,6 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final AppLocalizations l10n = AppLocalizations.of(context);
     final AuthUser? user = context.watch<AuthController>().user;
     final AppLanguage language = context.watch<LocaleController>().language;
+    final WalletController wallet = context.watch<WalletController>();
 
     if (user == null) {
       // Only reachable for a blink between sign-out and the route swap.
@@ -162,6 +169,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 label: _statusLabel(user.status, l10n),
                 tone: _statusTone(user.status),
               ),
+            ),
+            const SizedBox(height: 12),
+            InfoTile(
+              icon: Icons.account_balance_wallet_outlined,
+              label: l10n.walletTitle,
+              // A balance only once the server has given one; before that,
+              // the tile is an invitation rather than a claim of ₹0.
+              value: wallet.isAvailable
+                  ? formatRupees(wallet.balance)
+                  : l10n.walletAddMoney,
+              emphasise: wallet.isAvailable,
+              valueDirection: wallet.isAvailable ? TextDirection.ltr : null,
+              onTap: () => Navigator.of(context).pushNamed(AppRoutes.wallet),
             ),
             const SizedBox(height: 12),
             InfoTile(
@@ -260,6 +280,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         false;
     if (!confirmed || !mounted) return;
 
+    final WalletController wallet = context.read<WalletController>();
     final AuthFailure? failure = await auth.deleteAccount();
     if (!mounted) return;
     if (failure != null) {
@@ -268,6 +289,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ..showSnackBar(SnackBar(content: Text(failure.message(l10n))));
       return;
     }
+    wallet.clear();
     navigator.pushNamedAndRemoveUntil(
       AppRoutes.login,
       (Route<void> route) => false,
@@ -285,6 +307,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     // Clear the address book too, or the next customer to sign in on this
     // device inherits the previous one's saved addresses.
     context.read<AddressController>().clear();
+    context.read<WalletController>().clear();
     await context.read<AuthController>().signOut();
     if (!mounted) return;
 

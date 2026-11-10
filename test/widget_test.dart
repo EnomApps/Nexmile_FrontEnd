@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
 
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:nexmile/app.dart';
+import 'package:provider/provider.dart';
 import 'package:nexmile/core/constants/app_assets.dart';
 import 'package:nexmile/core/localization/app_language.dart';
 import 'package:nexmile/core/network/api_client.dart';
@@ -53,6 +55,8 @@ import 'package:nexmile/features/profile/profile_screen.dart';
 import 'package:nexmile/features/splash/splash_screen.dart';
 import 'package:nexmile/generated/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'wallet_fakes.dart';
 
 // ---------------------------------------------------------------------------
 // Fixtures
@@ -409,6 +413,20 @@ class FakeLocationService implements LocationService {
   Future<ResolvedPlace> describe(double latitude, double longitude) async =>
       place;
 
+  /// What [search] answers with, for every query of three letters or more.
+  List<PlaceSuggestion> suggestions = const <PlaceSuggestion>[
+    PlaceSuggestion(
+      title: 'Anna Nagar',
+      subtitle: 'Chennai, Tamil Nadu, 600040',
+      latitude: 13.0850,
+      longitude: 80.2101,
+    ),
+  ];
+
+  @override
+  Future<List<PlaceSuggestion>> search(String query) async =>
+      query.trim().length < 3 ? const <PlaceSuggestion>[] : suggestions;
+
   @override
   Future<void> openSettings() async => settingsCount++;
 }
@@ -461,6 +479,7 @@ Future<void> _pumpApp(
   FakeAddressRepository? addressRepository,
   FakeLocationService? locationService,
   FakeStorefrontRepository? storefrontRepository,
+  FakeWalletRepository? walletRepository,
 }) async {
   final PreferencesService preferences = await _prefs(seed);
   _authRepo = repository ?? FakeAuthRepository();
@@ -484,6 +503,8 @@ Future<void> _pumpApp(
       addressController: _addresses,
       locationService: _location,
       storefrontRepository: _storefrontRepo,
+      walletRepository: walletRepository ?? FakeWalletRepository(),
+      paymentGateway: FakePaymentGateway(),
     ),
   );
 }
@@ -1285,6 +1306,12 @@ void main() {
         (WidgetTester tester) async {
       final FakeAuthRepository repo = await openProfile(tester);
 
+      // Below the fold on a phone-sized screen, under the account tiles.
+      await tester.scrollUntilVisible(
+        find.text('Sign out'),
+        200,
+        scrollable: find.byType(Scrollable).last,
+      );
       await tester.tap(find.text('Sign out'));
       await tester.pumpAndSettle();
 
@@ -2211,6 +2238,122 @@ void main() {
         addressId: 5,
       );
       expect(repo.lastCheckout?.containsKey('address_id'), isFalse);
+    });
+
+    test('a wallet checkout says so, and plain cash does not', () async {
+      await cart.addItem('r1', menuItemId: 1);
+      await cart.checkout(
+        'r1',
+        fulfilmentType: FulfilmentType.delivery,
+        paymentMethod: 'cod',
+        useWallet: true,
+        addressId: 5,
+      );
+      expect(repo.lastCheckout?['use_wallet'], isTrue);
+
+      await cart.addItem('r1', menuItemId: 1);
+      await cart.checkout(
+        'r1',
+        fulfilmentType: FulfilmentType.delivery,
+        paymentMethod: 'cod',
+        addressId: 5,
+      );
+      expect(repo.lastCheckout?.containsKey('use_wallet'), isFalse);
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  group('live tracking', () {
+    Future<OrdersController> openTracking(
+      WidgetTester tester,
+      Map<String, dynamic> track,
+    ) async {
+      _useTallScreen(tester);
+      final FakeStorefrontRepository repo = FakeStorefrontRepository()
+        ..orderStatus = 'picked_up'
+        ..trackExtra = track;
+      await _pumpApp(
+        tester,
+        seed: _languageChosen,
+        session: _testSession(),
+        storefrontRepository: repo,
+      );
+      await _settleSplash(tester);
+
+      final OrdersController orders = Provider.of<OrdersController>(
+        tester.element(find.byType(MaterialApp)),
+        listen: false,
+      );
+      await orders.open(1);
+      _nav(tester).pushNamed(
+        AppRoutes.liveTracking,
+        arguments: const OrderArgs(orderId: 1),
+      );
+      // The map pulses and the progress bar shimmers forever, so settle by
+      // frames rather than pumpAndSettle.
+      await _pumpFrames(tester);
+      return orders;
+    }
+
+    testWidgets('leads with the ETA, the rider and their plate',
+        (WidgetTester tester) async {
+      final OrdersController orders = await openTracking(
+        tester,
+        <String, dynamic>{
+          'estimated_minutes': 12,
+          'rider': <String, dynamic>{
+            'name': 'Suresh K',
+            'phone': '9876543210',
+            'vehicle_number': 'TN 37 AB 1234',
+            'latitude': 13.0830,
+            'longitude': 80.2710,
+            'heading': 135,
+            'updated_at': DateTime.now().toUtc().toIso8601String(),
+          },
+        },
+      );
+      addTearDown(orders.stopPolling);
+
+      expect(find.text('12 min'), findsOneWidget);
+      expect(find.textContaining('Arriving by'), findsOneWidget);
+      expect(find.text('Suresh K'), findsOneWidget);
+      expect(find.text('TN 37 AB 1234'), findsOneWidget);
+      expect(find.text('Live'), findsOneWidget);
+      // Picked up is the third of four steps.
+      expect(find.text('On the way'), findsOneWidget);
+      expect(find.byTooltip('Call'), findsOneWidget);
+    });
+
+    testWidgets('an old fix says the location is updating',
+        (WidgetTester tester) async {
+      final OrdersController orders = await openTracking(
+        tester,
+        <String, dynamic>{
+          'stale_after_seconds': 45,
+          'rider': <String, dynamic>{
+            'name': 'Suresh K',
+            'latitude': 13.0830,
+            'longitude': 80.2710,
+            'updated_at': DateTime.now()
+                .subtract(const Duration(minutes: 2))
+                .toUtc()
+                .toIso8601String(),
+          },
+        },
+      );
+      addTearDown(orders.stopPolling);
+
+      expect(find.text("Updating rider's location…"), findsOneWidget);
+      expect(find.text('Live'), findsNothing);
+    });
+
+    testWidgets('before a rider is assigned it says one is coming',
+        (WidgetTester tester) async {
+      final OrdersController orders =
+          await openTracking(tester, <String, dynamic>{'rider': null});
+      addTearDown(orders.stopPolling);
+
+      expect(find.text('Assigning a delivery partner…'), findsOneWidget);
     });
   });
 
@@ -3184,6 +3327,58 @@ void main() {
       expect(_addresses.addresses.length, 1);
     });
 
+    testWidgets('searching for a place returns to the pin map',
+        (WidgetTester tester) async {
+      _useTallScreen(tester);
+      await _pumpApp(tester, seed: _languageChosen, session: _testSession());
+      await _settleSplash(tester);
+      _nav(tester).pushNamed(
+        AppRoutes.addressMap,
+        arguments: const AddressMapArgs(isFirstAddress: false),
+      );
+      await _pumpFrames(tester);
+
+      await tester.tap(find.text('Search area, street or landmark'));
+      await _pumpFrames(tester);
+
+      // Two letters is too short to send to the geocoder.
+      await tester.enterText(find.byType(TextField), 'an');
+      await _pumpFrames(tester);
+      expect(find.text('Anna Nagar'), findsNothing);
+
+      await tester.enterText(find.byType(TextField), 'anna nagar');
+      await _pumpFrames(tester);
+      expect(find.text('Anna Nagar'), findsOneWidget);
+
+      await tester.tap(find.text('Anna Nagar'));
+      await _pumpFrames(tester);
+      expect(find.byType(AddressMapScreen), findsOneWidget);
+      expect(find.text('Anna Nagar'), findsNothing);
+    });
+
+    testWidgets('a search with no match says what to try instead',
+        (WidgetTester tester) async {
+      _useTallScreen(tester);
+      final FakeLocationService location = FakeLocationService()
+        ..suggestions = const <PlaceSuggestion>[];
+      await _pumpApp(
+        tester,
+        seed: _languageChosen,
+        session: _testSession(),
+        locationService: location,
+      );
+      await _settleSplash(tester);
+      _nav(tester).pushNamed(AppRoutes.addressMap);
+      await _pumpFrames(tester);
+
+      await tester.tap(find.text('Search area, street or landmark'));
+      await _pumpFrames(tester);
+      await tester.enterText(find.byType(TextField), 'zzzz');
+      await _pumpFrames(tester);
+
+      expect(find.textContaining('No places found'), findsOneWidget);
+    });
+
     testWidgets('editing re-reads the address and saves with PATCH',
         (WidgetTester tester) async {
       _useTallScreen(tester);
@@ -3494,6 +3689,9 @@ class FakeStorefrontRepository implements StorefrontRepository {
   RestaurantFilters lastFilters = RestaurantFilters.none;
   Map<String, Object?>? lastNearby;
   Map<String, Object?>? lastCheckout;
+
+  /// Merged into every `/track` answer, for the rider, ETA and route.
+  Map<String, dynamic> trackExtra = <String, dynamic>{};
   int trackCalls = 0;
 
   void _maybeThrow() {
@@ -3773,12 +3971,14 @@ class FakeStorefrontRepository implements StorefrontRepository {
     String restaurantId, {
     required FulfilmentType fulfilmentType,
     required String paymentMethod,
+    bool useWallet = false,
     int? addressId,
     String? note,
   }) async {
     lastCheckout = <String, Object?>{
       'fulfilment_type': fulfilmentType.name,
       'payment_method': paymentMethod,
+      if (useWallet) 'use_wallet': true,
       if (fulfilmentType == FulfilmentType.delivery && addressId != null)
         'address_id': addressId,
     };
@@ -3801,6 +4001,7 @@ class FakeStorefrontRepository implements StorefrontRepository {
     return OrderTracking.fromJson(<String, dynamic>{
       'status': orderStatus,
       'status_label': orderStatus,
+      ...trackExtra,
     });
   }
 

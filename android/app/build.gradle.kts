@@ -58,6 +58,22 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        // The Maps SDK key lives in android/maps.properties so it stays out of
+        // version control. Without the file the build still works and the map
+        // draws grey, the same degrade as a missing google-services.json.
+        val mapsProperties = Properties()
+        val mapsFile = rootProject.file("maps.properties")
+        if (mapsFile.exists()) {
+            mapsProperties.load(mapsFile.inputStream())
+        } else {
+            logger.lifecycle(
+                "Nexmile: android/maps.properties is missing — Google Maps " +
+                    "will not load.",
+            )
+        }
+        manifestPlaceholders["mapsApiKey"] =
+            mapsProperties.getProperty("MAPS_API_KEY", "")
     }
 
     signingConfigs {

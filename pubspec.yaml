@@ -32,9 +32,8 @@ dependencies:
   # a zone or a merchant.
   geolocator: ^13.0.2
   geocoding: ^5.0.0
-  # OpenStreetMap tiles, so the map works without a billing account. Swapping to
-  # google_maps_flutter later is contained to lib/features/address/presentation.
-  flutter_map: ^7.0.2
+  # The app's own coordinate type, so screens outside the map widgets never
+  # import the Google Maps plugin. Every map itself is google_maps_flutter.
   latlong2: ^0.9.1
 
   # Voice search in the search bar. Uses the platform recogniser, so there is
@@ -52,6 +51,8 @@ dependencies:
   firebase_core: ^4.15.0
   firebase_messaging: ^16.7.0
   flutter_local_notifications: ^22.3.1
+  google_maps_flutter: ^2.19.0
+  razorpay_flutter: ^1.4.7
 
 dev_dependencies:
   flutter_test:

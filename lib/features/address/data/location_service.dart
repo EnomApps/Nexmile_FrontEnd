@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart' show Locale;
 import 'package:geocoding/geocoding.dart' as geo;
 import 'package:geolocator/geolocator.dart';
 
@@ -50,6 +51,22 @@ class ResolvedPlace {
       (pincode ?? '').isEmpty;
 }
 
+/// One hit from an address search: where it is, and how to label it.
+@immutable
+class PlaceSuggestion {
+  const PlaceSuggestion({
+    required this.title,
+    required this.subtitle,
+    required this.latitude,
+    required this.longitude,
+  });
+
+  final String title;
+  final String subtitle;
+  final double latitude;
+  final double longitude;
+}
+
 /// Wraps geolocator and geocoding so the UI never touches the plugins, and so
 /// tests can substitute a fake.
 abstract class LocationService {
@@ -63,6 +80,10 @@ abstract class LocationService {
   /// Reverse-geocodes a coordinate. Never throws — an unresolvable point just
   /// means the customer types the address themselves.
   Future<ResolvedPlace> describe(double latitude, double longitude);
+
+  /// Finds places matching [query]: an area, a street, a landmark, a pincode.
+  /// Never throws; no match and no network both come back empty.
+  Future<List<PlaceSuggestion>> search(String query);
 
   /// Opens the OS settings page so a "denied forever" customer can recover.
   Future<void> openSettings();
@@ -149,6 +170,52 @@ class GeolocatorLocationService implements LocationService {
     } catch (_) {
       // Geocoding is a convenience, never a requirement.
       return const ResolvedPlace();
+    }
+  }
+
+  @override
+  Future<List<PlaceSuggestion>> search(String query) async {
+    final String q = query.trim();
+    if (q.length < 3) return const <PlaceSuggestion>[];
+
+    try {
+      // The platform geocoder: Google's on Android, Apple's on iOS. No key and
+      // no billing, at the cost of returning a handful of exact matches
+      // rather than type-ahead suggestions. Swapping in Places Autocomplete
+      // later changes this method and nothing that calls it.
+      final geo.Geocoding geocoder = geo.Geocoding();
+      final List<geo.Location> hits = await geocoder.locationFromAddress(
+        q,
+        locale: const Locale('en', 'IN'),
+      );
+
+      final List<PlaceSuggestion> results = await Future.wait(
+        hits.take(5).map((geo.Location hit) async {
+          final ResolvedPlace place =
+              await describe(hit.latitude, hit.longitude);
+          final String title = <String?>[place.line1, place.landmark]
+              .firstWhere(
+                (String? p) => p != null && p.trim().isNotEmpty,
+                orElse: () => q,
+              )!;
+          final String subtitle = <String?>[
+            place.landmark == title ? null : place.landmark,
+            place.city,
+            place.state,
+            place.pincode,
+          ].where((String? p) => p != null && p.trim().isNotEmpty).join(', ');
+          return PlaceSuggestion(
+            title: title,
+            subtitle: subtitle,
+            latitude: hit.latitude,
+            longitude: hit.longitude,
+          );
+        }),
+      );
+      return results;
+    } catch (_) {
+      // "No results found" is thrown as an error by both platforms.
+      return const <PlaceSuggestion>[];
     }
   }
 

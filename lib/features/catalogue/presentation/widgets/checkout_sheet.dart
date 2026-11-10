@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -7,6 +9,7 @@ import '../../../../generated/l10n/app_localizations.dart';
 import '../../../address/data/address.dart';
 import '../../../address/state/address_controller.dart';
 import '../../../auth/data/auth_failure.dart';
+import '../../../wallet/state/wallet_controller.dart';
 import '../../data/cart_models.dart';
 import '../../data/order_models.dart';
 import '../../state/cart_controller.dart';
@@ -25,8 +28,9 @@ Future<Order?> showCheckoutSheet({
     isScrollControlled: true,
     useSafeArea: true,
     showDragHandle: true,
-    builder: (BuildContext context) =>
-        _CheckoutSheet(cart: cart, restaurantId: restaurantId),
+    builder:
+        (BuildContext context) =>
+            _CheckoutSheet(cart: cart, restaurantId: restaurantId),
   );
 }
 
@@ -41,19 +45,30 @@ class _CheckoutSheet extends StatefulWidget {
 }
 
 class _CheckoutSheetState extends State<_CheckoutSheet> {
-  /// The API documents cash on delivery as the only method for now, so this is
-  /// shown as a fact rather than offered as a choice.
-  static const String _paymentMethod = 'cod';
-
   final TextEditingController _note = TextEditingController();
 
   late FulfilmentType _fulfilment = widget.cart.fulfilmentType;
   int? _addressId;
 
+  /// On by default whenever there is a balance to spend, the way Swiggy Money
+  /// works: money the customer put in the wallet is money they meant to use.
+  bool _useWallet = true;
+
   @override
   void initState() {
     super.initState();
     _addressId = context.read<AddressController>().defaultAddress?.id;
+    // A refund may have landed since the wallet was last read.
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => context.read<WalletController>().load(),
+    );
+  }
+
+  /// How much of [total] the wallet pays. Zero when the switch is off or there
+  /// is no wallet; the server makes the same calculation and has the last word.
+  double _walletShare(WalletController wallet, double total) {
+    if (!_useWallet || !wallet.isAvailable || wallet.balance <= 0) return 0;
+    return wallet.balance < total ? wallet.balance : total;
   }
 
   @override
@@ -70,30 +85,33 @@ class _CheckoutSheetState extends State<_CheckoutSheet> {
       context: context,
       useSafeArea: true,
       showDragHandle: true,
-      builder: (BuildContext context) => ListView(
-        shrinkWrap: true,
-        children: <Widget>[
-          for (final Address address in addresses)
-            RadioListTile<int>(
-              value: address.id,
-              groupValue: _addressId,
-              onChanged: (int? value) => Navigator.of(context).pop(value),
-              title: Text(address.label.name),
-              subtitle: Text(address.summary),
-            ),
-          ListTile(
-            leading: const Icon(Icons.add_location_alt_outlined),
-            title: Text(l10n.addAddress),
-            onTap: () {
-              Navigator.of(context).pop();
-              Navigator.of(context).pushNamed(
-                AppRoutes.locationPermission,
-                arguments: const LocationPermissionArgs(isFirstAddress: false),
-              );
-            },
+      builder:
+          (BuildContext context) => ListView(
+            shrinkWrap: true,
+            children: <Widget>[
+              for (final Address address in addresses)
+                RadioListTile<int>(
+                  value: address.id,
+                  groupValue: _addressId,
+                  onChanged: (int? value) => Navigator.of(context).pop(value),
+                  title: Text(address.label.name),
+                  subtitle: Text(address.summary),
+                ),
+              ListTile(
+                leading: const Icon(Icons.add_location_alt_outlined),
+                title: Text(l10n.addAddress),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pushNamed(
+                    AppRoutes.locationPermission,
+                    arguments: const LocationPermissionArgs(
+                      isFirstAddress: false,
+                    ),
+                  );
+                },
+              ),
+            ],
           ),
-        ],
-      ),
     );
 
     if (chosen != null && mounted) setState(() => _addressId = chosen);
@@ -101,20 +119,33 @@ class _CheckoutSheetState extends State<_CheckoutSheet> {
 
   Future<void> _placeOrder() async {
     final CartController cart = context.read<CartController>();
+    final WalletController wallet = context.read<WalletController>();
+    final double total = (cart.cart ?? widget.cart).totals.grandTotal;
+    final double share = _walletShare(wallet, total);
+
     final (Order? order, AuthFailure? failure) = await cart.checkout(
       widget.restaurantId,
       fulfilmentType: _fulfilment,
-      paymentMethod: _paymentMethod,
+      // Cash on delivery pays whatever the wallet does not; an order the
+      // wallet covers whole has nothing left to collect.
+      paymentMethod: share > 0 && share >= total ? 'wallet' : 'cod',
+      useWallet: share > 0,
       addressId: _fulfilment == FulfilmentType.delivery ? _addressId : null,
-    // The note is per-order rather than per-item, and reaches the kitchen.
+      // The note is per-order rather than per-item, and reaches the kitchen.
       note: _note.text,
     );
 
     if (!mounted) return;
     if (order != null) {
+      if (share > 0) unawaited(wallet.load());
       Navigator.of(context).pop(order);
       return;
     }
+
+    // The balance can change between reading it and ordering, on another
+    // device or with a refund landing. The server refuses rather than guess,
+    // so re-read it and let the customer look again instead of retrying.
+    if (share > 0) unawaited(wallet.load());
 
     // Everything is re-checked server-side at this point — availability, hours,
     // the 1 km radius, the minimum — so the server's own wording is the most
@@ -137,6 +168,11 @@ class _CheckoutSheetState extends State<_CheckoutSheet> {
     final AppLocalizations l10n = AppLocalizations.of(context);
     final CartController controller = context.watch<CartController>();
     final Cart cart = controller.cart ?? widget.cart;
+    final WalletController wallet = context.watch<WalletController>();
+    final double total = cart.totals.grandTotal;
+    final double walletShare = _walletShare(wallet, total);
+    final double rest = total - walletShare;
+    final bool canUseWallet = wallet.isAvailable && wallet.balance > 0;
 
     final Address? address = context
         .watch<AddressController>()
@@ -158,8 +194,9 @@ class _CheckoutSheetState extends State<_CheckoutSheet> {
               alignment: AlignmentDirectional.centerStart,
               child: Text(
                 l10n.checkoutTitle,
-                style: theme.textTheme.titleLarge
-                    ?.copyWith(fontWeight: FontWeight.w800),
+                style: theme.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.w800,
+                ),
               ),
             ),
           ),
@@ -192,8 +229,9 @@ class _CheckoutSheetState extends State<_CheckoutSheet> {
                       ),
                     ],
                     selected: <FulfilmentType>{_fulfilment},
-                    onSelectionChanged: (Set<FulfilmentType> value) =>
-                        setState(() => _fulfilment = value.first),
+                    onSelectionChanged:
+                        (Set<FulfilmentType> value) =>
+                            setState(() => _fulfilment = value.first),
                   ),
                   const SizedBox(height: 20),
                 ],
@@ -204,7 +242,22 @@ class _CheckoutSheetState extends State<_CheckoutSheet> {
                     body: address?.summary ?? l10n.noAddressSelected,
                     trailing: TextButton(
                       onPressed: _pickAddress,
-                      child: Text(address == null ? l10n.addLabel : l10n.editLabel),
+                      child: Text(
+                        address == null ? l10n.addLabel : l10n.editLabel,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                ],
+                if (canUseWallet) ...<Widget>[
+                  _Block(
+                    icon: Icons.account_balance_wallet_outlined,
+                    title: l10n.walletUseBalance,
+                    body: l10n.walletAvailable(formatRupees(wallet.balance)),
+                    trailing: Switch(
+                      value: _useWallet,
+                      onChanged:
+                          (bool value) => setState(() => _useWallet = value),
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -212,13 +265,22 @@ class _CheckoutSheetState extends State<_CheckoutSheet> {
                 _Block(
                   icon: Icons.payments_outlined,
                   title: l10n.paymentMethodLabel,
-                  body: l10n.payOnDelivery,
+                  body:
+                      walletShare <= 0
+                          ? l10n.payOnDelivery
+                          : rest <= 0
+                          ? l10n.walletCoversOrder
+                          : l10n.walletRestOnDelivery(
+                            formatRupees(walletShare),
+                            formatRupees(rest),
+                          ),
                 ),
                 const SizedBox(height: 20),
                 Text(
                   l10n.noteToRestaurant,
-                  style: theme.textTheme.titleSmall
-                      ?.copyWith(fontWeight: FontWeight.w700),
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 TextField(
@@ -241,10 +303,10 @@ class _CheckoutSheetState extends State<_CheckoutSheet> {
                   BillRow(
                     label: l10n.deliveryFeeLabel,
                     amount: cart.totals.deliveryFee,
-                    freeLabel: cart.freeDeliveryApplied ||
-                            cart.totals.deliveryFee == 0
-                        ? l10n.freeLabel
-                        : null,
+                    freeLabel:
+                        cart.freeDeliveryApplied || cart.totals.deliveryFee == 0
+                            ? l10n.freeLabel
+                            : null,
                   ),
                 if (cart.totals.discountTotal > 0)
                   BillRow(
@@ -263,6 +325,18 @@ class _CheckoutSheetState extends State<_CheckoutSheet> {
                   amount: cart.totals.grandTotal,
                   emphasis: true,
                 ),
+                if (walletShare > 0) ...<Widget>[
+                  BillRow(
+                    label: l10n.walletPaidFromWallet,
+                    amount: -walletShare,
+                    highlight: true,
+                  ),
+                  BillRow(
+                    label: l10n.walletPayOnDelivery,
+                    amount: rest,
+                    emphasis: true,
+                  ),
+                ],
               ],
             ),
           ),
@@ -278,24 +352,25 @@ class _CheckoutSheetState extends State<_CheckoutSheet> {
                   backgroundColor: AppColors.greenDeep,
                   minimumSize: const Size.fromHeight(52),
                 ),
-                child: controller.isMutating
-                    ? const SizedBox(
-                        width: 22,
-                        height: 22,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2.4,
-                          color: Colors.white,
-                        ),
-                      )
-                    : FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          l10n.placeOrderFor(
-                            formatRupees(cart.totals.grandTotal),
+                child:
+                    controller.isMutating
+                        ? const SizedBox(
+                          width: 22,
+                          height: 22,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2.4,
+                            color: Colors.white,
                           ),
-                          maxLines: 1,
+                        )
+                        : FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            l10n.placeOrderFor(
+                              formatRupees(cart.totals.grandTotal),
+                            ),
+                            maxLines: 1,
+                          ),
                         ),
-                      ),
               ),
             ),
           ),
@@ -340,8 +415,9 @@ class _Block extends StatelessWidget {
               children: <Widget>[
                 Text(
                   title,
-                  style: theme.textTheme.labelMedium
-                      ?.copyWith(fontWeight: FontWeight.w700),
+                  style: theme.textTheme.labelMedium?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
                 const SizedBox(height: 2),
                 Text(body, style: theme.textTheme.bodySmall),

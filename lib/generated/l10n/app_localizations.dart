@@ -1436,6 +1436,12 @@ abstract class AppLocalizations {
   /// **'Your rider\'s location will appear here once they pick up your order.'**
   String get riderLocationSoon;
 
+  /// Shown over the tracking map when the rider's last position is old, usually a patch of poor signal.
+  ///
+  /// In en, this message translates to:
+  /// **'Updating rider\'s location…'**
+  String get riderLocationStale;
+
   /// Tooltip on the button that snaps the map back to the rider.
   ///
   /// In en, this message translates to:
@@ -1879,6 +1885,228 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rate this order'**
   String get rateThisOrder;
+
+  /// Title of the wallet screen and the profile entry that opens it.
+  ///
+  /// In en, this message translates to:
+  /// **'Nexmile Wallet'**
+  String get walletTitle;
+
+  /// Label above the balance on the wallet card.
+  ///
+  /// In en, this message translates to:
+  /// **'Wallet balance'**
+  String get walletBalance;
+
+  /// Small line under the balance on the wallet card.
+  ///
+  /// In en, this message translates to:
+  /// **'Use it to pay for any order.'**
+  String get walletBalanceHint;
+
+  /// Heading of the add-money section, and the button before an amount is entered.
+  ///
+  /// In en, this message translates to:
+  /// **'Add money'**
+  String get walletAddMoney;
+
+  /// Hint in the amount field.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter amount'**
+  String get walletEnterAmount;
+
+  /// Helper under the amount field. Amounts arrive formatted with ₹.
+  ///
+  /// In en, this message translates to:
+  /// **'Between {min} and {max}'**
+  String walletAmountRange(String min, String max);
+
+  /// Add-money button once an amount is entered.
+  ///
+  /// In en, this message translates to:
+  /// **'Add {amount}'**
+  String walletAddAmount(String amount);
+
+  /// Reassurance under the add-money button. Razorpay is a brand name.
+  ///
+  /// In en, this message translates to:
+  /// **'Payments are secured by Razorpay'**
+  String get walletSecuredBy;
+
+  /// Heading of the transaction list.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get walletHistory;
+
+  /// Empty state of the transaction list.
+  ///
+  /// In en, this message translates to:
+  /// **'No transactions yet. Money you add or spend will show here.'**
+  String get walletNoHistory;
+
+  /// A top-up in the transaction list.
+  ///
+  /// In en, this message translates to:
+  /// **'Money added'**
+  String get walletEntryTopUp;
+
+  /// An order payment whose order number is unknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid for an order'**
+  String get walletEntryOrder;
+
+  /// An order payment in the transaction list.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid for order {number}'**
+  String walletEntryOrderNumber(String number);
+
+  /// Money returned to the wallet from a cancelled order.
+  ///
+  /// In en, this message translates to:
+  /// **'Refund'**
+  String get walletEntryRefund;
+
+  /// Shown after a successful top-up.
+  ///
+  /// In en, this message translates to:
+  /// **'{amount} added to your wallet'**
+  String walletMoneyAdded(String amount);
+
+  /// Shown when the gateway declines a top-up.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment failed. No money was taken from your account.'**
+  String get walletPaymentFailed;
+
+  /// Shown when the payment went through but the server has not confirmed it yet.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment received. Your balance will update in a few minutes.'**
+  String get walletPaymentConfirming;
+
+  /// Checkout switch that spends the wallet on this order.
+  ///
+  /// In en, this message translates to:
+  /// **'Use wallet balance'**
+  String get walletUseBalance;
+
+  /// Under the checkout switch, the current balance.
+  ///
+  /// In en, this message translates to:
+  /// **'Available: {amount}'**
+  String walletAvailable(String amount);
+
+  /// Bill row for the wallet's share of the order.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid from wallet'**
+  String get walletPaidFromWallet;
+
+  /// Bill row for what is left to pay in cash after the wallet.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay on delivery'**
+  String get walletPayOnDelivery;
+
+  /// Payment line at checkout when the wallet covers the whole order.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid fully from your wallet'**
+  String get walletCoversOrder;
+
+  /// Payment line at checkout when the wallet covers part of the order.
+  ///
+  /// In en, this message translates to:
+  /// **'{wallet} from wallet, {rest} on delivery'**
+  String walletRestOnDelivery(String wallet, String rest);
+
+  /// Shown when the server's payment gateway is not switched on (503).
+  ///
+  /// In en, this message translates to:
+  /// **'Adding money isn\'t available right now. Please try again later.'**
+  String get walletTopUpUnavailable;
+
+  /// Shown instead of add money when the balance is at the ceiling. The limit arrives formatted with ₹.
+  ///
+  /// In en, this message translates to:
+  /// **'Your wallet is at its {limit} limit.'**
+  String walletFull(String limit);
+
+  /// Search bar on the pin map, and the hint in the search field it opens.
+  ///
+  /// In en, this message translates to:
+  /// **'Search area, street or landmark'**
+  String get searchAddressHint;
+
+  /// Shown when an address search returns nothing.
+  ///
+  /// In en, this message translates to:
+  /// **'No places found. Try a nearby landmark, area name or pincode.'**
+  String get searchAddressNoResults;
+
+  /// Tooltip on the button that empties a search field.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clearLabel;
+
+  /// Under the ETA on the tracking sheet. The time arrives formatted for the locale.
+  ///
+  /// In en, this message translates to:
+  /// **'Arriving by {time}'**
+  String trackingArrivingBy(String time);
+
+  /// Tracking sheet headline when the rider is a minute or less away.
+  ///
+  /// In en, this message translates to:
+  /// **'Arriving now'**
+  String get trackingArrivingNow;
+
+  /// Small badge on the tracking sheet showing the position is updating live.
+  ///
+  /// In en, this message translates to:
+  /// **'Live'**
+  String get trackingLive;
+
+  /// Progress step: the restaurant accepted the order.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirmed'**
+  String get trackingStepConfirmed;
+
+  /// Progress step: the food is being cooked.
+  ///
+  /// In en, this message translates to:
+  /// **'Preparing'**
+  String get trackingStepPreparing;
+
+  /// Progress step: the rider has the food.
+  ///
+  /// In en, this message translates to:
+  /// **'On the way'**
+  String get trackingStepOnTheWay;
+
+  /// Progress step: the order arrived.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivered'**
+  String get trackingStepDelivered;
+
+  /// Tracking sheet before a rider is assigned.
+  ///
+  /// In en, this message translates to:
+  /// **'Assigning a delivery partner…'**
+  String get trackingFindingRider;
+
+  /// Order line on the tracking sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'From {restaurant}'**
+  String trackingOrderFrom(String restaurant);
 }
 
 class _AppLocalizationsDelegate

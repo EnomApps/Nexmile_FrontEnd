@@ -186,6 +186,7 @@ class CartController extends ChangeNotifier {
     String restaurantId, {
     required FulfilmentType fulfilmentType,
     required String paymentMethod,
+    bool useWallet = false,
     int? addressId,
     String? note,
   }) async {
@@ -197,6 +198,7 @@ class CartController extends ChangeNotifier {
         restaurantId,
         fulfilmentType: fulfilmentType,
         paymentMethod: paymentMethod,
+        useWallet: useWallet,
         addressId: addressId,
         note: note,
       );

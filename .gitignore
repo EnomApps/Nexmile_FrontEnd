@@ -50,3 +50,9 @@ app.*.map.json
 android/app/google-services.json
 ios/Runner/GoogleService-Info.plist
 lib/firebase_options.dart
+
+# Google Maps SDK keys. Restricted by package name and SHA-1, but they bill to
+# the project, so they stay out of version control. Each file is read by the
+# platform build; see docs/MAPS-SETUP.md.
+android/maps.properties
+ios/Flutter/Secrets.xcconfig

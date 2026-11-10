@@ -20,6 +20,9 @@ import 'features/catalogue/data/storefront_repository.dart';
 import 'features/catalogue/state/cart_controller.dart';
 import 'features/catalogue/state/orders_controller.dart';
 import 'features/catalogue/state/storefront_controller.dart';
+import 'features/wallet/data/payment_gateway.dart';
+import 'features/wallet/data/wallet_repository.dart';
+import 'features/wallet/state/wallet_controller.dart';
 import 'generated/l10n/app_localizations.dart';
 
 class NexmileApp extends StatefulWidget {
@@ -30,6 +33,8 @@ class NexmileApp extends StatefulWidget {
     required this.addressController,
     required this.locationService,
     required this.storefrontRepository,
+    required this.walletRepository,
+    this.paymentGateway,
     this.pushService = const NoopPushService(),
   });
 
@@ -47,6 +52,12 @@ class NexmileApp extends StatefulWidget {
   /// Backs the storefront, cart and order controllers. Injected rather than
   /// constructed here so a test can swap in a fake without an HTTP stack.
   final StorefrontRepository storefrontRepository;
+
+  final WalletRepository walletRepository;
+
+  /// Null means Razorpay, built the first time money is added. Tests pass a
+  /// fake so no platform channel is ever opened.
+  final PaymentGateway? paymentGateway;
 
   /// Notification taps arrive here. Defaults to the no-op transport, which is
   /// what every test and every build without Firebase runs on.
@@ -119,6 +130,12 @@ class _NexmileAppState extends State<NexmileApp> {
         ),
         ChangeNotifierProvider<OrdersController>(
           create: (_) => OrdersController(repository: storefrontRepository),
+        ),
+        ChangeNotifierProvider<WalletController>(
+          create: (_) => WalletController(
+            repository: widget.walletRepository,
+            gateway: widget.paymentGateway,
+          ),
         ),
       ],
       child: Consumer<LocaleController>(

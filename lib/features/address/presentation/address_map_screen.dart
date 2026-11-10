@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/router/app_router.dart';
@@ -21,9 +20,8 @@ import '../data/location_service.dart';
 /// The 1 km circle is drawn to scale, so "is my building inside the delivery
 /// area" is answerable at a glance rather than after checkout fails.
 ///
-/// Tiles come from OpenStreetMap so the map works without a billing account.
-/// Swapping to `google_maps_flutter` means replacing [FlutterMap] here; nothing
-/// else in the app knows which map is in use.
+/// A search bar above the map jumps it to an area, street or landmark, for a
+/// customer adding an address somewhere other than where they are standing.
 class AddressMapScreen extends StatefulWidget {
   const AddressMapScreen({super.key, required this.args});
 
@@ -41,17 +39,19 @@ class _AddressMapScreenState extends State<AddressMapScreen> {
   /// Central Chennai — only used when there is no fix to start from.
   static const LatLng _fallbackCentre = LatLng(13.0827, 80.2707);
 
-  final MapController _map = MapController();
+  static const double _zoom = 16.5;
+
+  final Completer<GoogleMapController> _map = Completer<GoogleMapController>();
 
   late LatLng _pin;
   ResolvedPlace? _place;
   bool _isResolving = false;
   bool _isLocating = false;
 
-  /// The map fires a position change on every frame of a drag. Reverse
-  /// geocoding on each one would hammer the platform geocoder, so resolution
-  /// waits for the gesture to settle.
-  Timer? _settleTimer;
+  /// True between the customer touching the map and the camera coming to
+  /// rest. Google reports every frame of a drag through [_onCameraMove];
+  /// reverse geocoding waits for [_onCameraIdle] so it runs once per drag.
+  bool _moving = false;
 
   @override
   void initState() {
@@ -67,19 +67,19 @@ class _AddressMapScreenState extends State<AddressMapScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) => _resolve());
   }
 
-  @override
-  void dispose() {
-    _settleTimer?.cancel();
-    _map.dispose();
-    super.dispose();
+  void _onCameraMove(CameraPosition position) {
+    _pin = position.target;
+    if (!_moving) {
+      _moving = true;
+      setState(() => _place = null);
+    }
   }
 
-  void _onPositionChanged(MapCamera camera, bool hasGesture) {
-    _pin = camera.center;
-    if (!hasGesture) return;
-    _settleTimer?.cancel();
-    _settleTimer = Timer(const Duration(milliseconds: 600), _resolve);
-    if (_place != null) setState(() => _place = null);
+  void _onCameraIdle() {
+    if (!_moving) return;
+    _moving = false;
+    setState(() {});
+    _resolve();
   }
 
   Future<void> _resolve() async {
@@ -99,6 +99,18 @@ class _AddressMapScreenState extends State<AddressMapScreen> {
     });
   }
 
+  Future<void> _moveTo(LatLng target) async {
+    _pin = target;
+    if (_map.isCompleted) {
+      final GoogleMapController map = await _map.future;
+      await map.animateCamera(CameraUpdate.newLatLngZoom(target, _zoom));
+    }
+    if (!mounted) return;
+    // The camera's own idle callback resolves the place once the animation
+    // lands; this covers a map that had not finished loading yet.
+    if (!_moving) await _resolve();
+  }
+
   Future<void> _useMyLocation() async {
     setState(() => _isLocating = true);
     final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
@@ -108,11 +120,8 @@ class _AddressMapScreenState extends State<AddressMapScreen> {
       final LocationFix fix =
           await context.read<LocationService>().requestFix();
       if (!mounted) return;
-      final LatLng target = LatLng(fix.latitude, fix.longitude);
-      _map.move(target, 16.5);
-      _pin = target;
       setState(() => _isLocating = false);
-      await _resolve();
+      await _moveTo(LatLng(fix.latitude, fix.longitude));
     } on LocationException catch (error) {
       if (!mounted) return;
       setState(() => _isLocating = false);
@@ -131,6 +140,17 @@ class _AddressMapScreenState extends State<AddressMapScreen> {
           ),
         );
     }
+  }
+
+  Future<void> _search() async {
+    final PlaceSuggestion? picked = await Navigator.of(context).push(
+      MaterialPageRoute<PlaceSuggestion>(
+        fullscreenDialog: true,
+        builder: (_) => const _PlaceSearchPage(),
+      ),
+    );
+    if (picked == null || !mounted) return;
+    await _moveTo(LatLng(picked.latitude, picked.longitude));
   }
 
   void _confirm() {
@@ -154,45 +174,30 @@ class _AddressMapScreenState extends State<AddressMapScreen> {
       appBar: AppBar(title: Text(l10n.pinLocationTitle)),
       body: Stack(
         children: <Widget>[
-          FlutterMap(
-            mapController: _map,
-            options: MapOptions(
-              initialCenter: _pin,
-              initialZoom: 16.5,
-              minZoom: 4,
-              maxZoom: 18.4,
-              onPositionChanged: _onPositionChanged,
-              interactionOptions: const InteractionOptions(
-                // Rotation only confuses a pin-drop, and a rotated map makes
-                // "north is up" assumptions in the address wrong.
-                flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
+          GoogleMap(
+            initialCameraPosition: CameraPosition(target: _pin, zoom: _zoom),
+            onMapCreated: _map.complete,
+            onCameraMove: _onCameraMove,
+            onCameraIdle: _onCameraIdle,
+            minMaxZoomPreference: const MinMaxZoomPreference(4, 19),
+            // Rotation only confuses a pin-drop, and a rotated map makes
+            // "north is up" assumptions in the address wrong.
+            rotateGesturesEnabled: false,
+            tiltGesturesEnabled: false,
+            zoomControlsEnabled: false,
+            mapToolbarEnabled: false,
+            myLocationButtonEnabled: false,
+            compassEnabled: false,
+            circles: <Circle>{
+              Circle(
+                circleId: const CircleId('delivery-radius'),
+                center: _pin,
+                radius: deliveryRadiusMetres,
+                fillColor: AppColors.greenDeep.withValues(alpha: 0.12),
+                strokeColor: AppColors.greenDeep.withValues(alpha: 0.55),
+                strokeWidth: 2,
               ),
-            ),
-            children: <Widget>[
-              TileLayer(
-                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                // OSM's tile policy requires an identifying agent.
-                userAgentPackageName: 'com.nexmile.app',
-                maxNativeZoom: 19,
-              ),
-              CircleLayer<Object>(
-                circles: <CircleMarker<Object>>[
-                  CircleMarker<Object>(
-                    point: _pin,
-                    radius: deliveryRadiusMetres,
-                    useRadiusInMeter: true,
-                    color: AppColors.greenDeep.withValues(alpha: 0.12),
-                    borderColor: AppColors.greenDeep.withValues(alpha: 0.55),
-                    borderStrokeWidth: 2,
-                  ),
-                ],
-              ),
-              const RichAttributionWidget(
-                attributions: <SourceAttribution>[
-                  TextSourceAttribution('OpenStreetMap contributors'),
-                ],
-              ),
-            ],
+            },
           ),
           // Fixed centre pin, floating above the map.
           const IgnorePointer(child: Center(child: _CentrePin())),
@@ -200,8 +205,12 @@ class _AddressMapScreenState extends State<AddressMapScreen> {
             left: 16,
             right: 16,
             top: 12,
-            child: _RadiusHint(
-              text: l10n.deliveryRadiusHint,
+            child: Column(
+              children: <Widget>[
+                _SearchBar(label: l10n.searchAddressHint, onTap: _search),
+                const SizedBox(height: 10),
+                _RadiusHint(text: l10n.deliveryRadiusHint),
+              ],
             ),
           ),
         ],
@@ -219,9 +228,193 @@ class _AddressMapScreenState extends State<AddressMapScreen> {
       ),
       bottomNavigationBar: _PinSummary(
         place: _place,
-        isResolving: _isResolving,
+        isResolving: _isResolving || _moving,
         onConfirm: _confirm,
       ),
+    );
+  }
+}
+
+/// Looks like a field, opens the search page. A real field over the map would
+/// pop the keyboard over the pin every time the customer brushed it.
+class _SearchBar extends StatelessWidget {
+  const _SearchBar({required this.label, required this.onTap});
+
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
+    return Material(
+      color: theme.colorScheme.surface,
+      elevation: 3,
+      shadowColor: Colors.black.withValues(alpha: 0.25),
+      borderRadius: BorderRadius.circular(AppTheme.radius),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(AppTheme.radius),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+          child: Row(
+            children: <Widget>[
+              const Icon(Icons.search_rounded, color: AppColors.orangeDeep),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  label,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Type an area, street, landmark or pincode; pick a result; the map jumps
+/// there and the customer fine-tunes the pin by dragging.
+class _PlaceSearchPage extends StatefulWidget {
+  const _PlaceSearchPage();
+
+  @override
+  State<_PlaceSearchPage> createState() => _PlaceSearchPageState();
+}
+
+class _PlaceSearchPageState extends State<_PlaceSearchPage> {
+  final TextEditingController _query = TextEditingController();
+
+  /// The geocoder is a network call per query; waiting for a pause in typing
+  /// keeps it to one per word rather than one per letter.
+  Timer? _debounce;
+
+  List<PlaceSuggestion> _results = const <PlaceSuggestion>[];
+  bool _isSearching = false;
+  bool _searched = false;
+
+  /// Bumped per query so a slow answer to "anna" cannot overwrite the answer
+  /// to "anna nagar" that arrived first.
+  int _generation = 0;
+
+  @override
+  void dispose() {
+    _debounce?.cancel();
+    _query.dispose();
+    super.dispose();
+  }
+
+  void _onChanged(String value) {
+    _debounce?.cancel();
+    if (value.trim().length < 3) {
+      setState(() {
+        _results = const <PlaceSuggestion>[];
+        _isSearching = false;
+        _searched = false;
+      });
+      return;
+    }
+    _debounce = Timer(const Duration(milliseconds: 450), () => _run(value));
+  }
+
+  Future<void> _run(String value) async {
+    final int generation = ++_generation;
+    setState(() => _isSearching = true);
+    final List<PlaceSuggestion> results =
+        await context.read<LocationService>().search(value);
+    if (!mounted || generation != _generation) return;
+    setState(() {
+      _results = results;
+      _isSearching = false;
+      _searched = true;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations l10n = AppLocalizations.of(context);
+    final ThemeData theme = Theme.of(context);
+
+    return Scaffold(
+      appBar: AppBar(
+        titleSpacing: 0,
+        title: TextField(
+          controller: _query,
+          autofocus: true,
+          textInputAction: TextInputAction.search,
+          onChanged: _onChanged,
+          onSubmitted: (String value) {
+            _debounce?.cancel();
+            if (value.trim().length >= 3) _run(value);
+          },
+          decoration: InputDecoration(
+            hintText: l10n.searchAddressHint,
+            border: InputBorder.none,
+          ),
+        ),
+        actions: <Widget>[
+          if (_query.text.isNotEmpty)
+            IconButton(
+              tooltip: l10n.clearLabel,
+              icon: const Icon(Icons.close_rounded),
+              onPressed: () {
+                _query.clear();
+                _onChanged('');
+              },
+            ),
+        ],
+        bottom: _isSearching
+            ? const PreferredSize(
+                preferredSize: Size.fromHeight(2),
+                child: LinearProgressIndicator(minHeight: 2),
+              )
+            : null,
+      ),
+      body: _searched && _results.isEmpty
+          ? Center(
+              child: Padding(
+                padding: const EdgeInsets.all(32),
+                child: Text(
+                  l10n.searchAddressNoResults,
+                  textAlign: TextAlign.center,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                ),
+              ),
+            )
+          : ListView.separated(
+              itemCount: _results.length,
+              separatorBuilder: (_, __) => const Divider(height: 1),
+              itemBuilder: (BuildContext context, int index) {
+                final PlaceSuggestion result = _results[index];
+                return ListTile(
+                  leading: const Icon(
+                    Icons.location_on_outlined,
+                    color: AppColors.orangeDeep,
+                  ),
+                  title: Text(
+                    result.title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  subtitle: result.subtitle.isEmpty
+                      ? null
+                      : Text(
+                          result.subtitle,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                  onTap: () => Navigator.of(context).pop(result),
+                );
+              },
+            ),
     );
   }
 }

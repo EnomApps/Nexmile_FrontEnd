@@ -18,6 +18,7 @@ import 'features/auth/data/device_repository.dart';
 import 'features/auth/data/token_store.dart';
 import 'features/auth/state/auth_controller.dart';
 import 'features/catalogue/data/storefront_repository.dart';
+import 'features/wallet/data/wallet_repository.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -85,6 +86,7 @@ Future<void> main() async {
       ),
       locationService: const GeolocatorLocationService(),
       storefrontRepository: ApiStorefrontRepository(apiClient),
+      walletRepository: ApiWalletRepository(apiClient),
       pushService: pushService,
     ),
   );

@@ -510,6 +510,10 @@ class _RiderCard extends StatelessWidget {
                           ),
                           destination: order.deliveryLocation?.toLatLng(),
                           restaurant: order.restaurantLocation?.toLatLng(),
+                          route: tracking.route
+                              .map((GeoPoint p) => p.toLatLng())
+                              .toList(growable: false),
+                          heading: tracking.riderHeading,
                         ),
                       ),
                       Positioned(
@@ -724,6 +728,18 @@ class _OrderBill extends StatelessWidget {
             BillRow(label: l10n.taxesAndCharges, amount: order.taxTotal),
           const Divider(height: 24),
           BillRow(label: l10n.toPay, amount: order.grandTotal, emphasis: true),
+          if (order.walletAmount > 0) ...<Widget>[
+            BillRow(
+              label: l10n.walletPaidFromWallet,
+              amount: -order.walletAmount,
+              highlight: true,
+            ),
+            BillRow(
+              label: l10n.walletPayOnDelivery,
+              amount: order.codAmount ?? order.grandTotal - order.walletAmount,
+              emphasis: true,
+            ),
+          ],
         ],
       ),
     );

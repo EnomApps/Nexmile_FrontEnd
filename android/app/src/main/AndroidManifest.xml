@@ -47,6 +47,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <!-- Google Maps SDK key, injected from android/maps.properties (not in
+             version control) by the manifestPlaceholders in build.gradle.kts. -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${mapsApiKey}"/>
         <!-- The channel a notification lands in when the server sends one
              without naming a channel. Must match kOrdersChannelId in
              lib/core/push/push_service.dart — a mismatch is silent: Android
