@@ -47,7 +47,10 @@ Future<void> main() async {
   // bearer token and a way to refresh it, the controller needs the client to
   // make calls. Build the client first, then attach the controller as its
   // token provider.
-  final ApiClient apiClient = ApiClient();
+  final ApiClient apiClient = ApiClient()
+    // Read from preferences each time rather than captured once, so picking
+    // a new language changes the next request too.
+    ..languageProvider = () => preferences.languageCode;
 
   // Firebase when the project credentials are in the build, and the no-op
   // transport when they are not: a checkout with no `google-services.json`

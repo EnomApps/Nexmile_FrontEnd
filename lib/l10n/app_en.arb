@@ -1125,9 +1125,6 @@
   "clearLabel": "Clear",
   "@clearLabel": {"description": "Tooltip on the button that empties a search field."},
 
-  "trackingArrivingBy": "Arriving by {time}",
-  "@trackingArrivingBy": {"description": "Under the ETA on the tracking sheet. The time arrives formatted for the locale.", "placeholders": {"time": {"type": "String", "example": "8:42 PM"}}},
-
   "trackingArrivingNow": "Arriving now",
   "@trackingArrivingNow": {"description": "Tracking sheet headline when the rider is a minute or less away."},
 
@@ -1149,6 +1146,36 @@
   "trackingFindingRider": "Assigning a delivery partner…",
   "@trackingFindingRider": {"description": "Tracking sheet before a rider is assigned."},
 
-  "trackingOrderFrom": "From {restaurant}",
-  "@trackingOrderFrom": {"description": "Order line on the tracking sheet.", "placeholders": {"restaurant": {"type": "String", "example": "Murugan Idli Shop"}}}
+  "trackingPinYou": "You",
+  "@trackingPinYou": {"description": "Label beside the delivery pin on the tracking map."},
+
+  "trackingRiderAway": "{name} is {distance} away",
+  "@trackingRiderAway": {"description": "Under the ETA. The distance arrives formatted with its unit.", "placeholders": {"name": {"type": "String", "example": "Suresh"}, "distance": {"type": "String", "example": "1.8 km"}}},
+
+  "trackingMessageRider": "Message {name}",
+  "@trackingMessageRider": {"description": "Button that opens a text message to the delivery partner.", "placeholders": {"name": {"type": "String", "example": "Suresh"}}},
+
+  "trackingDeliveringTo": "Delivering to",
+  "@trackingDeliveringTo": {"description": "Label over the delivery address on the tracking sheet."},
+
+  "trackingOrderDetails": "Order details",
+  "@trackingOrderDetails": {"description": "Button on the tracking sheet that goes back to the order."},
+
+  "dispatchSearching": "Finding a delivery partner near the restaurant…",
+  "@dispatchSearching": {"description": "While the order is being offered to riders. The server's own translated label is preferred when sent."},
+
+  "dispatchNoRider": "No delivery partner has taken it yet. Our team is assigning one now.",
+  "@dispatchNoRider": {"description": "When every wave went unanswered and operations assigns a rider by hand."},
+
+  "vehicleBike": "Bike",
+  "@vehicleBike": {"description": "Rider vehicle type on the tracking card."},
+
+  "vehicleScooter": "Scooter",
+  "@vehicleScooter": {"description": "Rider vehicle type on the tracking card."},
+
+  "vehicleBicycle": "Bicycle",
+  "@vehicleBicycle": {"description": "Rider vehicle type on the tracking card."},
+
+  "vehicleElectric": "Electric scooter",
+  "@vehicleElectric": {"description": "Rider vehicle type on the tracking card."}
 }

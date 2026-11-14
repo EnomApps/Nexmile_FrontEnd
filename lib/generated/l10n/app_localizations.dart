@@ -2054,12 +2054,6 @@ abstract class AppLocalizations {
   /// **'Clear'**
   String get clearLabel;
 
-  /// Under the ETA on the tracking sheet. The time arrives formatted for the locale.
-  ///
-  /// In en, this message translates to:
-  /// **'Arriving by {time}'**
-  String trackingArrivingBy(String time);
-
   /// Tracking sheet headline when the rider is a minute or less away.
   ///
   /// In en, this message translates to:
@@ -2102,11 +2096,71 @@ abstract class AppLocalizations {
   /// **'Assigning a delivery partner…'**
   String get trackingFindingRider;
 
-  /// Order line on the tracking sheet.
+  /// Label beside the delivery pin on the tracking map.
   ///
   /// In en, this message translates to:
-  /// **'From {restaurant}'**
-  String trackingOrderFrom(String restaurant);
+  /// **'You'**
+  String get trackingPinYou;
+
+  /// Under the ETA. The distance arrives formatted with its unit.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} is {distance} away'**
+  String trackingRiderAway(String name, String distance);
+
+  /// Button that opens a text message to the delivery partner.
+  ///
+  /// In en, this message translates to:
+  /// **'Message {name}'**
+  String trackingMessageRider(String name);
+
+  /// Label over the delivery address on the tracking sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivering to'**
+  String get trackingDeliveringTo;
+
+  /// Button on the tracking sheet that goes back to the order.
+  ///
+  /// In en, this message translates to:
+  /// **'Order details'**
+  String get trackingOrderDetails;
+
+  /// While the order is being offered to riders. The server's own translated label is preferred when sent.
+  ///
+  /// In en, this message translates to:
+  /// **'Finding a delivery partner near the restaurant…'**
+  String get dispatchSearching;
+
+  /// When every wave went unanswered and operations assigns a rider by hand.
+  ///
+  /// In en, this message translates to:
+  /// **'No delivery partner has taken it yet. Our team is assigning one now.'**
+  String get dispatchNoRider;
+
+  /// Rider vehicle type on the tracking card.
+  ///
+  /// In en, this message translates to:
+  /// **'Bike'**
+  String get vehicleBike;
+
+  /// Rider vehicle type on the tracking card.
+  ///
+  /// In en, this message translates to:
+  /// **'Scooter'**
+  String get vehicleScooter;
+
+  /// Rider vehicle type on the tracking card.
+  ///
+  /// In en, this message translates to:
+  /// **'Bicycle'**
+  String get vehicleBicycle;
+
+  /// Rider vehicle type on the tracking card.
+  ///
+  /// In en, this message translates to:
+  /// **'Electric scooter'**
+  String get vehicleElectric;
 }
 
 class _AppLocalizationsDelegate

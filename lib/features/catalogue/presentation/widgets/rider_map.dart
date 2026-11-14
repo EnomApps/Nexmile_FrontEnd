@@ -19,10 +19,11 @@ extension GeoPointToLatLng on GeoPoint {
 
 gm.LatLng _g(LatLng p) => gm.LatLng(p.latitude, p.longitude);
 
-/// The route line's two strokes: a darker casing under a brighter core, the
-/// way navigation apps draw a road you are meant to follow.
-const Color _routeCasing = Color(0xFF1F6A08);
-const Color _routeCore = Color(0xFF3FA514);
+/// The route line's two strokes: a deeper blue casing under a brighter core.
+/// Blue because it is what every ride and delivery app has taught people a
+/// route looks like; brand colours are for the pins and the bike.
+const Color _routeCasing = Color(0xFF1967D2);
+const Color _routeCore = Color(0xFF4A8DF6);
 
 /// The live map of a rider carrying an order.
 ///
@@ -31,7 +32,7 @@ const Color _routeCore = Color(0xFF3FA514);
 /// whole gap before the next fix, along the road when the server sent a
 /// route, so on screen the rider is always moving the way a real one does
 /// rather than hopping and waiting. The route behind the rider is consumed as
-/// they go, and the direction beam turns the short way round.
+/// they go, and the scooter turns with the road, the short way round.
 ///
 /// Drawn with Google Maps. The SDK key is injected by the platform build
 /// (android/maps.properties, ios/Flutter/Secrets.xcconfig).
@@ -43,6 +44,8 @@ class RiderMap extends StatefulWidget {
     this.restaurant,
     this.route = const <LatLng>[],
     this.heading,
+    this.destinationLabel,
+    this.restaurantLabel,
     this.interactive = false,
     this.follow = true,
     this.padding = EdgeInsets.zero,
@@ -65,8 +68,14 @@ class RiderMap extends StatefulWidget {
   final List<LatLng> route;
 
   /// Direction of travel from the phone, clockwise from north. When null, the
-  /// beam follows the route or the direction of movement.
+  /// scooter follows the route or the direction of movement.
   final double? heading;
+
+  /// Written beside the home pin, such as "You". No label when null.
+  final String? destinationLabel;
+
+  /// Written beside the restaurant pin: its name.
+  final String? restaurantLabel;
 
   final bool interactive;
 
@@ -93,6 +102,8 @@ class _RiderMapState extends State<RiderMap> with TickerProviderStateMixin {
       Completer<gm.GoogleMapController>();
 
   TrackingMarkerIcons? _icons;
+  Offset _homeAnchor = const Offset(0.5, 1);
+  Offset _shopAnchor = const Offset(0.5, 1);
   bool _iconsRequested = false;
 
   RoutePath? _path;
@@ -158,10 +169,17 @@ class _RiderMapState extends State<RiderMap> with TickerProviderStateMixin {
 
     if (_iconsRequested) return;
     _iconsRequested = true;
-    TrackingMarkerIcons.paint(MediaQuery.devicePixelRatioOf(context)).then((
-      TrackingMarkerIcons icons,
-    ) {
-      if (mounted) setState(() => _icons = icons);
+    TrackingMarkerIcons.paint(
+      MediaQuery.devicePixelRatioOf(context),
+      homeLabel: widget.destinationLabel ?? '',
+      shopLabel: widget.restaurantLabel,
+    ).then(((TrackingMarkerIcons, Offset, Offset) painted) {
+      if (!mounted) return;
+      setState(() {
+        _icons = painted.$1;
+        _homeAnchor = painted.$2;
+        _shopAnchor = painted.$3;
+      });
     });
   }
 
@@ -420,7 +438,10 @@ class _RiderMapState extends State<RiderMap> with TickerProviderStateMixin {
         target: _g(initial),
         zoom: widget.zoom,
       ),
-      style: dark ? kTrackingMapStyleDark : kTrackingMapStyleLight,
+      // The standard Google map in light mode, street detail and landmarks
+      // included, because that is the map people navigate their own street
+      // by. Dark mode gets the quiet style so the route still stands out.
+      style: dark ? kTrackingMapStyleDark : null,
       padding: widget.padding,
       onMapCreated: (gm.GoogleMapController controller) {
         _controller.complete(controller);
@@ -443,9 +464,7 @@ class _RiderMapState extends State<RiderMap> with TickerProviderStateMixin {
             circleId: const gm.CircleId('pulse'),
             center: _g(rider),
             radius: 14 + 46 * pulse,
-            fillColor: const Color(
-              0xFFFF5400,
-            ).withValues(alpha: 0.20 * (1 - pulse)),
+            fillColor: _routeCore.withValues(alpha: 0.22 * (1 - pulse)),
             strokeWidth: 0,
             zIndex: 1,
           ),
@@ -495,7 +514,7 @@ class _RiderMapState extends State<RiderMap> with TickerProviderStateMixin {
             markerId: const gm.MarkerId('restaurant'),
             position: _g(restaurant),
             icon: icons.shop,
-            anchor: const Offset(0.5, 1),
+            anchor: _shopAnchor,
             zIndexInt: 2,
           ),
         if (icons != null && destination != null)
@@ -503,18 +522,8 @@ class _RiderMapState extends State<RiderMap> with TickerProviderStateMixin {
             markerId: const gm.MarkerId('home'),
             position: _g(destination),
             icon: icons.home,
-            anchor: const Offset(0.5, 1),
+            anchor: _homeAnchor,
             zIndexInt: 3,
-          ),
-        if (icons != null && rider != null && _hasBearing)
-          gm.Marker(
-            markerId: const gm.MarkerId('rider-beam'),
-            position: _g(rider),
-            icon: icons.beam,
-            anchor: const Offset(0.5, 0.5),
-            flat: true,
-            rotation: _bearing,
-            zIndexInt: 4,
           ),
         if (icons != null && rider != null)
           gm.Marker(
@@ -522,6 +531,10 @@ class _RiderMapState extends State<RiderMap> with TickerProviderStateMixin {
             position: _g(rider),
             icon: icons.rider,
             anchor: const Offset(0.5, 0.5),
+            // Flat so it lies on the road and turns with the map; rotated so
+            // the front of the bike faces where it is going.
+            flat: true,
+            rotation: _hasBearing ? _bearing : 0,
             zIndexInt: 5,
           ),
       },

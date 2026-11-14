@@ -13,7 +13,13 @@ enum OrderStatus {
   preparing,
   readyForPickup,
   riderAssigned,
+
+  /// The rider is at the counter waiting for the food.
+  reachedRestaurant,
   pickedUp,
+
+  /// The rider is outside the customer's door.
+  reachedCustomer,
   delivered,
   cancelled,
   unknown,
@@ -35,6 +41,10 @@ OrderStatus orderStatusFrom(Object? raw) {
       return OrderStatus.readyForPickup;
     case 'rider_assigned':
       return OrderStatus.riderAssigned;
+    case 'reached_restaurant':
+      return OrderStatus.reachedRestaurant;
+    case 'reached_customer':
+      return OrderStatus.reachedCustomer;
     case 'picked_up':
       return OrderStatus.pickedUp;
     case 'delivered':
@@ -48,6 +58,31 @@ OrderStatus orderStatusFrom(Object? raw) {
   }
 }
 
+/// Where finding a rider has got to. Separate from [OrderStatus] because the
+/// kitchen and dispatch run at the same time: an order can be cooking and
+/// looking for a rider in the same minute.
+enum DispatchStatus {
+  idle,
+  searching,
+  assigned,
+
+  /// Every wave went unanswered; the operations team assigns one by hand.
+  noRiderFound,
+  unknown;
+
+  static DispatchStatus fromWire(Object? raw) => switch ('${raw ?? ''}') {
+        'idle' => DispatchStatus.idle,
+        'searching' => DispatchStatus.searching,
+        'assigned' => DispatchStatus.assigned,
+        'no_rider_found' => DispatchStatus.noRiderFound,
+        _ => DispatchStatus.unknown,
+      };
+
+  /// Worth telling the customer about: still looking, or stuck.
+  bool get isNews =>
+      this == DispatchStatus.searching || this == DispatchStatus.noRiderFound;
+}
+
 extension OrderStatusX on OrderStatus {
   /// Still in flight — worth polling and worth showing a tracker for.
   bool get isActive => switch (this) {
@@ -56,7 +91,11 @@ extension OrderStatusX on OrderStatus {
         OrderStatus.preparing ||
         OrderStatus.readyForPickup ||
         OrderStatus.riderAssigned ||
-        OrderStatus.pickedUp =>
+        OrderStatus.reachedRestaurant ||
+        OrderStatus.pickedUp ||
+        // Without these two, tracking would read "rider is outside" as an
+        // unknown status and stop polling at the doorstep.
+        OrderStatus.reachedCustomer =>
           true,
         _ => false,
       };
@@ -231,6 +270,7 @@ class Order {
     required this.timeline,
     this.restaurantName,
     this.restaurantLocation,
+    this.deliveryAddress = '',
     this.deliveryLocation,
     this.customerNote,
     this.pickupCode,
@@ -240,11 +280,19 @@ class Order {
     this.deliveredAt,
     this.cancelledAt,
     this.cancellationReason,
+    this.dispatchStatus = DispatchStatus.unknown,
+    this.dispatchLabel,
   });
 
   final int id;
   final String orderNumber;
   final OrderStatus status;
+
+  /// Finding a rider, apart from the kitchen's progress.
+  final DispatchStatus dispatchStatus;
+
+  /// The server's translated sentence for [dispatchStatus], shown as is.
+  final String? dispatchLabel;
 
   /// Server-authored label. Preferred over any client mapping, because the
   /// server knows about statuses this build may not.
@@ -260,6 +308,9 @@ class Order {
   /// than waiting for both.
   final GeoPoint? restaurantLocation;
   final GeoPoint? deliveryLocation;
+
+  /// The delivery address as one line, for "Delivering to". Empty for pickup.
+  final String deliveryAddress;
 
   final String? customerNote;
 
@@ -315,6 +366,7 @@ class Order {
             ? json['delivery_address'] as Map<String, dynamic>
             : null,
       ),
+      deliveryAddress: _addressLine(json['delivery_address']),
       customerNote: json['customer_note'] as String?,
       itemsTotal: asDouble(json['items_total']),
       packagingFee: asDouble(json['packaging_fee']),
@@ -337,6 +389,8 @@ class Order {
       deliveredAt: asDate(json['delivered_at']),
       cancelledAt: asDate(json['cancelled_at']),
       cancellationReason: json['cancellation_reason'] as String?,
+      dispatchStatus: DispatchStatus.fromWire(json['dispatch_status']),
+      dispatchLabel: _nonEmpty(json['dispatch_status_label']),
       items: asMapList(json['items'])
           .map(OrderItem.fromJson)
           .toList(growable: false),
@@ -358,6 +412,7 @@ class OrderTracking {
     this.riderName,
     this.riderPhone,
     this.riderVehicleNumber,
+    this.riderVehicleType,
     this.riderLatitude,
     this.riderLongitude,
     this.riderHeading,
@@ -377,6 +432,9 @@ class OrderTracking {
 
   /// The plate, so the customer can pick the right bike out of a crowd.
   final String? riderVehicleNumber;
+
+  /// `bike`, `scooter`, `bicycle` … as the server names it.
+  final String? riderVehicleType;
 
   /// Live position, present only while a rider is carrying the order.
   final double? riderLatitude;
@@ -431,6 +489,7 @@ class OrderTracking {
       riderName: r['name'] as String?,
       riderPhone: r['phone'] as String?,
       riderVehicleNumber: r['vehicle_number'] as String?,
+      riderVehicleType: _nonEmpty(r['vehicle_type']),
       riderLatitude:
           p['latitude'] == null ? null : asDouble(p['latitude']),
       riderLongitude:
@@ -483,4 +542,24 @@ List<GeoPoint> decodePolyline(String encoded) {
     points.add(GeoPoint(latitude: lat / 1e5, longitude: lng / 1e5));
   }
   return points;
+}
+
+/// `delivery_address` as one readable line: house and street, landmark,
+/// city. Whatever parts the server sent, in that order.
+String _addressLine(Object? raw) {
+  if (raw is! Map<String, dynamic>) return '';
+  return <Object?>[
+    raw['line1'],
+    raw['line2'],
+    raw['landmark'],
+    raw['city'],
+  ]
+      .map((Object? part) => part == null ? '' : '$part'.trim())
+      .where((String part) => part.isNotEmpty)
+      .join(', ');
+}
+
+String? _nonEmpty(Object? raw) {
+  final String value = raw == null ? '' : '$raw'.trim();
+  return value.isEmpty ? null : value;
 }

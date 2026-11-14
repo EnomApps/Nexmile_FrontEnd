@@ -1,30 +1,10 @@
-/// Google Maps styles for the tracking map.
+/// The tracking map's dark-mode style.
 ///
-/// The default map is busy with shop pins, bus stops and brand colours that
-/// compete with the three things the customer is watching. These quiet the
-/// base map so the route and the rider are what the eye lands on. Business
-/// labels go entirely; street names stay, because "he's on Anna Salai" is
-/// what people actually say.
-const String kTrackingMapStyleLight = '''
-[
-  {"elementType":"geometry","stylers":[{"color":"#f5f5f2"}]},
-  {"elementType":"labels.icon","stylers":[{"visibility":"off"}]},
-  {"elementType":"labels.text.fill","stylers":[{"color":"#6b7065"}]},
-  {"elementType":"labels.text.stroke","stylers":[{"color":"#f5f5f2"}]},
-  {"featureType":"administrative.land_parcel","stylers":[{"visibility":"off"}]},
-  {"featureType":"poi","stylers":[{"visibility":"off"}]},
-  {"featureType":"poi.park","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#e3eed6"}]},
-  {"featureType":"road","elementType":"geometry","stylers":[{"color":"#ffffff"}]},
-  {"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#7a8074"}]},
-  {"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#fbe6c8"}]},
-  {"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#f1d3a6"}]},
-  {"featureType":"road.local","elementType":"labels.text.fill","stylers":[{"color":"#9a9f94"}]},
-  {"featureType":"transit","stylers":[{"visibility":"off"}]},
-  {"featureType":"water","elementType":"geometry","stylers":[{"color":"#cfe3ee"}]},
-  {"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#8aa7b6"}]}
-]
-''';
-
+/// Light mode uses Google's standard map, which is what customers read their
+/// own street on. Google's dark rendering is busy with shop pins and brand
+/// colours, so in dark mode those are quietened and the route and the rider
+/// are what the eye lands on. Street names stay, because "he's on Anna Salai"
+/// is what people actually say.
 const String kTrackingMapStyleDark = '''
 [
   {"elementType":"geometry","stylers":[{"color":"#1b1e19"}]},

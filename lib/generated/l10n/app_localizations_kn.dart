@@ -1098,11 +1098,6 @@ class AppLocalizationsKn extends AppLocalizations {
   String get clearLabel => 'Clear';
 
   @override
-  String trackingArrivingBy(String time) {
-    return 'Arriving by $time';
-  }
-
-  @override
   String get trackingArrivingNow => 'Arriving now';
 
   @override
@@ -1124,7 +1119,41 @@ class AppLocalizationsKn extends AppLocalizations {
   String get trackingFindingRider => 'Assigning a delivery partner…';
 
   @override
-  String trackingOrderFrom(String restaurant) {
-    return 'From $restaurant';
+  String get trackingPinYou => 'You';
+
+  @override
+  String trackingRiderAway(String name, String distance) {
+    return '$name is $distance away';
   }
+
+  @override
+  String trackingMessageRider(String name) {
+    return 'Message $name';
+  }
+
+  @override
+  String get trackingDeliveringTo => 'Delivering to';
+
+  @override
+  String get trackingOrderDetails => 'Order details';
+
+  @override
+  String get dispatchSearching =>
+      'Finding a delivery partner near the restaurant…';
+
+  @override
+  String get dispatchNoRider =>
+      'No delivery partner has taken it yet. Our team is assigning one now.';
+
+  @override
+  String get vehicleBike => 'Bike';
+
+  @override
+  String get vehicleScooter => 'Scooter';
+
+  @override
+  String get vehicleBicycle => 'Bicycle';
+
+  @override
+  String get vehicleElectric => 'Electric scooter';
 }

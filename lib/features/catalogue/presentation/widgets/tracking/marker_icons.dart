@@ -1,4 +1,3 @@
-import 'dart:math' as math;
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
@@ -12,125 +11,209 @@ import '../../../../../core/theme/app_colors.dart';
 class TrackingMarkerIcons {
   const TrackingMarkerIcons({
     required this.rider,
-    required this.beam,
     required this.home,
     required this.shop,
   });
 
-  /// The rider: a round badge with the delivery glyph, always upright.
+  /// The rider seen from above: scooter, rider and delivery box, nose
+  /// pointing north. Drawn flat and rotated to the direction of travel, so
+  /// the customer sees which way the bike is facing, the way ride apps show
+  /// their captains.
   final BitmapDescriptor rider;
 
-  /// A soft cone under the badge, pointing north. Drawn flat and rotated to
-  /// the direction of travel, so the badge never turns upside down while the
-  /// beam still shows which way the rider is going.
-  final BitmapDescriptor beam;
-
-  /// A teardrop with a house, tip on the delivery point.
+  /// The delivery point: a pin with a label beside it.
   final BitmapDescriptor home;
 
-  /// A smaller teardrop with a shop front, tip on the restaurant.
+  /// The restaurant: a smaller pin with its name beside it.
   final BitmapDescriptor shop;
 
-  /// Logical size of [beam], which the map draws at this size in dp.
-  static const double beamSize = 120;
-
-  static Future<TrackingMarkerIcons> paint(double ratio) async {
-    final List<BitmapDescriptor> icons =
-        await Future.wait(<Future<BitmapDescriptor>>[
-          _riderBadge(ratio),
-          _beam(ratio),
-          _teardrop(Icons.home_rounded, AppColors.greenDeep, 44, ratio),
-          _teardrop(Icons.storefront_rounded, AppColors.inkMuted, 34, ratio),
-        ]);
-    return TrackingMarkerIcons(
-      rider: icons[0],
-      beam: icons[1],
-      home: icons[2],
-      shop: icons[3],
+  /// Paints all three. Also returns where each labelled pin's tip sits in its
+  /// bitmap, as the marker anchors for home and shop.
+  static Future<(TrackingMarkerIcons, Offset, Offset)> paint(
+    double ratio, {
+    required String homeLabel,
+    String? shopLabel,
+  }) async {
+    final (BitmapDescriptor, Offset) home = await _labelledPin(
+      icon: Icons.home_rounded,
+      colour: AppColors.greenDeep,
+      label: homeLabel,
+      pinWidth: 40,
+      ratio: ratio,
+    );
+    final (BitmapDescriptor, Offset) shop = await _labelledPin(
+      icon: Icons.restaurant_rounded,
+      colour: AppColors.orangeDeep,
+      label: shopLabel,
+      pinWidth: 34,
+      ratio: ratio,
+    );
+    return (
+      TrackingMarkerIcons(
+        rider: await _scooter(ratio),
+        home: home.$1,
+        shop: shop.$1,
+      ),
+      home.$2,
+      shop.$2,
     );
   }
 
-  static Future<BitmapDescriptor> _riderBadge(double ratio) {
-    const double logical = 56;
-    return _draw(logical, logical, ratio, (Canvas canvas, double s) {
-      final Offset c = Offset(logical * s / 2, logical * s / 2);
+  /// A delivery scooter from directly above, 36 x 68 dp, front at the top.
+  static Future<BitmapDescriptor> _scooter(double ratio) {
+    const double w = 36;
+    const double h = 68;
+    return _draw(w, h, ratio, (Canvas canvas, double s) {
+      final double cx = w * s / 2;
+      RRect rr(double x, double y, double width, double height, double r) =>
+          RRect.fromRectAndRadius(
+            Rect.fromCenter(
+              center: Offset(cx + x * s, y * s),
+              width: width * s,
+              height: height * s,
+            ),
+            Radius.circular(r * s),
+          );
 
-      canvas.drawCircle(
-        c.translate(0, 2 * s),
-        21 * s,
+      // Ground shadow, offset a little so the bike reads as on the road.
+      canvas.drawRRect(
+        rr(1.5, 36, 24, 60, 12),
         Paint()
           ..color = Colors.black.withValues(alpha: 0.28)
-          ..maskFilter = ui.MaskFilter.blur(ui.BlurStyle.normal, 4 * s),
+          ..maskFilter = ui.MaskFilter.blur(ui.BlurStyle.normal, 3 * s),
       );
-      canvas.drawCircle(c, 21 * s, Paint()..color = Colors.white);
-      canvas.drawCircle(
-        c,
-        17.5 * s,
+
+      final Paint tyre = Paint()..color = const Color(0xFF1C1C1C);
+      final Paint body = Paint()..color = const Color(0xFF2B2E33);
+      final Paint trim = Paint()..color = const Color(0xFF4A4F57);
+
+      // Wheels, front and back.
+      canvas.drawRRect(rr(0, 9, 6, 13, 3), tyre);
+      canvas.drawRRect(rr(0, 60, 6.5, 12, 3), tyre);
+
+      // Front apron and headlight.
+      canvas.drawRRect(rr(0, 14, 14, 12, 6), body);
+      canvas.drawOval(
+        Rect.fromCenter(center: Offset(cx, 8.5 * s), width: 6 * s, height: 3 * s),
+        Paint()..color = const Color(0xFFFFE9A8),
+      );
+
+      // Handlebar with mirrors.
+      final Paint bar = Paint()
+        ..color = const Color(0xFF1C1C1C)
+        ..strokeWidth = 2.6 * s
+        ..strokeCap = StrokeCap.round;
+      canvas.drawLine(Offset(cx - 12 * s, 19 * s), Offset(cx + 12 * s, 19 * s), bar);
+      canvas.drawCircle(Offset(cx - 13 * s, 16.5 * s), 2 * s, trim);
+      canvas.drawCircle(Offset(cx + 13 * s, 16.5 * s), 2 * s, trim);
+
+      // Footboard and seat.
+      canvas.drawRRect(rr(0, 38, 16, 30, 6), body);
+      canvas.drawRRect(rr(0, 40, 10, 16, 5), trim);
+
+      // The rider: arms to the bars, shoulders in the brand orange, helmet.
+      final Paint arm = Paint()
+        ..color = AppColors.orangeDeep
+        ..strokeWidth = 3.4 * s
+        ..strokeCap = StrokeCap.round;
+      canvas.drawLine(Offset(cx - 9 * s, 30 * s), Offset(cx - 10.5 * s, 20 * s), arm);
+      canvas.drawLine(Offset(cx + 9 * s, 30 * s), Offset(cx + 10.5 * s, 20 * s), arm);
+      canvas.drawRRect(
+        rr(0, 33, 22, 11, 5.5),
         Paint()
           ..shader = ui.Gradient.linear(
-            c.translate(0, -17.5 * s),
-            c.translate(0, 17.5 * s),
+            Offset(cx, 28 * s),
+            Offset(cx, 38 * s),
             const <Color>[AppColors.orangeLight, AppColors.orangeDeep],
           ),
       );
-      _glyph(canvas, Icons.delivery_dining_rounded, c, 22 * s, Colors.white);
-    });
-  }
-
-  static Future<BitmapDescriptor> _beam(double ratio) {
-    const double logical = beamSize;
-    return _draw(logical, logical, ratio, (Canvas canvas, double s) {
-      final Offset c = Offset(logical * s / 2, logical * s / 2);
-      final double r = logical * s / 2;
-      const double spread = 30 * math.pi / 180;
-
-      final Path wedge =
-          Path()
-            ..moveTo(c.dx, c.dy)
-            ..arcTo(
-              Rect.fromCircle(center: c, radius: r),
-              -math.pi / 2 - spread,
-              spread * 2,
-              false,
-            )
-            ..close();
-      canvas.drawPath(
-        wedge,
+      canvas.drawCircle(
+        Offset(cx, 30 * s),
+        6.4 * s,
+        Paint()..color = const Color(0xFF16181B),
+      );
+      // Visor, facing forward, and a highlight so the helmet reads as round.
+      canvas.drawArc(
+        Rect.fromCircle(center: Offset(cx, 30 * s), radius: 5 * s),
+        3.6,
+        2.2,
+        false,
         Paint()
-          ..shader = ui.Gradient.radial(c, r, <Color>[
-            AppColors.orangeDeep.withValues(alpha: 0.45),
-            AppColors.orangeDeep.withValues(alpha: 0),
-          ]),
+          ..color = const Color(0xFF6FA8DC)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 2 * s,
+      );
+      canvas.drawCircle(
+        Offset(cx - 2 * s, 28 * s),
+        1.4 * s,
+        Paint()..color = Colors.white.withValues(alpha: 0.55),
+      );
+
+      // The delivery box on the back, in brand orange with a white band.
+      canvas.drawRRect(rr(0, 54, 22, 18, 3.5), Paint()..color = AppColors.orangeDeep);
+      canvas.drawRRect(
+        rr(0, 54, 22, 18, 3.5),
+        Paint()
+          ..color = Colors.white.withValues(alpha: 0.9)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.4 * s,
+      );
+      canvas.drawLine(
+        Offset(cx - 11 * s, 54 * s),
+        Offset(cx + 11 * s, 54 * s),
+        Paint()
+          ..color = Colors.white.withValues(alpha: 0.9)
+          ..strokeWidth = 1.4 * s,
       );
     });
   }
 
-  static Future<BitmapDescriptor> _teardrop(
-    IconData icon,
-    Color colour,
-    double width,
-    double ratio,
-  ) {
-    final double height = width * 1.25;
-    return _draw(width, height, ratio, (Canvas canvas, double s) {
-      final double w = width * s;
-      final double h = height * s;
-      final double r = w / 2 - 3 * s;
-      final Offset head = Offset(w / 2, r + 3 * s);
+  /// A teardrop pin with an optional label chip to its right, the way the
+  /// reference apps tag "Pickup" and the restaurant's name on the map.
+  ///
+  /// Returns the bitmap and where the pin's tip sits in it, for the anchor.
+  static Future<(BitmapDescriptor, Offset)> _labelledPin({
+    required IconData icon,
+    required Color colour,
+    required String? label,
+    required double pinWidth,
+    required double ratio,
+  }) async {
+    final double pinHeight = pinWidth * 1.25;
+    final String text = (label ?? '').trim();
+    final TextPainter labelText = TextPainter(
+      textDirection: TextDirection.ltr,
+      maxLines: 1,
+      ellipsis: '…',
+      text: TextSpan(
+        text: text,
+        style: const TextStyle(
+          fontSize: 13,
+          fontWeight: FontWeight.w700,
+          color: Color(0xFF14170F),
+        ),
+      ),
+    )..layout(maxWidth: 150);
 
-      final Path drop =
-          Path()
-            ..addOval(Rect.fromCircle(center: head, radius: r))
-            ..moveTo(w / 2 - r * 0.62, head.dy + r * 0.78)
-            ..quadraticBezierTo(w / 2, h - 1 * s, w / 2, h - 1 * s)
-            ..quadraticBezierTo(
-              w / 2,
-              h - 1 * s,
-              w / 2 + r * 0.62,
-              head.dy + r * 0.78,
-            )
-            ..close();
+    const double gap = 4;
+    const double chipPadX = 10;
+    const double chipHeight = 28;
+    final double chipWidth = text.isEmpty ? 0 : labelText.width + chipPadX * 2;
+    final double width = pinWidth + (text.isEmpty ? 0 : gap + chipWidth + 4);
+    final double height = pinHeight + 2;
 
+    final BitmapDescriptor bitmap =
+        await _draw(width, height, ratio, (Canvas canvas, double s) {
+      final double r = (pinWidth / 2 - 3) * s;
+      final Offset head = Offset(pinWidth * s / 2, r + 3 * s);
+      final double tip = (pinHeight - 1) * s;
+
+      final Path drop = Path()
+        ..addOval(Rect.fromCircle(center: head, radius: r))
+        ..moveTo(head.dx - r * 0.62, head.dy + r * 0.78)
+        ..lineTo(head.dx, tip)
+        ..lineTo(head.dx + r * 0.62, head.dy + r * 0.78)
+        ..close();
       canvas.drawPath(
         drop.shift(Offset(0, 1.5 * s)),
         Paint()
@@ -140,7 +223,31 @@ class TrackingMarkerIcons {
       canvas.drawPath(drop, Paint()..color = colour);
       canvas.drawCircle(head, r * 0.68, Paint()..color = Colors.white);
       _glyph(canvas, icon, head, r * 0.95, colour);
+
+      if (text.isEmpty) return;
+      final Rect chip = Rect.fromLTWH(
+        (pinWidth + gap) * s,
+        head.dy - chipHeight * s / 2,
+        chipWidth * s,
+        chipHeight * s,
+      );
+      final RRect pill =
+          RRect.fromRectAndRadius(chip, Radius.circular(chipHeight * s / 2));
+      canvas.drawRRect(
+        pill.shift(Offset(0, 1.5 * s)),
+        Paint()
+          ..color = Colors.black.withValues(alpha: 0.18)
+          ..maskFilter = ui.MaskFilter.blur(ui.BlurStyle.normal, 3 * s),
+      );
+      canvas.drawRRect(pill, Paint()..color = Colors.white);
+      canvas.save();
+      canvas.translate(chip.left + chipPadX * s, chip.center.dy);
+      canvas.scale(s);
+      labelText.paint(canvas, Offset(0, -labelText.height / 2));
+      canvas.restore();
     });
+
+    return (bitmap, Offset((pinWidth / 2) / width, (pinHeight - 1) / height));
   }
 
   static void _glyph(
@@ -173,13 +280,11 @@ class TrackingMarkerIcons {
   ) async {
     final ui.PictureRecorder recorder = ui.PictureRecorder();
     paint(Canvas(recorder), ratio);
-    final ui.Image image = await recorder.endRecording().toImage(
-      (width * ratio).round(),
-      (height * ratio).round(),
-    );
-    final ByteData? bytes = await image.toByteData(
-      format: ui.ImageByteFormat.png,
-    );
+    final ui.Image image = await recorder
+        .endRecording()
+        .toImage((width * ratio).round(), (height * ratio).round());
+    final ByteData? bytes =
+        await image.toByteData(format: ui.ImageByteFormat.png);
     return BitmapDescriptor.bytes(
       bytes!.buffer.asUint8List(),
       imagePixelRatio: ratio,

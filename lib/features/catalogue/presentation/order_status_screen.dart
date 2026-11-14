@@ -232,6 +232,18 @@ class _OrderStatusScreenState extends State<OrderStatusScreen> {
               ),
             ),
           ],
+          // Finding a rider runs alongside the kitchen, so it gets its own
+          // line rather than a status: an order can be cooking and still
+          // looking for someone to carry it.
+          if (status.isActive && order.dispatchStatus.isNews) ...<Widget>[
+            const SizedBox(height: 12),
+            _Highlight(
+              icon: Icons.delivery_dining_rounded,
+              title: l10n.riderLabel,
+              value: dispatchMessage(order, l10n),
+              pulse: order.dispatchStatus == DispatchStatus.searching,
+            ),
+          ],
           if (pickupCode != null && pickupCode.isNotEmpty) ...<Widget>[
             const SizedBox(height: 12),
             _Highlight(
@@ -745,3 +757,11 @@ class _OrderBill extends StatelessWidget {
     );
   }
 }
+
+/// What to tell the customer about finding a rider: the server's translated
+/// sentence when it sends one, our own otherwise.
+String dispatchMessage(Order order, AppLocalizations l10n) =>
+    order.dispatchLabel ??
+    (order.dispatchStatus == DispatchStatus.noRiderFound
+        ? l10n.dispatchNoRider
+        : l10n.dispatchSearching);

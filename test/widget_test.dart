@@ -2271,7 +2271,15 @@ void main() {
       _useTallScreen(tester);
       final FakeStorefrontRepository repo = FakeStorefrontRepository()
         ..orderStatus = 'picked_up'
-        ..trackExtra = track;
+        ..trackExtra = track
+        ..orderExtra = <String, dynamic>{
+          'delivery_address': <String, dynamic>{
+            'line1': '12 Anna Nagar',
+            'city': 'Chennai',
+            'latitude': 13.0990,
+            'longitude': 80.2710,
+          },
+        };
       await _pumpApp(
         tester,
         seed: _languageChosen,
@@ -2305,6 +2313,7 @@ void main() {
             'name': 'Suresh K',
             'phone': '9876543210',
             'vehicle_number': 'TN 37 AB 1234',
+            'vehicle_type': 'scooter',
             'latitude': 13.0830,
             'longitude': 80.2710,
             'heading': 135,
@@ -2314,11 +2323,20 @@ void main() {
       );
       addTearDown(orders.stopPolling);
 
-      expect(find.text('12 min'), findsOneWidget);
-      expect(find.textContaining('Arriving by'), findsOneWidget);
-      expect(find.text('Suresh K'), findsOneWidget);
-      expect(find.text('TN 37 AB 1234'), findsOneWidget);
-      expect(find.text('Live'), findsOneWidget);
+      expect(
+        find.textContaining('Arriving in 12 min', findRichText: true),
+        findsOneWidget,
+      );
+      // Plate first and without spaces, the way it is painted on the bike.
+      expect(find.text('TN37AB1234'), findsOneWidget);
+      expect(find.text('SURESH K'), findsOneWidget);
+      // About 1.8 km north of the rider, as the crow flies: no route yet.
+      expect(find.text('Suresh is 1.8 km away'), findsOneWidget);
+      expect(find.text('12 Anna Nagar, Chennai'), findsOneWidget);
+      // The breathing dot announces itself, merged into the line beside it.
+      expect(find.bySemanticsLabel(RegExp('Live')), findsOneWidget);
+      expect(find.text('Message Suresh'), findsOneWidget);
+      expect(find.text('Delivery partner · Scooter'), findsOneWidget);
       // Picked up is the third of four steps.
       expect(find.text('On the way'), findsOneWidget);
       expect(find.byTooltip('Call'), findsOneWidget);
@@ -2344,7 +2362,7 @@ void main() {
       addTearDown(orders.stopPolling);
 
       expect(find.text("Updating rider's location…"), findsOneWidget);
-      expect(find.text('Live'), findsNothing);
+      expect(find.bySemanticsLabel(RegExp('Live')), findsNothing);
     });
 
     testWidgets('before a rider is assigned it says one is coming',
@@ -3747,7 +3765,11 @@ class FakeStorefrontRepository implements StorefrontRepository {
         'items': <Map<String, dynamic>>[
           <String, dynamic>{'id': 1, 'name': 'Mutton Biryani', 'quantity': 1},
         ],
+        ...orderExtra,
       };
+
+  /// Merged into every order, for the delivery address and restaurant.
+  Map<String, dynamic> orderExtra = <String, dynamic>{};
 
   @override
   Future<HomeScreen> home({

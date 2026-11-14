@@ -46,7 +46,9 @@ class OrdersController extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
-      _orders = await _repository.orders(activeOnly: activeOnly);
+      _orders = newestFirst(
+        await _repository.orders(activeOnly: activeOnly),
+      );
       _hasLoaded = true;
       return null;
     } on ApiException catch (error) {
@@ -146,4 +148,17 @@ class OrdersController extends ChangeNotifier {
     _poll?.cancel();
     super.dispose();
   }
+}
+
+/// Orders with the most recent at the top, whatever order the server sent.
+///
+/// By when each was placed, and by id where the time is missing or equal:
+/// ids only go up, so a higher id is a later order.
+List<Order> newestFirst(List<Order> orders) {
+  return <Order>[...orders]..sort((Order a, Order b) {
+      final DateTime? at = a.placedAt;
+      final DateTime? bt = b.placedAt;
+      if (at != null && bt != null && at != bt) return bt.compareTo(at);
+      return b.id.compareTo(a.id);
+    });
 }

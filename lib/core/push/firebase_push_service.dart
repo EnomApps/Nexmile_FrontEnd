@@ -248,39 +248,51 @@ Future<void> _showDataMessage(
     return;
   }
 
+  // Keyed by order with the same tag the server puts on the notification it
+  // sends, `order-{id}`. Android identifies a notification by tag and id, and
+  // FCM draws tagged ones with id 0, so matching both means an update shown
+  // here in the foreground replaces the one the system drew in the
+  // background, and the reverse: one live notification per order.
+  final String? tag = _orderTag(message);
   await local.show(
-    // Keyed by order, so a later update to the same order replaces the earlier
-    // one instead of stacking four rows for one delivery.
-    id: _notificationId(message),
+    id: tag == null ? _uniqueId() : 0,
     title: title,
     body: body,
-    notificationDetails: const NotificationDetails(
+    notificationDetails: NotificationDetails(
       android: AndroidNotificationDetails(
         kOrdersChannelId,
         _ordersChannelName,
         channelDescription: _ordersChannelDescription,
+        tag: tag,
         importance: Importance.high,
         priority: Priority.high,
         // Android 8 and later take the sound from the channel and ignore
         // this; it is here for the older devices that still read it per
         // notification.
-        sound: RawResourceAndroidNotificationSound(_androidSound),
+        sound: const RawResourceAndroidNotificationSound(_androidSound),
       ),
-      iOS: DarwinNotificationDetails(sound: _iosSound),
+      iOS: DarwinNotificationDetails(
+        sound: _iosSound,
+        // The iOS counterpart of the Android tag: updates to one order
+        // group together instead of interleaving with other orders.
+        threadIdentifier: tag,
+      ),
     ),
     payload: jsonEncode(message.data),
   );
 }
 
-/// A stable id per order, falling back to something unique when the payload
-/// carries no order — two unrelated notifications must not overwrite each
-/// other. Kept inside 32 bits: Android ids are ints.
-int _notificationId(RemoteMessage message) {
+/// `order-{id}`, the tag the server sets on every notification about one
+/// order. Null when the payload carries no order: two unrelated
+/// notifications must not overwrite each other.
+String? _orderTag(RemoteMessage message) {
   final String? orderId = _string(message.data['order_id']);
-  final int? parsed = orderId == null ? null : int.tryParse(orderId.trim());
-  if (parsed != null) return parsed % 0x7fffffff;
-  return DateTime.now().millisecondsSinceEpoch % 0x7fffffff;
+  return orderId == null ? null : 'order-$orderId';
 }
+
+/// Something unique for a notification that is not about an order. Kept
+/// inside 32 bits: Android ids are ints.
+int _uniqueId() => DateTime.now().millisecondsSinceEpoch % 0x7fffffff;
 
 String? _string(Object? raw) {
   if (raw == null) return null;

@@ -55,6 +55,11 @@ class ApiClient {
   /// Null for endpoints that never authenticate (OTP request and verify).
   TokenProvider? tokenProvider;
 
+  /// The customer's chosen language, sent as `Accept-Language` so text the
+  /// server writes for them — status labels, dispatch messages — comes in
+  /// that language. Read per request, so a language change applies at once.
+  String? Function()? languageProvider;
+
   Future<bool>? _refreshLock;
 
   void close() => _http.close();
@@ -116,6 +121,9 @@ class ApiClient {
       // Non-negotiable — see the class doc.
       'Accept': 'application/json',
       if (body != null) 'Content-Type': 'application/json',
+      if (languageProvider?.call() case final String language
+          when language.isNotEmpty)
+        'Accept-Language': language,
     };
 
     final String? token = tokenProvider?.accessToken;
